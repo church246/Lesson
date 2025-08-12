@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>兩組圖片輪播帶按鈕控制</title>
+</head>
+<body bgcolor="#f0f0f0">
+
+<center>
+  <h2>上帝美好的計畫顯明</h2>
+  <!-- 只留一張，透過 JS 改變 src -->
+  <img src="b1.jpg" name="slide1" width="400" height="250">
+  <br>
+  <input type="button" value="上一張" onclick="prev1()">
+  <input type="button" value="下一張" onclick="next1()">
+</center>
+
+<br><br>
+
+<center>
+  <h2>神的計畫比你的計畫更好</h2>
+  <img src="b1.jpg" name="slide2" width="400" height="250">
+  <br>
+  <input type="button" value="上一張" onclick="prev2()">
+  <input type="button" value="下一張" onclick="next2()">
+</center>
+
+<center>
+  <h2>神沒有甚麼不給你的</h2>
+  <img src="b1.jpg" name="slide3" width="400" height="250">
+  <br>
+  <input type="button" value="上一張" onclick="prev3()">
+  <input type="button" value="下一張" onclick="next3()">
+</center>
+
+<center>
+  <h2>神為你預備的都是最好的</h2>
+  <img src="b1.jpg" name="slide4" width="400" height="250">
+  <br>
+  <input type="button" value="上一張" onclick="prev4()">
+  <input type="button" value="下一張" onclick="next4()">
+</center>
+
+<script type="text/javascript">
+  // 第一組圖片清單
+  var pics1 = [
+    "assets/img/control/1.JPG", "assets/img/control/2.JPG", "assets/img/control/3.JPG",
+    "assets/img/control/4.JPG", "assets/img/control/5.JPG", "assets/img/control/6.JPG",
+    "assets/img/control/7.JPG", "assets/img/control/8.JPG", "assets/img/control/9.JPG",
+    "assets/img/control/10.JPG", "assets/img/control/11.JPG", "assets/img/control/12.JPG"
+  ];
+  var index1 = 0;
+  var timer1;
+
+  // 第二組圖片清單
+  var pics2 = [  "assets/img/control/13.JPG", "assets/img/control/14.JPG", "assets/img/control/15.JPG",
+    "assets/img/control/16.JPG", "assets/img/control/17.JPG", "assets/img/control/18.JPG",
+    "assets/img/control/19.JPG", "assets/img/control/20.JPG", "assets/img/control/21.JPG",
+    "assets/img/control/22.JPG", "assets/img/control/23.JPG", "assets/img/control/24.JPG", 
+    "assets/img/control/25.JPG", "assets/img/control/26.JPG", "assets/img/control/27.JPG", 
+    "assets/img/control/28.JPG"
+  ];
+  var index2 = 0;
+  var timer2;
+
+    // 第三組圖片清單
+  var pics3 = [  "assets/img/control/29.JPG", "assets/img/control/30.JPG", "assets/img/control/31.JPG",
+    "assets/img/control/32.JPG", "assets/img/control/33.JPG", "assets/img/control/34.JPG",
+    "assets/img/control/35.JPG", "assets/img/control/36.JPG", "assets/img/control/37.JPG",
+    "assets/img/control/38.JPG", "assets/img/control/39.JPG", "assets/img/control/40.JPG", 
+    "assets/img/control/41.JPG", "assets/img/control/42.JPG", "assets/img/control/43.JPG", 
+    "assets/img/control/44.JPG", "assets/img/control/45.JPG", "assets/img/control/46.JPG"
+  ];
+  var index3 = 0;
+  var timer3;
+
+     // 第四組圖片清單
+  var pics4 = [  "assets/img/control/47.JPG", "assets/img/control/48.JPG", "assets/img/control/49.JPG",
+    "assets/img/control/50.JPG", "assets/img/control/51.JPG", "assets/img/control/52.JPG",
+    "assets/img/control/53.JPG", "assets/img/control/54.JPG", "assets/img/control/55.JPG", 
+    "assets/img/control/56.JPG", "assets/img/control/57.JPG", "assets/img/control/58.JPG"
+  ];
+  var index4 = 0;
+  var timer4;
+
+  function showPic1() {
+    document.images["slide1"].src = pics1[index1];
+  }
+
+  function showPic2() {
+    document.images["slide2"].src = pics2[index2];
+  }
+
+  
+  function showPic3() {
+    document.images["slide3"].src = pics3[index3];
+  }
+
+    function showPic4() {
+    document.images["slide4"].src = pics4[index4];
+  }
+
+  function next1() {
+    index1++;
+    if (index1 >= pics1.length) index1 = 0;
+    showPic1();
+    resetTimer1();
+  }
+
+  function prev1() {
+    index1--;
+    if (index1 < 0) index1 = pics1.length - 1;
+    showPic1();
+    resetTimer1();
+  }
+
+  function next2() {
+    index2++;
+    if (index2 >= pics2.length) index2 = 0;
+    showPic2();
+    resetTimer2();
+  }
+
+  function prev2() {
+    index2--;
+    if (index2 < 0) index2 = pics2.length - 1;
+    showPic2();
+    resetTimer2();
+  }
+
+   function next3() {
+    index3++;
+    if (index3 >= pics3.length) index3 = 0;
+    showPic3();
+    resetTimer3();
+  }
+
+  function prev3() {
+    index3--;
+    if (index3 < 0) index3 = pics3.length - 1;
+    showPic3();
+    resetTimer3();
+  }
+
+     function next4() {
+    index4++;
+    if (index4 >= pics4.length) index4 = 0;
+    showPic4();
+    resetTimer4();
+  }
+
+  function prev4() {
+    index4--;
+    if (index4 < 0) index4 = pics4.length - 1;
+    showPic4();
+    resetTimer4();
+  }
+
+  function autoPlay1() {
+    next1();
+  }
+
+  function autoPlay2() {
+    next2();
+  }
+
+   function autoPlay3() {
+    next3();
+  }
+
+    function autoPlay4() {
+    next4();
+  }
+
+
+  function resetTimer1() {
+    clearInterval(timer1);
+    timer1 = setInterval(autoPlay1, 3000);
+  }
+
+  function resetTimer2() {
+    clearInterval(timer2);
+    timer2 = setInterval(autoPlay2, 4000);
+  }
+
+  function resetTimer3() {
+    clearInterval(timer3);
+    timer3 = setInterval(autoPlay3, 4000);
+  }
+
+    function resetTimer4() {
+    clearInterval(timer4);
+    timer4 = setInterval(autoPlay4, 4000);
+  }
+
+  // 初始化
+  showPic1();
+  showPic2();
+   showPic3();
+  timer1 = setInterval(autoPlay1, 3000);
+  timer2 = setInterval(autoPlay2, 4000);
+  timer3 = setInterval(autoPlay3, 4000);
+  timer4 = setInterval(autoPlay4, 4000);
+</script>
+
+</body>
+</html>
