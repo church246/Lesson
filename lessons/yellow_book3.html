@@ -1,109 +1,139 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="utf-8">
-  <title>第三課　主動的赦罪者 — 陪讀材料</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>第三課：主動的赦罪者 — 馬可福音 2:1-12</title>
+  <meta name="description" content="完整讀經材料：馬可福音2:1-12。含經文、逐節重點、問題討論、經文解說（朋友的愛、耶穌處理看不見之罪的理由）、教導要點與反思應用。" />
   <style>
-    body{font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif; line-height:1.8; padding:18px; color:#222}
-    header{border-bottom:2px solid #ddd; margin-bottom:12px}
-    h1{font-size:22px; margin:6px 0}
-    h2{font-size:18px; margin:12px 0 6px}
-    .scripture{background:#fbfbfb; border-left:4px solid #8bb7d6; padding:10px; margin:8px 0}
-    .question{margin:10px 0; padding:8px; background:#fff; border:1px dashed #ddd}
-    ol.questions{padding-left:18px}
-    .decode{background:#fcfcfc; border-left:4px solid #e6c07b; padding:10px}
-    .fill{display:block; margin:8px 0; padding:8px; border:1px solid #e0e0e0; background:#fff}
-    .prompt{font-style:italic; color:#555}
-    footer{margin-top:18px; border-top:1px solid #eee; padding-top:10px; font-size:13px; color:#666}
-    .btn{display:inline-block; margin-top:8px; padding:6px 10px; border-radius:6px; background:#8bb7d6; color:#fff; text-decoration:none}
-    @media print{ .btn{display:none} }
+    :root{ --bg:#fbfbfd; --card:#fff; --fg:#0b1220; --muted:#586579; --brand:#2563eb; --accent:#059669; --warn:#f59e0b; --radius:14px; --shadow: 0 8px 30px rgba(2,6,23,.06);} 
+    @media (prefers-color-scheme: dark){ :root{ --bg:#081225; --card:#071827; --fg:#e6eef8; --muted:#94a3b8; --brand:#60a5fa; --accent:#34d399; --warn:#fbbf24 } }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family: system-ui,-apple-system,"Noto Sans TC","Microsoft JhengHei",Roboto,Arial;line-height:1.7}
+    .wrap{width:min(100%,1100px);margin:18px auto;padding:18px}
+    header{display:flex;flex-direction:column;gap:6px;padding:8px 0}
+    h1{font-size:clamp(22px,4vw,34px);margin:0}
+    .subtitle{color:var(--muted);margin:0}
+    nav{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+    nav a{background:rgba(37,99,235,.06);padding:8px 12px;border-radius:999px;text-decoration:none;color:inherit}
+    section.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;margin:18px 0}
+    .scripture{border-left:6px solid var(--brand);padding:12px;background:linear-gradient(90deg, rgba(37,99,235,.04), transparent)}
+    .verse{margin:6px 0}
+    .q{margin:10px 0}
+    textarea.fill{width:100%;min-height:80px;padding:10px;border-radius:8px;border:1px solid rgba(88,101,121,.12);resize:vertical;background:transparent;color:inherit}
+    .callout{border-left:6px solid var(--accent);padding:12px;background:linear-gradient(90deg, rgba(5,150,105,.05), transparent);border-radius:10px}
+    .callout.warn{border-left-color:var(--warn)}
+    ul{padding-left:1.2em}
+    .small{color:var(--muted);font-size:0.95rem}
+    footer{color:var(--muted);text-align:center;padding:18px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--brand);color:white;text-decoration:none}
+    @media print{ .btn, nav{display:none} }
   </style>
 </head>
 <body>
-  <header>
-    <h1>第三課　主動的赦罪者</h1>
-    <p class="lead">經文：馬可福音 2:1-12</p>
-  </header>
+  <div class="wrap">
+    <header>
+      <h1>第三課：主動的赦罪者</h1>
+         <section id="scripture" class="card scripture">
+      <h2>一、聖經經文（馬可福音 2:1–12）</h2>
+      <div class="verse"><b>1</b> 過了些日子，耶穌又進了迦百農；人聽見祂在房子裏，</div>
+      <div class="verse"><b>2</b> 就有許多人聚集，甚至連門前都沒有空地，耶穌就對他們講道。</div>
+      <div class="verse"><b>3</b> 有人帶著一個癱子來見耶穌，是用四個人抬來的。</div>
+      <div class="verse"><b>4</b> 因為人多，不得近前，就把耶穌所在的房子，拆了房頂，既拆通了，就把癱子連所躺臥的褥子都縋下來。</div>
+      <div class="verse"><b>5</b> 耶穌見他們的信心，就對癱子說：『小子，你的罪赦了!』</div>
+      <div class="verse"><b>6</b> 有幾個文士坐在那裏，心裏議論說：</div>
+      <div class="verse"><b>7</b> 『這個人為甚麼這樣說呢？祂說僭妄的話了；除了神以外，誰能赦罪呢？』</div>
+      <div class="verse"><b>8</b> 耶穌心中知道他們心裏這樣議論，就說：『你們心裏為甚麼這樣議論呢？</div>
+      <div class="verse"><b>9</b> 或對癱子說：“你的罪赦了。”或說：“起來，拿你的褥子行走。”那一樣容易呢？</div>
+      <div class="verse"><b>10</b> 但要叫你們知道，人子在地上有赦罪的權柄。』就對癱子說：</div>
+      <div class="verse"><b>11</b> 『我吩咐你起來，拿你的褥子回家去罷。』</div>
+      <div class="verse"><b>12</b> 那人就起來，立刻拿著褥子，當眾人面前出去了；以致眾人都驚奇，歸榮耀與神說：『我們從來沒有見過這樣的事。』</div>
+    </section>
 
-  <section>
-    <div class="scripture">
-      <strong>馬可福音 2:1-12</strong>
-      <p>1 過了些日子，耶穌又進了迦百農；人聽見祂在房子裏，<br>
-      2 就有許多人聚集，甚至連門前都沒有空地，耶穌就對他們講道。<br>
-      3 有人帶著一個癱子來見耶穌，是用四個人抬來的。<br>
-      4 因為人多，不得近前，就把耶穌所在的房子，拆了房頂，既拆通了，就把癱子連所躺臥的褥子都縋下來。<br>
-      5 耶穌見他們的信心，就對癱子說：『小子，你的罪赦了!』<br>
-      6 有幾個文士坐在那裏，心裏議論說：<br>
-      7 『這個人為甚麼這樣說呢？祂說僭妄的話了；除了神以外，誰能赦罪呢？』<br>
-      8 耶穌心中知道他們心裏這樣議論，就說：『你們心裏為甚麼這樣議論呢？』<br>
-      9 或對癱子說：“你的罪赦了。”或說：“起來，拿你的褥子行走。”那一樣容易呢？<br>
-      10 但要叫你們知道，人子在地上有赦罪的權柄。<br>
-      11 就對癱子說：『我吩咐你起來，拿你的褥子回家去罷。』<br>
-      12 那人就起來，立刻拿著褥子，當眾人面前出去了；以致眾人都驚奇，歸榮耀與神說：『我們從來沒有見過這樣的事。』</p>
-    </div>
-  </section>
+    <section id="questions" class="card">
+      <h2>二、討論題（小組可逐題討論）</h2>
+      <ol>
+        <li class="q">有許多人擁擠到耶穌所在的地方，當時耶穌正在做甚麼？在這樣的情況下，癱子要進到房子裡有甚麼困難？他的朋友採取甚麼行動？您覺得要這樣做，有沒有甚麼壓力？
+          <textarea class="fill" placeholder="填寫你的觀察與回應..."></textarea>
+        </li>
+        <li class="q">你認為這個癱子到耶穌面前來的目的是甚麼？當耶穌見到癱子的時候，祂說了甚麼話？這是否符合癱子的需要？
+          <textarea class="fill" placeholder="癱子真正追求的可能是..."></textarea>
+        </li>
+        <li class="q">讓我們把注意力轉到文士們的身上，他們不爽耶穌的是甚麼事？耶穌怎麼回答他們？耶穌是憑什麼赦罪的？
+          <textarea class="fill" placeholder="文士的顧慮與耶穌的回應寫下來..."></textarea>
+        </li>
+        <li class="q">耶穌用什麼行動來印證祂的權柄？結果呢？對您來說要接受耶穌的哪一個權柄比較容易：赦罪？還是醫治？為什麼？
+          <textarea class="fill" placeholder="我的選擇與理由..."></textarea>
+        </li>
+      </ol>
+    </section>
 
-  <section>
-    <h2>陪讀問題</h2>
-    <ol class="questions">
-      <li class="question">
-        <strong>有許多人擁擠到耶穌所在的地方，當時耶穌正在做甚麼？在這樣的情況下，癱子要進到房子裡有甚麼困難？他的朋友採取甚麼行動？您覺得要這樣做，有沒有甚麼壓力？</strong>
-        <div class="fill" contenteditable="true" aria-label="回答1">（請在此輸入您的想法）</div>
-        <p class="prompt">提示：想想人群、空間受限、拆屋頂的舉動顯示了朋友的信心與決心，以及社會壓力與羞辱感。</p>
-      </li>
+    <section id="analysis" class="card">
+      <h2>三、深入思考：為什麼耶穌先說「你的罪赦了」？</h2>
+      <p>表層問題是癱子的身體癱瘓，但耶穌看見更深的「根」：與神的隔離、羞恥、自責、社會排斥所造成的內在破碎。耶穌先赦罪，是先恢復人的身分與尊嚴，使人能在靈裡被更新；如此一來，身體的醫治就不只是肉體的改變，而是回到一個全人的更新過程。</p>
 
-      <li class="question">
-        <strong>你認為這個癱子到耶穌面前來的目的是甚麼？當耶穌見到癱子的時候，祂說了甚麼話？這是否符合癱子的需要？</strong>
-        <div class="fill" contenteditable="true" aria-label="回答2">（請在此輸入您的想法）</div>
-        <p class="prompt">提示：耶穌先說「你的罪赦了」，思考癱子是否真正需要內心的釋放，或許身體的醫治只是表面。</p>
-      </li>
+      <div class="callout">
+        <strong>要點：</strong>
+        <ul>
+          <li>赦罪代表關係的修復（人↔神），這比單純解決症狀更永恆。</li>
+          <li>被赦免的人，心裡的重擔卸下，行動力與希望被激發（例如馬上起來拿褥子）。</li>
+          <li>耶穌的話語具有權柄與創造力（參照創造論述：話語能帶來新實相）。</li>
+        </ul>
+      </div>
 
-      <li class="question">
-        <strong>讓我們把注意力轉到文士們的身上，他們不爽耶穌的是甚麼事？耶穌怎麼回答他們？</strong>
-        <div class="fill" contenteditable="true" aria-label="回答3">（請在此輸入您的想法）</div>
-        <p class="prompt">提示：文士認為赦罪為神的專屬，耶穌以知道他們內心為由，並行神蹟證明祂有赦罪的權柄。</p>
-      </li>
+      <p class="small">（例如：當一個人被告知「你被接納了」「你的欠債被赦免」，其心理壓力會大幅下降，動力與自我投入的程度則會上升。）</p>
+    </section>
 
-      <li class="question">
-        <strong>耶穌用甚麼行動來印證祂的權柄？結果呢？對您來說要接受耶穌的哪一個權柄比較容易呢？</strong>
-        <div class="fill" contenteditable="true" aria-label="回答4">（請在此輸入您的想法）</div>
-        <p class="prompt">提示：耶穌命令癱子起來行走以顯明祂既能赦罪也能醫治；思考你較容易接受哪一面——赦罪或醫治。</p>
-      </li>
-    </ol>
-  </section>
+    <section id="friends" class="card">
+      <h2>四、朋友的愛：為什麼要大費周章？</h2>
+      <p>朋友把癱子抬到耶穌面前，甚至拆屋頂，這不是戲劇化的表演，而是幾個關鍵原因交會的結果：</p>
+      <ul>
+        <li><b>愛的實踐：</b>真正的關懷不是說說而已，而是願意付出時間、體力、成本與面對羞辱的勇氣。</li>
+        <li><b>信心的代替（代表）：</b>朋友相信耶穌有能力也有憐憫，他們將自己的信心「代表性地」帶出來，替癱子做出代求與橋接。</li>
+        <li><b>移除阻礙：</b>社群阻礙（人多、無法近前）是實際障礙，朋友用行動移除障礙，讓癱子有機會被耶穌看見。</li>
+        <li><b>屬靈代價的承擔：</b>拆屋頂、在群眾中暴露自己不是小事，代表朋友願意承擔風險與他人眼光。</li>
+      </ul>
 
-  <section>
-    <h2>經文解碼（要點整理）</h2>
-    <div class="decode">
-      <p><strong>一、癱子的真正需要：</strong>表面上是身體的癱瘓，深層的可能是被罪困住、失去盼望與生命動力。耶穌先處理內在的罪問題，才進一步醫治身體，顯示祂醫治人的整全觀。</p>
+      <div class="callout">
+        <strong>反思：</strong>在我們自己的社群中，我們是否有願意「抬褥子」的人？若沒有，為什麼？是忙碌、冷漠，還是怕被誤解？
+        <textarea class="fill" placeholder="寫下你願意做的一件具體行動...如陪同、接送、代禱、或實際協助..."></textarea>
+      </div>
+    </section>
 
-      <p><strong>二、朋友的信心：</strong>朋友拆屋頂的舉動是一種信心的表現，代表他們願意突破一切障礙把癱子帶到耶穌面前。這種信心促成了醫治的機會，也提醒我們代禱與陪伴的重要。</p>
+    <section id="jesus" class="card">
+      <h2>五、耶穌為何處理「看不見的罪」？祂有何權柄？</h2>
+      <p>耶穌之所以先處理罪，顯示祂把人的根本困境放在首位。祂宣告赦罪，是因為祂本有赦罪的權柄（「人子在地上有赦罪的權柄」）。這權柄來自於祂的神性與救贖工作；耶穌既能在靈裡工作，也能在肉身中顯明祂的權柄（行醫治神蹟），兩者互為印證。</p>
 
-      <p><strong>三、文士的質疑與耶穌的回應：</strong>文士認為只有神能赦罪，耶穌用醫治的神蹟證明祂有赦罪的權柄，並指出治療人的全人需要——不只是身體，也包括靈裡的更新。</p>
+      <ul>
+        <li><b>祂知道人心：</b>耶穌能看透人內心的議論與需要（經文記載祂知道文士的心）。</li>
+        <li><b>祂宣告關係被恢復：</b>赦罪等於恢復與神的關係、身分與盼望。</li>
+        <li><b>祂用神蹟做為權柄的可見印證：</b>用醫治來證明內在宣告的真實性，讓旁觀者也能相信。</li>
+      </ul>
 
-      <p><strong>四、應用：</strong>耶穌的方法是重建人的尊嚴與行動力：罪得赦免帶來心靈的釋放，進而促使生命與行為的改變。面對需要，我們應當學習朋友的代求與行動，同時也反思：我們是否願意先照顧人的內在需要？</p>
-    </div>
-  </section>
+      <div class="callout warn">
+        <strong>討論題：</strong>若有人質疑赦罪的說法，你會如何用愛與理性回應？（寫下你的話語或關懷方式）
+        <textarea class="fill" placeholder="例如：先聆聽、再引導回應、用事實與愛心對話..."></textarea>
+      </div>
+    </section>   
 
-  <section>
-    <h2>延伸反思與討論</h2>
-    <p>a. 看到這位癱子，您會想到自己生命中有甚麼類似的困擾嗎？或許這正是我們經歷過的問題，讓我們來互相分擔吧！</p>
-    <p>b. 文士的議論是否也曾在您心中出現？讓我們分享如何面對懷疑與防衛的心態，並學習在疑惑中尋求真理。</p>
+       <h2>六、耶穌對文士的回應</h2>
+    <p>文士心中認為耶穌褻瀆神，因為只有神才有赦罪的權柄。耶穌直接揭露他們心中的想法，提出「赦罪」與「醫治」兩者的難易問題，藉此指出祂的身份與權柄。為了讓他們確信祂有赦罪的權柄，耶穌當場醫治癱子，使他能起來行走，這不僅證明祂能醫治身體的病，更顯明祂是有權赦罪的神子。這個神蹟是對文士質疑的有力回應，也為在場所有人帶來震撼的信心挑戰。</p>
 
     <div class="question">
-      <strong>陪讀禱告（可讀）：</strong>
-      <p class="fill" contenteditable="true">主耶穌，感謝祢不僅醫治我們的軀體，更赦免我們的罪，使我們得以重生。求祢賜我們信心，好像癱子的朋友一樣，勇於帶人來到祢面前。阿們。</p>
+        <strong>思考：</strong> 如果你是當時的文士，看到癱子被赦罪又被醫治，會如何改變你對耶穌的看法？
     </div>
-  </section>
 
-  <footer>
-    <p>教會陪讀提示：
-      <ul>
-        <li>在陪讀時，鼓勵對方分享內心深處的需要，不要只停留在表面的問題。</li>
-        <li>若對方表達罪疚感或深層創傷，陪讀者應溫柔回應並視情況建議尋求牧者或專業協助。</li>
-      </ul>
-    </p>
-    <a class="btn" href="#" onclick="window.print();return false;">列印此頁</a>
-  </footer>
+     <section id="reflect">
+          <div class="callout warn">
+        <h2>七、生命的回應</h2>
+    <p><strong>a.</strong> 看到這位癱子，您會想到自己生命中有甚麼類似的困擾嗎？或許我們也曾像他一樣被一些問題困住，無法靠自己解決，需要朋友的支持和耶穌的介入來得著釋放。分享彼此的經歷，可以互相扶持，彼此代禱。</p>
+    <p><strong>b.</strong> 文士的議論是否也曾出現在您的思想中？</p>
+
+    <div class="question">
+        <strong>思考：</strong> 如果你是當時的文士，看到癱子被赦罪又被醫治，會如何改變你對耶穌的看法？今天你願意將什麼困擾交給耶穌處理？
+    </div>
+    </div>
+    </section>
+  </div>
 </body>
 </html>

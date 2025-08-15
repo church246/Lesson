@@ -1,36 +1,74 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="utf-8">
-  <title>第二課　自尊的重建者 — 陪讀材料</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>經文解碼：耶穌與大痲瘋病人</title>
+  <meta name="description" content="用簡潔的 HTML5 單頁呈現：大痲瘋的無奈與耶穌憐憫的愛—背景解說、經文脈絡、重點導讀與反思問題。" />
   <style>
-    /* 簡潔樣式，適合列印與投影 */
-    body{font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif; line-height:1.8; padding:18px; color:#222}
-    header{border-bottom:2px solid #ddd; margin-bottom:12px}
-    h1{font-size:22px; margin:6px 0}
-    h2{font-size:18px; margin:12px 0 6px}
-    p.lead{margin:6px 0 18px}
-    .scripture{background:#fbfbfb; border-left:4px solid #8bb7d6; padding:10px; margin:8px 0}
-    .question{margin:10px 0; padding:8px; background:#fff; border:1px dashed #ddd}
-    ol.questions{padding-left:18px}
-    .decode{background:#fcfcfc; border-left:4px solid #e6c07b; padding:10px}
-    .fill{display:block; margin:8px 0; padding:8px; border:1px solid #e0e0e0; background:#fff}
-    .prompt{font-style:italic; color:#555}
-    footer{margin-top:18px; border-top:1px solid #eee; padding-top:10px; font-size:13px; color:#666}
-    .btn{display:inline-block; margin-top:8px; padding:6px 10px; border-radius:6px; background:#8bb7d6; color:#fff; text-decoration:none}
-    @media print{ .btn{display:none} }
+    :root{
+      --bg:#fafaf9; --fg:#0f172a; --muted:#475569; --card:#ffffff; --brand:#2563eb; --accent:#16a34a; --warn:#d97706; --rose:#e11d48;
+      --radius:16px; --shadow:0 6px 24px rgba(2,6,23,.08), 0 2px 8px rgba(2,6,23,.06);
+    }
+    @media (prefers-color-scheme: dark){
+      :root{ --bg:#0b1220; --fg:#e5e7eb; --muted:#94a3b8; --card:#101829; --brand:#60a5fa; --accent:#34d399; --warn:#fbbf24; --rose:#fb7185; }
+      body{ text-rendering: optimizeLegibility; }
+    }
+    *{ box-sizing: border-box; }
+    html,body{ margin:0; padding:0; background:var(--bg); color:var(--fg); font-family: system-ui, -apple-system, "Noto Sans TC", "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; line-height:1.75; }
+    a{ color:var(--brand); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+    header.hero{ position:relative; overflow:hidden; padding:64px 20px 32px; background:linear-gradient(135deg, rgba(37,99,235,.12), rgba(16,185,129,.12)); }
+    .container{ width:min(100%, 980px); margin-inline:auto; padding-inline:20px; }
+    .title{ font-size:clamp(28px, 4vw, 44px); letter-spacing: .5px; margin:0 0 8px; font-weight:800; }
+    .subtitle{ margin:0; color:var(--muted); font-size:clamp(14px, 2vw, 18px); }
+    nav.toc{ position:sticky; top:0; background:var(--bg); border-bottom:1px solid rgba(148,163,184,.25); z-index:3; }
+    nav.toc .wrap{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; padding:10px 20px; width:min(100%, 980px); margin:auto; }
+    nav.toc a{ padding:8px 12px; border-radius:999px; background:rgba(148,163,184,.15); color:inherit; }
+    nav.toc a:hover{ background:rgba(37,99,235,.18); color:var(--fg); }
+
+    main{ padding:28px 0 64px; }
+    section{ background:var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding:24px; margin:18px auto; width:min(100%, 900px); }
+    section h2{ margin-top:0; font-size: clamp(22px, 3vw, 28px); }
+    p{ margin: .5em 0 1em; }
+    .callout{ border-left:6px solid var(--brand); padding:14px 16px; background:linear-gradient(90deg, rgba(37,99,235,.10), transparent); border-radius:12px; }
+    .callout.warn{ border-color:var(--warn); background:linear-gradient(90deg, rgba(217,119,6,.12), transparent); }
+    .callout.good{ border-color:var(--accent); background:linear-gradient(90deg, rgba(16,185,129,.12), transparent); }
+    .qbox{ border:1px dashed rgba(148,163,184,.6); border-radius:12px; padding:12px; background:rgba(148,163,184,.08); }
+    .grid{ display:grid; grid-template-columns: 1fr; gap:18px; }
+    @media (min-width: 820px){ .grid{ grid-template-columns: 1fr 1fr; } }
+    details{ border:1px solid rgba(148,163,184,.35); border-radius:12px; padding:10px 12px; background: rgba(148,163,184,.08); }
+    summary{ cursor:pointer; font-weight:600; }
+    .badge{ display:inline-block; padding:.25rem .5rem; border-radius:999px; background:rgba(148,163,184,.18); font-size:.85em; }
+    blockquote{ margin:0; padding:12px 16px; border-left:6px solid var(--rose); background:linear-gradient(90deg, rgba(244,63,94,.10), transparent); border-radius:12px; }
+    footer{ text-align:center; color:var(--muted); padding:36px 0 80px; }
+    .btns{ display:flex; gap:10px; flex-wrap:wrap; }
+    .btn{ display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:12px; background:var(--brand); color:white; border:none; cursor:pointer; box-shadow: var(--shadow); }
+    .btn.secondary{ background:transparent; color:var(--brand); border:1.5px solid var(--brand);} 
+    .fill{ width:100%; padding:12px; border-radius:10px; border:1px solid rgba(148,163,184,.45); background: transparent; color:inherit; resize:vertical; min-height:72px; }
+    .small{ font-size:.9em; color:var(--muted); }
+
+    .verse-ref{ font-weight:700; color:var(--brand); }
+    .kbd{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; background: rgba(148,163,184,.2); padding:.2em .5em; border-radius:6px; }
+
+    @media print{
+      nav.toc, .btns{ display:none !important; }
+      section{ box-shadow:none; break-inside: avoid; }
+      body{ background:white; color:black; }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>第二課　自尊的重建者</h1>
+  <a href="#main" class="kbd" style="position:absolute; left:-9999px; top:0">跳到主內容</a>
+
+  <header class="hero">
+     <h1>第二課　自尊的重建者</h1>
     <p class="lead">經文：馬可福音 1:40-45</p>
   </header>
 
   <section>
     <div class="scripture">
-      <strong>馬可福音 1:40-45</strong>
-      <p>40 有一個長大痲瘋的，來求耶穌，向祂跪下說：『你若肯，必能叫我潔淨了。』<br>
+     <p>40 有一個長大痲瘋的，來求耶穌，向祂跪下說：『你若肯，必能叫我潔淨了。』<br>
       41 耶穌動了慈心，就伸手摸他，說：『我肯，你潔淨了罷。』<br>
       42 大痲瘋即時離開他，他就潔淨了。<br>
       43 耶穌嚴嚴的囑咐他，就打發他走<br>
@@ -38,8 +76,9 @@
       45 那人出去，倒說許多的話，把這件事傳揚開了，叫耶穌以後不得再明明的進城，只好在外邊曠野地方；人從各處都就了祂來。</p>
     </div>
   </section>
-
-  <section>
+   
+  </header>
+ <section>
     <h2>陪讀問題</h2>
     <ol class="questions">
       <li class="question">
@@ -61,43 +100,89 @@
       </li>
     </ol>
   </section>
+ <main id="main" class="container">
 
-  <section>
-    <h2>經文解碼（背景與要點）</h2>
-    <div class="decode">
-      <p><strong>痲瘋病的情況：</strong>痲瘋（大痲瘋）是一種慢性皮膚傳染病，會導致皮膚、粘膜與末梢神經受損，使感覺喪失、潰爛與肢體變形。病人在當時社會會被隔離、喪失家庭與社交，承受極大的心理痛苦與恥辱。</p>
+    <section id="bg">
+      <h2>背景說明：大痲瘋的無奈</h2>
+      <div class="callout warn">
+        <p>大痲瘋是一種由<b>分枝桿菌</b>引發的慢性傳染病，皮膚、黏膜與表面神經受損，出現失去色素的斑塊並喪失觸覺與溫度感覺。皮膚可變厚並長出結節；因末梢神經壞死，病人常在不自覺中受傷，導致潰瘍與畸形。眼、耳、鼻亦常受影響，潰爛與惡臭使人避之唯恐不及。</p>
+      </div>
+      <p>在耶穌的時代，<b>幾乎無法醫治且可能傳染</b>，患者被迫離家隔離，並需高喊「<span class="badge">不潔淨！</span>」提醒旁人遠離。有人甚至投石阻擋其靠近；同一條街買的雞蛋也會被嫌惡。<b>最大的痛苦不在肉身，乃在心靈</b>：孤單、羞辱、尊嚴粉碎，住進城外洞穴，盼望遙遙無期。</p>
+    </section>
 
-      <p><strong>耶穌的同情與觸摸：</strong>耶穌伸手摸他——這個動作不僅是醫療行為，也是強烈的接納與溫柔的表達，向一個被社會排斥的人宣告：你被看見、被接納。耶穌多次僅用話語即可醫治，但祂選擇「摸」，是為了恢復病人的尊嚴與安心。</p>
+    <section id="text">
+      <h2>經文脈絡（可參：<span class="verse-ref">可 1:40–45；太 8:1–4；路 5:12–16</span>）</h2>
+      <blockquote>
+        有一個長大痲瘋的人來求耶穌，跪下對祂說：「你若肯，必能叫我潔淨了。」耶穌動了慈心，就伸手摸他，說：「我肯，你潔淨了吧！」痲瘋立刻就離開他，他就潔淨了……（節錄）
+      </blockquote>
+      <p>這位病人與上一課門徒的猶疑不同，他<b>毫不懷疑耶穌的能力</b>，他所擔心的是：<i>主是否肯？</i>他跪在主前發出令人心酸的祈求：「你若肯……」這是失去自信與尊重之人的深處吶喊。</p>
+    </section>
 
-      <p><strong>為何吩咐不許張揚？</strong>耶穌不願自己的名聲成為焦點，避免被誤用為政治或民族復興的工具；祂要人回到祭司那裡，按摩西律法由祭司宣佈潔淨，並以此作為合法的恢復程序。但病人難以守口，結果讓耶穌公開活動受限，人反而更多從各處上門求問。</p>
-    </div>
-  </section>
+    <section id="pt1">
+      <h2>一、耶穌伸手觸摸：不只醫治，更是接納</h2>
+      <div class="grid">
+        <div>
+          <p>耶穌醫治從不受距離限制；祂一句話就能使人痊癒。因此，<b>伸手觸摸</b>在醫學上並非必要，卻是刻意的愛之舉：<b>「我肯」不是冷冰冰的同意，而是憐恤、接納與尊榮</b>。</p>
+          <div class="qbox">
+            <strong>換作是你，你會願意冒著被傳染的風險去觸摸一位被厭棄的人嗎？</strong>
+            <textarea class="fill" placeholder="寫下你的直覺與理由…"></textarea>
+            <p class="small">（誠實回應你的心，更能看見基督愛的反差與震撼。）</p>
+          </div>
+        </div>
+        <div>
+          <div class="callout good">
+            <p><b>觸摸 = 信息</b>：你是值得被觸碰、被愛、被看見的人。耶穌先處理的是<b>羞恥與孤絕</b>，那是靈魂最深的傷口。</p>
+          </div>
+          <p>別忘了，病人的外貌可能令人退卻，但<b>主的手先到達他的心</b>。</p>
+        </div>
+      </div>
+    </section>
 
-  <section>
-    <h2>應用與反思</h2>
-    <p>這是一個關於身體醫治同時帶來心靈復原的故事。耶穌醫的不只是疾病，也醫治人的孤單、羞辱與喪失的自尊。</p>
+    <section id="pt2">
+      <h2>二、病人的心聲：被觸碰的那一刻</h2>
+      <p>你是否曾被人溫柔地碰觸，因而感到<b>被愛與被珍惜</b>？若你長久沒有擁抱，只因自己「太壞、太糟、太骯髒」，此刻卻有一位完全了解你的人，在你<b>尚未改變之前</b>就伸手愛你，你會如何？</p>
+      <textarea class="fill" placeholder="寫下：如果我是那位病人，被耶穌觸摸時，我的心會…"></textarea>
+      <p>若這位觸摸你的人，恰是德行高尚、眾人敬仰，且滿有能力的主，你的<b>自我形象</b>會如何被重建？這位病人後來必定津津樂道：「祂摸過我！」—那一刻，不僅身體得醫治，<b>一生的孤單與被否定也被醫治</b>。</p>
+    </section>
 
-    <ol>
-      <li>想想看，在您的生命中，是否曾有失去自尊的經驗？您當時怎麼面對？</li>
-      <li>耶穌能觸摸我們的內心，您是否願意讓祂溫暖與更新您的生命？</li>
-    </ol>
+    <section id="pt3">
+      <h2>三、為何吩咐保密？轉移焦點，回到使命</h2>
+      <p>主耶穌吩咐他<b>不要張揚</b>，只去給祭司察看並照律法獻祭。因為主關心的不是聲名與群眾崇拜，乃是人的<b>生命重建</b>與<b>神國使命</b>。若神蹟被過度宣傳，人們易把注意力從悔改與信靠，轉向民粹式的期待（如政治解放、革命領袖）。</p>
+      <details>
+        <summary>律法中的「祭司察看」是什麼意思？</summary>
+        <p>根據摩西律法，<b>祭司無法醫治</b>，他所做的是<b>確認與宣告</b>：這人是否已得潔淨，可回歸群體生活。這既是對社群的保護，也是對蒙恩者的<b>尊嚴恢復</b>儀式。</p>
+      </details>
+      <div class="callout warn" style="margin-top:12px;">
+        <p><b>結果</b>：被醫治的人難掩喜訊，消息傳揚，以致主<b>不得再公開進城</b>（可 1:45）。神蹟固然美好，但<b>焦點仍在主自己</b>與其救贖計畫。</p>
+      </div>
+    </section>
 
-    <p class="prompt">a. 如果願意，請在陪讀時向耶穌傾心禱告，或請陪讀者代禱。</p>
-    <div class="question">
-      <strong>陪讀禱告（可讀）：</strong>
-      <p class="fill" contenteditable="true">主耶穌，感謝祢伸手摸我，使我知道祢肯接納我。求祢醫治我心中受傷的地方，恢復我失去的尊嚴與喜樂。阿們。</p>
-    </div>
-  </section>
+    <section id="reflect">
+      <h2>四、生命回應：走上盼望之路</h2>
+      <div class="grid">
+        <div>
+          <p>你是否也經歷過被拒絕、被貶抑，甚至從未被尊重？來到耶穌面前吧！祂不炫耀卓越，也不計人情；祂在意你的感受。當你求助時，祂不是高高在上，乃是<b>溫暖且滿有憐憫</b>。</p>
+          <div class="qbox">
+            <strong>我的祈禱</strong>
+            <textarea class="fill" placeholder="主啊，我也在這些地方說：『你若肯…』。求你觸摸與醫治…"></textarea>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <footer>
-    <p>教會陪讀提示：
-      <ul>
-        <li>陪讀者需保持溫柔傾聽，勿匆忙給建議；讓對方先述說他的經歷與感受。</li>
-        <li>若對方談到自殺、嚴重焦慮或受虐，請即時尋求專業協助或向牧者回報。</li>
-        <li>結束時可邀請對方一同禱告或安排後續關懷跟進。</li>
-      </ul>
-    </p>
-    <a class="btn" href="#" onclick="window.print();return false;">列印此頁</a>
-  </footer>
+    <section aria-label="附錄與教師使用建議">
+      <h2>附錄：教師引導小撇步</h2>
+      <ol>
+        <li>先讀經文，再讀背景，避免以偏概全，並說明古今醫學用語差異。</li>
+        <li>引導學員由「<b>能力</b>」轉向「<b>肯</b>」：上帝不僅能，更願意。</li>
+        <li>用「尊嚴復建」的角度談祭司察看與重回社群。</li>
+        <li>提醒神蹟的<b>目的</b>：指向主本人與福音，而非僅滿足生活期待。</li>
+      </ol>
+      
+    </section>
+
+  </main>
+
+
 </body>
 </html>
