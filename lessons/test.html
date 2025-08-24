@@ -1,147 +1,304 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>懷相課程｜課程總覽</title>
-  <meta name="description" content="懷相課程總覽頁：前言與第1–10課投影片嵌入（Google 投影片）與前言影片（YouTube）。提供快速開啟與備援連結。" />
-  <style>
-    :root{--bg:#fbfbfd;--card:#ffffff;--muted:#6b7280;--accent:#2563eb;--max:1100px;--radius:12px}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Noto Sans TC','Microsoft JhengHei',sans-serif;background:var(--bg);color:#0f172a}
-    .wrap{max-width:var(--max);margin:28px auto;padding:20px}
-    header{display:flex;align-items:center;gap:16px}
-    header h1{margin:0;font-size:20px}
-    p.lead{margin:6px 0 0;color:var(--muted)}
-    .grid{display:grid;gap:18px;margin-top:18px}
-    @media(min-width:880px){.grid{grid-template-columns:repeat(2,1fr)}}
-    .card{background:var(--card);border-radius:var(--radius);padding:14px;border:1px solid #e6eef8;box-shadow:0 6px 18px rgba(16,24,40,0.04)}
-    .card h3{margin:0 0 8px;font-size:16px}
-    .embed{width:100%;aspect-ratio:16/9;border-radius:8px;border:0;display:block}
-    .meta{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
-    .links{display:flex;gap:8px}
-    a.btn{display:inline-block;padding:8px 10px;border-radius:8px;text-decoration:none;border:1px solid rgba(37,99,235,.12);color:var(--accent);font-weight:600}
-    .notice{font-size:13px;color:var(--muted);margin-top:10px}
-    footer{margin-top:20px;color:var(--muted);font-size:13px}
-    .small{font-size:13px;color:var(--muted)}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>第一課：信耶穌的賣點 — 重生</title>
+<style>
+:root{--bg:#f7f9fc;--card:#fff;--muted:#6b7280;--accent:#0ea5a4}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Noto Sans TC','Microsoft JhengHei',sans-serif;background:var(--bg);color:#111;margin:0;padding:24px}
+.container{max-width:980px;margin:0 auto}
+header{display:flex;align-items:center;gap:16px}
+header h1{font-size:1.6rem;margin:0}
+.card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(8,15,35,0.06);margin-top:18px}
+section+section{margin-top:14px}
+label{display:block;font-weight:600;margin-bottom:6px}
+.muted{color:var(--muted);font-size:0.95rem}
+input[type=text],textarea,select{width:100%;padding:10px;border:1px solid #e6e9ef;border-radius:8px;font-size:0.95rem}
+textarea{min-height:90px;resize:vertical}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.full{grid-column:1/-1}
+.small{width:120px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+button{background:var(--accent);color:#fff;border:0;padding:10px 14px;border-radius:8px;cursor:pointer}
+.secondary{background:#e6eef0;color:#064;}
+.checkbox-list label{display:flex;align-items:flex-start;gap:8px;margin:6px 0;font-weight:500}
+footer{margin-top:18px;color:var(--muted);font-size:0.9rem}
+.scripture{background:#fbfdff;border-left:4px solid #e6f6f6;padding:10px;border-radius:6px;margin:8px 0}
+@media (max-width:700px){.row{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div>
-        <h1>懷相課程 — 總覽</h1>
-        <p class="lead">內含：前言（YouTube）與第1–10課 Google 投影片嵌入。若投影片或影片無法顯示，請使用下方備援連結或確認投影片的分享權限為「公開」或「任何擁有連結者皆可檢視」。</p>
-      </div>
-    </header>
+<div class="container">
+<header>
+<svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden>
+<rect width="24" height="24" rx="6" fill="#0EA5A4"/>
+<path d="M7 11.5c0-2.485 2.015-4.5 4.5-4.5S16 9.015 16 11.5 13.985 16 11.5 16 7 13.985 7 11.5z" fill="#fff"/>
+</svg>
+<div>
+<h1>第一課：信耶穌的賣點 — 重生</h1>
+<div class="muted">請將下列講義內容互動化，填寫後可匯出或列印。</div>
+</div>
+</header>
 
-    <section class="card">
-      <h3>前言（YouTube）</h3>
-      <iframe class="embed" src="https://www.youtube.com/embed/07sRokwZ4TI" title="懷相課程 前言" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <div class="meta">
-        <div class="small">影片 ID: <code>07sRokwZ4TI</code></div>
-        <div class="links"><a class="btn" href="https://youtu.be/07sRokwZ4TI" target="_blank" rel="noopener">於 YouTube 開啟</a></div>
-      </div>
-    </section>
 
-    <div class="grid">
+<form id="lessonForm" class="card" onsubmit="return false;">
+<section>
+<h3>你重生了嗎?　您知道「重生得救」是甚麼意思嗎？ 您對自己的「重生」感到疑慮嗎?</h3>
+<p class="muted">問題研討：</p>
+<label>「你重生了嗎?」您會如何回答這個問題? 請說明您的理由!</label>
+<input id="answer_main" name="answer_main" type="text" placeholder="回答: 我_______________________.">
+<div class="row" style="margin-top:8px">
+<div>
+<label>說說看您的理由 1</label>
+<input id="r1" name="r1" type="text" placeholder="1. ...">
+</div>
+<div>
+<label>說說看您的理由 2</label>
+<input id="r2" name="r2" type="text" placeholder="2. ...">
+</div>
+</div>
+<div style="margin-top:8px">
+<label>說說看您的理由 3</label>
+<input id="r3" name="r3" type="text" placeholder="3. ...">
+</div>
 
-      <div class="card">
-        <h3>第一課</h3>
-        <iframe class="embed" src="https://docs.google.com/presentation/d/1nmr8f3dWKBIKXuvYSrrKRPc70fmUADfge-AZE-cMcJk/embed?start=false&loop=false&delayms=3000" title="第1課 投影片" frameborder="0" allowfullscreen></iframe>
-        <div class="meta">
-          <div class="small">檔案 ID: <code>1nmr8f3dWKBIKXuvYSrrKRPc70fmUADfge-AZE-cMcJk</code></div>
-          <div class="links"><a class="btn" href="https://docs.google.com/presentation/d/1nmr8f3dWKBIKXuvYSrrKRPc70fmUADfge-AZE-cMcJk/edit" target="_blank" rel="noopener">在 Google 投影片開啟</a></div>
-        </div>
-      </div>
+<h3>如果您的答案是「是」, 那麼接下來我們的問題是「你過得比以前好嗎?」「你變得比以前快樂嗎?」</h3>
+<input id="answer_main" name="answer_main" type="text" placeholder="回答: 我過得比以前_____________, 我變得比以前_______________. 
+">
+<div>
+<label>舉些例子說明吧</label>
+<input id="r2" name="r2" type="text" placeholder="2. ...">
+</div>
+<H3>不管你的答案是肯定的或是否定的, 讓你自己評估, 您是否配得上稱為一位基督徒呢?</H3>
+<input id="answer_main" name="answer_main" type="text" placeholder="回答: 我_________________上稱為基督徒. 
+">
+<div>
+<label>還是要看看您得理由喔!</label>
+<input id="r2" name="r2" type="text" placeholder="2. ...">
+</div>
+<H3>這就是我們為什麼要討論今天這個問題的原因啦!</H3>
 
-      <div class="card">
-        <h3>第二課</h3>
-        <iframe class="embed" src="https://docs.google.com/presentation/d/1YGr6WbqplK8dZ-ZdADhTvytWWnngBECSinvRe99V5WQ/embed?start=false&loop=false&delayms=3000" title="第2課 投影片" frameborder="0" allowfullscreen></iframe>
-        <div class="meta">
-          <div class="small">檔案 ID: <code>1YGr6WbqplK8dZ-ZdADhTvytWWnngBECSinvRe99V5WQ</code></div>
-          <div class="links"><a class="btn" href="https://docs.google.com/presentation/d/1YGr6WbqplK8dZ-ZdADhTvytWWnngBECSinvRe99V5WQ/edit" target="_blank" rel="noopener">在 Google 投影片開啟</a></div>
-        </div>
-      </div>
+<div class="wrap">
+<h1>2. 面對重生的意義</h1>
 
-      <div class="card">
-        <h3>第三課</h3>
-        <iframe class="embed" src="https://docs.google.com/presentation/d/1joOetg2UI1NnpZELHufWgbzoybvK2jNLpDwW-QtyuQA/embed?start=false&loop=false&delayms=3000" title="第3課 投影片" frameborder="0" allowfullscreen></iframe>
-        <div class="meta">
-          <div class="small">檔案 ID: <code>1joOetg2UI1NnpZELHufWgbzoybvK2jNLpDwW-QtyuQA</code></div>
-          <div class="links"><a class="btn" href="https://docs.google.com/presentation/d/1joOetg2UI1NnpZELHufWgbzoybvK2jNLpDwW-QtyuQA/edit" target="_blank" rel="noopener">在 Google 投影片開啟</a></div>
-        </div>
-      </div>
 
-      <div class="card">
-        <h3>第四課</h3>
-        <iframe class="embed" src="https://docs.google.com/presentation/d/1joOetg2UI1NnpZELHufWgbzoybvK2jNLpDwW-QtyuQA/embed?start=false&loop=false&delayms=3000" title="第4課 投影片" frameborder="0" allowfullscreen></iframe>
-        <div class="meta">
-          <div class="small">（注意：第四課使用與第三課相同檔案）</div>
-          <div class="links"><a class="btn" href="https://docs.google.com/presentation/d/1joOetg2UI1NnpZELHufWgbzoybvK2jNLpDwW-QtyuQA/edit" target="_blank" rel="noopener">在 Google 投影片開啟</a></div>
-        </div>
-      </div>
 
-      <div class="card">
-        <h3>第五課</h3>
-        <iframe class="embed" src="https://docs.google.com/presentation/d/1kELt6stF8XvDOKXvhRNaETSXJgHRKlhP5vRFPe8HxxM/embed?start=false&loop=false&delayms=3000" title="第5課 投影片" frameborder="0" allowfullscreen></iframe>
-        <div class="meta">
-          <div class="small">檔案 ID: <code>1kELt6stF8XvDOKXvhRNaETSXJgHRKlhP5vRFPe8HxxM</code></div>
-          <div class="links"><a class="btn" href="https://docs.google.com/presentation/d/1kELt6stF8XvDOKXvhRNaETSXJgHRKlhP5vRFPe8HxxM/edit" target="_blank" rel="noopener">在 Google 投影片開啟</a></div>
-        </div>
-      </div>
+<div class="section">
+<p>A. 世界上有三種人……</p>
+<ol>
+<li>已經重生, 也知道自己重生了</li>
+<li>已經重生, 卻不知道自己是重生的人</li>
+<li>還沒有重生, 也不知道重生是甚麼</li>
+</ol>
+<p class="muted">要怎麼分辨自己是哪一種人呢? 讓我們來看到底甚麼是重生得救。</p>
+</div>
 
-      <div class="card">
-        <h3>第六課</h3>
-        <iframe class="embed" src="https://docs.google.com/presentation/d/1_NeNTt9OAZmacO-qVCynT3M5V7SAwrypkGBcT4i5xHI/embed?start=false&loop=false&delayms=3000" title="第6課 投影片" frameborder="0" allowfullscreen></iframe>
-        <div class="meta">
-          <div class="small">檔案 ID: <code>1_NeNTt9OAZmacO-qVCynT3M5V7SAwrypkGBcT4i5xHI</code></div>
-          <div class="links"><a class="btn" href="https://docs.google.com/presentation/d/1_NeNTt9OAZmacO-qVCynT3M5V7SAwrypkGBcT4i5xHI/edit" target="_blank" rel="noopener">在 Google 投影片開啟</a></div>
-        </div>
-      </div>
 
-      <div class="card">
-        <h3>第七課</h3>
-        <iframe class="embed" src="https://docs.google.com/presentation/d/1DDLGDScSSVo3IdbACXf-xDEHYNJooeLyeIIc5t2iKO8/embed?start=false&loop=false&delayms=3000" title="第7課 投影片" frameborder="0" allowfullscreen></iframe>
-        <div class="meta">
-          <div class="small">檔案 ID: <code>1DDLGDScSSVo3IdbACXf-xDEHYNJooeLyeIIc5t2iKO8</code></div>
-          <div class="links"><a class="btn" href="https://docs.google.com/presentation/d/1DDLGDScSSVo3IdbACXf-xDEHYNJooeLyeIIc5t2iKO8/edit" target="_blank" rel="noopener">在 Google 投影片開啟</a></div>
-        </div>
-      </div>
+<div class="section">
+<P>B. 重生得救的真義</p>
+<p>一位重生得救的人, 他有兩個特點:</p>
+<ol>
+<li>承認自己犯罪, 需付的工價(代價)乃是_______ <span class="blank" contenteditable></span>（羅馬書6:23; 20~21節）</li>
+<li>相信_____________ <span class="blank" contenteditable></span>。（羅馬書10:9~11）</li>
+</ol>
 
-      <div class="card">
-        <h3>第八課</h3>
-        <iframe class="embed" src="https://docs.google.com/presentation/d/1q1TyUVoZe9wVE2KV4EQSnt2NSiGq1vMdT-imB_Fv06E/embed?start=false&loop=false&delayms=3000" title="第8課 投影片" frameborder="0" allowfullscreen></iframe>
-        <div class="meta">
-          <div class="small">檔案 ID: <code>1q1TyUVoZe9wVE2KV4EQSnt2NSiGq1vMdT-imB_Fv06E</code></div>
-          <div class="links"><a class="btn" href="https://docs.google.com/presentation/d/1q1TyUVoZe9wVE2KV4EQSnt2NSiGq1vMdT-imB_Fv06E/edit" target="_blank" rel="noopener">在 Google 投影片開啟</a></div>
-        </div>
-      </div>
 
-      <div class="card">
-        <h3>第九課</h3>
-        <iframe class="embed" src="https://docs.google.com/presentation/d/1lLbvSzuuh-PEJ7Ly-bCYvtvljeSThvJL8ZbJbCVOLg4/embed?start=false&loop=false&delayms=3000" title="第9課 投影片" frameborder="0" allowfullscreen></iframe>
-        <div class="meta">
-          <div class="small">檔案 ID: <code>1lLbvSzuuh-PEJ7Ly-bCYvtvljeSThvJL8ZbJbCVOLg4</code></div>
-          <div class="links"><a class="btn" href="https://docs.google.com/presentation/d/1lLbvSzuuh-PEJ7Ly-bCYvtvljeSThvJL8ZbJbCVOLg4/edit" target="_blank" rel="noopener">在 Google 投影片開啟</a></div>
-        </div>
-      </div>
+<p>3. 這個相信包括了……</p>
+<p><span class="blank" contenteditable>＿＿＿＿＿＿</span> 耶穌為 <span class="blank" contenteditable>＿＿＿＿＿＿</span>, 心裡 <span class="blank" contenteditable>＿＿＿＿＿＿</span> , 上帝叫祂從 <span class="blank" contenteditable>＿＿＿＿＿＿</span> 復活。</p>
 
-      <div class="card">
-        <h3>第十課</h3>
-        <iframe class="embed" src="https://docs.google.com/presentation/d/1uNJ2b3nuAcTZ57GT-S3X2rJHEb2dEYl_ad1w_CHDWu0/embed?start=false&loop=false&delayms=3000" title="第10課 投影片" frameborder="0" allowfullscreen></iframe>
-        <div class="meta">
-          <div class="small">檔案 ID: <code>1uNJ2b3nuAcTZ57GT-S3X2rJHEb2dEYl_ad1w_CHDWu0</code></div>
-          <div class="links"><a class="btn" href="https://docs.google.com/presentation/d/1uNJ2b3nuAcTZ57GT-S3X2rJHEb2dEYl_ad1w_CHDWu0/edit" target="_blank" rel="noopener">在 Google 投影片開啟</a></div>
-        </div>
-      </div>
 
-    </div>
+<p class="muted">耶穌代替我們死, 所以我們就算與祂一起死了。現在的生命便是完全「重來」過的生命、新的生命了！</p>
 
-    <p class="notice">備註：若投影片無法顯示，通常是因為該投影片的分享權限未設定為「任何擁有連結者皆可檢視」或已設定為僅允許特定帳號檢視。請至 Google 投影片分享設定中將權限改為「任何人有連結即可檢視」，或改為提供直接的 PDF/圖片備援檔案。</p>
 
-   
-  </div>
+<p>哥林多後書 5:17：若有人在 <span class="blank" contenteditable>在基督裡</span> 裡, 他就是 <span class="blank" contenteditable>新造的人</span>, 舊事已過, 都變成新的了。</p>
+
+
+<p class="muted">根據聖經的說法, 一個只要說:我是一個可悲無助的罪人, 沒辦法靠自己贖罪, 我已經找著神的兒子主耶穌基督, 祂替我死, 我相信祂救我. 那麼上帝就以「耶穌基督的死」算為這個人死, 給這個人新生命. 
+</p>
+</div>
+<div class="section">
+<p>現在我們再一次面對這個問題…….您知道要怎麼回答了嗎?</p>
+<p>「你重生了嗎？」 回答：　<span class="blank" contenteditable>（請填寫你的回答）</span></p>
+<p>因為： <span class="blank" contenteditable>（填寫原因）</span></p>
+</div>
+<div class="wrap">
+<h1>面對重生的疑慮</h1>
+<p class="lead muted">雖然有些人重生了, 甚至也知道自己重生了, 可是卻有許多的疑慮.
+</p>
+
+
+<div class="section">
+<label>請勾選您的疑慮（可複選）：</label>
+<div class="checkbox-list">
+<label><input type="checkbox" name="q" value="noHope"> 為什麼我已重生，但有時候卻感覺自己沒有希望?</label>
+<label><input type="checkbox" name="q" value="notAlwaysJoy"> 雖然重生，卻不是一直都很喜樂，常會憂愁悲苦？</label>
+<label><input type="checkbox" name="q" value="repeatSin"> 有些罪怎麼反覆去犯，讓我痛苦不堪？</label>
+<label><input type="checkbox" name="q" value="hateBitter"> 心裡還會恨人、苦毒？</label>
+<label><input type="checkbox" name="q" value="chooseProfit"> 做決定時還是傾向選擇「利益」？這是怎麼回事？</label>
+<label><input type="checkbox" name="q" value="cantWorship"> 敬拜的時候怎麼不能投入？</label>
+<label><input type="checkbox" name="q" value="dontWantGather"> 有時不想去聚會、不想見人？</label>
+<label><input type="checkbox" name="q" value="noLove"> 覺得自己沒有愛心，有些未信的人還比我好？</label>
+</div>
+
+
+<div style="margin-top:10px">
+<label>其他疑慮（請說明）</label>
+<input id="other" type="text" placeholder="其他疑慮...">
+</div>
+
+<div class="card">
+
+<div class="section">
+<p>這些問題，幾乎每位聖徒都有過，讓我們用聖經及過來人的經驗回答您的疑慮。</p>
+<p class="muted">首先要提醒您的是：</p>
+<p>我們雖然重生了，但卻仍是小嬰兒。您從未見過一個剛出生的小娃兒就會替爸爸上 7-11 買報紙吧？我們雖然重生了，有基督的生命在我們裡頭，但一個屬靈的品性卻不是幾天就能夠形成的。有許多真理要等我們去操練、經歷，才能成為我們的習慣。</p>
+</div>
+
+
+<div class="section">
+
+<p class="muted">2. 除此之外, 讓我們來看幾段聖經. </p>
+
+
+<div style="margin-top:10px">
+<label><strong>加拉太書 5:17</strong></label>
+<p>因為 <span class="blank" contenteditable>＿＿＿＿＿</span> 和 <span class="blank" contenteditable>＿＿＿＿＿</span> 相爭、 <span class="blank" contenteditable>＿＿＿＿＿</span> 和 <span class="blank" contenteditable>＿＿＿＿＿</span> 相爭，這兩個是彼此 <span class="blank" contenteditable>＿＿＿＿＿</span>，使你們不能作所 <span class="blank" contenteditable>＿＿＿＿＿</span> 作的。</p>
+</div>
+
+<div style="margin-top:12px">
+<label><strong>羅馬書 7:21</strong></label>
+<p>我覺得有個律，就是我 <span class="blank" contenteditable>＿＿＿＿＿</span> 為善的時候，便有 <span class="blank" contenteditable>＿＿＿＿＿</span> 與我同在。</p>
+</div>
+
+
+<div style="margin-top:12px">
+<label><strong>羅馬書 7:22-23</strong></label>
+<p>因為按著我裡面的意思，我是 <span class="blank" contenteditable>＿＿＿＿＿</span> 上帝的律。但我覺得肢體中另外有個律，和我心中的律交戰，把我 <span class="blank" contenteditable>＿＿＿＿＿</span>，叫我附從那肢體中 <span class="blank" contenteditable>＿＿＿＿＿</span> 的律。</p>
+</div>
+
+
+<div class="note">
+<strong>羅馬書是偉大的使徒保羅寫的, 經文描寫基督徒生命有這麼多的掙扎與痛苦, 使我們的心得許多的安慰!
+
+</div>
+</div>
+
+<div class="card">
+
+<p class="lead">這些經文告訴我們, 在基督徒的生活中, 的確存在著許多的衝突與掙扎, 所謂的老我, 不甘交出對我們這個人的控制權, 因此當我們面對抉擇的時候, 就會產生許多痛苦與壓力, 但這些並不是絕對無法勝過的, 請看經文,,,,,,
+</p>
+
+
+<div class="section">
+<h2>希伯來書 4:14-15（填空）</h2>
+<p>我們既有一位已經升入高天尊榮的大祭司，就是上帝的兒子 <span class="blank" contenteditable>＿＿＿＿＿</span>，便當 <span class="blank" contenteditable>＿＿＿＿＿</span> 所承認的道，因我們的大祭司，並非不能 <span class="blank" contenteditable>＿＿＿＿＿</span> 我們的軟弱……</p>
+
+<h2>希伯來書 4:14-15（填空）</h2>
+<p>所以我們 <span class="blank" contenteditable>＿＿＿＿＿</span> 坦然 <span class="blank" contenteditable>＿＿＿＿＿</span> 的來到 <span class="blank" contenteditable>＿＿＿＿＿</span> 前，為要得 <span class="blank" contenteditable>＿＿＿＿＿</span>、蒙 <span class="blank" contenteditable>＿＿＿＿＿</span>、作 <span class="blank" contenteditable>＿＿＿＿＿</span>。</p>
+
+
+<div class="note">在基督那裏, 為我們預備了恩典, 也預備了力量, 如果我們來到祂的施恩寶座前, 將經歷極大的自由與平安! 祂會帶領我們面對問題, 這可是每位基督徒的經歷呢!<br>
+2. 有的時候, 我們的痛苦、壓力的確是因為我們作了不當的選擇. 
+</div>
+</div>
+
+
+<div class="section">
+<h2>加拉太書 6:1（填空）</h2>
+<p>若有人 <span class="blank" contenteditable>＿＿＿＿＿</span> 被 <span class="blank" contenteditable>＿＿＿＿＿</span> 所勝，你們屬靈的人就當用 <span class="blank" contenteditable>＿＿＿＿＿</span>，把他挽回過來；又當自己小心，恐怕也被 <span class="blank" contenteditable>＿＿＿＿＿</span>。</p>
+
+
+<p class="muted">我們雖然重生, 卻不表示我們已經完全, 這一聲我們會有__________被過犯所勝的時候, 這時候肢體的相交(教會生活)就顯得格外重要, 我們應當互相挽回, 互相扶持, 同奔天路. </p>
+</div>
+
+<p>解決了您的疑慮，您是否能歡喜地說：「我重生了」？願主保守你的信仰到永生。</p>
+<textarea placeholder="寫下你的回應、需要代禱的事項或給小組的分享..."></textarea>
+
+<div class="card">
+<h1>如果您尚未重生</h1>
+<p>重生是我們信仰的奧秘，也是我們信耶穌的人生命中最大的祝福。如果您發現自己並沒有永恆的生命，鼓勵您誠實地來到上帝面前，承認自己的罪，請耶穌住在您的心裡。上帝必接納您成為祂的兒女，給您新的生命！</p>
+
+
+<div class="highlight">
+<p>在剛開始時，重生的生命和一般人的生命可能差異很大。然而經過一段日子，您會看見生命已經遷到愛子國度，不復在黑暗中。價值觀、思想、穩定度、喜樂都與以前大不相同，這也是新生命寶貴的地方。</p>
+</div>
+
+
+<p>上帝讓您有渴慕真理、願意明白屬靈事物的心，盼望您今天就接受耶穌基督住在您的心中，享受上帝所賜的永生！</p>
+
+
+<p class="muted">請將此頁列印或與小組分享，若要我幫您把頁面匯出為可編輯的 Word、Google 文件或加入輸出功能，請告訴我。</p>
+</div>
+
+
+<div class="actions">
+<button onclick="window.print()">列印 / 存為 PDF</button>
+<button onclick="downloadHTML()">下載 HTML</button>
+</div>
+
+
+</div>
+<div style="margin-top:12px">
+<label>本週作業（請與小組中的一位分享並確定你重生的理由，並用 HTML5 保存）</label>
+<div style="margin-top:8px">
+<label>小組夥伴：</label>
+<input id="partner" name="partner" type="text" placeholder="小組夥伴姓名">
+</div>
+<div style="margin-top:8px">
+<label>討論重點紀錄：</label>
+<textarea id="group_note" name="group_note" placeholder="討論摘要..."></textarea>
+</div>
+</section>
+
+
+<div class="actions" style="margin-top:12px">
+<button type="button" onclick="downloadAnswers()">匯出答案（JSON）</button>
+<button type="button" class="secondary" onclick="fillSample()">範例填寫</button>
+<button type="button" onclick="print()">列印 / 存為 PDF</button>
+<button type="button" onclick="downloadPage()">下載完整網頁 (HTML)</button>
+</div>
+
+
+<footer>
+<p>版權：教會教材 — 此頁為互動教學用範本。若需新增功能（CSV、伺服器存檔、A4 列印樣式），請告訴我我要如何幫您修改。</p>
+</footer>
+</form>
+</div>
+
+
+<script>
+function collectForm(){
+const f = document.getElementById('lessonForm');
+const data = {};
+new FormData(f).forEach((v,k)=>{
+if(data[k]===undefined) data[k]=v;
+else if(Array.isArray(data[k])) data[k].push(v);
+else data[k]=[data[k],v];
+});
+data.doubts = Array.from(document.querySelectorAll('input[name="doubts"]:checked')).map(i=>i.value);
+return data;
+}
+function downloadAnswers(){
+const data = collectForm();
+const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
+const url = URL.createObjectURL(blob);
+const a = document.createElement('a'); a.href = url; a.download = '第一課_重生_答案.json'; a.click(); URL.revokeObjectURL(url);
+}
+function downloadPage(){
+const html = '<!doctype html>
+' + document.documentElement.outerHTML;
+const blob = new Blob([html], {type:'text/html'});
+const url = URL.createObjectURL(blob);
+const a = document.createElement('a'); a.href = url; a.download = '第一課_信耶穌的賣點_重生.html'; a.click(); URL.revokeObjectURL(url);
+}
+function fillSample(){
+document.getElementById('answer_main').value = '我相信我已重生。';
+document.getElementById('r1').value = '我真誠認罪並蒙赦免。';
+document.getElementById('life_compare').value = '更有平安';
+document.getElementById('joy_compare').value = '較為喜樂';
+document.getElementById('examples').value = '願意原諒人、常去教會、讀經禱告成長。';
+}
+</script>
 </body>
 </html>
-   

@@ -1,208 +1,162 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="zh-Hant">
 <head>
-<meta charset="utf-8">
-<title>我加你就有無限可能</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>我加祢就有無限的可能</title>
+  <meta name="description" content="將多份 Google 簡報以專業、響應式網頁方式展示 — 支援嵌入播放、連結開啟、無障礙標記與行動優化。">
+  <meta name="author" content="yoyo chang">
+  <style>
+    :root{--bg:#f6f7fb;--card:#ffffff;--muted:#6b7280;--accent:#0f62fe;--radius:14px}
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Noto Sans TC',"Helvetica Neue",Arial;smooth-font-sizing:antialiased;background:var(--bg);color:#111}
+    header{background:linear-gradient(90deg, rgba(15,98,254,0.08), rgba(6,182,212,0.04));padding:28px 20px;border-bottom:1px solid rgba(16,24,40,0.04)}
+    .container{max-width:1100px;margin:0 auto;padding:20px}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+    h1{font-size:20px;margin:0}
+    p.lead{margin:6px 0 0;color:var(--muted)}
+
+    nav.tools{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .btn{background:var(--card);border:1px solid rgba(16,24,40,0.06);padding:8px 12px;border-radius:10px;cursor:pointer;font-size:14px}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),#06b6d4);color:#fff;border:none}
+
+    main{padding:28px 0}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:0 6px 20px rgba(16,24,40,0.06);overflow:hidden;display:flex;flex-direction:column}
+    .card .meta{padding:14px 16px;border-bottom:1px solid rgba(16,24,40,0.04);display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .meta .title{font-weight:600}
+    .meta .sub{font-size:13px;color:var(--muted)}
+    .embed-wrap{position:relative;padding-top:56.25%;background:linear-gradient(180deg,rgba(15,98,254,0.02),transparent)}
+    .embed-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+    .card .actions{display:flex;gap:8px;padding:12px 14px;align-items:center}
+    .small{font-size:13px;color:var(--muted)}
+    footer{padding:20px 0;color:var(--muted);font-size:13px}
+
+    /* responsive tweaks */
+    @media (max-width:420px){header{padding:18px} .logo{width:48px;height:48px}}
+  </style>
 </head>
-<body bgcolor="#f0f0f0">
+<body>
+<div class="container" style="text-align:center;">
+  <img src="assets/img/control/0.JPG" width="150px"><br>
+  <h2>我加祢就有無限的可能</h2>
+</div>
 
-<center>
-  <h2> <a href="https://docs.google.com/presentation/d/1IYBUwsPVh4Z_EtnX6XMTTZt9N10YXVQ9ReyPLWCCFks/edit?slide=id.p1#slide=id.p1">上帝美好的計畫顯明</a></h2>
-  <!-- 只留一張，透過 JS 改變 src -->
-  <img src="b1.jpg" name="slide1" width="400" height="250">
-  <br>
-  <input type="button" value="上一張" onclick="prev1()">
-  <input type="button" value="下一張" onclick="next1()">
- </center>
+  <main class="container" id="presentations">
+    <section class="grid" aria-label="簡報清單">
 
-<br><br>
+      <!-- Card 1 -->
+      <article class="card" id="card-1">
+        <div class="meta">
+          <div>
+            <div class="title">我們的終身在神的手中(1)</div>
+       
+        
+        <div class="embed-wrap">
+          <iframe loading="lazy" title="簡報 1" src="https://docs.google.com/presentation/d/1IYBUwsPVh4Z_EtnX6XMTTZt9N10YXVQ9ReyPLWCCFks/embed?start=false&loop=false&delayms=3000" allowfullscreen allow="autoplay; fullscreen"></iframe>
+        </div>
+        <div class="actions">
+          <a class="btn" href="https://docs.google.com/presentation/d/1IYBUwsPVh4Z_EtnX6XMTTZt9N10YXVQ9ReyPLWCCFks/edit?usp=sharing" target="_blank" rel="noopener">在 Google Slides 中開啟</a>
+          <button class="btn" onclick="openEmbed(1)">彈出預覽</button>
+        </div>
+      </article>
 
-<center>
-  <h2> <a href="https://docs.google.com/presentation/d/1TTFcpgAnU8yikMcsw82Gzti_DA0jlvFZzA20yQQK8AI/edit?slide=id.p1#slide=id.p1">神的計畫比你的計畫更好</a></h2>
-  <img src="b1.jpg" name="slide2" width="400" height="250">
-  <br>
-  <input type="button" value="上一張" onclick="prev2()">
-  <input type="button" value="下一張" onclick="next2()">
-</center>
+      <!-- Card 2 -->
+      <article class="card" id="card-2">
+        <div class="meta">
+          <div>
+            <div class="title">神的計畫比你的計劃更好(2)</div>
+          
+         
+        <div class="embed-wrap">
+          <iframe loading="lazy" title="簡報 2" src="https://docs.google.com/presentation/d/1TTFcpgAnU8yikMcsw82Gzti_DA0jlvFZzA20yQQK8AI/embed?start=false&loop=false&delayms=3000" allowfullscreen allow="autoplay; fullscreen"></iframe>
+        </div>
+        <div class="actions">
+          <a class="btn" href="https://docs.google.com/presentation/d/1TTFcpgAnU8yikMcsw82Gzti_DA0jlvFZzA20yQQK8AI/edit?usp=sharing" target="_blank" rel="noopener">在 Google Slides 中開啟</a>
+          <button class="btn" onclick="openEmbed(2)">彈出預覽</button>
+        </div>
+      </article>
 
-<center>
-  <h2> <a href="https://docs.google.com/presentation/d/1sqq0TLUs5B3E9zhkiXg4U0as7Umh5f9J5wOahYDrbh0/edit?slide=id.p1#slide=id.p1">神沒有甚麼不給你的</a></h2>
-  <img src="b1.jpg" name="slide3" width="400" height="250">
-  <br>
-  <input type="button" value="上一張" onclick="prev3()">
-  <input type="button" value="下一張" onclick="next3()">
-</center>
+      <!-- Card 3 -->
+      <article class="card" id="card-3">
+        <div class="meta">
+          <div>
+            <div class="title">神沒有甚麼不給你的(3)</div>
+          
+         
+        <div class="embed-wrap">
+          <iframe loading="lazy" title="簡報 3" src="https://docs.google.com/presentation/d/1sqq0TLUs5B3E9zhkiXg4U0as7Umh5f9J5wOahYDrbh0/embed?start=false&loop=false&delayms=3000" allowfullscreen allow="autoplay; fullscreen"></iframe>
+        </div>
+        <div class="actions">
+          <a class="btn" href="https://docs.google.com/presentation/d/1sqq0TLUs5B3E9zhkiXg4U0as7Umh5f9J5wOahYDrbh0/edit?usp=sharing" target="_blank" rel="noopener">在 Google Slides 中開啟</a>
+          <button class="btn" onclick="openEmbed(3)">彈出預覽</button>
+        </div>
+      </article>
 
-<center>
-<h2> <a href="https://docs.google.com/presentation/d/1pnAWUfCVtLF7juxTmRCnDEog4lelO3lKXIKS9VIxY5s/edit?slide=id.p1#slide=id.p1">神為你預備的都是最好的</a></h2>
-  <img src="b1.jpg" name="slide4" width="400" height="250">
-  <br>
-  <input type="button" value="上一張" onclick="prev4()">
-  <input type="button" value="下一張" onclick="next4()">
-</center>
+      <!-- Card 4 -->
+      <article class="card" id="card-4">
+        <div class="meta">
+          <div>
+            <div class="title">神為你預備的都是最好的(4)</div>
+          
+       
+        <div class="embed-wrap">
+          <iframe loading="lazy" title="簡報 4" src="https://docs.google.com/presentation/d/1pnAWUfCVtLF7juxTmRCnDEog4lelO3lKXIKS9VIxY5s/embed?start=false&loop=false&delayms=3000" allowfullscreen allow="autoplay; fullscreen"></iframe>
+        </div>
+        <div class="actions">
+          <a class="btn" href="https://docs.google.com/presentation/d/1pnAWUfCVtLF7juxTmRCnDEog4lelO3lKXIKS9VIxY5s/edit?usp=sharing" target="_blank" rel="noopener">在 Google Slides 中開啟</a>
+          <button class="btn" onclick="openEmbed(4)">彈出預覽</button>
+        </div>
+      </article>
 
-<script type="text/javascript">
-  // 第一組圖片清單
-  var pics1 = [
-    "assets/img/control/1.JPG", "assets/img/control/2.JPG", "assets/img/control/3.JPG",
-    "assets/img/control/4.JPG", "assets/img/control/5.JPG", "assets/img/control/6.JPG",
-    "assets/img/control/7.JPG", "assets/img/control/8.JPG", "assets/img/control/9.JPG",
-    "assets/img/control/10.JPG", "assets/img/control/11.JPG", "assets/img/control/12.JPG"
-  ];
-  var index1 = 0;
-  var timer1;
+    </section>
 
+    
 
-  // 第二組圖片清單
-  var pics2 = [  "assets/img/control/13.JPG", "assets/img/control/14.JPG", "assets/img/control/15.JPG",
-    "assets/img/control/16.JPG", "assets/img/control/17.JPG", "assets/img/control/18.JPG",
-    "assets/img/control/19.JPG", "assets/img/control/20.JPG", "assets/img/control/21.JPG",
-    "assets/img/control/22.JPG", "assets/img/control/23.JPG", "assets/img/control/24.JPG", 
-    "assets/img/control/25.JPG", "assets/img/control/26.JPG", "assets/img/control/27.JPG", 
-    "assets/img/control/28.JPG"
-  ];
-  var index2 = 0;
-  var timer2;
+  </main>
 
-    // 第三組圖片清單
-  var pics3 = [  "assets/img/control/29.JPG", "assets/img/control/30.JPG", "assets/img/control/31.JPG",
-    "assets/img/control/32.JPG", "assets/img/control/33.JPG", "assets/img/control/34.JPG",
-    "assets/img/control/35.JPG", "assets/img/control/36.JPG", "assets/img/control/37.JPG",
-    "assets/img/control/38.JPG", "assets/img/control/39.JPG", "assets/img/control/40.JPG", 
-    "assets/img/control/41.JPG", "assets/img/control/42.JPG", "assets/img/control/43.JPG", 
-    "assets/img/control/44.JPG", "assets/img/control/45.JPG", "assets/img/control/46.JPG"
-  ];
-  var index3 = 0;
-  var timer3;
+  <footer class="container">
+    範本版本 1.0 — 如需客製化（字型、配色、加上導覽或認證），請告訴我您想要的風格或功能。
+  </footer>
 
-     // 第四組圖片清單
-  var pics4 = [  "assets/img/control/47.JPG", "assets/img/control/48.JPG", "assets/img/control/49.JPG",
-    "assets/img/control/50.JPG", "assets/img/control/51.JPG", "assets/img/control/52.JPG",
-    "assets/img/control/53.JPG", "assets/img/control/54.JPG", "assets/img/control/55.JPG", 
-    "assets/img/control/56.JPG", "assets/img/control/57.JPG", "assets/img/control/58.JPG"
-  ];
-  var index4 = 0;
-  var timer4;
+  <!-- 小型彈出預覽（輕量） -->
+  <div id="modal" role="dialog" aria-hidden="true" style="display:none;position:fixed;inset:0;background:rgba(2,6,23,0.6);align-items:center;justify-content:center;padding:20px;z-index:60">
+    <div style="width:90%;max-width:1100px;height:70vh;background:var(--card);border-radius:12px;overflow:hidden;position:relative;">
+      <button aria-label="關閉" onclick="closeModal()" style="position:absolute;right:12px;top:12px;z-index:10;padding:8px;border-radius:8px;border:none;background:#111;color:#fff;opacity:0.9">✕</button>
+      <iframe id="modal-iframe" style="width:100%;height:100%;border:0" title="彈出簡報"></iframe>
+    </div>
+  </div>
 
-  function showPic1() {
-    document.images["slide1"].src = pics1[index1];
-  }
+  <script>
+    const embeds = [
+      'https://docs.google.com/presentation/d/1IYBUwsPVh4Z_EtnX6XMTTZt9N10YXVQ9ReyPLWCCFks/embed?start=false&loop=false&delayms=3000',
+      'https://docs.google.com/presentation/d/1TTFcpgAnU8yikMcsw82Gzti_DA0jlvFZzA20yQQK8AI/embed?start=false&loop=false&delayms=3000',
+      'https://docs.google.com/presentation/d/1sqq0TLUs5B3E9zhkiXg4U0as7Umh5f9J5wOahYDrbh0/embed?start=false&loop=false&delayms=3000',
+      'https://docs.google.com/presentation/d/1pnAWUfCVtLF7juxTmRCnDEog4lelO3lKXIKS9VIxY5s/embed?start=false&loop=false&delayms=3000'
+    ];
 
-  function showPic2() {
-    document.images["slide2"].src = pics2[index2];
-  }
-
-  
-  function showPic3() {
-    document.images["slide3"].src = pics3[index3];
-  }
-
-    function showPic4() {
-    document.images["slide4"].src = pics4[index4];
-  }
-
-  function next1() {
-    index1++;
-    if (index1 >= pics1.length) index1 = 0;
-    showPic1();
-    resetTimer1();
-  }
-
-  function prev1() {
-    index1--;
-    if (index1 < 0) index1 = pics1.length - 1;
-    showPic1();
-    resetTimer1();
-  }
-
-  function next2() {
-    index2++;
-    if (index2 >= pics2.length) index2 = 0;
-    showPic2();
-    resetTimer2();
-  }
-
-  function prev2() {
-    index2--;
-    if (index2 < 0) index2 = pics2.length - 1;
-    showPic2();
-    resetTimer2();
-  }
-
-   function next3() {
-    index3++;
-    if (index3 >= pics3.length) index3 = 0;
-    showPic3();
-    resetTimer3();
-  }
-
-  function prev3() {
-    index3--;
-    if (index3 < 0) index3 = pics3.length - 1;
-    showPic3();
-    resetTimer3();
-  }
-
-     function next4() {
-    index4++;
-    if (index4 >= pics4.length) index4 = 0;
-    showPic4();
-    resetTimer4();
-  }
-
-  function prev4() {
-    index4--;
-    if (index4 < 0) index4 = pics4.length - 1;
-    showPic4();
-    resetTimer4();
-  }
-
-  function autoPlay1() {
-    next1();
-  }
-
-  function autoPlay2() {
-    next2();
-  }
-
-   function autoPlay3() {
-    next3();
-  }
-
-    function autoPlay4() {
-    next4();
-  }
-
-
-  function resetTimer1() {
-    clearInterval(timer1);
-    timer1 = setInterval(autoPlay1, 3000);
-  }
-
-  function resetTimer2() {
-    clearInterval(timer2);
-    timer2 = setInterval(autoPlay2, 4000);
-  }
-
-  function resetTimer3() {
-    clearInterval(timer3);
-    timer3 = setInterval(autoPlay3, 4000);
-  }
-
-    function resetTimer4() {
-    clearInterval(timer4);
-    timer4 = setInterval(autoPlay4, 4000);
-  }
-
-  // 初始化
-  showPic1();
-  showPic2();
-   showPic3();
-  timer1 = setInterval(autoPlay1, 3000);
-  timer2 = setInterval(autoPlay2, 4000);
-  timer3 = setInterval(autoPlay3, 4000);
-  timer4 = setInterval(autoPlay4, 4000);
-</script>
-
+    function openEmbed(i){
+      const modal = document.getElementById('modal');
+      const iframe = document.getElementById('modal-iframe');
+      iframe.src = embeds[i-1];
+      modal.style.display = 'flex';
+      modal.setAttribute('aria-hidden','false');
+    }
+    function closeModal(){
+      const modal = document.getElementById('modal');
+      const iframe = document.getElementById('modal-iframe');
+      iframe.src = '';
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden','true');
+    }
+    function openAll(){
+      embeds.forEach(u=>window.open(u.replace('/embed','/edit?usp=sharing'),'_blank'));
+    }
+    function focusFirst(){
+      const first = document.querySelector('.card iframe');
+      if(first) first.focus();
+    }
+  </script>
 </body>
 </html>
