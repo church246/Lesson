@@ -182,6 +182,21 @@
 
 
 </main>
+<!-- 放在 <body> 裡 -->
+<audio id="audio1" src="audio/verse1.mp3" preload="auto"></audio>
+<audio id="audio2" src="audio/verse2.mp3" preload="auto"></audio>
+
+<!-- 卡片按鈕 -->
+<button class="btn" onclick="playAudio('audio1')">🔊 聽一遍</button>
+<button class="btn" onclick="playAudio('audio2')">🔊 聽一遍</button>
+
+<script>
+  function playAudio(id){
+    const audio = document.getElementById(id);
+    audio.currentTime = 0; // 每次從頭播
+    audio.play();
+  }
+</script>
 
 
 <div class="confetti" id="confetti"></div>
