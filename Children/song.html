@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>讚美歌影片集 — 你很特別 / 耶穌愛我 / 我要向高山舉目 / 讚美的孩子最喜樂</title>
+  <meta name="description" content="把四首讚美歌以單一 HTML5 檔案呈現，點擊封面載入 YouTube 影片。" />
+  <style>
+    :root{--bg:#0b1220;--card:#0f1724;--accent:#fbd38d;--muted:#a8b3c6}
+    html,body{height:100%;margin:0;font-family:Segoe UI, Roboto, "Noto Sans TC", system-ui, -apple-system; background:linear-gradient(180deg,#051025 0%, #081330 100%);color:#e6eef8}
+    .wrap{max-width:1100px;margin:28px auto;padding:20px}
+    header{display:flex;align-items:center;gap:16px}
+    header h1{font-size:1.4rem;margin:0}
+    p.lead{color:var(--muted);margin:6px 0 18px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+    .thumb{position:relative;padding-top:56.25%;background:#000}
+    .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:68px;height:68px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(0,0,0,0.35),rgba(0,0,0,0.55));backdrop-filter:blur(2px);border:2px solid rgba(255,255,255,0.08)}
+    .play:after{content:'';display:block;margin-left:6px;border-style:solid;border-width:12px 0 12px 18px;border-color:transparent transparent transparent #fff}
+    .meta{padding:12px 14px}
+    .title{font-weight:700;margin:0 0 6px}
+    .subtitle{color:var(--muted);font-size:0.95rem;margin:0}
+    .hidden-iframe{display:none}
+    footer{margin-top:18px;color:var(--muted);font-size:0.9rem}
+    /* button style */
+    .btn{display:inline-block;padding:8px 12px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.06);cursor:pointer}
+    @media (prefers-reduced-motion: no-preference){
+      .card:hover{transform:translateY(-4px);transition:transform .18s ease}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <svg width="44" height="44" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="20" rx="6" fill="#fbd38d"/>
+        <path d="M7 12.5C7 9.46 9.46 7 12.5 7S18 9.46 18 12.5 15.54 18 12.5 18 7 15.54 7 12.5z" fill="#081330"/>
+      </svg>
+      <div>
+        <h1>讚美歌影片集</h1>
+        <p class="lead">點擊任何封面即可載入並播放 YouTube 影片（單檔 HTML5，會在畫面上替換）。</p>
+      </div>
+    </header>
+
+    <main>
+      <div class="grid" id="grid"></div>
+
+      <footer>
+        <div>影片來源：YouTube。若要在頁面內自動播放，請注意瀏覽器自動播放政策（通常需靜音才允許自動播放）。</div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    const videos = [
+      {id:'Rgukec27wn8', title:'你很特別'},
+      {id:'6vAILBz8cgo', title:'耶穌愛我'},
+      {id:'bhS0D7Gd-Ek', title:'我要向高山舉目'},
+      {id:'NkT3Gl5w5Es', title:'讚美的孩子最喜樂'}
+    ];
+
+    const grid = document.getElementById('grid');
+
+    function makeCard(v){
+      const card = document.createElement('article');
+      card.className = 'card';
+
+      // thumbnail wrapper
+      const thumb = document.createElement('div');
+      thumb.className = 'thumb';
+
+      const img = document.createElement('img');
+      // use hqdefault as fallback; YouTube may not provide maxres for all videos
+      img.src = `https://img.youtube.com/vi/${v.id}/hqdefault.jpg`;
+      img.alt = `${v.title} - YouTube 封面`;
+
+      const play = document.createElement('div');
+      play.className = 'play';
+      play.setAttribute('role','button');
+      play.setAttribute('aria-label', `播放 ${v.title}`);
+      play.tabIndex = 0;
+
+      thumb.appendChild(img);
+      thumb.appendChild(play);
+
+      // iframe container (will be filled when user clicks)
+      const iframeWrap = document.createElement('div');
+      iframeWrap.className = 'hidden-iframe';
+
+      const meta = document.createElement('div');
+      meta.className = 'meta';
+      const title = document.createElement('h3');
+      title.className = 'title';
+      title.textContent = v.title;
+      const sub = document.createElement('p');
+      sub.className = 'subtitle';
+      sub.innerHTML = `YouTube ID: <code>${v.id}</code> — <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener" style="color:inherit;opacity:0.8">在 YouTube 開啟</a>`;
+
+      meta.appendChild(title);
+      meta.appendChild(sub);
+
+      card.appendChild(thumb);
+      card.appendChild(iframeWrap);
+      card.appendChild(meta);
+
+      // click handler: replace thumb with iframe (lazy load)
+      function loadIframe(){
+        // if already loaded, do nothing
+        if(iframeWrap.dataset.loaded === '1') return;
+
+        // pause other iframes by removing them (simple approach)
+        document.querySelectorAll('.card iframe').forEach(n => n.remove());
+        // restore any removed thumbnails
+        document.querySelectorAll('.card .thumb').forEach(t => t.style.display = 'block');
+
+        thumb.style.display = 'none';
+        iframeWrap.style.display = 'block';
+        iframeWrap.dataset.loaded = '1';
+
+        const iframe = document.createElement('iframe');
+        iframe.width = '100%';
+        iframe.height = '315';
+        iframe.src = `https://www.youtube.com/embed/${v.id}?rel=0&autoplay=1`;
+        iframe.title = v.title;
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.allowFullscreen = true;
+
+        iframeWrap.appendChild(iframe);
+      }
+
+      play.addEventListener('click', loadIframe);
+      play.addEventListener('keypress', (e) => { if(e.key === 'Enter' || e.key === ' ') loadIframe(); });
+
+      return card;
+    }
+
+    // build grid
+    videos.forEach(v => grid.appendChild(makeCard(v)));
+
+    // accessibility: keyboard focus outline
+    document.addEventListener('keydown', e => {
+      if(e.key === 'Escape'){
+        // hide all iframes and show thumbnails again
+        document.querySelectorAll('.card .hidden-iframe').forEach(w => {
+          w.innerHTML = '';
+          w.style.display = 'none';
+          w.dataset.loaded = '0';
+        });
+        document.querySelectorAll('.card .thumb').forEach(t => t.style.display = 'block');
+      }
+    });
+  </script>
+</body>
+</html>

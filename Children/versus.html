@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>每日經文小天地</title>
+  <style>
+    :root{
+      --bg:#FFFBF0; --card:#ffffff; --accent:#FF6B6B; --accent2:#FFD166; --text:#173F5F;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family: 'Noto Sans TC', system-ui, -apple-system, 'Segoe UI', Roboto, 'Microsoft JhengHei', sans-serif;background:linear-gradient(180deg,var(--bg),#F0FFF4);color:var(--text);min-height:100vh;display:flex;flex-direction:column}
+    header{padding:24px;text-align:center}
+    h1{margin:0;font-size:clamp(20px,4vw,34px);letter-spacing:1px}
+    p.subtitle{margin:6px 0 0;font-size:14px;opacity:0.8}
+
+    .play-area{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;padding:18px;max-width:1100px;margin:12px auto 60px;width:calc(100% - 36px)}
+
+    .card{background:var(--card);border-radius:18px;padding:16px;box-shadow:0 6px 18px rgba(23,63,95,0.08);position:relative;overflow:hidden;min-height:140px;display:flex;flex-direction:column;justify-content:space-between}
+    .date{font-weight:700;color:var(--accent);font-size:14px}
+    .verse{margin-top:8px;font-size:16px;line-height:1.45}
+    .ref{margin-top:8px;font-size:13px;color:#4a6b75}
+
+    .btns{display:flex;gap:8px;margin-top:12px}
+    .btn{border:0;padding:8px 12px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:white;font-weight:700;cursor:pointer;box-shadow:0 6px 12px rgba(255,107,107,0.18)}
+    .btn.secondary{background:transparent;color:var(--accent);border:2px solid rgba(255,107,107,0.12);box-shadow:none}
+
+    /* fun decorations */
+    .mountain{height:80px;background:linear-gradient(180deg,#89CFF0,#5DADE2);border-radius:12px;margin-top:10px;display:flex;align-items:flex-end;justify-content:center}
+    .sheep{width:36px;height:24px;border-radius:8px;background:#fff;box-shadow:0 3px 8px rgba(0,0,0,0.12);display:flex;align-items:center;justify-content:center;font-size:12px}
+
+    footer{margin-top:auto;text-align:center;padding:14px;font-size:13px;color:#6f8a93}
+
+    /* confetti */
+    .confetti{pointer-events:none;position:fixed;left:0;top:0;width:100%;height:100%;overflow:hidden}
+
+    @media (max-width:420px){.verse{font-size:15px}}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>✨ 每日經文小天地 ✨</h1>
+    <p class="subtitle">點一張卡片聽經文、變色、放小動畫，讓孩子一起愛上聖經！</p>
+  </header>
+
+  <main class="play-area" id="play">
+    <!-- Card 1 -->
+    <article class="card" data-date="114年9月13日">
+      <div>
+        <div class="date">114年9月13日</div>
+        <div class="verse">耶和華是我的牧者，我必不致缺乏。<br/><small class="ref">（詩篇 23:1）</small></div>
+      </div>
+      <div>
+        <div class="mountain" aria-hidden>
+          <div class="sheep" id="sheep1">🐑</div>
+        </div>
+        <div class="btns">
+          <button class="btn" onclick="speakText('耶和華是我的牧者，我必不致缺乏。')">🔊 聽一遍</button>
+          <button class="btn secondary" onclick="celebrate(this)">🎉 玩一下</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 2 -->
+    <article class="card" data-date="114年9月20日">
+      <div>
+        <div class="date">114年9月20日</div>
+        <div class="verse">我要向高山舉目。我的幫助從何而來？ <br/>我的幫助從造天地的耶和華而來。<br/><small class="ref">（詩篇 121:1-2）</small></div>
+      </div>
+      <div>
+        <div class="mountain" aria-hidden>
+          <div style="font-size:22px;margin-bottom:6px">⛰️</div>
+        </div>
+        <div class="btns">
+          <button class="btn" onclick="speakText('我要向高山舉目。我的幫助從何而來？我的幫助從造天地的耶和華而來。')">🔊 聽一遍</button>
+          <button class="btn secondary" onclick="focusMountain(this)">🔭 看山</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 3 -->
+    <article class="card" data-date="114年10月18日">
+      <div>
+        <div class="date">114年10月18日</div>
+        <div class="verse">祂必不叫你的腳搖動；保護你的必不打盹。<br/><small class="ref">（詩篇 121:3）</small></div>
+      </div>
+      <div>
+        <div class="mountain" aria-hidden>
+          <div style="font-size:18px;margin-bottom:6px">🛡️</div>
+        </div>
+        <div class="btns">
+          <button class="btn" onclick="speakText('祂必不叫你的腳搖動；保護你的必不打盹。')">🔊 聽一遍</button>
+          <button class="btn secondary" onclick="celebrate(this)">🎉 玩一下</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 4 -->
+    <article class="card" data-date="114年11月1日">
+      <div>
+        <div class="date">114年11月1日</div>
+        <div class="verse">你出你入，耶和華要保護你，從今時直到永遠。<br/><small class="ref">（詩篇 121:8）</small></div>
+      </div>
+      <div>
+        <div class="mountain" aria-hidden>
+          <div style="font-size:18px;margin-bottom:6px">🚪</div>
+        </div>
+        <div class="btns">
+          <button class="btn" onclick="speakText('你出你入，耶和華要保護你，從今時直到永遠。')">🔊 聽一遍</button>
+          <button class="btn secondary" onclick="celebrate(this)">🎉 玩一下</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 5 -->
+    <article class="card" data-date="114年11月8日">
+      <div>
+        <div class="date">114年11月8日</div>
+        <div class="verse">神所賜出人意外的平安，必在基督耶和華裡保守你們的心懷意念。<br/><small class="ref">（腓立比書 4:7）</small></div>
+      </div>
+      <div>
+        <div class="mountain" aria-hidden>
+          <div style="font-size:18px;margin-bottom:6px">💗</div>
+        </div>
+        <div class="btns">
+          <button class="btn" onclick="speakText('神所賜出人意外的平安，必在基督耶和華裡保守你們的心懷意念。')">🔊 聽一遍</button>
+          <button class="btn secondary" onclick="celebrate(this)">🎉 玩一下</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 6 -->
+    <article class="card" data-date="114年11月15日">
+      <div>
+        <div class="date">114年11月15日</div>
+        <div class="verse">我靠著那加給我力量的，凡事都能做。<br/><small class="ref">（腓立比書 4:13）</small></div>
+      </div>
+      <div>
+        <div class="mountain" aria-hidden>
+          <div style="font-size:18px;margin-bottom:6px">💪</div>
+        </div>
+        <div class="btns">
+          <button class="btn" onclick="speakText('我靠著那加給我力量的，凡事都能做。')">🔊 聽一遍</button>
+          <button class="btn secondary" onclick="celebrate(this)">🎉 玩一下</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 7 -->
+    <article class="card" data-date="114年11月22日">
+      <div>
+        <div class="date">114年11月22日</div>
+        <div class="verse">應當一無掛慮，只要凡事藉著禱告、祈求和感謝，將你們所要的告訴神。<br/><small class="ref">（腓立比書 4:6）</small></div>
+      </div>
+      <div>
+        <div class="mountain" aria-hidden>
+          <div style="font-size:18px;margin-bottom:6px">🙏</div>
+        </div>
+        <div class="btns">
+          <button class="btn" onclick="speakText('應當一無掛慮，只要凡事藉著禱告、祈求和感謝，將你們所要的告訴神。')">🔊 聽一遍</button>
+          <button class="btn secondary" onclick="celebrate(this)">🎉 玩一下</button>
+        </div>
+      </div>
+    </article>
+
+   <!-- Card 8 -->
+<article class="card" data-date="114年12月6日">
+<div>
+<div class="date">114年12月6日</div>
+<div class="verse">耶和華要保護你，免受一切的災害；祂要保護你的性命。<br/><small class="ref">（詩篇 121:7）</small></div>
+</div>
+<div>
+<div class="mountain" aria-hidden>
+<div style="font-size:18px;margin-bottom:6px">🛡️</div>
+</div>
+<div class="btns">
+<button class="btn" onclick="speakText('耶和華要保護你，免受一切的災害；祂要保護你的性命。')">🔊 聽一遍</button>
+<button class="btn secondary" onclick="celebrate(this)">🎉 玩一下</button>
+</div>
+</div>
+</article>
+
+
+</main>
+
+
+<div class="confetti" id="confetti"></div>
+
+
+<footer>祝福你與孩子一起快樂讀經！💖</footer>
+
+
+<script>
+// Simple speech (browser-dependent)
+function speakText(text){
+if(!('speechSynthesis' in window)){
+alert('此瀏覽器不支援語音功能。'); return;
+}
+window.speechSynthesis.cancel();
+const ut = new SpeechSynthesisUtterance(text);
+ut.lang = 'zh-TW';
+ut.rate = 0.95;
+window.speechSynthesis.speak(ut);
+}
+
+
+// celebrate: small confetti burst
+function celebrate(btn){
+const conf = document.getElementById('confetti');
+// create pieces
+for(let i=0;i<40;i++){
+const el = document.createElement('div');
+el.textContent = ['✨','🎈','🎉','⭐'][Math.floor(Math.random()*4)];
+el.style.position='absolute';
+el.style.left = (50 + (Math.random()-0.5)*60) + '%';
+el.style.top = (50 + (Math.random()-0.5)*20) + '%';
+el.style.fontSize = (10+Math.random()*18)+'px';
+el.style.opacity = '0.95';
+conf.appendChild(el);
+// animate
+const dx = (Math.random()-0.5)*300;
+const dy = -200 - Math.random()*300;
+el.animate([
+{transform:'translate(0,0) rotate(0deg)',opacity:1},
+{transform:`translate(${dx}px,${dy}px) rotate(${Math.random()*720}deg)`,opacity:0}
+],{duration:1000+Math.random()*900, easing:'cubic-bezier(.2,.8,.2,1)'}).onfinish = ()=>el.remove();
+}
+// little button pulse
+btn.animate([{transform:'scale(1)'},{transform:'scale(1.06)'},{transform:'scale(1)'}],{duration:420})
+}
+
+
+// focusMountain: zoom-like highlight for mountain card
+function focusMountain(btn){
+const card = btn.closest('.card');
+card.animate([{transform:'scale(1)'},{transform:'scale(1.03)'},{transform:'scale(1)'}],{duration:600});
+// show a playful tip
+const tip = document.createElement('div');
+tip.textContent = '我們的幫助從創造天地的耶和華而來！🙌';
+tip.style.position='absolute';tip.style.left='50%';tip.style.top='8px';tip.style.transform='translateX(-50%)';
+tip.style.background='rgba(255,255,255,0.9)';tip.style.padding='6px 10px';tip.style.borderRadius='10px';tip.style.boxShadow='0 6px 14px rgba(0,0,0,0.08)';
+card.appendChild(tip);
+setTimeout(()=>tip.remove(),1800);
+}
+
+
+// small sheep walk animation
+const sheep = document.getElementById('sheep1');
+let dir = 1;
+setInterval(()=>{
+const cur = parseFloat(getComputedStyle(sheep).transform.split(',')[4]||0);
+const x = (Math.random()*6 - 3) * dir;
+sheep.animate([{transform:`translateX(${x}px)`},{transform:`translateX(0px)`}],{duration:1200,fill:'forwards'});
+dir *= -1;
+},2200);
+</script>
+</body>
+</html>
