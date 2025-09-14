@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小朋友影片播放頁</title>
+<style>
+  body {
+    margin:0;
+    font-family: "Noto Sans TC", system-ui, -apple-system, "Segoe UI", Roboto, "Microsoft JhengHei", sans-serif;
+    background: linear-gradient(180deg, #CBEFFD 0%, #FFFBF0 60%);
+    color: #173F5F;
+    padding: 16px;
+  }
+  h1 { text-align:center; margin-bottom:20px; }
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 18px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .player {
+    background:#fff;
+    border-radius:12px;
+    padding:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  }
+  iframe {
+    width:100%;
+    aspect-ratio:16/9;
+    border:0;
+    border-radius:12px;
+  }
+  .playlist {
+    background:#fff;
+    border-radius:12px;
+    padding:12px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.06);
+  }
+  .video-item {
+    display:flex;
+    gap:10px;
+    align-items:center;
+    margin-bottom:10px;
+    cursor:pointer;
+    padding:6px;
+    border-radius:8px;
+    transition:0.2s;
+  }
+  .video-item:hover { background: rgba(0,0,0,0.03); }
+  .video-item img {
+    width:100px;
+    height:56px;
+    border-radius:6px;
+    object-fit:cover;
+  }
+  .video-item h4 { margin:0; font-size:14px; }
+  .video-item p { margin:2px 0 0; font-size:12px; color:#666; }
+  @media(max-width:900px){
+    .container { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<h1>小朋友影片播放頁</h1>
+
+<div class="container">
+  <div class="player">
+    <iframe id="player" src="https://www.youtube.com/embed/JGN6ERAnj6w" title="YouTube Video Player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+  <div class="playlist">
+    <div class="video-item" data-id="JGN6ERAnj6w" onclick="switchVideo(this)">
+      <img src="https://img.youtube.com/vi/JGN6ERAnj6w/hqdefault.jpg" alt="">
+      <div>
+        <h4>快樂學習歌</h4>
+        <p>影片 1</p>
+      </div>
+    </div>
+    <div class="video-item" data-id="zcWtv0Kuwb0" onclick="switchVideo(this)">
+      <img src="https://img.youtube.com/vi/zcWtv0Kuwb0/hqdefault.jpg" alt="">
+      <div>
+        <h4>動動小手</h4>
+        <p>影片 2</p>
+      </div>
+    </div>
+    <div class="video-item" data-id="DZqsSTcAS2g" onclick="switchVideo(this)">
+      <img src="https://img.youtube.com/vi/DZqsSTcAS2g/hqdefault.jpg" alt="">
+      <div>
+        <h4>好玩的故事時間</h4>
+        <p>影片 3</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function switchVideo(el){
+  const id = el.getAttribute('data-id');
+  document.getElementById('player').src = 'https://www.youtube.com/embed/' + id;
+}
+</script>
+
+</body>
+</html>
+
