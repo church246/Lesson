@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>嵌入 Google 投影片</title>
+  <style>
+    /* 讓 iframe 響應式並保持 16:9 */
+    .embed-wrap { position: relative; width: 100%; padding-top: 56.25%; /* 16:9 */ }
+    .embed-wrap iframe {
+      position: absolute; left:0; top:0; width:100%; height:100%; border:0;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08); border-radius:8px;
+    }
+    .controls { margin-top:12px; display:flex; gap:8px; align-items:center; }
+    .btn {
+      display:inline-block; padding:8px 12px; border-radius:6px; text-decoration:none;
+      border:1px solid #0077cc; background:#0077cc; color:#fff; font-weight:600;
+    }
+    .btn.secondary { background:#fff; color:#0077cc; border:1px solid #0077cc; }
+  </style>
+</head>
+<body>
+  <h2>線上投影片（點下去即可使用）</h2>
+
+  <div class="embed-wrap">
+    <!-- 把 ID 換成你的投影片 ID -->
+    <iframe src="https://docs.google.com/presentation/d/1rKt-60BlJOoe6lhOM2YVwFqpGTvESiL5KfyEHVYkflw/embed?start=false&loop=false&delayms=3000" 
+            allowfullscreen
+            allow="autoplay">
+    </iframe>
+  </div>
+
+  <div class="controls">
+    <!-- 在新分頁以簡報模式開啟 -->
+    <a class="btn" href="https://docs.google.com/presentation/d/1rKt-60BlJOoe6lhOM2YVwFqpGTvESiL5KfyEHVYkflw/present" target="_blank" rel="noopener">
+      以簡報模式開啟（新視窗）
+    </a>
+
+    <!-- 直接連到可檢視版本 -->
+    <a class="btn secondary" href="https://docs.google.com/presentation/d/1rKt-60BlJOoe6lhOM2YVwFqpGTvESiL5KfyEHVYkflw/view" target="_blank" rel="noopener">
+      開啟檢視頁面
+    </a>
+
+    <span style="margin-left:8px;color:#666;font-size:0.95rem;">提示：若看不到內容，請確認投影片的分享權限為「任何有連結的人可檢視」。</span>
+  </div>
+
+  <P><a href="yellow_book2.html">另外也可參考文字版本</a></P>
+</body>
+</html>
