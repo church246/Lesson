@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>聖誕歡樂派對摸彩球</title>
+  <title>聖誕歡樂派對摸彩球 🎄</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
@@ -59,10 +59,32 @@
       margin: 20px auto;
       width: 80%;
     }
+
+    /* 🎁 聖誕字幕動畫樣式 */
+    #subtitle {
+      font-size: 1.2em;
+      margin-top: 30px;
+      white-space: pre-wrap;
+      min-height: 100px;
+      width: 85%;
+      margin-left: auto;
+      margin-right: auto;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+      line-height: 1.8;
+      animation: fadeIn 1s ease;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
   </style>
 </head>
 <body>
+  <!-- 聖誕歌曲 -->
   <audio id="christmasMusic" src="../music/christmas_song.mp3" preload="auto"></audio>
+
+  <!-- 🎧 聖誕旁白 -->
+  <audio id="narrationAudio" src="../music/message.mp3" preload="auto"></audio>
 
   <h1>🎄 聖誕歡樂派對摸彩球 🎁</h1>
   <p>點擊下方的摸彩球，領受一節經文與禱告祝福！</p>
@@ -77,9 +99,10 @@
   </div>
 
   <div id="result" class="verse-box"></div>
+  <div id="subtitle"></div>
 
   <script>
-  // 經文資料
+  // === 經文資料 ===
   const data = [
      {verse: '路加福音 2:10-11', text: '天使對他們說：「不要懼怕！我報給你們大喜的信息，是關乎萬民的；因今天在大衛的城裡，為你們生了救主，就是主基督。」', prayer: '親愛的主，感謝祢成為我們的救主，願我們在這聖誕節領受從天而來的平安與喜樂。'},
   {verse: '以賽亞書 9:6', text: '因有一嬰孩為我們而生，有一子賜給我們。政權必擔在祂的肩頭上。', prayer: '主啊，願祢的平安臨到我們家中，使我們滿有盼望與光明。'},
@@ -103,13 +126,12 @@
   {verse: '腓立比書 2:10-11', text: '使天上地下和地底下的一切口，都因耶穌的名而屈膝，承認耶穌基督為主。', prayer: '主，願我們一生高舉祢的名，並在生活中見證祢的榮耀。'}
 ];
 
-
-  // 隨機摸彩
   function drawBall() {
     const random = Math.floor(Math.random() * data.length);
     const verse = data[random];
     document.getElementById('ball').innerText = random + 1;
-    document.getElementById('result').innerHTML = `<h3>${verse.verse}</h3><p>${verse.text}</p><p><strong>禱告：</strong>${verse.prayer}</p>`;
+    document.getElementById('result').innerHTML =
+      `<h3>${verse.verse}</h3><p>${verse.text}</p><p><strong>禱告：</strong>${verse.prayer}</p>`;
   }
 
   function shuffleBalls() {
@@ -117,7 +139,7 @@
     document.getElementById('result').innerHTML = '';
   }
 
-  // 聖誕歌曲播放
+  // === 聖誕歌曲 ===
   let musicPlaying = false;
   function toggleMusic() {
     const music = document.getElementById('christmasMusic');
@@ -131,38 +153,42 @@
     }
   }
 
-  // === 聖誕旁白 ===
+  // === 🎧 播放旁白 (MP3) + 打字字幕 ===
   let isNarrating = false;
-  let currentUtterance;
-  let cuteVoice = null;
+  const subtitleEl = document.getElementById("subtitle");
+  const narrationAudio = document.getElementById("narrationAudio");
 
-  // 預先載入語音
-  speechSynthesis.onvoiceschanged = () => {
-    const voices = speechSynthesis.getVoices();
-    cuteVoice = voices.find(v =>
-      v.lang === 'zh-TW' &&
-      (v.name.includes('Ting-Ting') || v.name.includes('HanHan') || v.name.includes('Mei-Jia'))
-    ) || voices.find(v => v.lang.startsWith('zh')) || voices[0];
-  };
+  const message = '聖誕節的核心不是燈光、禮物或音樂，而是一個愛的宣告——上帝親自來到世上，成為人，名叫耶穌。祂為了拯救我們、與我們同在，帶來真正的平安與盼望。今天，這位救主仍然對你說：「不要懼怕！」因祂的降生，就是為了讓你的生命充滿愛、平安與喜樂。';
 
   function playNarration() {
     if (isNarrating) {
-      speechSynthesis.cancel();
+      narrationAudio.pause();
+      narrationAudio.currentTime = 0;
+      subtitleEl.textContent = "";
       isNarrating = false;
       return;
     }
 
-    const message = '聖誕節的核心不是燈光、禮物或音樂，而是一個愛的宣告——上帝親自來到世上，成為人，名叫耶穌。祂為了拯救我們、與我們同在，帶來真正的平安與盼望。今天，這位救主仍然對你說：「不要懼怕！」因祂的降生，就是為了讓你的生命充滿愛、平安與喜樂。';
-    currentUtterance = new SpeechSynthesisUtterance(message);
-    currentUtterance.lang = 'zh-TW';
-    currentUtterance.pitch = 7;
-    currentUtterance.rate = 1;
-    if (cuteVoice) currentUtterance.voice = cuteVoice;
+    // 播放音檔
+    narrationAudio.play();
+    isNarrating = true;
 
-    currentUtterance.onstart = () => isNarrating = true;
-    currentUtterance.onend = () => isNarrating = false;
+    // 打字字幕動畫
+    subtitleEl.textContent = "";
+    let index = 0;
+    const typing = setInterval(() => {
+      if (index < message.length && isNarrating) {
+        subtitleEl.textContent += message.charAt(index);
+        index++;
+      } else {
+        clearInterval(typing);
+      }
+    }, 100);
 
-    speechSynthesis.speak(currentUtterance);
+    narrationAudio.onended = () => {
+      isNarrating = false;
+      clearInterval(typing);
+    };
   }
 
   // 雪花效果
@@ -178,4 +204,3 @@
   </script>
 </body>
 </html>
-
