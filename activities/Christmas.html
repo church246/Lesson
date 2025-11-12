@@ -31,9 +31,7 @@
       box-shadow: 0 0 25px rgba(255,255,255,0.7);
       transition: transform 0.6s ease;
     }
-    .ball:hover {
-      transform: scale(1.1);
-    }
+    .ball:hover { transform: scale(1.1); }
     .btn-christmas {
       background-color: #16a34a;
       color: white;
@@ -64,7 +62,8 @@
   </style>
 </head>
 <body>
-    <audio id="christmasMusic" src="../music/christmas_song.mp3" preload="auto"></audio>
+  <audio id="christmasMusic" src="../music/christmas_song.mp3" preload="auto"></audio>
+
   <h1>🎄 聖誕歡樂派對摸彩球 🎁</h1>
   <p>點擊下方的摸彩球，領受一節經文與禱告祝福！</p>
 
@@ -80,8 +79,9 @@
   <div id="result" class="verse-box"></div>
 
   <script>
-    const data = [
-       {verse: '路加福音 2:10-11', text: '天使對他們說：「不要懼怕！我報給你們大喜的信息，是關乎萬民的；因今天在大衛的城裡，為你們生了救主，就是主基督。」', prayer: '親愛的主，感謝祢成為我們的救主，願我們在這聖誕節領受從天而來的平安與喜樂。'},
+  // 經文資料
+  const data = [
+     {verse: '路加福音 2:10-11', text: '天使對他們說：「不要懼怕！我報給你們大喜的信息，是關乎萬民的；因今天在大衛的城裡，為你們生了救主，就是主基督。」', prayer: '親愛的主，感謝祢成為我們的救主，願我們在這聖誕節領受從天而來的平安與喜樂。'},
   {verse: '以賽亞書 9:6', text: '因有一嬰孩為我們而生，有一子賜給我們。政權必擔在祂的肩頭上。', prayer: '主啊，願祢的平安臨到我們家中，使我們滿有盼望與光明。'},
   {verse: '約翰福音 3:16', text: '神愛世人，甚至將祂的獨生子賜給他們。', prayer: '感謝天父的愛，讓我們也能彼此相愛，成為祝福的管道。'},
   {verse: '馬太福音 1:23', text: '必有童女懷孕生子，人要稱祂的名為以馬內利。', prayer: '主耶穌，謝謝祢與我們同在，願祢的愛充滿我們的生命。'},
@@ -103,114 +103,78 @@
   {verse: '腓立比書 2:10-11', text: '使天上地下和地底下的一切口，都因耶穌的名而屈膝，承認耶穌基督為主。', prayer: '主，願我們一生高舉祢的名，並在生活中見證祢的榮耀。'}
 ];
 
-    function drawBall() {
-      const random = Math.floor(Math.random() * data.length);
-      const verse = data[random];
-      document.getElementById('ball').innerText = random + 1;
-      document.getElementById('result').innerHTML = `<h3>${verse.verse}</h3><p>${verse.text}</p><p><strong>禱告：</strong>${verse.prayer}</p>`;
-    }
 
-    function shuffleBalls() {
-      document.getElementById('ball').innerText = '?';
-      document.getElementById('result').innerHTML = '';
-    }
-
-    function copyPrayer() {
-      const result = document.getElementById('result').innerText;
-      navigator.clipboard.writeText(result);
-      alert('禱告內容已複製！');
-    }
-
-    // 聖誕歌曲播放（Jingle Bells 簡短旋律）
-    let audioCtx, osc;
-    let playing = false;
-    function toggleMusic() {
-      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      if (!playing) {
-        playing = true;
-        playJingle();
-      } else {
-        audioCtx.close();
-        audioCtx = null;
-        playing = false;
-      }
-    }
-
-    function playJingle() {
-      const notes = [659,659,659,659,659,659,659,784,523,587,659];
-      notes.forEach((freq, i) => {
-        const o = audioCtx.createOscillator();
-        const g = audioCtx.createGain();
-        o.connect(g).connect(audioCtx.destination);
-        o.frequency.value = freq;
-        o.start(audioCtx.currentTime + i * 0.3);
-        o.stop(audioCtx.currentTime + (i+1) * 0.3);
-      });
-    }
-
-    // 聖誕旁白
- let isNarrating = false;
-let currentUtterance = null;
-
-function playNarration() {
-  // 如果正在播放 → 停止
-  if (isNarrating) {
-    speechSynthesis.cancel();
-    isNarrating = false;
-    return;
+  // 隨機摸彩
+  function drawBall() {
+    const random = Math.floor(Math.random() * data.length);
+    const verse = data[random];
+    document.getElementById('ball').innerText = random + 1;
+    document.getElementById('result').innerHTML = `<h3>${verse.verse}</h3><p>${verse.text}</p><p><strong>禱告：</strong>${verse.prayer}</p>`;
   }
 
-  // 否則開始播放
- const message = '聖誕節的核心不是燈光、禮物或音樂，而是一個愛的宣告——上帝親自來到世上，成為人，名叫耶穌。祂為了拯救我們、與我們同在，帶來真正的平安與盼望。今天，這位救主仍然對你說：「不要懼怕！」因祂的降生，就是為了讓你的生命充滿愛、平安與喜樂。';
-
-let currentUtterance = new SpeechSynthesisUtterance(message);
-currentUtterance.lang = 'zh-TW';
-currentUtterance.pitch = 1.5; // 提高音調，讓聲音更可愛
-currentUtterance.rate = 1;    // 語速適中
-
-// 嘗試選擇可愛/童音的語音
-speechSynthesis.onvoiceschanged = () => {
-  const voices = speechSynthesis.getVoices();
-  console.log(voices); // 先看看瀏覽器有哪些可用語音
-  const cuteVoice = voices.find(v => 
-    v.lang === 'zh-TW' && 
-    (v.name.includes('Mei-Jia') || v.name.includes('HanHan') || v.name.includes('Ting-Ting'))
-  );
-  if (cuteVoice) {
-    currentUtterance.voice = cuteVoice;
+  function shuffleBalls() {
+    document.getElementById('ball').innerText = '?';
+    document.getElementById('result').innerHTML = '';
   }
-  speechSynthesis.speak(currentUtterance);
-};
-  // 播放狀態控制
-  currentUtterance.onstart = () => { isNarrating = true; };
-  currentUtterance.onend = () => { isNarrating = false; };
 
-  speechSynthesis.speak(currentUtterance);
-}
+  // 聖誕歌曲播放
+  let musicPlaying = false;
+  function toggleMusic() {
+    const music = document.getElementById('christmasMusic');
+    if (!musicPlaying) {
+      music.play();
+      musicPlaying = true;
+    } else {
+      music.pause();
+      music.currentTime = 0;
+      musicPlaying = false;
+    }
+  }
 
-    // 雪花效果
-    for (let i = 0; i < 30; i++) {
-      const snow = document.createElement('div');
-      snow.className = 'snowflake';
-      snow.innerText = '❄';
-      snow.style.left = Math.random() * 100 + 'vw';
-      snow.style.animationDuration = 5 + Math.random() * 5 + 's';
-      snow.style.fontSize = 12 + Math.random() * 20 + 'px';
-      document.body.appendChild(snow);
+  // === 聖誕旁白 ===
+  let isNarrating = false;
+  let currentUtterance;
+  let cuteVoice = null;
+
+  // 預先載入語音
+  speechSynthesis.onvoiceschanged = () => {
+    const voices = speechSynthesis.getVoices();
+    cuteVoice = voices.find(v =>
+      v.lang === 'zh-TW' &&
+      (v.name.includes('Ting-Ting') || v.name.includes('HanHan') || v.name.includes('Mei-Jia'))
+    ) || voices.find(v => v.lang.startsWith('zh')) || voices[0];
+  };
+
+  function playNarration() {
+    if (isNarrating) {
+      speechSynthesis.cancel();
+      isNarrating = false;
+      return;
     }
 
-    let musicPlaying = false;
-function toggleMusic() {
-  const music = document.getElementById('christmasMusic');
-  if (!musicPlaying) {
-    music.play();
-    musicPlaying = true;
-  } else {
-    music.pause();
-    music.currentTime = 0; // 從頭開始
-    musicPlaying = false;
+    const message = '聖誕節的核心不是燈光、禮物或音樂，而是一個愛的宣告——上帝親自來到世上，成為人，名叫耶穌。祂為了拯救我們、與我們同在，帶來真正的平安與盼望。今天，這位救主仍然對你說：「不要懼怕！」因祂的降生，就是為了讓你的生命充滿愛、平安與喜樂。';
+    currentUtterance = new SpeechSynthesisUtterance(message);
+    currentUtterance.lang = 'zh-TW';
+    currentUtterance.pitch = 7;
+    currentUtterance.rate = 1;
+    if (cuteVoice) currentUtterance.voice = cuteVoice;
+
+    currentUtterance.onstart = () => isNarrating = true;
+    currentUtterance.onend = () => isNarrating = false;
+
+    speechSynthesis.speak(currentUtterance);
   }
-}
+
+  // 雪花效果
+  for (let i = 0; i < 30; i++) {
+    const snow = document.createElement('div');
+    snow.className = 'snowflake';
+    snow.innerText = '❄';
+    snow.style.left = Math.random() * 100 + 'vw';
+    snow.style.animationDuration = 5 + Math.random() * 5 + 's';
+    snow.style.fontSize = 12 + Math.random() * 20 + 'px';
+    document.body.appendChild(snow);
+  }
   </script>
 </body>
 </html>
