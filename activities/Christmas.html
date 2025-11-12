@@ -3,239 +3,201 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>聖誕歡樂派對 — 摸彩球與聖誕歌</title>
+  <title>聖誕歡樂派對摸彩球</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    :root{--green:#0b6b3a;--red:#b71c1c;--gold:#f3c84b;--bg:#f7fbff}
-    html,body{height:100%;margin:0;font-family: "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;background:linear-gradient(180deg,#f7fbff 0%, #f0f7ff 100%);color:#213028}
-    .wrap{min-height:100%;display:flex;flex-direction:column;align-items:center;padding:22px}
-    header{width:100%;max-width:1100px;display:flex;align-items:center;justify-content:space-between}
-    h1{margin:0;font-size:1.6rem;color:var(--green);display:flex;gap:10px;align-items:center}
-    .sub{color:#44655b}
-    .stage{margin-top:18px;width:100%;max-width:1100px;display:flex;gap:20px}
-    .left{flex:1}
-
-    /* raffle ball */
-    .ball-area{display:flex;flex-direction:column;align-items:center;gap:12px}
-    .ball-wrapper{width:340px;height:340px;display:flex;align-items:center;justify-content:center;position:relative}
-    .ball{width:260px;height:260px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.1rem;color:white;box-shadow:0 12px 30px rgba(0,0,0,0.18);transition:transform 400ms ease}
-    .ball.red{background:linear-gradient(180deg,var(--red),#8e1717)}
-    .ball.green{background:linear-gradient(180deg,var(--green),#07522b)}
-    .ball.gold{background:linear-gradient(180deg,var(--gold),#d9a800);color:#2c2c2c}
-
-    .ball-number{font-size:2.4rem;letter-spacing:2px}
-    .ornaments{position:absolute;inset:14px;pointer-events:none}
-
-    .back-card{width:320px;border-radius:12px;padding:16px;background:rgba(255,255,255,0.9);box-shadow:0 6px 18px rgba(0,0,0,0.08);text-align:center}
-    .verse{font-size:1rem;line-height:1.6;margin-top:8px;color:#1f2f2a}
-    .ref{font-weight:700;margin-top:8px;color:#6b4a3a}
-    .prayer{margin-top:10px;padding:12px;border-radius:10px;background:linear-gradient(180deg,#fff9f7,#fffefc);color:#2b2b2b}
-
-    .controls{display:flex;gap:8px;margin-top:12px}
-    button{background:var(--red);color:var(--gold);border:none;padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:800}
-    button.secondary{background:white;border:2px solid var(--red);color:var(--red);font-weight:800}
-
-    aside{width:320px}
-    .list{background:rgba(255,255,255,0.95);padding:12px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.06)}
-    .list h3{margin:0 0 8px 0;color:var(--green)}
-
-    /* decorative snow & lights */
-    .snow{position:fixed;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:1}
-    .lights{position:fixed;top:8px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:11}
-    .light{width:14px;height:22px;border-radius:6px;background:var(--gold);box-shadow:0 6px 14px rgba(0,0,0,0.12)}
-
-    footer{margin-top:20px;color:#566a61;font-size:0.9rem}
-    @media (max-width:920px){.stage{flex-direction:column}.aside{width:100%}aside{width:100%}}
+    body {
+      background: radial-gradient(circle at top, #e11d48 0%, #7f1d1d 100%);
+      color: #fff;
+      text-align: center;
+      font-family: 'Noto Sans TC', sans-serif;
+      overflow-x: hidden;
+    }
+    h1 {
+      margin-top: 40px;
+      font-size: 2.5em;
+      text-shadow: 2px 2px 6px #000;
+    }
+    .ball {
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, #fbbf24, #b45309);
+      border-radius: 50%;
+      margin: 20px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2em;
+      box-shadow: 0 0 25px rgba(255,255,255,0.7);
+      transition: transform 0.6s ease;
+    }
+    .ball:hover {
+      transform: scale(1.1);
+    }
+    .btn-christmas {
+      background-color: #16a34a;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 10px 20px;
+      margin: 10px;
+    }
+    .snowflake {
+      position: fixed;
+      top: 0;
+      color: #fff;
+      font-size: 1em;
+      opacity: 0.8;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-10%); }
+      100% { transform: translateY(110vh); }
+    }
+    .verse-box {
+      background: rgba(255,255,255,0.1);
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px auto;
+      width: 80%;
+    }
   </style>
 </head>
 <body>
-  <canvas id="snow" class="snow"></canvas>
-  <div class="lights" aria-hidden="true">
-    <div class="light"></div>
-    <div class="light"></div>
-    <div class="light"></div>
-    <div class="light"></div>
-    <div class="light"></div>
+    <audio id="christmasMusic" src="../music/christmas_song.mp3" preload="auto"></audio>
+  <h1>🎄 聖誕歡樂派對摸彩球 🎁</h1>
+  <p>點擊下方的摸彩球，領受一節經文與禱告祝福！</p>
+
+  <div id="ball" class="ball">?</div>
+
+  <div>
+    <button class="btn-christmas" onclick="drawBall()">摸彩</button>
+    <button class="btn-christmas" onclick="shuffleBalls()">洗球</button>
+    <button class="btn-christmas" onclick="toggleMusic()">播放/暫停聖誕歌</button>
+    <button class="btn-christmas" onclick="playNarration()">播放/停止聖誕信息</button>
   </div>
 
-  <div class="wrap">
-    <header>
-      <div>
-        <h1>聖誕歡樂派對 — 摸彩球 🎄</h1>
-        <div class="sub">在派對中抽一顆摸彩球，顯示一句經文與溫暖禱告，並播放聖誕歡樂旋律。</div>
-      </div>
-      <div class="meta">作者：ChatGPT 範例版</div>
-    </header>
-
-    <div class="stage">
-      <div class="left">
-        <div class="ball-area">
-          <div class="ball-wrapper">
-            <div id="ball" class="ball red" role="img" aria-label="摸彩球">
-              <div style="text-align:center">
-                <div style="opacity:0.9;font-size:0.85rem">摸彩球</div>
-                <div id="ballNumber" class="ball-number">—</div>
-              </div>
-            </div>
-            <div class="ornaments" aria-hidden="true">
-              <!-- small decorative SVGs -->
-              <svg width="340" height="340" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;left:0;top:0;opacity:0.18">
-                <circle cx="30" cy="40" r="6" fill="#fff"/>
-                <circle cx="170" cy="60" r="4" fill="#fff"/>
-                <circle cx="50" cy="170" r="3" fill="#fff"/>
-                <circle cx="150" cy="150" r="5" fill="#fff"/>
-              </svg>
-            </div>
-          </div>
-
-          <div class="back-card" id="infoCard">
-            <div style="font-weight:900;color:var(--green)">經文</div>
-            <div id="verse" class="verse">—</div>
-            <div id="ref" class="ref">—</div>
-            <div id="prayer" class="prayer">—</div>
-
-            <div class="controls">
-              <button id="draw">摸彩</button>
-              <button id="shuffle" class="secondary">洗球</button>
-              <button id="playSong" class="secondary">播放/暫停聖誕歌</button>
-              <button id="copy" class="secondary">複製禱告</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <aside>
-        <div class="list">
-          <h3>使用說明</h3>
-          <p>按「摸彩」會隨機抽一顆球（編號與顏色），顯示經文與對應禱告。按「洗球」可重置並重新洗牌。你也可以播放內建的聖誕旋律作為背景音樂。</p>
-          <h3 style="margin-top:10px">派對小技巧</h3>
-          <p>把頁面放大、投影到牆上，大家輪流摸彩球並為被抽到的人禱告或獻上祝福。</p>
-        </div>
-      </aside>
-    </div>
-
-    <footer>祝福你有個溫暖又歡樂的聖誕派對 🎁</footer>
-  </div>
+  <div id="result" class="verse-box"></div>
 
   <script>
-    // 經文與禱告（保留先前內容，稍作聖誕語境調整）
-    const deck = [
-      {ref:'詩篇 20:4',verse:'願他因你的心裡所願賜你成就，並成全你一切的籌算。',prayer:'主，求祢在這聖誕季成就你對我的美意，使我與家人在愛中同行，彼此扶持。'},
-      {ref:'腓立比書 4:6-7',verse:'應當一無掛慮，只要凡事藉著禱告、祈求，和感謝，將你們所要的告訴神。',prayer:'主，感謝祢的恩典，求祢幫助我在慶祝中仍存謙卑與感恩的心，把一切交託給祢。'},
-      {ref:'以賽亞書 9:6',verse:'因有一嬰孩為我們而生，有一子賜給我們，政權必擔在他肩頭上。',prayer:'感謝主賜下救主，在這聖誕，願我們以讚美迎接祂的降臨與平安。'},
-      {ref:'路加福音 2:10-11',verse:'那天使對他們說，不要懼怕！看哪，我報給你們大喜的信息，今天在大衛的城裡，為你們生了救主，祂就是主基督。',prayer:'主，讓我們在歡欣中記念祢的救贖，將這喜樂分享給周遭的人。'},
-      {ref:'詩篇 23:1',verse:'耶和華是我的牧者，我必不致缺乏。',prayer:'在這冬日與慶典中，願主做我們的牧者，賜下需要的供應與安慰。'},
-      {ref:'馬太福音 6:33',verse:'你們要先求他的國和他的義，這些東西都要加給你們了。',prayer:'主，幫助我把祢放在首位，讓我的慶祝更有意義，活出祢的公義與愛。'},
-      {ref:'詩篇 118:24',verse:'這是耶和華所定的日子，我們在其中要高興歡喜。',prayer:'謝謝主賜下今日的喜樂，教我在節期中仍以祢為樂。'},
-      {ref:'哥林多後書 9:8',verse:'神能使各樣的恩惠多多的加給你們，使你們凡事常常充足。',prayer:'主，願祢使我們在物質與心靈上充足，好將祝福流向他人。'},
-      {ref:'箴言 3:5-6',verse:'你要專心仰賴耶和華，不可倚靠自己的聰明。',prayer:'在節期的忙碌中，願我學習信靠祢的帶領，凡事認定祢。'},
-      {ref:'羅馬書 15:13',verse:'但願使人有盼望的神，因信將諸般的喜樂平安充滿你們的心。',prayer:'讓我的心被盼望與喜樂充滿，成為別人的光與盼望。'},
-      {ref:'詩篇 46:1',verse:'神是我們的避難所和力量，是我們隨時的幫助。',prayer:'當我們感到疲憊，求祢成為避難所，賜安慰與力量。'},
-      {ref:'申命記 31:6',verse:'你要剛強壯膽，不要懼怕，也不要畏懼，因為耶和華你的神必與你同去。',prayer:'主，與我們同行，賜勇氣面對未知，把慶祝化為祝福的行動。'}
-    ];
+    const data = [
+       {verse: '路加福音 2:10-11', text: '天使對他們說：「不要懼怕！我報給你們大喜的信息，是關乎萬民的；因今天在大衛的城裡，為你們生了救主，就是主基督。」', prayer: '親愛的主，感謝祢成為我們的救主，願我們在這聖誕節領受從天而來的平安與喜樂。'},
+  {verse: '以賽亞書 9:6', text: '因有一嬰孩為我們而生，有一子賜給我們。政權必擔在祂的肩頭上。', prayer: '主啊，願祢的平安臨到我們家中，使我們滿有盼望與光明。'},
+  {verse: '約翰福音 3:16', text: '神愛世人，甚至將祂的獨生子賜給他們。', prayer: '感謝天父的愛，讓我們也能彼此相愛，成為祝福的管道。'},
+  {verse: '馬太福音 1:23', text: '必有童女懷孕生子，人要稱祂的名為以馬內利。', prayer: '主耶穌，謝謝祢與我們同在，願祢的愛充滿我們的生命。'},
+  {verse: '馬可福音 10:14', text: '耶穌說：「讓小孩子到我這裡來，不要禁止他們。」', prayer: '主啊，願我們保持單純的心，領受祢的愛與恩典。'},
+  {verse: '路加福音 1:30-31', text: '天使對馬利亞說：「不要懼怕，馬利亞，你在神面前已經蒙恩了。你要懷孕生子，給祂起名叫耶穌。」', prayer: '主，願我們順服祢的旨意，並在生活中經歷祢的奇妙作為。'},
+  {verse: '詩篇 96:11-12', text: '天和地要快樂，海和其中的充滿要歡呼，田野的樹木要一同歌唱。', prayer: '主啊，願萬物同聲讚美祢，願我們的心也充滿喜樂與讚美。'},
+  {verse: '以賽亞書 7:14', text: '因此，主自己要給你們一個兆頭：看哪，童女要懷孕生子，給祂起名叫以馬內利。', prayer: '感謝主，祢與我們同在，願我們時刻經歷祢的同在與引導。'},
+  {verse: '路加福音 2:14', text: '在至高之處榮耀歸與神，在地上平安歸與祂所喜悅的人。', prayer: '主啊，願祢的平安充滿我們心，並成為我們日常的力量與安慰。'},
+  {verse: '詩篇 98:4-6', text: '全地都要向耶和華歡呼歌唱，要發起聲音歌頌祂。', prayer: '主，願我們的口常常稱頌祢，心中充滿感恩與喜樂。'},
+  {verse: '加拉太書 4:4-5', text: '及至時候滿足，神就差遣祂的兒子，為女子所生，且生在律法以下，要把律法以下的人贖出，叫我們得著兒子的名分。', prayer: '感謝主，因耶穌基督，我們得以稱為神的兒女，願我們活出祢的榮耀。'},
+  {verse: '提摩太後書 1:9', text: '神救了我們，並呼召我們，不是按我們的行為，乃是按祂自己的旨意和恩典。', prayer: '主，感謝祢的呼召與恩典，願我們一生遵行祢的旨意。'},
+  {verse: '以賽亞書 11:6', text: '狼必與羊羔同居，豹必與山羊同臥，小牛、幼獅並肥畜同群；一個小孩子要牽引它們。', prayer: '主啊，願祢的國度帶來和平與和諧，讓世界充滿愛與安寧。'},
+  {verse: '以賽亞書 40:3', text: '有人聲喊著說：「在曠野預備耶和華的道路，在沙漠地修平我們神的道。」', prayer: '主，願我們預備心靈，迎接祢的同在與引導。'},
+  {verse: '路加福音 2:19', text: '馬利亞將這一切的事存在心裡，反覆思想。', prayer: '主，願我們也像馬利亞一樣，珍惜祢的話語，默想祢的作為。'},
+  {verse: '馬太福音 2:10', text: '看見那星，就非常歡喜。', prayer: '主啊，願我們在生命中發現祢的光，心中滿溢喜樂與盼望。'},
+  {verse: '希伯來書 1:1-2', text: '神在古時藉眾先知多次多方的曉諭列祖，到了這末世，藉著祂兒子向我們說話。', prayer: '感謝主，祢藉耶穌基督向我們說話，願我們聽從並行在光明中。'},
+  {verse: '路加福音 2:20', text: '牧羊的人回去，因所聽見和所看見的一切事，都照著天使所傳的話榮耀讚美神。', prayer: '主，願我們像牧羊人一樣，將所領受的喜樂與祝福傳揚出去。'},
+  {verse: '以賽亞書 60:1', text: '興起，發光！因你的光已經來了，耶和華的榮耀發現照耀你。', prayer: '主啊，願祢的光照亮我們生命，讓我們成為他人的祝福。'},
+  {verse: '腓立比書 2:10-11', text: '使天上地下和地底下的一切口，都因耶穌的名而屈膝，承認耶穌基督為主。', prayer: '主，願我們一生高舉祢的名，並在生活中見證祢的榮耀。'}
+];
 
-    let pool = [...deck];
-
-    const ballEl = document.getElementById('ball');
-    const ballNumberEl = document.getElementById('ballNumber');
-    const verseEl = document.getElementById('verse');
-    const refEl = document.getElementById('ref');
-    const prayerEl = document.getElementById('prayer');
-    const drawBtn = document.getElementById('draw');
-    const shuffleBtn = document.getElementById('shuffle');
-    const copyBtn = document.getElementById('copy');
-    const playBtn = document.getElementById('playSong');
-
-    function shuffleArray(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}}
-
-    function resetBall(){
-      ballNumberEl.textContent='—';
-      verseEl.textContent='—';refEl.textContent='—';prayerEl.textContent='—';
-      ballEl.className='ball red';
-      ballEl.style.transform='scale(1)';
+    function drawBall() {
+      const random = Math.floor(Math.random() * data.length);
+      const verse = data[random];
+      document.getElementById('ball').innerText = random + 1;
+      document.getElementById('result').innerHTML = `<h3>${verse.verse}</h3><p>${verse.text}</p><p><strong>禱告：</strong>${verse.prayer}</p>`;
     }
 
-    shuffleBtn.addEventListener('click',()=>{pool=[...deck];shuffleArray(pool);resetBall();});
+    function shuffleBalls() {
+      document.getElementById('ball').innerText = '?';
+      document.getElementById('result').innerHTML = '';
+    }
 
-    drawBtn.addEventListener('click',()=>{
-      if(pool.length===0){alert('所有球已抽完，已自動重洗。');pool=[...deck];shuffleArray(pool);}
-      const idx = Math.floor(Math.random()*3); // pick color index 0,1,2
-      const colors = ['red','green','gold'];
-      const color = colors[idx];
-      ballEl.className = 'ball '+color;
-      // animate pop
-      ballEl.style.transform='scale(1.08)';setTimeout(()=>ballEl.style.transform='scale(1)',260);
+    function copyPrayer() {
+      const result = document.getElementById('result').innerText;
+      navigator.clipboard.writeText(result);
+      alert('禱告內容已複製！');
+    }
 
-      const card = pool.pop();
-      // give each card a number for fun
-      const number = Math.floor(Math.random()*99)+1;
-      ballNumberEl.textContent = number.toString().padStart(2,'0');
-      verseEl.textContent = card.verse;
-      refEl.textContent = card.ref;
-      prayerEl.textContent = card.prayer;
-    });
+    // 聖誕歌曲播放（Jingle Bells 簡短旋律）
+    let audioCtx, osc;
+    let playing = false;
+    function toggleMusic() {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if (!playing) {
+        playing = true;
+        playJingle();
+      } else {
+        audioCtx.close();
+        audioCtx = null;
+        playing = false;
+      }
+    }
 
-    copyBtn.addEventListener('click',async()=>{
-      const text = `${verseEl.textContent}
-${refEl.textContent}
-
-禱告：${prayerEl.textContent}`;
-      try{await navigator.clipboard.writeText(text);copyBtn.textContent='已複製';setTimeout(()=>copyBtn.textContent='複製禱告',1200);}catch(e){alert('無法複製，請手動選取並複製。');}
-    });
-
-    // --- simple WebAudio Jingle Bells synth player (no external file) ---
-    let audioCtx=null;let isPlaying=false;let currentTimerIds=[];
-    // jingle bells melody (notes in Hz and durations)
-    const noteMap = { 'B4':493.88,'A4':440.00,'G4':392.00,'E4':329.63,'D4':293.66,'C4':261.63,'F4':349.23};
-    const melody = [
-      ['E4',0.5],['E4',0.5],['E4',1.0],
-      ['E4',0.5],['E4',0.5],['E4',1.0],
-      ['E4',0.5],['G4',0.5],['C4',0.5],['D4',0.5],['E4',2.0],
-      ['F4',0.5],['F4',0.5],['F4',0.5],['F4',0.5],['F4',0.5],['E4',0.5],['E4',0.5],['E4',0.5],['E4',0.5],
-      ['E4',0.5],['D4',0.5],['D4',0.5],['E4',0.5],['D4',1.0],['G4',1.0]
-    ];
-
-    function playMelody(){
-      if(isPlaying){stopMelody();return}
-      if(!audioCtx) audioCtx = new (window.AudioContext||window.webkitAudioContext)();
-      isPlaying=true;playBtn.textContent='暫停聖誕歌';
-      let t=0;const tempo=420; // ms per beat
-      melody.forEach(([note,len],i)=>{
-        const start = t;const dur = len * (tempo/1000);
-        const id = setTimeout(()=>{
-          const o = audioCtx.createOscillator();
-          const g = audioCtx.createGain();
-          o.type='sine';o.frequency.value = noteMap[note] || 440;
-          g.gain.value=0.0001;
-          o.connect(g);g.connect(audioCtx.destination);
-          o.start();
-          // simple attack/decay
-          g.gain.exponentialRampToValueAtTime(0.12,audioCtx.currentTime+0.02);
-          setTimeout(()=>{g.gain.exponentialRampToValueAtTime(0.0001,audioCtx.currentTime+dur+0.02);o.stop(audioCtx.currentTime+dur+0.03);},dur*1000);
-        }, start*1000);
-        currentTimerIds.push(id);
-        t += len* (tempo/1000);
+    function playJingle() {
+      const notes = [659,659,659,659,659,659,659,784,523,587,659];
+      notes.forEach((freq, i) => {
+        const o = audioCtx.createOscillator();
+        const g = audioCtx.createGain();
+        o.connect(g).connect(audioCtx.destination);
+        o.frequency.value = freq;
+        o.start(audioCtx.currentTime + i * 0.3);
+        o.stop(audioCtx.currentTime + (i+1) * 0.3);
       });
-      // stop after melody length
-      const endId = setTimeout(()=>{isPlaying=false;playBtn.textContent='播放/暫停聖誕歌';currentTimerIds=[];}, t*1000+200);
-      currentTimerIds.push(endId);
     }
-    function stopMelody(){currentTimerIds.forEach(id=>clearTimeout(id));currentTimerIds=[];isPlaying=false;playBtn.textContent='播放/暫停聖誕歌';}
 
-    playBtn.addEventListener('click',()=>{
-      // resume context on user gesture if needed
-      if(!audioCtx){audioCtx = new (window.AudioContext||window.webkitAudioContext)();}
-      if(isPlaying){stopMelody();}else{playMelody();}
-    });
+    // 聖誕旁白
+ let isNarrating = false;
+let currentUtterance = null;
 
-    // --- snow animation ---
-    const canvas = document.getElementById('snow');
-    const ctx = canvas.getContext('2d');
-    let W, H, flakes=[];
-    function initSnow(){W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight;flakes=[];for(let i=0;i<120;i++){flakes.push({x:Math.random()*W,y:Math.random()*H,radius:Math.random()*3+1,dx:Math.random()*1-0.5,dy:Math.random()*1+0.2});}}
-    function draw(){ctx.clearRect(0,0,W,H);ctx.fillStyle='rgba(255,255,255,0.9)';for(const f of flakes){ctx.beginPath();ctx.arc(f.x,f.y,f.radius,0,Math.PI*2);ctx.fill();f.x += f.dx; f.y += f.dy; if(f.y>H){f.y=-10;f.x=Math.random()*W;} if(f.x>W)f.x=0;if(f.x<0)f.x=W;}requestAnimationFrame(draw);}window.addEventListener('resize',initSnow);initSnow();draw();
+function playNarration() {
+  // 如果正在播放 → 停止
+  if (isNarrating) {
+    speechSynthesis.cancel();
+    isNarrating = false;
+    return;
+  }
 
-    // init
-    (function init(){shuffleArray(pool);}());
+  // 否則開始播放
+  const message = '不要懼怕！我報給你們大喜的信息，是關乎萬民的；因今天在大衛的城裡，為你們生了救主，就是主基督。你們要看見一個嬰孩，包著布，臥在馬槽裡，那就是記號了。今天耶穌基督是為你、為我而降生，願普天同慶。';
+  currentUtterance = new SpeechSynthesisUtterance(message);
+  currentUtterance.lang = 'zh-TW';
+  currentUtterance.pitch = 1;
+  currentUtterance.rate = 1;
+
+  // 播放狀態控制
+  currentUtterance.onstart = () => { isNarrating = true; };
+  currentUtterance.onend = () => { isNarrating = false; };
+
+  speechSynthesis.speak(currentUtterance);
+}
+
+    // 雪花效果
+    for (let i = 0; i < 30; i++) {
+      const snow = document.createElement('div');
+      snow.className = 'snowflake';
+      snow.innerText = '❄';
+      snow.style.left = Math.random() * 100 + 'vw';
+      snow.style.animationDuration = 5 + Math.random() * 5 + 's';
+      snow.style.fontSize = 12 + Math.random() * 20 + 'px';
+      document.body.appendChild(snow);
+    }
+
+    let musicPlaying = false;
+function toggleMusic() {
+  const music = document.getElementById('christmasMusic');
+  if (!musicPlaying) {
+    music.play();
+    musicPlaying = true;
+  } else {
+    music.pause();
+    music.currentTime = 0; // 從頭開始
+    musicPlaying = false;
+  }
+}
   </script>
 </body>
 </html>
+
