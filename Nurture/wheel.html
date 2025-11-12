@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>生命之輪評估</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+  body { font-family: "Noto Sans TC", sans-serif; background: #f2f6fc; margin: 0; padding: 20px; }
+  h1 { text-align: center; color: #2c3e50; }
+  .wheel { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 600px; margin: 20px auto; }
+  label { font-weight: bold; }
+  input[type=range] { width: 100%; }
+  .button-area { text-align: center; margin-top: 20px; }
+  button { background: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #2980b9; }
+  canvas { display: block; margin: 20px auto; max-width: 400px; }
+</style>
+</head>
+<body>
+<h1>生命之輪評估</h1>
+<img src="../assets/img/wheel.jpg" width="380px">
+<div class="wheel" id="wheel">
+  <div><label>1. 人際關係</label><input type="range" min="1" max="10" value="5"></div>
+  <div><label>2. 工作或課業</label><input type="range" min="1" max="10" value="5"></div>
+  <div><label>3. 財務管理</label><input type="range" min="1" max="10" value="5"></div>
+  <div><label>4. 婚姻或單身生活</label><input type="range" min="1" max="10" value="5"></div>
+  <div><label>5. 身體健康</label><input type="range" min="1" max="10" value="5"></div>
+  <div><label>6. 婚姻或原生家庭</label><input type="range" min="1" max="10" value="5"></div>
+  <div><label>7. 心靈健康</label><input type="range" min="1" max="10" value="5"></div>
+  <div><label>8. 習慣與娛樂</label><input type="range" min="1" max="10" value="5"></div>
+  <div><label>9. 人際關係</label><input type="range" min="1" max="10" value="5"></div>
+  <div><label>10. 生活品質</label><input type="range" min="1" max="10" value="5"></div>
+  <div><label>11. 社會責任</label><input type="range" min="1" max="10" value="5"></div>
+</div>
+
+<canvas id="chart"></canvas>
+
+<div class="button-area">
+  <button onclick="generatePDF()">📄 下載 PDF 報告</button>
+</div>
+
+<script>
+const { jsPDF } = window.jspdf;
+const ctx = document.getElementById("chart");
+const labels = [
+  "人際關係","工作或課業","財務管理","婚姻或單身生活","身體健康",
+  "婚姻或原生家庭","心靈健康","習慣與娛樂","人際關係(2)","生活品質","社會責任"
+];
+const inputs = document.querySelectorAll("input[type=range]");
+let chart = new Chart(ctx, {
+  type: "radar",
+  data: {
+    labels: labels,
+    datasets: [{
+      label: "滿意度",
+      data: Array(inputs.length).fill(5),
+      borderColor: "#3498db",
+      backgroundColor: "rgba(52,152,219,0.2)"
+    }]
+  },
+  options: { scales: { r: { beginAtZero: true, max: 10 } } }
+});
+inputs.forEach((input, i) => {
+  input.addEventListener("input", () => {
+    chart.data.datasets[0].data[i] = input.value;
+    chart.update();
+  });
+});
+
+async function generatePDF() {
+  const pdf = new jsPDF();
+  const scores = Array.from(inputs).map(i => Number(i.value));
+  const avg = (scores.reduce((a,b)=>a+b,0)/scores.length).toFixed(1);
+
+  // 嵌入支援中文的字型（Noto Sans TC）
+  const fontUrl = "https://cdn.jsdelivr.net/gh/googlefonts/noto-cjk@main/Sans/OTF/TraditionalChinese/NotoSansTC-Regular.otf";
+  const font = await fetch(fontUrl).then(res => res.arrayBuffer());
+  pdf.addFileToVFS("NotoSansTC-Regular.otf", btoa(String.fromCharCode(...new Uint8Array(font))));
+  pdf.addFont("NotoSansTC-Regular.otf", "NotoSansTC", "normal");
+  pdf.setFont("NotoSansTC");
+
+  pdf.setFontSize(18);
+  pdf.text("生命之輪評估報告", 70, 20);
+  pdf.setFontSize(12);
+  labels.forEach((l,i)=>pdf.text(`${l}: ${scores[i]}`, 20, 40+i*7));
+  pdf.text(`平均分數：${avg}`, 20, 130);
+  
+  const chartImage = chart.toBase64Image();
+  pdf.addImage(chartImage, "PNG", 20, 140, 170, 120);
+  pdf.save("生命之輪評估.pdf");
+}
+</script>
+</body>
+</html>
