@@ -83,13 +83,13 @@
           <div class="row g-2 align-items-center">
             <div class="col-9"><label class="small">1. 小組肢體生活：是否穩定參加小組？</label></div>
             <div class="col-3"><input type="number" min="0" max="10" class="form-control score-box" id="F" oninput="calcAll()"></div>
-            <P style="color:blue">代禱同伴</p>
+            <font color=blue>代禱同伴</font>
             <div class="col-9"><label class="small">2. 是否有屬靈的親密同伴可以分享代禱？</label></div>
             <div class="col-3"><input type="number" min="0" max="10" class="form-control score-box" id="G" oninput="calcAll()"></div>
 
             <div class="col-9"><label class="small">3. 是否有天天彼此代禱的同伴？</label></div>
             <div class="col-3"><input type="number" min="0" max="10" class="form-control score-box" id="H" oninput="calcAll()"></div>
-             <P style="color:blue">禁禱、禱告會</p>
+             <font color=blue>禁禱、禱告會</font>
             <div class="col-9"><label class="small">4. 有沒有在每周禁禱一餐？</label></div>
             <div class="col-3"><input type="number" min="0" max="10" class="form-control score-box" id="I" oninput="calcAll()"></div>
 
@@ -98,20 +98,20 @@
           </div>
           <div class="mt-2 text-end"><small>平均：<span id="avgB">-</span></small></div>
         </div>
-                           <img src="../assets/img/body.jpg" width="380px">
+                          
         <!-- 服事 A -->
         <div class="mb-3">
           <div class="section-title mb-2">三、服事(A)：角色管理</div>
           <div class="row g-2 align-items-center">
             <div class="col-9"><label class="small">1. 時間管理：工作、服事、休閒是否均衡？</label></div>
             <div class="col-3"><input type="number" min="0" max="10" class="form-control score-box" id="K" oninput="calcAll()"></div>
-             <p style="color:blue">金錢管理</p>
+             <font color=blue>金錢管理</font>
             <div class="col-9"><label class="small">2. 金錢使用是否合宜？</label></div>
             <div class="col-3"><input type="number" min="0" max="10" class="form-control score-box" id="L" oninput="calcAll()"></div>
 
             <div class="col-9"><label class="small">3. 什一奉獻的情形是否穩定？</label></div>
             <div class="col-3"><input type="number" min="0" max="10" class="form-control score-box" id="M" oninput="calcAll()"></div>
-            <p style="color:blue">角色扮演</p>
+            <font color=blue>角色扮演</font>
             <div class="col-9"><label class="small">4. 在工作上的服事角色是否勝任愉快？</label></div>
             <div class="col-3"><input type="number" min="0" max="10" class="form-control score-box" id="N" oninput="calcAll()"></div>
 
@@ -125,7 +125,7 @@
         <div class="mb-3">
           <div class="section-title mb-2">四、服事(B)：服事人</div>
           <div class="row g-2 align-items-center">
-            <p style="color:blue">參與小組、服事</p>
+            <font color=blue>參與小組、服事</font>
             <div class="col-9"><label class="small">1. 在小組中是否參與服事？</label></div>
             <div class="col-3"><input type="number" min="0" max="10" class="form-control score-box" id="P" oninput="calcAll()"></div>
 
@@ -134,7 +134,7 @@
 
             <div class="col-9"><label class="small">3. 關懷(SPAM)：每週是否至少一次出去禱告 探訪有需要的人？</label></div>
             <div class="col-3"><input type="number" min="0" max="10" class="form-control score-box" id="R" oninput="calcAll()"></div>
-           <p style="color:blue">傳福音、帶領人</p>
+           <font color=blue>傳福音、帶領人</font>
             <div class="col-9"><label class="small">4. 有沒有在帶領守望另一位小組員？</label></div>
             <div class="col-3"><input type="number" min="0" max="10" class="form-control score-box" id="S" oninput="calcAll()"></div>
 
@@ -144,24 +144,26 @@
           <div class="mt-2 text-end"><small>平均：<span id="avgD">-</span></small></div>
         </div>
 
-        <!-- 即時統計 -->
+        <!-- 統計與下載 -->
         <div class="row mt-3 g-2">
           <div class="col-md-6">
             <div class="result-area">
               <div><strong>總分：</strong> <span id="totalScore">0</span> / 200</div>
-              <div class="mt-1"><strong>總平均：</strong> <span id="grandAvg">-</span> /10</div>
+              <div class="mt-1"><strong>平均：</strong> <span id="grandAvg">-</span> /10</div>
               <div class="mt-1"><strong>健康程度：</strong> <span id="healthLevel">-</span></div>
-            <P>1~3不良，4~6普通，7~10良好</P>
             </div>
           </div>
 
           <div class="col-md-6 text-end align-self-center">
-            <div class="d-inline-block">
-              <button class="btn btn-primary btn-download me-2" id="btnPDF">生成並下載 PDF</button>
-              <button class="btn btn-outline-secondary" id="btnClear">清除</button>
-            </div>
+            <button class="btn btn-primary btn-download me-2" id="btnPDF">生成 PDF</button>
+            <button class="btn btn-outline-secondary" id="btnClear">清除</button>
           </div>
         </div>
+
+        
+      </div>
+    </div>
+  </div>
 
         <hr class="my-3">
 
@@ -205,12 +207,11 @@
             <button type="submit" class="btn btn-success">送出到 Google 表單（選用）</button>
           </div>
         </form>
-     <blockquote>
-        <div class="mt-4 footer-verse text-center">
-          <h5 style="color:#e74c3c">清點結果，不論你覺得自己多麼軟弱，總要切記：</h5>
+  
+        <blockquote class="mt-4 text-center">
+          <h5 style="color:#e74c3c">不論你覺得自己多麼軟弱，總要記得：</h5>
           <h4 style="color:#2980b9">「耶穌愛我，我知道！」</h4>
-          <p class="note">讓我們作所有的裝備服事都是在主的愛裡面做的。</p>
-        </div>
+           <img src="../assets/img/body.jpg" width="380px">
         </blockquote>
       </div> <!-- pdfArea end -->
     </div> <!-- card end -->
@@ -220,148 +221,43 @@
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
+  <!-- scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
   <script>
-    // helper: read numeric value or 0
-    function val(id){
-      const el = document.getElementById(id);
-      if (!el) return 0;
-      const v = Number(el.value);
-      return Number.isFinite(v) ? v : 0;
-    }
+    function val(id){const v=Number(document.getElementById(id)?.value||0);return isNaN(v)?0:v;}
 
-    // calculate averages and totals
     function calcAll(){
-      // groups
-      const Aids = ['A','B','C','D','E'];
-      const Bids = ['F','G','H','I','J'];
-      const Cids = ['K','L','M','N','O'];
-      const Dids = ['P','Q','R','S','T'];
-      const groups = [Aids,Bids,Cids,Dids];
-
-      let total = 0;
-      let count = 0;
-
-      groups.forEach((arr, idx) => {
-        let sum = 0;
-        arr.forEach(id => { sum += val(id); });
-        const avg = (sum === 0) ? '-' : (Math.round((sum / arr.length) * 10) / 10);
-        document.getElementById(['avgA','avgB','avgC','avgD'][idx]).innerText = avg;
-        total += sum;
-        count += arr.length;
+      const groups=[['A','B','C','D','E'],['F','G','H','I','J'],['K','L','M','N','O'],['P','Q','R','S','T']];
+      let total=0,count=0;
+      groups.forEach((arr,i)=>{
+        let sum=0;arr.forEach(id=>sum+=val(id));
+        const avg=sum?Math.round(sum/arr.length*10)/10:'-';
+        document.getElementById(['avgA','avgB','avgC','avgD'][i]).innerText=avg;
+        total+=sum;count+=arr.length;
       });
-
-      document.getElementById('totalScore').innerText = total;
-      document.getElementById('totalField').value = total; // sync to google form total
-
-      const grandAvg = (count === 0) ? '-' : (Math.round((total / count) * 10) / 10);
-      document.getElementById('grandAvg').innerText = grandAvg === '-' ? '-' : grandAvg;
-
-      // health level
-      let level = '-';
-      if (grandAvg !== '-') {
-        const g = Number(grandAvg);
-        if (g >= 7) level = '良好';
-        else if (g >= 4) level = '普通';
-        else level = '需關注';
-      }
-      document.getElementById('healthLevel').innerText = level;
+      document.getElementById('totalScore').innerText=total;
+      const grand=total?Math.round(total/count*10)/10:'-';
+      document.getElementById('grandAvg').innerText=grand;
+      document.getElementById('healthLevel').innerText=grand==='-'?'-':grand>=7?'良好':grand>=4?'普通':'需關注';
     }
 
-    // clear all numeric inputs
-    document.getElementById('btnClear').addEventListener('click', () => {
-      const inputs = document.querySelectorAll('#pdfArea input[type=number], #pdfArea input[type=text], #pdfArea textarea');
-      inputs.forEach(i => i.value = '');
-      calcAll();
-    });
+    document.getElementById('btnClear').onclick=()=>{document.querySelectorAll('input[type=number]').forEach(i=>i.value='');calcAll();};
+    window.onload=calcAll;
 
-    // on load calculate
-    window.addEventListener('load', calcAll);
-
-    // PDF generation: capture pdfArea and create A4 PDF
-    document.getElementById('btnPDF').addEventListener('click', async () => {
-      // fill google form summary fields (bad items etc.) before capture
-      document.getElementById('totalField').value = document.getElementById('totalScore').innerText;
-      // create "不良項目" text automatically (simple heuristic)
-      const badList = [];
-      const ids = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T'];
-      ids.forEach((id, index) => {
-        const v = val(id);
-        if (v > 0 && v <= 3) {
-          badList.push((index+1) + '(' + id + ')');
-        }
-      });
-      document.getElementById('badItems').value = badList.join(', ');
-
-      // capture
-      const area = document.getElementById('pdfArea');
-      // temporarily enlarge width for better resolution if needed (optional)
-      const scale = 2;
-      const canvas = await html2canvas(area, { scale: scale, useCORS: true, allowTaint: true, backgroundColor: '#ffffff' });
-
-      // calculate PDF dimensions (A4: 210 x 297 mm)
+    document.getElementById('btnPDF').onclick=async()=>{
       const { jsPDF } = window.jspdf;
-      const pdf = new jsPDF('p','mm','a4');
-      const pageWidth = pdf.internal.pageSize.getWidth();
-      const pageHeight = pdf.internal.pageSize.getHeight();
-
-      // convert canvas to image
-      const imgData = canvas.toDataURL('image/png');
-
-      // calculate image dimensions in mm (keeping aspect ratio)
-      const imgProps = { width: canvas.width, height: canvas.height };
-      const pdfW = pageWidth - 20; // leave margin
-      const pdfH = (imgProps.height * pdfW) / imgProps.width;
-
-      // if image taller than page, split into multiple pages
-      if (pdfH <= pageHeight - 20) {
-        pdf.addImage(imgData, 'PNG', 10, 10, pdfW, pdfH);
-      } else {
-        // split long image
-        let remainingHeight = imgProps.height;
-        let position = 0;
-        const pxPerMm = imgProps.width / (pdfW); // px per mm (approx)
-        while (remainingHeight > 0) {
-          // create a temporary canvas to hold one page slice
-          const canvasPage = document.createElement('canvas');
-          const ctx = canvasPage.getContext('2d');
-          const sliceHeightPx = Math.floor((pageHeight - 20) * pxPerMm);
-          canvasPage.width = imgProps.width;
-          canvasPage.height = Math.min(sliceHeightPx, remainingHeight);
-          ctx.drawImage(canvas, 0, position, imgProps.width, canvasPage.height, 0, 0, canvasPage.width, canvasPage.height);
-          const imgPage = canvasPage.toDataURL('image/png');
-          const pagePdfH = (canvasPage.height * pdfW) / canvasPage.width;
-          pdf.addImage(imgPage, 'PNG', 10, 10, pdfW, pagePdfH);
-          remainingHeight -= canvasPage.height;
-          position += canvasPage.height;
-          if (remainingHeight > 0) pdf.addPage();
-        }
-      }
-
-      // filename with date
-      const now = new Date();
-      const fname = `屬靈健康檢查_${now.getFullYear()}${String(now.getMonth()+1).padStart(2,'0')}${String(now.getDate()).padStart(2,'0')}.pdf`;
-      pdf.save(fname);
-    });
-
-    // optional: when user submits to Google Form, auto fill some fields
-    document.getElementById('gForm').addEventListener('submit', function(e){
-      // set total
-      document.getElementById('totalField').value = document.getElementById('totalScore').innerText;
-      // if badItems empty, fill with heuristic
-      if (!document.getElementById('badItems').value) {
-        const badList = [];
-        const ids = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T'];
-        ids.forEach((id, index) => {
-          const v = val(id);
-          if (v > 0 && v <= 3) { badList.push((index+1) + '('+id+')'); }
-        });
-        document.getElementById('badItems').value = badList.join(', ');
-      }
-      // allow normal submit
-    });
+      const area=document.getElementById('pdfArea');
+      const canvas=await html2canvas(area,{scale:2});
+      const img=canvas.toDataURL('image/png');
+      const pdf=new jsPDF('p','mm','a4');
+      const w=pdf.internal.pageSize.getWidth()-20;
+      const h=canvas.height*(w/canvas.width);
+      pdf.addImage(img,'PNG',10,10,w,h);
+      const today=new Date().toISOString().split('T')[0];
+      pdf.save(`屬靈健康檢查_${today}.pdf`);
+    };
   </script>
-
-  <!-- Bootstrap bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
