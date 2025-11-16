@@ -320,8 +320,29 @@
 
     // 預設全部展開
     document.querySelectorAll('.year .lesson-list').forEach(l=>l.style.display='');
-   
-  </script>
+   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getDatabase, ref, onDisconnect, onValue, push, remove } 
+  from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
+const firebaseConfig = {
+  apiKey: "你的API",
+  authDomain: "xxx.firebaseapp.com",
+  databaseURL: "https://xxx.firebaseio.com",
+  projectId: "xxx",
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+const myConnection = push(ref(db, "online"));
+onDisconnect(myConnection).remove();
+
+onValue(ref(db, "online"), snapshot => {
+  document.getElementById("onlineCount").innerText = snapshot.size;
+});
+  </script>
+<footer>
+  目前瀏覽人數：<span id="onlineCount">0</span>
+</footer>
 </body>
 </html>
