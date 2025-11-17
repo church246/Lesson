@@ -47,15 +47,7 @@
     @media (max-width:980px){.grid{grid-template-columns:1fr;}.side{order:2}}
     @media print{body{background:white} .top-controls, .btn, input.search{display:none} header .logo{display:none}}
   </style>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y2SENS0LG8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-Y2SENS0LG8');
-</script>
 </head>
 <body>
   <div class="container">
@@ -92,7 +84,7 @@
                 <li class="lesson" data-keywords="一要三招 第一課 學生版 教師版">
                   <div class="left">
                     <div class="title">第一課 — 一要三招</div>
-                    <div class="subtitle">包含學生版與教師版教材與問題作答</div>
+                    <!-- <div class="subtitle">包含學生版與教師版教材與問題作答</div> -->
                   </div>
                   <div class="right">課程：<a href="nurture.html">學生版</a>/<a href="lesson_1pro.html">教師版</a> </div>
                 </li>
@@ -105,8 +97,8 @@
                 </li>
                 <!-- 空格以供內容延伸：第三課到第八課 -->
                 <li class="lesson" data-keywords="第三課">
-                  <div class="left"><div class="title">第三課</div><div class="subtitle">（請填寫課程名稱與目標）</div></div>
-                  <div class="right">課程</div>
+                  <div class="left"><div class="title">第三課  — 甚麼是永生?</div><div class="subtitle">帶領學員認識永生、確信救恩並活出與神相交的生命</div></div>
+                  <div class="right">課程、<a href="eternal_life.html">影音檔筆記</a>、<a href="https://docs.google.com/presentation/d/12IgXVpW8merBB8qsCQZIQMFuhnHoISsm7HTtt0E0d6g/edit?slide=id.g3a398d1e162_0_57#slide=id.g3a398d1e162_0_57">影音檔</a></div>
 
                 </li>
                 <li class="lesson" data-keywords="第四課">
@@ -330,19 +322,9 @@ const firebaseConfig = {
   databaseURL: "https://xxx.firebaseio.com",
   projectId: "xxx",
 };
-
-const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
-
-const myConnection = push(ref(db, "online"));
-onDisconnect(myConnection).remove();
-
-onValue(ref(db, "online"), snapshot => {
-  document.getElementById("onlineCount").innerText = snapshot.size;
-});
   </script>
-<footer>
-  目前瀏覽人數：<span id="onlineCount">0</span>
-</footer>
+
+
+
 </body>
 </html>
