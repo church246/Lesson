@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>聖誕歡樂派對摸彩球 🎄</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
@@ -59,8 +59,6 @@
       margin: 20px auto;
       width: 80%;
     }
-
-    /* 🎁 聖誕字幕動畫樣式 */
     #subtitle {
       font-size: 1.2em;
       margin-top: 30px;
@@ -73,17 +71,25 @@
       line-height: 1.8;
       animation: fadeIn 1s ease;
     }
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
+    @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+    .lyricsBox {
+      margin-top: 20px;
+      white-space: pre-line;
+      line-height: 1.8;
+      font-size: 1.2em;
+      display: none;
+      background: rgba(255,255,255,0.15);
+      padding: 20px;
+      border-radius: 15px;
+      width: 85%;
+      margin-left: auto;
+      margin-right: auto;
     }
   </style>
 </head>
 <body>
-  <!-- 聖誕歌曲 -->
-  <audio id="christmasMusic" src="../music/christmas_song.mp3" preload="auto"></audio>
-
-  <!-- 🎧 聖誕旁白 -->
+  <audio id="musicA" src="../music/christmas_song.mp3" preload="auto"></audio>
+  <audio id="musicB" src="../music/christmas_song1.mp3" preload="auto"></audio>
   <audio id="narrationAudio" src="../music/message.mp3" preload="auto"></audio>
 
   <h1>🎄 聖誕歡樂派對摸彩球 🎁</h1>
@@ -93,17 +99,19 @@
 
   <div>
     <button class="btn-christmas" onclick="drawBall()">摸彩</button>
-    <button class="btn-christmas" onclick="shuffleBalls()">洗球</button>
-    <button class="btn-christmas" onclick="toggleMusic()">播放/暫停聖誕歌</button>
-    <button class="btn-christmas" onclick="playNarration()">播放/停止聖誕信息</button>
+    <button class="btn-christmas" onclick="shuffleBalls()">關閉經文</button>
+    <button class="btn-christmas" onclick="toggleMusicA()">播放/停止 聖誕老公公</button>
+    <button class="btn-christmas" onclick="toggleMusicB()">播放/停止 平安夜裡真平安</button>
+    <button class="btn-christmas" onclick="playNarration()">播放/停止 聖誕信息</button>
   </div>
 
   <div id="result" class="verse-box"></div>
   <div id="subtitle"></div>
+  <div id="lyricsA" class="lyricsBox"></div>
+  <div id="lyricsB" class="lyricsBox"></div>
 
   <script>
-  // === 經文資料 ===
-  const data = [
+  const verses = [
      {verse: '路加福音 2:10-11', text: '天使對他們說：「不要懼怕！我報給你們大喜的信息，是關乎萬民的；因今天在大衛的城裡，為你們生了救主，就是主基督。」', prayer: '親愛的主，感謝祢成為我們的救主，願我們在這聖誕節領受從天而來的平安與喜樂。'},
   {verse: '以賽亞書 9:6', text: '因有一嬰孩為我們而生，有一子賜給我們。政權必擔在祂的肩頭上。', prayer: '主啊，願祢的平安臨到我們家中，使我們滿有盼望與光明。'},
   {verse: '約翰福音 3:16', text: '神愛世人，甚至將祂的獨生子賜給他們。', prayer: '感謝天父的愛，讓我們也能彼此相愛，成為祝福的管道。'},
@@ -126,81 +134,106 @@
   {verse: '腓立比書 2:10-11', text: '使天上地下和地底下的一切口，都因耶穌的名而屈膝，承認耶穌基督為主。', prayer: '主，願我們一生高舉祢的名，並在生活中見證祢的榮耀。'}
 ];
 
-  function drawBall() {
-    const random = Math.floor(Math.random() * data.length);
-    const verse = data[random];
-    document.getElementById('ball').innerText = random + 1;
-    document.getElementById('result').innerHTML =
-      `<h3>${verse.verse}</h3><p>${verse.text}</p><p><strong>禱告：</strong>${verse.prayer}</p>`;
-  }
 
-  function shuffleBalls() {
-    document.getElementById('ball').innerText = '?';
-    document.getElementById('result').innerHTML = '';
-  }
-
-  // === 聖誕歌曲 ===
-  let musicPlaying = false;
-  function toggleMusic() {
-    const music = document.getElementById('christmasMusic');
-    if (!musicPlaying) {
-      music.play();
-      musicPlaying = true;
-    } else {
-      music.pause();
-      music.currentTime = 0;
-      musicPlaying = false;
-    }
-  }
-
-  // === 🎧 播放旁白 (MP3) + 打字字幕 ===
-  let isNarrating = false;
-  const subtitleEl = document.getElementById("subtitle");
-  const narrationAudio = document.getElementById("narrationAudio");
-
-  const message = '聖誕節的核心不是燈光、禮物或音樂，而是一個愛的宣告——上帝親自來到世上，成為人，名叫耶穌。祂為了拯救我們、與我們同在，帶來真正的平安與盼望。今天，這位救主仍然對你說：「不要懼怕！」因祂的降生，就是為了讓你的生命充滿愛、平安與喜樂。';
-
-  function playNarration() {
-    if (isNarrating) {
-      narrationAudio.pause();
-      narrationAudio.currentTime = 0;
-      subtitleEl.textContent = "";
-      isNarrating = false;
-      return;
+    function drawBall() {
+      const random = Math.floor(Math.random() * verses.length);
+      const v = verses[random];
+      document.getElementById('ball').innerText = random + 1;
+      document.getElementById('result').innerHTML = `<h3>${v.verse}</h3><p>${v.text}</p><p><strong>禱告：</strong>${v.prayer}</p>`;
     }
 
-    // 播放音檔
-    narrationAudio.play();
-    isNarrating = true;
+    function shuffleBalls() {
+      document.getElementById('ball').innerText = '?';
+      document.getElementById('result').innerHTML = '';
+    }
 
-    // 打字字幕動畫
-    subtitleEl.textContent = "";
-    let index = 0;
-    const typing = setInterval(() => {
-      if (index < message.length && isNarrating) {
-        subtitleEl.textContent += message.charAt(index);
-        index++;
+    const lyricsA = `聖誕老公公公公公  駕著麋鹿雪橇在空中 
+                     他要爬窗戶入煙囪  為你帶著禮物衝衝衝 
+                     小小的時候有著一個夢  十二月的天空有聖誕老公公 
+                     他會帶來禮物他會帶來祝福  可是等了好多年他都沒出現 
+                     長大的時候有人告訴我  十二月的天空耶穌為我降生 
+                     祂會帶來禮物祂會帶來祝福  聖誕主耶穌是你我的幫助 
+                     沒有聖誕老公公  只有愛我的主耶穌 
+                     賜給我喜樂平安  為我們帶來祝福 
+                     沒有聖誕老公公  只有愛我的主耶穌 
+                     叮噹叮叮噹  耶穌給我們禮物`;
+    const lyricsB = `平安夜裡真平安  小小耶穌來世上 
+                  天國的消息祂宣揚  人間的希望祂點燃 
+                      真光啊已照亮  照亮在人心上 
+                      祂的故事萬人傳  平安夜裡真平安 `;
+                      
+
+    let playingA = false;
+    let playingB = false;
+
+    const musicA = document.getElementById('musicA');
+    const musicB = document.getElementById('musicB');
+
+    function toggleMusicA() {
+      const box = document.getElementById('lyricsA');
+      if (!playingA) {
+        musicA.play();
+        musicB.pause(); playingB = false;
+        document.getElementById('lyricsB').style.display = 'none';
+        box.style.display = 'block'; box.textContent = lyricsA;
+        playingA = true;
       } else {
-        clearInterval(typing);
+        musicA.pause(); musicA.currentTime = 0;
+        box.style.display = 'none';
+        playingA = false;
       }
-    }, 100);
+    }
 
-    narrationAudio.onended = () => {
-      isNarrating = false;
-      clearInterval(typing);
-    };
-  }
+    function toggleMusicB() {
+      const box = document.getElementById('lyricsB');
+      if (!playingB) {
+        musicB.play();
+        musicA.pause(); playingA = false;
+        document.getElementById('lyricsA').style.display = 'none';
+        box.style.display = 'block'; box.textContent = lyricsB;
+        playingB = true;
+      } else {
+        musicB.pause(); musicB.currentTime = 0;
+        box.style.display = 'none';
+        playingB = false;
+      }
+    }
 
-  // 雪花效果
-  for (let i = 0; i < 30; i++) {
-    const snow = document.createElement('div');
-    snow.className = 'snowflake';
-    snow.innerText = '❄';
-    snow.style.left = Math.random() * 100 + 'vw';
-    snow.style.animationDuration = 5 + Math.random() * 5 + 's';
-    snow.style.fontSize = 12 + Math.random() * 20 + 'px';
-    document.body.appendChild(snow);
-  }
+    let isNarrating = false;
+    const subtitleEl = document.getElementById('subtitle');
+    const narrationAudio = document.getElementById('narrationAudio');
+
+    const message = '聖誕節的核心不是燈光、禮物或音樂，而是一個愛的宣告——上帝親自來到世上，成為人，名叫耶穌。祂為了拯救我們、與我們同在，帶來真正的平安與盼望。今天，這位救主仍然對你說：「不要懼怕！」因祂的降生，就是為了讓你的生命充滿愛、平安與喜樂。';
+
+
+    function playNarration() {
+      if (isNarrating) {
+        narrationAudio.pause(); narrationAudio.currentTime = 0;
+        subtitleEl.textContent = '';
+        isNarrating = false;
+        return;
+      }
+
+      narrationAudio.play(); isNarrating = true;
+      subtitleEl.textContent = '';
+      let index = 0;
+      const typing = setInterval(() => {
+        if (index < message.length && isNarrating) subtitleEl.textContent += message.charAt(index++);
+        else clearInterval(typing);
+      }, 100);
+
+      narrationAudio.onended = () => { isNarrating = false; };
+    }
+
+    for (let i = 0; i < 30; i++) {
+      const snow = document.createElement('div');
+      snow.className = 'snowflake';
+      snow.innerText = '❄';
+      snow.style.left = Math.random() * 100 + 'vw';
+      snow.style.animationDuration = 5 + Math.random() * 5 + 's';
+      snow.style.fontSize = 12 + Math.random() * 20 + 'px';
+      document.body.appendChild(snow);
+    }
   </script>
 </body>
 </html>
