@@ -100,8 +100,8 @@
   <div>
     <button class="btn-christmas" onclick="drawBall()">摸彩</button>
     <button class="btn-christmas" onclick="shuffleBalls()">關閉經文</button>
-    <button class="btn-christmas" onclick="toggleMusicA()">播放/停止 聖誕老公公</button>
-    <button class="btn-christmas" onclick="toggleMusicB()">播放/停止 平安夜裡真平安</button>
+    <button class="btn-christmas" onclick="toggleMusicA()">播放聖誕歌</button>
+    <button class="btn-christmas" onclick="toggleMusicB()">播放聖誕歌2</button>
     <button class="btn-christmas" onclick="playNarration()">播放/停止 聖誕信息</button>
   </div>
 
@@ -147,7 +147,9 @@
       document.getElementById('result').innerHTML = '';
     }
 
-    const lyricsA = `聖誕老公公公公公  
+    const lyricsA = `    聖誕老公公
+
+                     聖誕老公公公公公  
                      駕著麋鹿雪橇在空中 
                      他要爬窗戶入煙囪  
                      為你帶著禮物衝衝衝 
@@ -167,7 +169,9 @@
                      只有愛我的主耶穌 
                      叮噹叮叮噹  
                      耶穌給我們禮物`;
-    const lyricsB = `平安夜裡真平安  
+    const lyricsB = `平安夜裡真平安
+    
+                     平安夜裡真平安  
                      小小耶穌來世上 
                      天國的消息祂宣揚  
                     人間的希望祂點燃 
