@@ -43,8 +43,17 @@
         <div class="text-center mb-3">
           <h2 class="mb-1" style="color:#e74c3c">屬靈健康檢查</h2>
           <p class="mb-0 note">親愛的弟兄姊妹，您是否盼望擁有健康均衡的基督徒生活？ 快來作個屬靈的健康檢查，以便預防建康失調喔! 如果發現問題，也可以盡快對症下藥、重拾健康。此檢查表每項均要填入一個分數，計分方式為1~3不良，4~6普通，7~10良好三個程度。 請自我評定各項的分數，並於下方表中歸納填寫結論。</p>
+        <div class="text-center mb-3"> 
+         <input 
+            type="date"
+            class="form-control"
+            id="fillDate"
+          >
+          <script>
+            document.getElementById('fillDate').value =
+              new Date().toISOString().split('T')[0];
+          </script>
         </div>
-
         <!-- 親近主 -->
         <div class="mb-3">
           <div class="section-title mb-2">一、親近主 (靈修)</div>
