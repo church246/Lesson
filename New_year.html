@@ -1,0 +1,764 @@
+HTML
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 得勝農曆年 - 新春禱告日誌</title>
+    <style>
+        :root {
+            --primary-red: #b32d2e;
+            --deep-red: #8e2324;
+            --gold: #d4af37;
+            --light-gold: #fdf5e6;
+            --bg-body: #f9f7f2;
+            --text-main: #3e2723;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 頂部裝飾 */
+        header {
+            background: linear-gradient(rgba(179, 45, 46, 0.92), rgba(142, 35, 36, 0.92)), 
+                        url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+            color: var(--gold);
+            text-align: center;
+            padding: 60px 20px;
+            border-bottom: 6px solid var(--gold);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            letter-spacing: 4px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* 容器設計 */
+        .container {
+            max-width: 900px;
+            margin: -40px auto 50px auto;
+            background: var(--white);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        /* 區塊樣式 */
+        section { margin-bottom: 50px; }
+
+        h2 {
+            color: var(--primary-red);
+            border-left: 6px solid var(--primary-red);
+            padding-left: 15px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+        }
+
+        h3 { color: var(--deep-red); margin-top: 30px; }
+
+        /* 金句盒 */
+        .scripture-box {
+            background-color: var(--light-gold);
+            border: 1px solid var(--gold);
+            padding: 25px;
+            border-radius: 12px;
+            font-style: italic;
+            text-align: center;
+            box-shadow: inset 0 0 10px rgba(212, 175, 55, 0.1);
+        }
+
+        /* 使用者資訊欄位 */
+        .user-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            background: #fdfaf5;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #eee;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: bold;
+            color: var(--primary-red);
+            margin-bottom: 8px;
+        }
+
+        .input-group input, .input-field, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+        }
+
+        /* 策略卡片 */
+        .strategy-card {
+            background: #fff;
+            border: 1px solid var(--gold);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .strategy-card::before {
+            content: "得勝秘訣";
+            position: absolute;
+            top: -5px;
+            right: -15px;
+            background: var(--gold);
+            color: white;
+            padding: 5px 25px;
+            transform: rotate(15deg);
+            font-size: 0.7rem;
+        }
+
+        .strategy-title {
+            font-weight: bold;
+            font-size: 1.25rem;
+            color: var(--primary-red);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* 愛之語網格 */
+        .love-languages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .love-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-top: 4px solid var(--primary-red);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .love-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+        .love-card h4 { color: var(--primary-red); margin-top: 0; }
+
+        /* Checklist 樣式 */
+        .category-title {
+            background: var(--primary-red);
+            color: white;
+            padding: 6px 18px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 25px 0 10px 0;
+            font-size: 0.9rem;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 12px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .check-item input[type="checkbox"] { margin-right: 15px; transform: scale(1.3); margin-top: 5px; }
+
+        /* 頁尾 */
+        .worship-section {
+            background: linear-gradient(135deg, #fdf5e6 0%, #fffbf0 100%);
+            text-align: center;
+            padding: 40px;
+            border-radius: 15px;
+            border: 2px dashed var(--gold);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        .step-badge {
+            background: var(--gold);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 25px; margin-top: 0; }
+            header h1 { font-size: 2rem; }
+        }
+
+        .hero-header {
+    background: linear-gradient(rgba(179,45,46,.92), rgba(142,35,36,.92)),
+        url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+    color: #d4af37;
+    text-align: center;
+    padding: 70px 20px 60px;
+    border-bottom: 6px solid #d4af37;
+}
+
+.hero-inner h1 {
+    margin: 0;
+    font-size: 2.6rem;
+    letter-spacing: 3px;
+}
+
+.subtitle {
+    margin-top: 12px;
+    font-size: 1.1rem;
+    color: #fff4c4;
+}
+
+/* 導覽卡片 */
+.quick-nav-card {
+    max-width: 900px;
+    margin: -30px auto 40px;
+    background: white;
+    border-radius: 14px;
+    padding: 25px 30px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    border-top: 5px solid #d4af37;
+}
+
+.quick-nav-card h3 {
+    margin-top: 0;
+    color: #b32d2e;
+    text-align: center;
+}
+
+.quick-nav-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 12px;
+}
+
+.quick-nav-card li a {
+    display: block;
+    padding: 12px 16px;
+    background: #fff8e6;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #8e2324;
+    font-weight: 600;
+    border: 1px solid #f0e0b0;
+    transition: .2s;
+}
+
+.quick-nav-card li a:hover {
+    background: #d4af37;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* 平滑滾動 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 避免跳轉被標題遮住 */
+h2, h3 {
+    scroll-margin-top: 100px;
+}
+    </style>
+</head>
+<body>
+
+<header class="hero-header" id="top">
+    <div class="hero-inner">
+        <h1>新春 10 天禱告日誌</h1>
+        <p class="subtitle">在基督裡領受應許，活出得勝生命</p>
+    </div>
+</header>
+
+<!-- 快速導覽卡片 -->
+<nav class="quick-nav-card">
+    <h3>📌 教材快速導覽</h3>
+    <ul>
+        <li><a href="#victory-prayer">在禱告中完勝農曆年</a></li>
+        <li><a href="#time-plan">在禱告中規劃時間</a></li>
+        <li><a href="#love-language">愛之語行動</a></li>
+        <li><a href="#prayer-checklist">禱告焦點 Checklist</a></li>
+        <li><a href="#day-journal">10 天靈修日誌</a></li>
+        <li><a href="#prayer">新春萬事隨時禱告</a></li>
+    </ul>
+</nav>
+
+
+<div class="container">
+    <section>
+        <div class="scripture-box">
+            「我要在你們中間立我的帳幕；我的心也不厭惡你們。我要在你們中間行走；我要作你們的 神，你們要作我的子民。我是耶和華─你們的 神，曾將你們從埃及地領出來，使你們不作埃及人的奴僕；我也折斷你們所負的軛，叫你們挺身而走。」— 利未記 26:11-13
+        </div>
+
+        <div class="user-info-grid" style="margin-top: 30px;">
+            <div class="input-group">
+                <label>姓名</label>
+                <input type="text" placeholder="輸入您的姓名">
+            </div>
+            <div class="input-group">
+                <label>年度命名</label>
+                <input type="text" placeholder="例如：突破年、倍增年">
+            </div>
+            <div class="input-group">
+                <label>禱告同伴</label>
+                <input type="text" placeholder="填寫您的屬靈夥伴">
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 id="victory-prayer">在禱告中完勝農曆年</h2>
+        <div style="background: #f9f9f9; padding: 25px; border-radius: 12px; border-left: 5px solid #ddd;">
+            <p><strong>楊寧亞牧師分享：</strong> 1986年, 我從北美回來開始帶社青團契。過完年後, 我問弟兄姊妹過年過得好不好? 他們幾乎都表示過得不好。楊師母說:「教會弟兄姊妹過年過成這個樣子,怎麽得了!」所以我們就開始思想一個問題: 教會應該如何過得勝的農暦年? 這就是「得勝農暦年」的由來。</p>
+        </div>
+
+        <div class="love-languages-grid" style="margin-top: 30px;">
+            <div class="love-card" style="border-top-color: blueviolet;">
+                <h4>🏆 什麼是得勝的農曆年？</h4>
+                <p>1.  農歷年期間, 是不是好好聽上帝的話, 好好敬拜禱告? 讓自己更新, 從上帝那裡領受愛、領受祝福;<br>2. 農暦年期間是不是能好好服事人、愛人? 家人是必定要愛的, 另外還要服事其他人, 什麼人都好, 一定要服事人。</p>
+            </div>
+            <div class="love-card" style="border-top-color: #d32f2f;">
+                <h4>⚠️ 注意！有屬靈爭戰要打</h4>
+                <p>要過得勝的農暦年, 基本上要知道如何打贏屬靈爭戰。過去這些年來, 我們教會的農曆年過得一年比一年好, 但過去的得勝並不代表今日的得勝, 我們要繼續在上帝面前警醒。<br><br>
+                而要打羸屬靈爭戰, 第一件最重要的事情是, 要知道我們的仇敵是誰, 知道我們的憂慮是什麼, 並且懂得將憂慮卸給上帝。我們知道仇敵在做偷竊、殺害、毀壞的工作, 牠會藉著世界勾引我們的肉體, 使我們失敗。<br><br>
+                聖經教導我們要藉著「羔羊的血」跟我們「所見證的道」(見啟示錄十二:11)一一活在這個墮落的世界, 我們隨時有可能跌倒, 我們需要靠著「羔羊的血」走出來、不被控告; 而「所見證的道」讓我們得到正確的思想,可以幫助我們更積極地面對屬靈爭戰; 要得到正確的思想, 需要從上頭來的啟示、上帝的引導。因此, 事前的禱告跟時間規劃非常重要。這麼多年以來, 我們都在農暦年前的一個月開始為過年禱告。
+                </p>
+            </div>
+        </div>
+    </section>
+    <section>
+         <h3 style="color:blueviolet">團隊的禱告大有能力</h3>
+        <p>不只是我們個人的禱告計畫, 團隊的禱告是打屬靈爭戰另外一個很重要的秘訣。在農曆年前一個月的禱告裡面, 我會鼓勵每一個聚會, 包括主日、小組聚會, 都來為得勝的農暦年禱告, 再加上我們個人靈修的時候, 也不斷為得勝的農暦年禱告。有禱告、有警醒、有上帝的恩惠, 我們就能夠得勝。打贏屬靈爭戰不是靠我們自己, 乃是上帝賜給我們的恩惠, 讓我們有信心能夠抵擋仇敵, 並且打勝仗。就像彼得前書所說的:「你們要用堅固的信心抵擋牠」(五:9), 用信心抵擋仇敵, 也要用信心支取上帝的恩惠。 個人禱告支取上帝的恩惠, 團體禱告支取上帝的恩惠, 禱告一個月的時間, 並且在農曆年期間仍然保持網絡的禱告, 是我們得勝的祕快。<br><br>
+            面對農暦年、面對新年度的命名、面對任何一場屬靈爭戰, 我們個人、團體都要持續不斷地禱告,不只是年初禱告, 還要一直持續到年底。我們要用信心抵擋仇敵, 用信心支取上帝的恩典, 並且持續不斷地爭戰、堅持到底, 這樣我們一定
+            會得勝!
+        </p>
+
+        <h2>農曆年得勝的兩大秘訣</h2>
+        
+        <div class="strategy-card">
+            <span class="strategy-title">第一招：把時間奉獻給上帝</span>
+            <p>要把整個農暦年奉獻給主, 切切地禱告, 讓聖靈來引導我們的時間。失敗不是電視太吸引人、家人個性差太多, 而是我們沒有將自己交託給主、沒做好時間的安排。</p>
+        </div>
+
+        <div class="strategy-card">
+            <span class="strategy-title">第二招：愛的團契</span>
+            <P>團隊的禱告是打屬靈爭戰另一個很重要的秘訣。弟兄姊妹為我們的代禱扶持非常重要! 請求別人代禱乃是謙卑的表現, 我們若是依靠自己, 爭戰一定會失敗。</P>
+        </div>
+        <H3 style="color:chocolate">我們需要靠著上帝透過教會給我們的恩典得勝。</H3>
+    </section>    
+    <section>
+        <h2 id="time-plan">🗓️ 在禱告中規劃時間</h2>
+        <p style="color: chocolate; font-weight: bold;"><p>在規劃的時候, 要藉著禱告尋求上帝的引導, 歡迎上帝將美善的思想賜給我們, 使我們知道時間該怎麼使用。<br>
+           <font style="color:chocolate">有規劃不一定會成功, 但不規劃一定會失敗!</font><br>
+           規劃時間表的步驟：<br>
+           當我們把時間計畫得好, 就不會做一些不好的事情, 不會感到無聊。現在, 就來規劃屬於你的時間表吧! (寫下來)</p>
+        <div class="strategy-card">
+         <p>  今年的行程是 ___________________<br>
+                我想改變的是 ___________________<br>
+                找到同伴一起得勝!
+        </p>
+        </div>
+        <div class="strategy-card">
+            <span class="strategy-title"><span class="step-badge">第一步</span> 今年的行程是...</span>
+            <p>初一、初二、初三、初四做什麼? 每個人、每個家庭、每一年可能都會有不同的行程, 若想安排好時間, 就需要先了解自己年節的行程(請記錄在個人慣用的筆記本裡)。</p>
+            <textarea rows="3" placeholder="請記錄您的節慶行程..."></textarea>
+        </div>
+
+        <div class="strategy-card">
+            <span class="strategy-title"><span class="step-badge">第二步</span> 我想改變的是...</span>
+            <p>檢視一下今年的時間表, 同時回想過往的農暦年: 我容易在哪裡跌倒? 今年我希望在哪裡得勝? 哪個部分是我可以做出改變的? 我是否已經准備好新年度的新計畫? 為這些部分來禱告, 求上帝賜給我們創意和啟示。<br>
+              <font style="color:chocolate">做好計畫就不會無聊! 無聊常常使我們做壞事情!</font></p>
+            <textarea rows="3" placeholder="今年我想做出的改變是..."></textarea>
+        </div>
+
+        <div class="strategy-card">
+            <span class="strategy-title"><span class="step-badge">第三步</span> 找到同伴一起得勝！</span>
+            <blockquote>「你回頭以後，要堅固你的弟兄。」（路加福音 22:32）</blockquote>
+            <p>打屬靈爭戰不是一個人打, 要和弟兄姊妹彼此堅固, 同心合一。先知以利亞會覺得都只有他一個人在打仗、面對敵人, 但上帝說:「我還預備了七千個不向巴力屈膝的, 絕對不是你一個人!」(見列王紀上十九章1-18節)<br>
+                所以在未來的這幾個禮拜中, 除了自己要時時刻刻警醒之外, 也不要忘了相約禱告同伴一起禱告。在軟弱的時候, 彼此安慰鼓勵會有很大的幫助。<br>
+                我們要知道我們不是一個人在打仗。
+            </p>
+            <input type="text" placeholder="我的代禱夥伴姓名：">
+        </div>
+          <h2>農歷年的探訪行動</h2>
+        <p>除了與肢體彼此堅固來打贏屬靈爭戰, 更要看見這是弟兄姊妹互相交叉探訪, 向未信主家人傳福音的好機會! 要探訪誰、什麼時候探訪、探訪要預備什麼, 都需要提前禱告尋求, 跟隨上帝的帶領。</p>
+    </section>
+
+    <section>
+        <h2 id="love-language">🧧 天天愛之語，家家好時光</h2>
+        <p>農暦年的愛之語,不再只是包紅包了! 红包的多寡或許能表示你的愛, 但真正深入人心的, 永遠是那個最特別又最簡單的愛的表達。表達愛, 其實可以很簡單······<br>
+            過年期間, 也許你會見到平常見不到的人, 也許你會和平常見到的人有更長時間相處。禮多人不怪, 愛之語多說也是有益無害! 若你一時想不起愛之語怎麼表達, 讓我們透過QR code 及下面的文字與你分享!
+        </p>
+        <div class="love-languages-grid">
+            <div class="love-card"><h4>💬 肯定的言語</h4> <p>感恩有你, 有你真好! 「感謝讃美」是對别人「過去」所做的表示肯定, 而「鼓勵激發」的言語是對别人「未來」所要做的表示肯定。當我們「真心誠意」說肯定和祝福人的話時, 別人聽了會得益處, 甚至生命改變, 彼此關係也更親密。
+                </p></div>
+            <div class="love-card"><h4>👂 精心的時刻</h4><p>需要傾聽的耳朵嗎? 我在。除了說出口的話語, 另一個也很重要的愛之語是陪伴人的精心時刻。刻意安排一段時間, 放下3C產品、個人所有娱樂, 真心實地用行動陪伴家人朋友--把我們的「耳朵」給他們!</p></div>
+            <div class="love-card"><h4>🎁 愛心的禮物</h4> <p>你喜歡的禮物, 我願能夠送給你。禮物不一定要很昂貴, 但一定要出於愛。送禮物還要切合時機, 滿足需要。如果我們送的禮物, 跟特殊日子或特的需要連結在一起, 對方會永遠記得被愛的感覺, 而且那份愛會進入人心,持續滋養他們、建造他們。</p></div>
+            <div class="love-card"><h4>🛠️ 服務的行動</h4> <p>可以為你做一點什麼, 是我的喜樂! 服務的行動是愛之語中最重要的愛的表達,因為我們的上帝, 就是服務人的上帝, 上帝的本性就是愛; 愛就是服務。我們的一言一行, 包括禱告, 都是在「服務」, 尤其禱告若沒有服務在裡面, 就會變成掌控!</p></div>
+            <div class="love-card"><h4>🤝 身體的接觸</h4>  <p>抱抱,拍拍, 我的關心盡在不言中。上帝創造身體, 不只是幫助我們傳達愛, 更是要我們去祝福人, 醫治人! 我們的嘴唇可以親吻親人; 我們的手可以撫摸、輕拍, 鼓勵好朋友, 也可以緊握、牽住親密愛人的手; 我們的身體可以擁抱、並肩、倚靠我們所信任的對方。身體做「愛的表達」時也要合宜恰當, 必須注意對方跟你的関係, 以及他/她的習慣、反應和感受!</p></div>
+            <div class="love-card"><h4>🙏 祝福的禱告</h4>  <p>我樂意為你禱告, 你知道吧? 我們要抓住任何能為人祝福禱告的機會, 無論在任何地方, 看到任何人有需要, 都可以為他祝福禱告, 接著就會有機會和他分享、見證耶穌多麼好! 當我們對別人說祝福的話、做祝福的行動時, 我們會很快樂, 也一定會蒙福!</p></div>
+        </div>
+    </section>
+
+    <section style="background: #fff9f9; padding: 30px; border-radius: 15px;">
+        <h2 id="prayer-checklist" style="border: none; text-align: center; display: block;">🧧 新春得勝禱告計畫</h2>
+    <p>準備好了嗎？一起來過得勝的農曆年吧！</p>
+        
+       <div class="container">
+    
+    <div class="goal-box">
+        <h3>🎯 我的年度得勝目標</h3>
+        <p><strong>1. 在禱告中尋求，我今年的目標是：</strong></p>
+        <textarea class="input-field" rows="3" placeholder="例如：在忙碌中保持安靜的心、修復與家人的關係..."></textarea>
+        
+        <p><strong>2. 我要如何對家人朋友做「愛的表達」？</strong></p>
+        <textarea class="input-field" rows="3" placeholder="例如：每天對太太說肯定的言語、為父母泡一杯茶..."></textarea>
+    </div>
+   <section class="checklist-container">
+        <h2 style="color: var(--primary-red); text-align: center;">🙏 為農曆年預備的禱告: 15個禱告焦點CHECKLIST
+        </h2>
+        <p style="text-align: center; color: #666;">（完成計畫後, 就來為農暦年預備禱告吧!)</p>
+
+        <div class="category-title">🟢 個人生活</div>
+        <div class="check-item">
+            <input type="checkbox" id="c01">
+            <label for="c01">01. 有時間完成 <input type="text" class="inline-input" placeholder="過年想完成的目標"> (如：讀一本書)</label>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" id="c02">
+            <label for="c02">02. 自己與家人的身體健康</label>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" id="c03">
+            <label for="c03">03. 維持正常飲食與作息</label>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" id="c04">
+            <label for="c04">04. 有好的情緒、常常喜樂</label>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" id="c05">
+            <label for="c05">05. 與上帝有親密的關係</label>
+        </div>
+
+        <div class="category-title">🏠 家庭生活</div>
+        <div class="check-item">
+            <input type="checkbox" id="c06">
+            <label for="c06">06. 親族之間關係和睦</label>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" id="c07">
+            <label for="c07">07. 能對家人有愛之語的表達</label>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" id="c08">
+            <label for="c08">08. 向未信主的家人見證福音 (含身傳、口傳)</label>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" id="c09">
+            <label for="c09">09. 出入交通平安</label>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" id="c10">
+            <label for="c10">10. 好好完成待辦的家事 <input type="text" class="inline-input" placeholder="填寫具體家事"></label>
+        </div>
+
+        <div class="category-title">⛪ 信仰生活</div>
+        <div class="check-item">
+            <input type="checkbox" id="c11">
+            <label for="c11">11. 關懷探訪屬靈認領 <input type="text" class="inline-input" placeholder="姓名/對象"></label>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" id="c12">
+            <label for="c12">12. 能穩定與同伴一起禱告</label>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" id="c13">
+            <label for="c13">13. 過年期間的金錢使用 (奉獻與支出有智慧)</label>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" id="c14">
+            <label for="c14">14. 靈修時間有好的規劃安排</label>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" id="c15">
+            <label for="c15">15. 不被惡習捆綁 (打電動、賭博、沉迷電視...)</label>
+        </div>
+    </section>
+
+    <section class="worship-section">
+        <h3>🎵 天天詩歌敬拜</h3>
+        <p class="worship-quote">「當稱謝進入祂的門；當讚美進入祂的院。」<br><small>— 詩篇 100:4</small></p>
+        <p>快樂家庭時光：跟著家庭聚會流程，享受新春 Family Time！</p>
+    </section>
+</div>
+<h2 id="day-journal">📅 10 天靈修禱告日誌</h2>
+<div class="day-index">
+<a href="#day1">第一天｜明光照耀//  </a>
+<a href="#day2">第二天｜隨時的幫助//  </a>
+<a href="#day3">小年夜｜一無掛慮//  </a>
+<a href="#day4">除夕｜恩典冠冕//  </a>
+<a href="#day5">初一｜歲首到年終//  </a>
+<a href="#day6">初二｜合宜的話語//  </a>
+<a href="#day7">初三｜安然居住//  </a>
+<a href="#day8">初四｜報告禧年//  </a>
+<a href="#day9">初五｜仰賴耶和華//  </a>
+<a href="#day10">初六｜抓住神話語  </a>
+
+</div>
+   <div class="day-card" id="day1">
+        <div class="day-title">第一天 <span>明光照耀</span></div>
+        <div class="scripture-text">
+            <strong>腓立比書 2:12-16</strong><br>
+            「12 這樣看來，我親愛的弟兄，你們既是常順服的，不但我在你們那裡，就是我如今不在你們那裡，更是順服的，就當恐懼戰兢做成你們得救的工夫。13 因為你們立志行事都是　神在你們心裡運行，為要成就他的美意。14 凡所行的，都不要發怨言，起爭論，15 使你們無可指摘，誠實無偽，在這彎曲悖謬的世代作　神無瑕疵的兒女。你們顯在這世代中，好像明光照耀，16 將生命的道表明出來，叫我在基督的日子好誇我沒有空跑，也沒有徒勞。」
+        </div>
+        <ul class="todo-list">
+            <li class="todo-item"><input type="checkbox"> 問問上帝, 今年農暦年要給我什麽祝福呢?</li>
+            <li class="todo-item"><input type="checkbox"> 用這段經文禱告, 為自己能預備好心, 在話語、情緒及行為上有得勝的見證。</li>
+            <li class="todo-item"><input type="checkbox"> 面對農曆年家中繁瑣的家事, 能主動幫忙, 帶頭行動, 不發怨言。 <span class="love-tag">服務的行動</span></li>
+        </ul>
+    </div>
+<Hr>
+     <div class="day-card" id="day2">
+        <div class="day-title">第二天 <span>隨時的幫助</span></div>
+        <div class="scripture-text">
+            <strong>詩篇 121:1-3, 5-8</strong><br>
+            「1 我要向山舉目；我的幫助從何而來？2 我的幫助從造天地的耶和華而來。3 祂必不叫你的腳搖動；保護你的必不打盹！
+5 保護你的是耶和華；耶和華在你右邊蔭庇你。6 白日，太陽必不傷你；夜間，月亮必不害你。7 耶和華要保護你，免受一切的災害；祂要保護你的性命。8 你出你入，耶和華要保護你，從今時直到永遠。
+」
+        </div>
+        <ul class="todo-list">
+            <li class="todo-item"><input type="checkbox"> 用這段經文爲家人做保護禱告, 返鄉或出外的交通都平安。</li>
+            <li class="todo-item"><input type="checkbox"> 為過年間, 家人身心靈健康平安禱告。</li>
+            <li class="todo-item"><input type="checkbox"> 當通車時間較長時, 或有時間跟家人相聚時, 跟他們聊聊最近生活中的各種趣事、心事吧! <span class="love-tag">精心的時刻</span></li>
+        </ul>
+    </div>
+<Hr>
+     <div class="day-card" id="day3">
+        <div class="day-title">小年夜 <span>一無掛慮</span></div>
+        <div class="scripture-text">
+            <strong>腓立比書 4:4-7</strong><br>
+            「4 你們要靠主常常喜樂。我再說，你們要喜樂。5 當叫眾人知道你們謙讓的心。主已經近了。6 應當一無掛慮，只要凡事藉著禱告、祈求，和感謝，將你們所要的告訴　神。7 　神所賜、出人意外的平安必在基督耶穌裡保守你們的心懷意念。」
+        </div>
+        <ul class="todo-list">
+             <li class="todo-item"><input type="checkbox"> 把現在感到憂慮的事,都告訴上帝吧!</li>
+            <li class="todo-item"><input type="checkbox"> 用這段經文禱告, 在忙碌家事中全家人仍然喜樂。</li>
+            <li class="todo-item"><input type="checkbox"> 奔波忙碌一整年的親朋好友, 特別針對他們的需要及內心的擔憂,獻上最真誠的祝福禱告。 <span class="love-tag">祝福的禱告</span></li>
+        </ul>
+    </div>
+<Hr>
+     <div class="day-card" id="day4">
+        <div class="day-title">除夕 <span>恩典冠冕</span></div>
+        <div class="scripture-text">
+            <strong>彼得前書 3:8-9 / 詩篇 65:11</strong><br>
+            「8 總而言之，你們都要同心，彼此體恤，相愛如弟兄，存慈憐謙卑的心。3:9 不以惡報惡，以辱罵還辱罵，倒要祝福；因你們是為此蒙召，好叫你們承受福氣。<br>
+11 你以恩典為年歲的冠冕；你的路徑都滴下脂油，」
+        </div>
+        <ul class="todo-list">
+            <li class="todo-item"><input type="checkbox"> 為自己禱告, 求一顆溫柔謙卑及感恩的心。</li>
+            <li class="todo-item"><input type="checkbox"> 用這段經文, 爲今天全家團團的時光禱告, 家人間彼此都能有和睦的關係。</li>
+            <li class="todo-item"><input type="checkbox"> 領受/發送紅包和禮物時, 我願意給對方一個愛的擁抱! <span class="love-tag">身體的接觸</span></li>
+        </ul>
+    </div>
+<Hr>
+     <div class="day-card" id="day5">
+        <div class="day-title">初一 <span>歲首到年終</span></div>
+        <div class="scripture-text">
+            <strong>申命記 11:11-15</strong><br>
+            「11 你們要過去得為業的那地乃是有山有谷、雨水滋潤之地，12 是耶和華─你　神所眷顧的；從歲首到年終，耶和華─你　神的眼目時常看顧那地。13 「你們若留意聽從我今日所吩咐的誡命，愛耶和華─你們的　神，盡心盡性事奉祂，14 祂必按時降秋雨春雨在你們的地上，使你們可以收藏五穀、新酒，和油，15 也必使你吃得飽足，並使田野為你的牲畜長草。」
+        </div>
+        <ul class="todo-list">
+            <li class="todo-item"><input type="checkbox"> 數算恩典，感謝上帝過去一整年的保守。</li>
+            <li class="todo-item"><input type="checkbox"> 向上帝尋求新一年的帶領。</li>
+            <li class="todo-item"><input type="checkbox"> 預備一份溫馨小禮物給拜訪的親友。 <span class="love-tag">愛心的禮物</span></li>
+        </ul>
+    </div>
+<Hr>
+     <div class="day-card" id="day6">
+        <div class="day-title">初二 <span>合宜的話語</span></div>
+        <div class="scripture-text">
+            <strong>箴言 25:11-13</strong><br>
+            「11 一句話說得合宜，就如金蘋果在銀網子裡。12 智慧人的勸戒，在順從的人耳中，好像金耳環和精金的妝飾。13 忠信的使者叫差他的人心裡舒暢，就如在收割時有冰雪的涼氣。」
+        </div>
+        <ul class="todo-list">
+            <li class="todo-item"><input type="checkbox"> 也為自己禱告, 聽人說話時更有耐心、愛心。</li>
+            <li class="todo-item"><input type="checkbox"> 當有人來家裡拜年/我去別人家拜年時, 口中能隨時說出感恩、讃美與鼓勵人的話語。 <span class="love-tag">肯定的言語</span></li>
+        </ul>
+    </div>
+<Hr>
+    <div class="day-card" id="day7">
+        <div class="day-title">初三 <span>安然居住</span></div>
+        <div class="scripture-text">
+            <strong>詩篇 16:8-9</strong><br>
+            「8 我將耶和華常擺在我面前，因他在我右邊，我便不致搖動。9 因此，我的心歡喜，我的靈快樂；我的肉身也要安然居住。」
+        </div>
+        <ul class="todo-list">
+            <li class="todo-item"><input type="checkbox"> 用這段經文禰告, 求上帝賜我與家人喜樂的心, 把情緒感受交託給主。</li>
+            <li class="todo-item"><input type="checkbox"> 爲春節的探訪行動禱告, 能帶出愛、關懷和喜樂。</li>
+            <li class="todo-item"><input type="checkbox"> 陪伴家人往郊外走走, 珍惜全家人共處的歡樂時光。 <span class="love-tag">精心的時刻</span></li>
+        </ul>
+    </div>
+<Hr>
+     <div class="day-card" id="day8">
+        <div class="day-title">初四 <span>報告禧年</span></div>
+        <div class="scripture-text">
+            <strong>路加福音 4:18-19</strong><br>
+            「18 主的靈在我身上，因為他用膏膏我，叫我傳福音給貧窮的人；差遣我報告：被擄的得釋放，瞎眼的得看見，叫那受壓制的得自由，19 報告　神悅納人的禧年。」
+        </div>
+        <ul class="todo-list">
+            <li class="todo-item"><input type="checkbox">用這段經文, 爲屬靈認領禱告, 從中更多看見他/她的需要, 並有願意助人的心。</li>
+            <li class="todo-item"><input type="checkbox">為即將/已經探訪關心的對象提名、爲他們的需要禱告。</li>
+            <li class="todo-item"><input type="checkbox">讓今天的探訪行程, 變成一次又一次充滿愛與實際關懷的服務行動。<span class="love-tag">服務的行動</span></li>
+        </ul>
+    </div>
+<Hr>
+    <div class="day-card" id="day9">
+        <div class="day-title">初五 <span>仰賴耶和華</span></div>
+        <div class="scripture-text">
+            <strong>箴言 3:3-6 / 申命記 8:18</strong><br>
+            「3 不可使慈愛、誠實離開你，要繫在你頸項上，刻在你心版上。4 這樣，你必在　神和世人眼前蒙恩寵，有聰明。5 你要專心仰賴耶和華，不可倚靠自己的聰明，6 在你一切所行的事上都要認定他，他必指引你的路。<br>
+            18 你要記念耶和華─你的　神，因為得貨財的力量是他給你的，為要堅定他向你列祖起誓所立的約，像今日一樣。
+                」
+        </div>
+        <ul class="todo-list">
+            <li class="todo-item"><input type="checkbox">用這段經文, 為家人的工作、學業、事業禱告; 並為自己能在職場、校園發揮影響力,帶出福音禱告。</li>
+            <li class="todo-item"><input type="checkbox">新一年的工作、事業、學業, 求上帝賜下所需的智慧能力。</li>
+            <li class="todo-item"><input type="checkbox">向上帝祈求一句話, 成為今天當面祝福朋友的話語。<span class="love-tag">肯定的言語</span></li>
+        </ul>
+    </div>
+    <Hr>
+    <div class="day-card" id="day10">
+        <div class="day-title">初六 <span>抓住神話語</span></div>
+        <div class="scripture-text">
+            <strong>詩篇一篇1-3節/約書亞記一章8-9節</strong><br>
+            「1 不從惡人的計謀，不站罪人的道路，不坐褻慢人的座位，2 惟喜愛耶和華的律法，晝夜思想，這人便為有福！3 他要像一棵樹栽在溪水旁，按時候結果子，葉子也不枯乾。凡他所做的盡都順利。<br>
+            8 這律法書不可離開你的口，總要晝夜思想，好使你謹守遵行這書上所寫的一切話。如此，你的道路就可以亨通，凡事順利。9 我豈沒有吩咐你嗎？你當剛強壯膽！不要懼怕，也不要驚惶；因為你無論往哪裡去，耶和華─你的　神必與你同在。」」
+        </div>
+        <ul class="todo-list">
+            <li class="todo-item"><input type="checkbox">用這段經文禱告,邀請聖靈幫助我新的一年,會聆聽她的聲音,做正確的決定,遵行上帝的旨意。</li>
+            <li class="todo-item"><input type="checkbox">求主賜給我新的心、新的靈,對工作有新的盼望,結出新的果子。</li>
+            <li class="todo-item"><input type="checkbox">爲假期結束感恩禱告,也為春節期間所服事過的每個人祈福禱告。<span class="love-tag">祝福的禱告</span></li>
+        </ul>
+    </div>
+
+   
+        <h2 id="prayer">新春萬事隨時禱告</h2>
+       <p class="subtitle">在每個處境中，讓上帝的話語成為您的力量</p>
+   <div class="container">
+    <section class="quick-nav-card">
+        <h3>✦ 快速指引：我現在正處於... ✦</h3>
+        <div class="nav-grid">
+            <a href="#conflict">面臨衝突</a>
+            <a href="#wronged">感到委屈</a>
+            <a href="#reunion">團圓聚餐</a>
+            <a href="#awkward">氣氛尷尬</a>
+            <a href="#anxious">緊張擔心</a>
+            <a href="#ancestors">家中拜拜</a>
+            <a href="#temptation">陷入試探</a>
+            <a href="#travel">家族旅遊</a>
+            <a href="#newborn">祝福成員</a>
+            <a href="#sick">探訪病友</a>
+        </div>
+    </section>
+
+    <h2 id="conflict">遇到衝突的時候</h2>
+    <div class="prayer-card">
+        <div class="prayer-content">
+            親愛的上帝，我正在(即將)面對一個衝突：<span class="input-fill">（具體描述事件）</span>
+            我需要祢來幫助我。祢是成就和睦的主，求祢教導我如何處理衝突，並在祢的愛中學習認錯。
+            我承認 <span class="input-fill">（說出自己的錯）</span>，也饒恕 <span class="input-fill">（對方的錯）</span>。
+            我把一切的情緒交給祢，也把家人的心交在祢手中，求祢幫助我們能靠著祢的愛，恢復彼此相愛的關係。
+            奉主耶穌基督的名禱告，阿們。
+        </div>
+    </div>
+
+    <h2 id="wronged">感到委屈的時候</h2>
+    <div class="prayer-card">
+        <div class="prayer-content">
+            親愛的主，祢是慈愛的天父。我受了委屈，內心很不舒服，因為 <span class="input-fill">（原因）</span>，但我願意把一切負面情緒都交給祢。
+            因祢是公義的主，必為我伸冤。我要歌頌祢，因祢是以厚恩待我的上帝。主啊！我要倚靠祢的慈愛，我的心要因祢而快樂。
+            奉主耶穌基督的名禱告，阿們。
+        </div>
+    </div>
+
+    <h2 id="reunion">要吃團圓飯前</h2>
+    <div class="prayer-card">
+        <div class="prayer-content">
+            慈愛的上帝，我們感謝讚美祢！
+            為著過去一年，祢在我們家族中成就的豐盛恩典來稱頌祢，特別是今年 <span class="input-fill">（具體感謝事件）</span>。
+            感謝祢讓我們可以平安相聚在這裡！我們不僅要為著桌上的飲食獻上感恩，也求祢祝福我們全家有美好良善的心靈互動，彼此口說恩言與感謝的話語，也飽得祢的恩惠和慈愛。
+            奉主耶穌基督的名禱告，阿們。
+        </div>
+    </div>
+
+    <h2 id="awkward">氣氛尷尬的時候</h2>
+    <div class="prayer-card">
+        <div class="prayer-content">
+            親愛的天父，祢是智慧的源頭。我擔心會面對一個很尷尬的處境：<span class="input-fill">（具體描述）</span>。
+            懇求上帝賜我聰明和靈巧，可以講出合宜的話、有合宜的態度面對。求主把節制與忍耐放在我裡面，使我能不動血氣，並且有溫柔的心感謝對方的關心，讓我說出口的都能造就人。
+            奉主耶穌基督的名禱告，阿們。
+        </div>
+    </div>
+
+    <h2 id="ancestors">家中拜拜的時候</h2>
+    <div class="prayer-card">
+        <div class="prayer-content">
+            親愛的主，我為我的祖先及我們拜祖先、拜假神的過犯向祢認罪。懇求天父因著耶穌基督在十字架上所流的寶血赦免我們。
+            在我的家人還不明白的時候，祢早已經為他們捨命，定意要救贖他們。天父，我也向祢獻上感謝！感謝祢應許世世代代作我們的居所。
+            我要宣告，我和我家都要事奉耶和華。
+            奉主耶穌基督的名禱告，阿們。
+        </div>
+        <div class="scripture-box">
+            「至於我和我家，我們必定事奉耶和華。」—— 約書亞記 24:15
+        </div>
+    </div>
+
+    <h2 id="sick">探訪生病的人</h2>
+    <div class="prayer-card">
+        <div class="prayer-content">
+            主耶穌，祢是醫治的神，祢是最好的醫生。
+            求祢施恩憐憫我們所愛的 <span class="input-fill">（名字）</span>，祢了解他因著 <span class="input-fill">（疾病名稱）</span> 承受了身心靈各方面的苦痛。
+            懇求祢的醫治臨到，所有負面的情緒、思想都離開他，讓他得到恢復與健康，從祢來的平安和喜樂充滿他。
+            奉主耶穌基督的名禱告，阿們。
+        </div>
+    </div>
+
+<footer>
+    <p>&copy; 新春 10 天禱告日誌</p>
+    
+</footer>
+
+</body>
+</html>
+
