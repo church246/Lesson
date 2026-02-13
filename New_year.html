@@ -319,27 +319,32 @@ h2, h3 {
     </ul>
 </nav>
 
+<!-- 表單返回頁，記得在表單加「 target='returnWin' 」 -->
+ <iframe name="returnWin" style="display: none;" onload="this.onload=function(){window.location='ok.html'}"></iframe>
+        <!-- 可選：Google Forms 區域（保留原欄位） -->
+        <form target="returnWin" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSevv5CmXj1GDx59jjS8ENfQa5EviiEESX0bubNzhzLldoPkEA/formResponse" method="post" id="gForm">
+          <!-- <iframe name="returnWin" style="display:none"></iframe> -->
 
+         
 <div class="container">
     <section>
         <div class="scripture-box">
             「我要在你們中間立我的帳幕；我的心也不厭惡你們。我要在你們中間行走；我要作你們的 神，你們要作我的子民。我是耶和華─你們的 神，曾將你們從埃及地領出來，使你們不作埃及人的奴僕；我也折斷你們所負的軛，叫你們挺身而走。」— 利未記 26:11-13
                 </div>
-       <div class="user-info-grid" style="margin-top: 30px;">
+        <div class="user-info-grid" style="margin-top: 30px;">
             <div class="input-group">
-                <label>姓名</label>
-                <input type="text" placeholder="輸入您的姓名">
+              <label class="form-label">姓名</label>
+              <input type="text" class="form-control" name="entry.927279870" id="927279870" placeholder="請填姓名">
             </div>
             <div class="input-group">
-                <label>年度命名</label>
-                <input type="text" placeholder="例如：突破年、倍增年">
+                <label>年度主題</label>
+                <input type="text" class="form-control" name="entry.1834990507" id="183499050" placeholder="禱告尋求">
             </div>
             <div class="input-group">
                 <label>禱告同伴</label>
-                <input type="text" placeholder="填寫您的屬靈夥伴">
+                <input type="text" class="form-control" name="entry.709732223" id="709732223" placeholder="填寫對方名字或尋求協助">
             </div>
         </div>
-        
     </section>
 
     <section>
@@ -395,31 +400,33 @@ h2, h3 {
                 找到同伴一起得勝!
         </p>
         </div>
-        <div class="strategy-card">
-            <span class="strategy-title"><span class="step-badge">第一步</span> 今年的行程是...</span>
-            <p>初一、初二、初三、初四做什麼? 每個人、每個家庭、每一年可能都會有不同的行程, 若想安排好時間, 就需要先了解自己年節的行程(請記錄在個人慣用的筆記本裡)。</p>
-            <textarea rows="3" placeholder="請記錄您的節慶行程..."></textarea>
-        </div>
-
-        <div class="strategy-card">
-            <span class="strategy-title"><span class="step-badge">第二步</span> 我想改變的是...</span>
-            <p>檢視一下今年的時間表, 同時回想過往的農暦年: 我容易在哪裡跌倒? 今年我希望在哪裡得勝? 哪個部分是我可以做出改變的? 我是否已經准備好新年度的新計畫? 為這些部分來禱告, 求上帝賜給我們創意和啟示。<br>
-              <font style="color:chocolate">做好計畫就不會無聊! 無聊常常使我們做壞事情!</font></p>
-            <textarea rows="3" placeholder="今年我想做出的改變是..."></textarea>
-        </div>
-
+         <div class="strategy-card">
+            <div class="input-group">
+                <span class="strategy-title"><span class="step-badge">第一步</span> 今年的行程是...</span>
+                <p>初一、初二、初三、初四做什麼? 每個人、每個家庭、每一年可能都會有不同的行程, 若想安排好時間, 就需要先了解自己年節的行程(請記錄在個人慣用的筆記本裡)。</p>
+                <textarea class="form-control" rows="2" name="entry.1015536044" id="1015536044"></textarea>
+            </div>
+            <div class="input-group">
+                <span class="strategy-title"><span class="step-badge">第二步</span> 我想改變的是...</span>
+                <p>檢視一下今年的時間表, 同時回想過往的農暦年: 我容易在哪裡跌倒? 今年我希望在哪裡得勝? 哪個部分是我可以做出改變的? 我是否已經准備好新年度的新計畫? 為這些部分來禱告, 求上帝賜給我們創意和啟示。<br>
+                 <font style="color:chocolate">做好計畫就不會無聊! 無聊常常使我們做壞事情!</font></p>
+                 <textarea class="form-control" rows="2" name="entry.394173531" id="394173531"></textarea>
+            </div>          
+       
         <div class="strategy-card">
             <span class="strategy-title"><span class="step-badge">第三步</span> 找到同伴一起得勝！</span>
-            <blockquote>「你回頭以後，要堅固你的弟兄。」（路加福音 22:32）</blockquote>
-            <p>打屬靈爭戰不是一個人打, 要和弟兄姊妹彼此堅固, 同心合一。先知以利亞會覺得都只有他一個人在打仗、面對敵人, 但上帝說:「我還預備了七千個不向巴力屈膝的, 絕對不是你一個人!」(見列王紀上十九章1-18節)<br>
-                所以在未來的這幾個禮拜中, 除了自己要時時刻刻警醒之外, 也不要忘了相約禱告同伴一起禱告。在軟弱的時候, 彼此安慰鼓勵會有很大的幫助。<br>
-                我們要知道我們不是一個人在打仗。
-            </p>
-            <input type="text" placeholder="我的代禱夥伴姓名：">
+                <blockquote>「你回頭以後，要堅固你的弟兄。」（路加福音 22:32）</blockquote>
+                <p>打屬靈爭戰不是一個人打, 要和弟兄姊妹彼此堅固, 同心合一。先知以利亞會覺得都只有他一個人在打仗、面對敵人, 但上帝說:「我還預備了七千個不向巴力屈膝的, 絕對不是你一個人!」(見列王紀上十九章1-18節)
+                所以在未來的這幾個禮拜中, 除了自己要時時刻刻警醒之外, 也不要忘了相約禱告同伴一起禱告。在軟弱的時候, 彼此安慰鼓勵會有很大的幫助。知道我們不是一個人在打仗，寫下代禱事項並告知禱告同伴。
+                </p>
+                <textarea class="form-control" rows="2" name="entry.1941156294" id="1941156294"></textarea>
         </div>
-          <h2>農歷年的探訪行動</h2>
-        <p>除了與肢體彼此堅固來打贏屬靈爭戰, 更要看見這是弟兄姊妹互相交叉探訪, 向未信主家人傳福音的好機會! 要探訪誰、什麼時候探訪、探訪要預備什麼, 都需要提前禱告尋求, 跟隨上帝的帶領。</p>
-    <a href="https://celwca.net/go-spam"><img src="assets/img/art/QR_code1.jpg" width="100px" style="float:right; margin-left:10px;"></a>
+        </div>           
+          <div class="text-center pb-3">
+            <button type="submit" class="btn btn-primary">送出</button>
+            <h2>農歷年的探訪行動</h2>
+            <p>除了與肢體彼此堅固來打贏屬靈爭戰, 更要看見這是弟兄姊妹互相交叉探訪, 向未信主家人傳福音的好機會! 要探訪誰、什麼時候探訪、探訪要預備什麼, 都需要提前禱告尋求, 跟隨上帝的帶領。</p>
+            <a href="https://celwca.net/go-spam"><img src="assets/img/art/QR_code1.jpg" width="100px" style="float:right; margin-left:10px;"></a>
     </section>
 
     <section>
@@ -437,6 +444,7 @@ h2, h3 {
             <div class="love-card"><h4>🤝 身體的接觸</h4>  <p>抱抱,拍拍, 我的關心盡在不言中。上帝創造身體, 不只是幫助我們傳達愛, 更是要我們去祝福人, 醫治人! 我們的嘴唇可以親吻親人; 我們的手可以撫摸、輕拍, 鼓勵好朋友, 也可以緊握、牽住親密愛人的手; 我們的身體可以擁抱、並肩、倚靠我們所信任的對方。身體做「愛的表達」時也要合宜恰當, 必須注意對方跟你的関係, 以及他/她的習慣、反應和感受!</p></div>
             <div class="love-card"><h4>🙏 祝福的禱告</h4>  <p>我樂意為你禱告, 你知道吧? 我們要抓住任何能為人祝福禱告的機會, 無論在任何地方, 看到任何人有需要, 都可以為他祝福禱告, 接著就會有機會和他分享、見證耶穌多麼好! 當我們對別人說祝福的話、做祝福的行動時, 我們會很快樂, 也一定會蒙福!</p></div>
         </div>
+      
     </section>
 
     <section style="background: #fff9f9; padding: 30px; border-radius: 15px;">
@@ -447,12 +455,16 @@ h2, h3 {
     
     <div class="goal-box">
         <h3>🎯 我的年度得勝目標</h3>
-        <p><strong>1. 在禱告中尋求，我今年的目標是：</strong></p>
-        <textarea class="input-field" rows="3" placeholder="例如：在忙碌中保持安靜的心、修復與家人的關係..."></textarea>
-        
-        <p><strong>2. 我要如何對家人朋友做「愛的表達」？</strong></p>
-        <textarea class="input-field" rows="3" placeholder="例如：每天對太太說肯定的言語、為父母泡一杯茶..."></textarea>
-    </div>
+         <div class="strategy-card">
+            <span class="strategy-title"><span class="step-badge">1. 在禱告中尋求，我今年的目標是：</span>
+            <textarea class="form-control" rows="2" name="entry.1401277061" id="1401277061"></textarea>
+        </div>
+       
+          <div class="strategy-card">
+        <span class="strategy-title"><span class="step-badge">2. 我要如何對家人朋友做「愛的表達」？</span>
+            <textarea class="form-control" rows="2" name="entry.1787153568" id="1787153568"></textarea>
+        </div>
+       
    <section class="checklist-container">
         <h2 style="color: var(--primary-red); text-align: center;">🙏 為農曆年預備的禱告: 15個禱告焦點CHECKLIST
         </h2>
@@ -522,6 +534,10 @@ h2, h3 {
         <div class="check-item">
             <input type="checkbox" id="c15">
             <label for="c15">15. 不被惡習捆綁 (打電動、賭博、沉迷電視...)</label>
+        </div>
+           <div class="strategy-card">
+            <span class="strategy-title"><span class="step-badge">3. 我的禱告是：</span>
+            <textarea class="form-control" rows="2" name="entry.478629258" id="478629258"></textarea>
         </div>
     </section>
 
@@ -685,7 +701,10 @@ h2, h3 {
             <li class="todo-item"><input type="checkbox">爲假期結束感恩禱告,也為春節期間所服事過的每個人祈福禱告。<span class="love-tag">祝福的禱告</span></li>
         </ul>
     </div>
-
+   <div class="strategy-card">
+            <span class="strategy-title"><span class="step-badge">靈修分享</span>
+            <textarea class="form-control" rows="2" name="entry.1483052276" id="1483052276"></textarea>
+        </div>
    
         <h2 id="prayer">新春萬事隨時禱告</h2>
        <p class="subtitle">在每個處境中，讓上帝的話語成為您的力量</p>
@@ -767,6 +786,17 @@ h2, h3 {
             奉主耶穌基督的名禱告，阿們。
         </div>
     </div>
+       <div class="strategy-card">
+            <span class="strategy-title"><span class="step-badge">使用以上禱告的分享</span>
+            <textarea class="form-control" rows="2" name="entry.1683127548" id="1683127548"></textarea>
+        </div>
+        <div class="text-center pb-3">
+            <button type="submit" class="btn btn-primary">送出</button>
+          
+        </div>
+   
+    </form>
+   </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 <section style="max-width: 600px; margin: auto; font-family: sans-serif;">
@@ -888,6 +918,63 @@ h2, h3 {
     };
 </script>
 
+
+<!--表單標題結束-->
+   
+   <!-- Optional JavaScript -->
+   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+   
+   <!-- 表單驗證 -->
+   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+   
+   <script>
+    $(function(){
+        $("#myForm").validate({
+            submitHandler: function(form){
+                form.submit();
+            },
+            rules: {
+                'entry.1092862640' : {
+                    required: true
+                 },
+                 'entry.1859730778':{
+                    required:true,
+                }, 'entry.1536978768':{
+                    required:true,
+                   
+                    
+                }, 'entry.829743054':{
+                    required:true,
+                    
+                
+   
+                }
+            },  
+                 
+            
+            messages: {
+                'entry.1092862640' : {
+        required: "必填"
+      },
+      
+      'entry.1859730778' : {
+        required: "必填"
+    },
+      'entry.1536978768' : {
+        required: "必填"
+    },
+      'entry.829743054' : {
+        required: "必填"
+                }
+            }
+        });
+   
+    });
+   
+   </script>
 <footer>
     <p>&copy; 新春 10 天禱告日誌</p>
     
