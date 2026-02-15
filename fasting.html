@@ -192,24 +192,72 @@
             document.getElementById('completedDays').innerText = count;
         }
 
-        function generatePDF() {
-            const list = document.getElementById('print-list');
-            list.innerHTML = "";
-            for (let i = 1; i <= 21; i++) {
-                if (db[i]) {
-                    const item = document.createElement('div');
-                    item.style = "margin-bottom:20px; border-bottom:1px solid #eee; padding-bottom:15px;";
-                    item.innerHTML = `
-                        <h3 style="color:#1e3a8a;">第 ${i} 天：${dailyData[i]?.title || ""}</h3>
-                        <p style="font-size:12px; color:#666;">禁食：${db[i].fast ? '✓' : '×'} | 禱告：${db[i].pray ? '✓' : '×'} | 時間：${db[i].timestamp}</p>
-                        <div style="margin-top:5px; background:#f9f9f9; padding:10px; border-radius:5px; white-space:pre-wrap;">${db[i].note}</div>
-                    `;
-                    list.appendChild(item);
-                }
-            }
-            window.print();
-        }
+     // 1. 強化的 PDF 產生功能（針對安卓優化）
+function generatePDF() {
+    // 先檢查是否有資料
+    if (Object.keys(db).length === 0) {
+        alert("目前還沒有任何紀錄可以匯出喔！");
+        return;
+    }
 
+    const list = document.getElementById('print-list');
+    list.innerHTML = "";
+    
+    // 整理 21 天內容
+    for (let i = 1; i <= 21; i++) {
+        if (db[i]) {
+            const item = document.createElement('div');
+            item.style = "margin-bottom:20px; border-bottom:1px solid #eee; padding-bottom:15px; font-family: sans-serif;";
+            item.innerHTML = `
+                <h3 style="color:#1e3a8a; font-size:18px;">第 ${i} 天：${dailyData[i]?.title || "靈修筆記"}</h3>
+                <p style="font-size:12px; color:#666;">禁食：${db[i].fast ? '✓' : '×'} | 禱告：${db[i].pray ? '✓' : '×'}</p>
+                <div style="margin-top:5px; font-size:16px; white-space:pre-wrap;">${db[i].note || "（無文字內容）"}</div>
+            `;
+            list.appendChild(item);
+        }
+    }
+
+    // 解決安卓沒反應的核心：延遲呼叫列印，確保 DOM 已渲染
+    setTimeout(() => {
+        try {
+            window.print();
+        } catch (e) {
+            alert("您的瀏覽器不支援直接列印，請點擊右上角『在瀏覽器中開啟』，或使用『複製全文』功能。");
+        }
+    }, 500);
+}
+
+// 2. 萬能備案：一鍵複製全文
+function copyAllNotes() {
+    let fullText = "【2026 21天禁禱靈修筆記存檔】\n\n";
+    for (let i = 1; i <= 21; i++) {
+        if (db[i]) {
+            fullText += `第 ${i} 天：${dailyData[i]?.title || ""}\n`;
+            fullText += `狀態：${db[i].fast ? '[已禁食]' : ''} ${db[i].pray ? '[已禱告]' : ''}\n`;
+            fullText += `感言：${db[i].note}\n`;
+            fullText += `--------------------------\n`;
+        }
+    }
+
+    if (fullText.length < 30) {
+        alert("尚無內容可複製");
+        return;
+    }
+
+    // 執行複製
+    navigator.clipboard.writeText(fullText).then(() => {
+        alert("✅ 全文已複製到剪貼簿！\n您可以直接貼到 LINE 或手機備忘錄存檔。");
+    }).catch(err => {
+        // 針對舊款安卓的備選複製方案
+        const el = document.createElement('textarea');
+        el.value = fullText;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        alert("✅ 全文已複製！");
+    });
+}
         function signVow() {
             let name = prompt("請輸入您的姓名，立約成為拿細耳青年志願軍：");
             if(name) alert(name + "，願神紀念你的誓言。你的生命將分別為聖！");
