@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2026 21天禁禱守望 - 轉化與復興</title>
     <script src="https://cdn.tailwindcss.com"></script>
+  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .gradient-bg { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
@@ -33,17 +34,185 @@
             </div>
         </div>
     </nav>
+<section id="vision" class="py-16 bg-gradient-to-b from-blue-50 to-white text-center no-print">
+  <div class="max-w-5xl mx-auto px-4">
 
-    <section id="vision" class="py-12 bg-white text-center no-print">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-blue-900 mb-4">21天為台灣禁食守望禱告 (3/2~3/22)</h2>
-            <p class="italic text-blue-700 mb-4">「你當剛強壯膽！不要懼怕，也不要驚惶；因為你無論往哪裡去，耶和華你的神必與你同在。」— 約書亞記 1:9</p>
-            <p class="max-w-2xl mx-auto text-gray-600 mb-8">從「自潔」到「爭戰」，透過禁食與宣告，為復興預備道路。</p>
-            <button onclick="signVow()" class="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-3 rounded-full font-bold shadow-lg transition">
-                <i class="fas fa-pen-nib mr-2"></i>簽署拿細耳人誓約
-            </button>
+    <!-- 標題區 -->
+    <h2 class="text-3xl md:text-4xl font-extrabold text-blue-900 mb-4">
+      21天為台灣禁食守望禱告 (3/2~3/22)
+    </h2>
+
+    <p class="italic text-blue-700 mb-4">
+      「你當剛強壯膽！不要懼怕，也不要驚惶；因為你無論往哪裡去，
+      耶和華你的神必與你同在。」— 約書亞記 1:9
+    </p>
+
+    <p class="max-w-2xl mx-auto text-gray-600 mb-10">
+      從「自潔」到「爭戰」，透過禁食與宣告，為復興預備道路。
+    </p>
+
+    <!-- 表單卡片 -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 md:p-12 text-left">
+
+      <!-- 隱藏 iframe 用於跳轉 -->
+   <iframe name="returnWin" style="display: none;" onload="this.onload=function(){window.location='../table_game/ok.html'}"></iframe>
+
+      <form target="returnWin"
+        action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSe31-I3ZYMgSGzU8Zr6hP8Huf807mNFIj9pOIWPklDqeWLYoA/formResponse"
+        method="post"
+        id="myForm"
+        class="space-y-8">
+
+        <!-- 姓名 + 小組 -->
+        <div class="grid md:grid-cols-2 gap-6">
+
+          <div>
+            <label class="block font-semibold text-gray-700 mb-2">
+              姓名 <span class="text-red-500">*</span>
+            </label>
+            <input type="text"
+              name="entry.543622155"
+              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+              required>
+          </div>
+
+          <div>
+            <label class="block font-semibold text-gray-700 mb-2">
+              小組 <span class="text-red-500">*</span>
+            </label>
+            <input type="text"
+              name="entry.6848217"
+              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+              required>
+          </div>
+
         </div>
-    </section>
+
+        <!-- 日期 -->
+        <div>
+          <label class="block font-semibold text-gray-700 mb-2">
+            選擇禁食日期 <span class="text-red-500">*</span>
+          </label>
+
+          <select name="entry.1926818313"
+            multiple
+            size="8"
+            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+            required>
+
+            <option value="3/2">3/2</option>
+            <option value="3/3">3/3</option>
+            <option value="3/4">3/4</option>
+            <option value="3/5">3/5</option>
+            <option value="3/6">3/6</option>
+            <option value="3/7">3/7</option>
+            <option value="3/8">3/8</option>
+            <option value="3/9">3/9</option>
+            <option value="3/10">3/10</option>
+            <option value="3/11">3/11</option>
+            <option value="3/12">3/12</option>
+            <option value="3/13">3/13</option>
+            <option value="3/14">3/14</option>
+            <option value="3/15">3/15</option>
+            <option value="3/16">3/16</option>
+            <option value="3/17">3/17</option>
+            <option value="3/18">3/18</option>
+            <option value="3/19">3/19</option>
+            <option value="3/20">3/20</option>
+            <option value="3/21">3/21</option>
+            <option value="3/22">3/22</option>
+
+          </select>
+
+          <p class="text-sm text-gray-500 mt-2">
+            可按住 Ctrl (Windows) 或 Cmd (Mac) 多選
+          </p>
+        </div>
+
+        <!-- 時段 -->
+        <div>
+          <label class="block font-semibold text-gray-700 mb-2">
+            選擇時段 <span class="text-red-500">*</span>
+          </label>
+
+          <select name="entry.1463241729"
+            multiple
+            size="3"
+            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+            required>
+
+            <option value="早">早</option>
+            <option value="中">中</option>
+            <option value="晚">晚</option>
+
+          </select>
+        </div>
+
+        <!-- 送出按鈕 -->
+        <div class="text-center pt-4">
+          <button type="submit"
+            class="bg-yellow-500 hover:bg-yellow-600 text-white px-10 py-3 rounded-full font-bold shadow-lg transition">
+            送出簽署拿細耳人誓約
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</section>
+ <!--表單標題結束-->
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<!-- 表單驗證 -->
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+
+        <script>
+        $(function(){
+            $("#myForm").validate({
+                submitHandler: function(form){
+                    form.submit();
+                },
+            rules: {
+        'entry.543622155': {
+            required: true
+        },
+        'entry.6848217': {
+            required: true
+        },
+        'entry.1926818313[]': {
+            required: true
+        },
+        'entry.1463241729_time[]': {
+            required: true
+        }
+        },
+        messages: {
+        'entry.543622155': {
+            required: "請填寫姓名"
+        },
+        'entry.6848217': {
+            required: "請填寫小組"
+        },
+        'entry.1926818313[]': {
+            required: "請選擇日期"
+        },
+        'entry.1463241729_time[]': {
+            required: "請選擇時段"
+        }
+        }
+     });
+ });
+
+
+</script>
+
+
 
     <section id="dashboard" class="py-12 bg-gray-100 no-print">
         <div class="container mx-auto px-4 grid md:grid-cols-3 gap-8">
@@ -264,6 +433,108 @@ function copyAllNotes() {
         }
 
         loadDay(1, document.getElementById('btn-1'));
+
+   
+
+
+
     </script>
+<div class="bg-gray-100 p-8">
+  <h1 class="text-3xl font-bold text-center mb-8">
+    21天禁食守望戰情表
+  </h1>
+
+  <div class="overflow-x-auto">
+    <table id="statsTable" class="min-w-full bg-white shadow-lg rounded-lg overflow-hidden text-center">
+      <thead class="bg-blue-900 text-white">
+        <tr>
+          <th class="p-3">日期</th>
+          <th class="p-3">早</th>
+          <th class="p-3">中</th>
+          <th class="p-3">晚</th>
+          <th class="p-3">總人數</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+const url = "https://docs.google.com/spreadsheets/d/1P-U2TS7bmDhGtb7cJf9l2NXarFm1HFbwFOme1Hpj9Uo/gviz/tq?tqx=out:csv";
+
+const days = [
+  "3/2","3/3","3/4","3/5","3/6","3/7","3/8",
+  "3/9","3/10","3/11","3/12","3/13","3/14",
+  "3/15","3/16","3/17","3/18","3/19","3/20","3/21","3/22"
+];
+
+// 初始化統計資料
+let stats = {};
+days.forEach(day => {
+  stats[day] = {早:0, 中:0, 晚:0};
+});
+
+// 讀取 Google 試算表 CSV
+fetch(url)
+.then(res => res.text())
+.then(text => {
+  const rows = text.trim().split("\n").slice(1);
+
+  rows.forEach(row => {
+    const cols = row.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g);
+    if(!cols || cols.length < 5) return;
+
+    const selectedDays = cols[3].replace(/"/g,"").split(",");
+    const selectedTimes = cols[4].replace(/"/g,"").split(",");
+
+    selectedDays.forEach(day => {
+      day = day.trim();
+      if(stats[day]){
+        selectedTimes.forEach(time=>{
+          time = time.trim();
+          if(stats[day][time] !== undefined){
+            stats[day][time]++;
+          }
+        });
+      }
+    });
+  });
+
+  renderTable();
+});
+
+// 渲染表格
+function renderTable(){
+  const tbody = document.querySelector("#statsTable tbody");
+  tbody.innerHTML = "";
+
+  days.forEach(day=>{
+    const early = stats[day]["早"];
+    const noon = stats[day]["中"];
+    const night = stats[day]["晚"];
+    const total = early + noon + night;
+
+    // 發光顏色，至少一人就發光
+    let color = "rgb(230,230,230)"; // 無人灰色
+    if(total > 0){
+      const intensity = Math.min(total / 10, 1);
+      const base = 255 - 150*(1-intensity);
+      color = `rgb(255, ${base}, ${base})`; // 紅色系發光
+    }
+
+    tbody.innerHTML += `
+      <tr class="border-b hover:bg-blue-50">
+        <td class="p-3 font-semibold">${day}</td>
+        <td class="p-3 font-bold" style="background-color:${early>0?color:'rgb(230,230,230)'};">${early>0?early:''}</td>
+        <td class="p-3 font-bold" style="background-color:${noon>0?color:'rgb(230,230,230)'};">${noon>0?noon:''}</td>
+        <td class="p-3 font-bold" style="background-color:${night>0?color:'rgb(230,230,230)'};">${night>0?night:''}</td>
+        <td class="p-3 font-bold text-blue-900">${total>0?total:''}</td>
+      </tr>
+    `;
+  });
+}
+</script>
+</Div>
 </body>
 </html>
