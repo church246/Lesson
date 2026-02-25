@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 21天禁禱守望 - 轉化與復興</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+    <link href="main.css" type="text/CSS" rel="stylesheet" />
+
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .gradient-bg { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
+        .day-card.active { border: 2px solid #fbbf24; background-color: #fffbeb; transform: scale(1.05); }
+        .progress-ring { transition: stroke-dashoffset 0.35s; transform: rotate(-90deg); transform-origin: 50% 50%; }
+        .center-img { display: block;  margin: 0 auto;}
+        /* 列印優化：確保中文不亂碼且格式精美 */
+        @media print {
+            nav, button, section:not(#print-report), .no-print, footer, #daySelector, textarea { display: none !important; }
+            #print-report { display: block !important; width: 100%; }
+            body { background: white; }
+            .page-break { page-break-after: always; }
+        }
+        #print-report { display: none; }
+    </style>
+</head>
+<body class="bg-gray-100 p-8">
+       <section>
+        <div class="text-center">
+            <h3>填表成功!</h3>
+            <h1 class="text-3xl font-bold text-center mb-8" style="color:#3b82f6">願上帝垂聽您的代禱!</h1>
+            <img src="assets/img/art/listening.png" width="380px" class="center-img">
+            <hr class="my-4">
+           
+         </div>
+        </section>
+        
+  <h1 class="text-3xl font-bold text-center mb-8">
+    21天禁食守望戰情表登記結果
+  </h1>
+
+  <div class="overflow-x-auto">
+    <table id="statsTable" class="min-w-full bg-white shadow-lg rounded-lg overflow-hidden text-center">
+      <thead class="bg-blue-900 text-white">
+        <tr>
+          <th class="p-3">日期</th>
+          <th class="p-3">早</th>
+          <th class="p-3">中</th>
+          <th class="p-3">晚</th>
+          <th class="p-3">總人數</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+const url = "https://docs.google.com/spreadsheets/d/1P-U2TS7bmDhGtb7cJf9l2NXarFm1HFbwFOme1Hpj9Uo/gviz/tq?tqx=out:csv";
+
+const days = [
+  "3/2","3/3","3/4","3/5","3/6","3/7","3/8",
+  "3/9","3/10","3/11","3/12","3/13","3/14",
+  "3/15","3/16","3/17","3/18","3/19","3/20","3/21","3/22"
+];
+
+// 初始化統計資料
+let stats = {};
+days.forEach(day => {
+  stats[day] = {早:0, 中:0, 晚:0};
+});
+
+// 讀取 Google 試算表 CSV
+fetch(url)
+.then(res => res.text())
+.then(text => {
+  const rows = text.trim().split("\n").slice(1);
+
+  rows.forEach(row => {
+    const cols = row.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g);
+    if(!cols || cols.length < 5) return;
+
+    const selectedDays = cols[3].replace(/"/g,"").split(",");
+    const selectedTimes = cols[4].replace(/"/g,"").split(",");
+
+    selectedDays.forEach(day => {
+      day = day.trim();
+      if(stats[day]){
+        selectedTimes.forEach(time=>{
+          time = time.trim();
+          if(stats[day][time] !== undefined){
+            stats[day][time]++;
+          }
+        });
+      }
+    });
+  });
+
+  renderTable();
+});
+
+// 渲染表格
+function renderTable(){
+  const tbody = document.querySelector("#statsTable tbody");
+  tbody.innerHTML = "";
+
+  days.forEach(day=>{
+    const early = stats[day]["早"];
+    const noon = stats[day]["中"];
+    const night = stats[day]["晚"];
+    const total = early + noon + night;
+
+    // 發光顏色，至少一人就發光
+    let color = "rgb(230,230,230)"; // 無人灰色
+    if(total > 0){
+      const intensity = Math.min(total / 10, 1);
+      const base = 255 - 150*(1-intensity);
+      color = `rgb(255, ${base}, ${base})`; // 紅色系發光
+    }
+
+    tbody.innerHTML += `
+      <tr class="border-b hover:bg-blue-50">
+        <td class="p-3 font-semibold">${day}</td>
+        <td class="p-3 font-bold" style="background-color:${early>0?color:'rgb(230,230,230)'};">${early>0?early:''}</td>
+        <td class="p-3 font-bold" style="background-color:${noon>0?color:'rgb(230,230,230)'};">${noon>0?noon:''}</td>
+        <td class="p-3 font-bold" style="background-color:${night>0?color:'rgb(230,230,230)'};">${night>0?night:''}</td>
+        <td class="p-3 font-bold text-blue-900">${total>0?total:''}</td>
+      </tr>
+    `;
+  });
+}
+</script>
+ <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>

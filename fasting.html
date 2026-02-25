@@ -55,7 +55,7 @@
     <div class="bg-white rounded-2xl shadow-2xl p-8 md:p-12 text-left">
 
       <!-- 隱藏 iframe 用於跳轉 -->
-   <iframe name="returnWin" style="display: none;" onload="this.onload=function(){window.location='../table_game/ok.html'}"></iframe>
+   <iframe name="returnWin" style="display: none;" onload="this.onload=function(){window.location='fasting_reply.html'}"></iframe>
 
       <form target="returnWin"
         action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSe31-I3ZYMgSGzU8Zr6hP8Huf807mNFIj9pOIWPklDqeWLYoA/formResponse"
@@ -439,102 +439,6 @@ function copyAllNotes() {
 
 
     </script>
-<div class="bg-gray-100 p-8">
-  <h1 class="text-3xl font-bold text-center mb-8">
-    21天禁食守望戰情表
-  </h1>
 
-  <div class="overflow-x-auto">
-    <table id="statsTable" class="min-w-full bg-white shadow-lg rounded-lg overflow-hidden text-center">
-      <thead class="bg-blue-900 text-white">
-        <tr>
-          <th class="p-3">日期</th>
-          <th class="p-3">早</th>
-          <th class="p-3">中</th>
-          <th class="p-3">晚</th>
-          <th class="p-3">總人數</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-  </div>
-</div>
-
-<script>
-const url = "https://docs.google.com/spreadsheets/d/1P-U2TS7bmDhGtb7cJf9l2NXarFm1HFbwFOme1Hpj9Uo/gviz/tq?tqx=out:csv";
-
-const days = [
-  "3/2","3/3","3/4","3/5","3/6","3/7","3/8",
-  "3/9","3/10","3/11","3/12","3/13","3/14",
-  "3/15","3/16","3/17","3/18","3/19","3/20","3/21","3/22"
-];
-
-// 初始化統計資料
-let stats = {};
-days.forEach(day => {
-  stats[day] = {早:0, 中:0, 晚:0};
-});
-
-// 讀取 Google 試算表 CSV
-fetch(url)
-.then(res => res.text())
-.then(text => {
-  const rows = text.trim().split("\n").slice(1);
-
-  rows.forEach(row => {
-    const cols = row.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g);
-    if(!cols || cols.length < 5) return;
-
-    const selectedDays = cols[3].replace(/"/g,"").split(",");
-    const selectedTimes = cols[4].replace(/"/g,"").split(",");
-
-    selectedDays.forEach(day => {
-      day = day.trim();
-      if(stats[day]){
-        selectedTimes.forEach(time=>{
-          time = time.trim();
-          if(stats[day][time] !== undefined){
-            stats[day][time]++;
-          }
-        });
-      }
-    });
-  });
-
-  renderTable();
-});
-
-// 渲染表格
-function renderTable(){
-  const tbody = document.querySelector("#statsTable tbody");
-  tbody.innerHTML = "";
-
-  days.forEach(day=>{
-    const early = stats[day]["早"];
-    const noon = stats[day]["中"];
-    const night = stats[day]["晚"];
-    const total = early + noon + night;
-
-    // 發光顏色，至少一人就發光
-    let color = "rgb(230,230,230)"; // 無人灰色
-    if(total > 0){
-      const intensity = Math.min(total / 10, 1);
-      const base = 255 - 150*(1-intensity);
-      color = `rgb(255, ${base}, ${base})`; // 紅色系發光
-    }
-
-    tbody.innerHTML += `
-      <tr class="border-b hover:bg-blue-50">
-        <td class="p-3 font-semibold">${day}</td>
-        <td class="p-3 font-bold" style="background-color:${early>0?color:'rgb(230,230,230)'};">${early>0?early:''}</td>
-        <td class="p-3 font-bold" style="background-color:${noon>0?color:'rgb(230,230,230)'};">${noon>0?noon:''}</td>
-        <td class="p-3 font-bold" style="background-color:${night>0?color:'rgb(230,230,230)'};">${night>0?night:''}</td>
-        <td class="p-3 font-bold text-blue-900">${total>0?total:''}</td>
-      </tr>
-    `;
-  });
-}
-</script>
-</Div>
 </body>
 </html>
