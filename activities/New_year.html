@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>新春經文抽牌 — 禱告祝福</title>
+  <style>
+    :root{--red:#c92a2a;--gold:#f5c04a;--bg:#fff6ec}
+    html,body{height:100%;margin:0;font-family: "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;background: linear-gradient(180deg, #fff6ec 0%, #ffeedd 100%);color:#3a2b2b}
+    .wrap{min-height:100%;display:flex;flex-direction:column;align-items:center;padding:24px}
+    header{width:100%;max-width:980px;display:flex;align-items:center;justify-content:space-between}
+    h1{margin:0;font-size:1.6rem;color:var(--red);display:flex;gap:8px;align-items:center}
+    .sub{color:#6b4a3a}
+    .stage{margin-top:22px;width:100%;max-width:980px;display:flex;gap:24px}
+    .left{flex:1}
+    .card-area{display:flex;flex-direction:column;align-items:center;gap:12px}
+    .card{width:320px;height:440px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.12);position:relative;perspective:1200px}
+    .card-inner{width:100%;height:100%;border-radius:14px;transition:transform 600ms cubic-bezier(.2,.9,.25,1);transform-style:preserve-3d}
+    .card.flipped .card-inner{transform:rotateY(180deg)}
+    .side{position:absolute;inset:0;border-radius:14px;backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;text-align:center}
+    .front{background:linear-gradient(180deg,var(--red),#b21f1f);color:var(--gold)}
+    .front .logo{font-size:2.2rem;margin-bottom:8px}
+    .back{background:linear-gradient(180deg,#fff,#fff8ed);transform:rotateY(180deg);color:#2b2b2b}
+    .verse{font-size:1rem;line-height:1.6;margin:8px 0}
+    .ref{font-weight:700;margin-top:6px;color:#8a4b2b}
+    .prayer{margin-top:12px;padding:12px;border-radius:8px;background:rgba(249, 239, 226,0.7)}
+    .controls{display:flex;gap:8px;margin-top:10px}
+    button{background:var(--red);color:var(--gold);border:none;padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:700}
+    button.secondary{background:#fff;border:2px solid var(--red);color:var(--red);font-weight:700}
+    aside{width:320px}
+    .list{background:rgba(255,255,255,0.85);padding:12px;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,0.06)}
+    .list h3{margin:0 0 8px 0;color:var(--red)}
+    .meta{font-size:0.9rem;color:#6b4a3a}
+    footer{margin-top:28px;color:#6b4a3a;font-size:0.9rem}
+    /* decorative */
+    .lanterns{position:fixed;right:18px;top:18px;display:flex;flex-direction:column;gap:8px;z-index:10}
+    .lantern{width:54px;height:72px;background:var(--red);border-radius:8px;box-shadow:inset 0 -8px rgba(0,0,0,0.08);display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:900}
+    .fireworks{position:fixed;left:18px;top:18px;z-index:9}
+    @media (max-width:900px){.stage{flex-direction:column}.aside{width:100%}aside{width:100%}}
+  </style>
+</head>
+<body>
+  <div class="lanterns">
+    <div class="lantern">福</div>
+    <div class="lantern">春</div>
+  </div>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>新春經文抽牌 ✨</h1>
+        <div class="sub">抽一張牌，讀一句經文，搭配對應禱告 — 迎新年、領受祝福</div>
+      </div>
+      <div class="meta">作者：ChatGPT 範例版</div>
+    </header>
+
+    <div class="stage">
+      <div class="left">
+        <div class="card-area">
+          <div id="card" class="card" aria-live="polite">
+            <div class="card-inner">
+              <div class="side front">
+                <div class="logo">✶ 新春祝福 ✶</div>
+                <div>點選下方「抽牌」翻開經文</div>
+              </div>
+              <div class="side back">
+                <div style="font-size:1.1rem;font-weight:800;color:var(--red)">經文</div>
+                <div id="verse" class="verse">—</div>
+                <div id="ref" class="ref">—</div>
+                <div id="prayer" class="prayer">禱告詞會顯示在這裡，讓你把經文帶入生活。</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="controls">
+            <button id="draw">抽牌</button>
+            <button id="shuffle" class="secondary">洗牌</button>
+            <button id="copy" class="secondary">複製禱告</button>
+          </div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="list">
+          <h3>使用說明</h3>
+          <p class="meta">按「抽牌」取得一則經文與對應禱告；按「洗牌」可回復到背面並重新排列池子。</p>
+          <h3 style="margin-top:12px">今日小叮嚀</h3>
+          <p class="meta">新年時刻，別忘了為親友求平安、感謝神在過去一年的供應。</p>
+        </div>
+      </aside>
+    </div>
+
+    <footer>祝你新春蒙福 — 心想事成，平安喜樂</footer>
+  </div>
+
+  <script>
+    // 經文本與對應禱告（範例）
+    const deck = [
+      {ref:'詩篇 20:4',verse:'願他因你的心裡所願賜你成就，並成全你一切的籌算。',prayer:'主啊，求祢成就我與家人合乎祢心意的計畫，賜我們智慧與力量去行祢所喜悅的事。'},
+      {ref:'腓立比書 4:6-7',verse:'應當一無掛慮，只要凡事藉著禱告、祈求，和感謝，將你們所要的告訴神。',prayer:'主，幫助我在新的一年把憂慮交託給祢，求祢賜我和平，守我的心思意念。'},
+      {ref:'以賽亞書 41:10',verse:'你不要害怕，因為我與你同在；不要驚惶，因為我是你的神。',prayer:'我倚靠祢，求祢在未知與變動中與我同行，驅散恐懼，賜我勇氣和安穩。'},
+      {ref:'耶利米書 29:11',verse:'我向你們所懷的意念，是賜平安的意念，不是降災禍的意念。',prayer:'感謝祢的美意，求祢引導我走祢所預備的道路，使我在新年得見祢的恩典。'},
+      {ref:'詩篇 23:1',verse:'耶和華是我的牧者，我必不致缺乏。',prayer:'主是我的牧者，願我在祢裡面得滿足，不為物慾所困，經歷祢的供應。'},
+      {ref:'馬太福音 6:33',verse:'你們要先求他的國和他的義，這些東西都要加給你們了。',prayer:'主，求祢使我把祢放在首位，調整我的優先次序，讓一切按祢旨意成長。'},
+      {ref:'詩篇 118:24',verse:'這是耶和華所定的日子，我們在其中要高興歡喜。',prayer:'感謝主賜下今日，求祢幫助我以感恩的心歡慶每一日的恩典。'},
+      {ref:'哥林多後書 9:8',verse:'神能使各樣的恩惠多多的加給你們，使你們凡事常常充足。',prayer:'求主在物質和心靈上供應，使我能慷慨、服事他人，成為祝福的管道。'},
+      {ref:'箴言 3:5-6',verse:'你要專心仰賴耶和華，不可倚靠自己的聰明。在你一切所行的事上都要認定他。',prayer:'主，教我全然信靠祢，不靠自己的理解，凡事尋求祢的引導。'},
+      {ref:'羅馬書 15:13',verse:'但願使人有盼望的神，因信將諸般的喜樂平安充滿你們的心。',prayer:'願神充滿我盼望與喜樂，讓我在新的一年為身邊人帶來盼望的光。'},
+      {ref:'詩篇 46:1',verse:'神是我們的避難所和力量，是我們隨時的幫助。',prayer:'當我感到軟弱或害怕，求祢成為我的避難所，賜我力量與安慰。'},
+      {ref:'申命記 31:6',verse:'你要剛強壯膽，不要懼怕，也不要畏懼他們，因為耶和華你的神必與你同去。',prayer:'主與我同行，賜我勇氣面對未知，讓我在困境中仍能站立得穩。'}
+    ];
+
+    let pool = [...deck];
+
+    const cardEl = document.getElementById('card');
+    const inner = cardEl.querySelector('.card-inner');
+    const verseEl = document.getElementById('verse');
+    const refEl = document.getElementById('ref');
+    const prayerEl = document.getElementById('prayer');
+    const drawBtn = document.getElementById('draw');
+    const shuffleBtn = document.getElementById('shuffle');
+    const copyBtn = document.getElementById('copy');
+
+    function shuffleArray(a){
+      for(let i=a.length-1;i>0;i--){
+        const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];
+      }
+    }
+
+    function resetCard(){
+      cardEl.classList.remove('flipped');
+      verseEl.textContent='—';refEl.textContent='—';prayerEl.textContent='禱告詞會顯示在這裡，讓你把經文帶入生活。';
+    }
+
+    shuffleBtn.addEventListener('click',()=>{
+      pool = [...deck];shuffleArray(pool);resetCard();
+    });
+
+    drawBtn.addEventListener('click',()=>{
+      if(pool.length===0){
+        alert('牌已抽完，已自動重洗。');pool=[...deck];shuffleArray(pool);
+      }
+      const card = pool.pop();
+      verseEl.textContent = card.verse;
+      refEl.textContent = card.ref;
+      prayerEl.textContent = card.prayer;
+      // flip animation
+      setTimeout(()=>{cardEl.classList.add('flipped')},50);
+    });
+
+    copyBtn.addEventListener('click',async()=>{
+      const text = `${verseEl.textContent}\n${refEl.textContent}\n\n禱告：${prayerEl.textContent}`;
+      try{
+        await navigator.clipboard.writeText(text);
+        copyBtn.textContent='已複製';setTimeout(()=>copyBtn.textContent='複製禱告',1200);
+      }catch(e){alert('無法複製，請手動選取並複製。');}
+    });
+
+    // 頁面載入時洗牌
+    (function init(){shuffleArray(pool);}());
+  </script>
+</body>
+</html>

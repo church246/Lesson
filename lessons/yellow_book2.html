@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>經文解碼：耶穌與大痲瘋病人</title>
+  <meta name="description" content="用簡潔的 HTML5 單頁呈現：大痲瘋的無奈與耶穌憐憫的愛—背景解說、經文脈絡、重點導讀與反思問題。" />
+  <style>
+    :root{
+      --bg:#fafaf9; --fg:#0f172a; --muted:#475569; --card:#ffffff; --brand:#2563eb; --accent:#16a34a; --warn:#d97706; --rose:#e11d48;
+      --radius:16px; --shadow:0 6px 24px rgba(2,6,23,.08), 0 2px 8px rgba(2,6,23,.06);
+    }
+    @media (prefers-color-scheme: dark){
+      :root{ --bg:#0b1220; --fg:#e5e7eb; --muted:#94a3b8; --card:#101829; --brand:#60a5fa; --accent:#34d399; --warn:#fbbf24; --rose:#fb7185; }
+      body{ text-rendering: optimizeLegibility; }
+    }
+    *{ box-sizing: border-box; }
+    html,body{ margin:0; padding:0; background:var(--bg); color:var(--fg); font-family: system-ui, -apple-system, "Noto Sans TC", "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; line-height:1.75; }
+    a{ color:var(--brand); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+    header.hero{ position:relative; overflow:hidden; padding:64px 20px 32px; background:linear-gradient(135deg, rgba(37,99,235,.12), rgba(16,185,129,.12)); }
+    .container{ width:min(100%, 980px); margin-inline:auto; padding-inline:20px; }
+    .title{ font-size:clamp(28px, 4vw, 44px); letter-spacing: .5px; margin:0 0 8px; font-weight:800; }
+    .subtitle{ margin:0; color:var(--muted); font-size:clamp(14px, 2vw, 18px); }
+    nav.toc{ position:sticky; top:0; background:var(--bg); border-bottom:1px solid rgba(148,163,184,.25); z-index:3; }
+    nav.toc .wrap{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; padding:10px 20px; width:min(100%, 980px); margin:auto; }
+    nav.toc a{ padding:8px 12px; border-radius:999px; background:rgba(148,163,184,.15); color:inherit; }
+    nav.toc a:hover{ background:rgba(37,99,235,.18); color:var(--fg); }
+
+    main{ padding:28px 0 64px; }
+    section{ background:var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding:24px; margin:18px auto; width:min(100%, 900px); }
+    section h2{ margin-top:0; font-size: clamp(22px, 3vw, 28px); }
+    p{ margin: .5em 0 1em; }
+    .callout{ border-left:6px solid var(--brand); padding:14px 16px; background:linear-gradient(90deg, rgba(37,99,235,.10), transparent); border-radius:12px; }
+    .callout.warn{ border-color:var(--warn); background:linear-gradient(90deg, rgba(217,119,6,.12), transparent); }
+    .callout.good{ border-color:var(--accent); background:linear-gradient(90deg, rgba(16,185,129,.12), transparent); }
+    .qbox{ border:1px dashed rgba(148,163,184,.6); border-radius:12px; padding:12px; background:rgba(148,163,184,.08); }
+    .grid{ display:grid; grid-template-columns: 1fr; gap:18px; }
+    @media (min-width: 820px){ .grid{ grid-template-columns: 1fr 1fr; } }
+    details{ border:1px solid rgba(148,163,184,.35); border-radius:12px; padding:10px 12px; background: rgba(148,163,184,.08); }
+    summary{ cursor:pointer; font-weight:600; }
+    .badge{ display:inline-block; padding:.25rem .5rem; border-radius:999px; background:rgba(148,163,184,.18); font-size:.85em; }
+    blockquote{ margin:0; padding:12px 16px; border-left:6px solid var(--rose); background:linear-gradient(90deg, rgba(244,63,94,.10), transparent); border-radius:12px; }
+    footer{ text-align:center; color:var(--muted); padding:36px 0 80px; }
+    .btns{ display:flex; gap:10px; flex-wrap:wrap; }
+    .btn{ display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:12px; background:var(--brand); color:white; border:none; cursor:pointer; box-shadow: var(--shadow); }
+    .btn.secondary{ background:transparent; color:var(--brand); border:1.5px solid var(--brand);} 
+    .fill{ width:100%; padding:12px; border-radius:10px; border:1px solid rgba(148,163,184,.45); background: transparent; color:inherit; resize:vertical; min-height:72px; }
+    .small{ font-size:.9em; color:var(--muted); }
+
+    .verse-ref{ font-weight:700; color:var(--brand); }
+    .kbd{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; background: rgba(148,163,184,.2); padding:.2em .5em; border-radius:6px; }
+
+    @media print{
+      nav.toc, .btns{ display:none !important; }
+      section{ box-shadow:none; break-inside: avoid; }
+      body{ background:white; color:black; }
+    }
+    
+  </style>
+</head>
+<body>
+  <a href="#main" class="kbd" style="position:absolute; left:-9999px; top:0">跳到主內容</a>
+
+  <header class="hero">
+     <h1>第二課　自尊的重建者</h1>
+     <H3>一、聖經密碼:</H3>
+    <p class="lead">經文：馬可福音 1:40-45</p>
+  </header>
+
+  <section>
+    <div class="scripture">
+     <p>40 有一個長大痲瘋的，來求耶穌，向祂跪下說：『你若肯，必能叫我潔淨了。』<br>
+      41 耶穌動了慈心，就伸手摸他，說：『我肯，你潔淨了罷。』<br>
+      42 大痲瘋即時離開他，他就潔淨了。<br>
+      43 耶穌嚴嚴的囑咐他，就打發他走<br>
+      44 對他說：『你要謹慎，甚麼話都不可告訴人；只要去把身體給祭司察看，又因為你潔淨了，獻上摩西所吩咐的禮物，對眾人作證據。』<br>
+      45 那人出去，倒說許多的話，把這件事傳揚開了，叫耶穌以後不得再明明的進城，只好在外邊曠野地方；人從各處都就了祂來。</p>
+    </div>
+  </section>
+   
+  </header>
+ <section>
+    <h3>二、密碼試解:</h3>
+    <ol class="questions">
+      <li class="question">
+        <strong>這段聖經記載一個長大痲瘋的人向耶穌求助，您覺得他對耶穌的看法如何？從哪裡可以看得出來？</strong>
+        <div class="fill" contenteditable="true" aria-label="回答1">（請在此輸入您的想法 — 例如：他相信耶穌的能力、他謙卑、他擔心被拒絕……）</div>
+        <p class="prompt">提示：注意經文中他怎麼稱呼耶穌、他的語氣、他跪下的動作與用詞「你若肯」所反映的情緒。</p>
+      </li>
+
+      <li class="question">
+        <strong>耶穌如何處理這位大痲瘋患者的問題？祂做了甚麼動作？您覺得他是否非做這個動作不可？為什麼？</strong>
+        <div class="fill" contenteditable="true" aria-label="回答2">（請在此輸入您的想法 — 例如：耶穌伸手摸他、耶穌說『我肯』、這個動作表達了憐憫與接納……）</div>
+        <p class="prompt">提示：想想摸的行為對病人心理的意義，及此動作是否只是象徵或同時具醫治功效。</p>
+      </li>
+
+      <li class="question">
+        <strong>耶穌不讓被醫治的人四處張揚是甚麼原因？結果如何？</strong>
+        <div class="fill" contenteditable="true" aria-label="回答3">（請在此輸入您的想法 — 例如：耶穌不想被當作政治領袖、避免群眾炒作、結果是耶穌不得不在曠野活動……）</div>
+        <p class="prompt">提示：參考律法中祭司的角色、公共注意力可能帶來的後果，以及耶穌行事的心意與使命。</p>
+      </li>
+    </ol>
+  </section>
+ <main id="main" class="container">
+
+    <section id="bg">
+      <h3>三、經文解碼：大痲瘋的無奈</h3>
+      <div class="callout warn">
+        <p>大痲瘋是一種皮膚病， 是由分支桿菌所引發的一種慢性傳染病. 病徵是皮膚，  黏膜及表面的神經發生病變， 在皮膚上出現失去色素的斑塊， 但不是白色的， 這些斑塊通常同時會失去對觸摸及溫度的感覺， 皮膚變厚又形成小瘤. 得了大痲瘋的人，  皮膚的觸感就像砂紙，  而且還有顆粒的感覺. 最可怕的是， 因著末梢神經的壞死， 造成顏面或肢體末端受傷卻不自知， 得大痲瘋的人並不知道已經有嚴重的損傷或潰瘍， 因此， 得了大痲瘋的人最後都是四肢不全。許多時候，眼睛、耳朵及鼻都會受到影響。手腳經常在潰爛，瘡口發出惡臭，身體和四肢的型態會變得十分古怪難看。再者， 大痲瘋會透過長期接觸傳染， 因此， 常會對患者採取隔離措施。聖經中記載的痲瘋病， 與今日所認定的並不盡相同， 聖經將許多會傳染的皮膚病都列入痲瘋病的範圍。</p>
+      </div>
+      <p>在當時，長大痲瘋除了表示了身體的痛苦不適之外， 同時也宣告了社群的唾棄， 因為這也是禮儀上部潔淨的表徵。一旦被判定是痲瘋病，接下來的人生是沒有親人、沒有朋友、沒有未來。除了等死之外，沒有甚麼好盼望的。</p>
+    </section>
+
+    <section id="text">
+      
+      <blockquote>
+        這段經文所記載的就是一位得了大痲瘋病的病人， 他來到耶穌的面前， 和上一課門徒的情況不同的是， 他一點都不懷疑耶穌的能力， 他擔心的是像他這樣為眾人唾棄的人， 耶穌願意幫助他嗎? 於是， 他跪在耶穌的跟前， 問出令人心酸的問題: 你若肯……， 你肯嗎? 你會肯嗎? 像我這樣沒有人在乎的人……， 一個已經失去自信， 失去尊重的人， 甚至到真神面前也會惶恐， 害怕是否會被接納。 讓我們看看耶穌怎麼處理他的問題。
+      </blockquote>
+      
+    </section>
+
+    <section id="pt1">
+       <p>1.	耶穌瞭解這位病人的問題， 不只是生理的疾病， 還有心理的痛苦， 他需要的醫治， 也不只是皮膚病，  還得深入生命的深處。  因此， 耶穌作了一個其實在醫病上很多餘的動作， 因為耶穌在醫治人的時候， 從來不必用手， 祂通常只要吩咐一句~不管病人是在眼前， 或是在很遠的地方， 完全不影響醫治的結果~就立刻使病人脫離病痛。 耶穌摸這位病人的原因很簡單， 是讓他知道耶穌的”肯”， 不只是同意而已，  而是更深的情感， 是憐恤， 是接納， 是愛的表達。 想想看， 換做是你， 你會願意冒著被傳染的危險去摸一個八竿子打不著的人嗎?  ________________________別忘了，  他還長的很難看， 很恐怖， 甚至很噁心喔！</p>
+          <div class="qbox">
+            <strong>換作是你，你會願意冒著被傳染的風險去觸摸一位被厭棄的人嗎？</strong>
+            <textarea class="fill" placeholder="寫下你的直覺與理由…"></textarea>
+          </div>
+    </section>
+
+    <section id="pt2">   
+      <p>2.	讓我們再來想想看這位痲瘋病人的感覺。 您曾被人碰觸， 覺得被愛， 被寶貝嗎？_____________。 如果您已經很長的時間沒被人擁抱， 理由是你太壞， 太爛， 或者太惡劣， 太髒， 現在有一個完全瞭解你狀況的人， 願意在你還沒有任何改變的時候就表得祂的愛， 伸手撫摸你， 您會覺得如何? ______________________________________。 再進一步， 如果這樣待您的人， 又是眾人仰慕尊重的人， 道德高超， 加上能行各樣的神蹟奇事， 相信誰都會承認， 這樣的愛讓人從心裡頭暖上來。 這位大痲瘋病人一生都會津津樂道這件事:有一位很特別的人， 祂會醫病， 趕鬼， 祂還做了許多不尋常的事， 祂曾摸過我， 那時我還長著大痲瘋沒有人願意碰我的， 祂還說.....， 你知道嗎? 祂當時的表情是非常溫柔， 祂的眼神…耶穌在這位病人身上做的事， 不只是醫好他身體的疾病， 還一併解決了他生命的孤單，  被否定。</p>
+      <textarea class="fill" placeholder="寫下：如果我是那位病人，被耶穌觸摸時，我的心會…"></textarea>
+      
+    </section>
+
+    <section id="pt3">
+      <p>3.	這段經文有一點引起討論是: 為什麼耶穌不要這個人告訴人， 只要把身體給祭司察看呢?主耶穌囑咐他不要把神蹟傳揚出去。原來耶穌醫並為的不是要揚名立萬， 祂關心的是病人， 另一方面， 若太多人知道祂行神蹟的能力，  反而使人的注意力從生命的事轉移到生活層面， 猶太人總想著民族復興， 如果耶穌是他們歷史上所預言的彌賽亞的話， 他們一定會強逼他帶領革命， 主的意思是不想引來一群好奇諸事群?，或引發群體，推舉他作王，主知道自己必須先上十字架。主吩咐他去給祭司察看，根據摩西律法祭司的工作是祭看痲瘋病者，看他是否真正得著醫治。祭司不能醫治，他所能做的只是宣佈人已得醫治。  可是對這位被醫治的人來說， 要忍住不說實在有點困難。 最後的結果是耶穌以後沒法公開進城。</p>
+    </section>
+
+    <section id="pt4">
+      <p>4.	這是一個好美的故事。 一位失去人生一切樂趣， 盼望的人， 一位失去自尊， 沒有安全感的人， 重新找到生命的喜樂， 走上希望之路。 您的生命是否經歷過這樣的痛苦?失去人的接納與尊重， 甚至從來就沒有人尊重過您? 來到耶穌面前吧! 祂不是要顯出祂的卓越， 也不會提醒您欠祂多少人情， 祂在意您的感覺， 當我們請祂幫忙的時候， 祂不是高高在上， 而是充滿了溫暖與憐恤。 讓我們來找祂幫忙吧!</p>
+    </section>
+
+    <section id="reflect">
+      <h3>四、運用密碼:</h3>
+      
+          <p>1. 想想看， 在您的生命中， 有沒有失去自尊的感覺過? 您怎麼面對的? 今天我們可以來請耶穌改變這個痛苦的記憶。</p>
+          <p>2. 耶穌能夠觸摸我們的內心， 您是否願意經歷耶穌溫暖您的生命? 您願意像這位病人一樣， 向祂開口， 請求祂嗎? 請陪讀您的人為您禱告。</p>
+          <div class="qbox">
+            <strong>我的祈禱</strong>
+            <textarea class="fill" placeholder="主啊，我也在這些地方說：『你若肯…』。求你觸摸與醫治…"></textarea>
+          </div>
+       
+    </section>  
+
+  </main>
+<P><a href="yellow_book2a.html">另外也可參考PPT影音版本</a></P>
+
+</body>
+</html>

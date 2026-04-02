@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>我們的終身在神手中</title>
+  <style>
+    body{font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans TC', 'Helvetica Neue', Arial; padding:20px; background:#f7f7f7}
+    h1{font-size:1.4rem; margin-bottom:0.5rem}
+    /* 表格樣式 */
+    table{border-collapse:collapse; width:100%; max-width:900px; margin-bottom:24px; background:#fff; box-shadow:0 1px 3px rgba(0,0,0,0.08)}
+    th, td{padding:10px 12px; border:1px solid #e5e5e5; text-align:left}
+    th{background:#fafafa}
+
+    /* 輪播容器 */
+    .carousel{position:relative; width:100%; max-width:900px; margin:0 auto; overflow:hidden; border-radius:8px; background:#000}
+    .slides{display:flex; transition:transform 0.5s ease}
+    .slide{min-width:100%; box-sizing:border-box}
+    .slide img{display:block; width:100%; height:500px; object-fit:cover}
+
+    /* 控制按鈕 */
+    .controls{position:absolute; inset:0; pointer-events:none}
+    .btn{position:absolute; top:50%; transform:translateY(-50%); pointer-events:auto; background:rgba(255,255,255,0.8); border:0; padding:8px 12px; cursor:pointer; border-radius:6px}
+    .prev{left:12px}
+    .next{right:12px}
+
+    /* 分頁點 */
+    .dots{position:absolute; left:50%; transform:translateX(-50%); bottom:12px; display:flex; gap:8px}
+    .dot{width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.6); cursor:pointer}
+    .dot.active{background:rgba(255,255,255,0.95)}
+
+    /* 手機小圖高度調整 */
+    @media (max-width:480px){ .slide img{height:220px} }
+  </style>
+</head>
+<body>
+  <h1>範例：表格 + 圖片輪播</h1>
+
+  <!-- 表格範例 -->
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>名稱</th>
+     </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>我們的終身在神手中</td>
+       
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>香蕉</td>
+     
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>葡萄</td>
+      
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 輪播 -->
+  <div class="carousel" id="carousel">
+    <div class="slides" id="slides">
+      <div class="slide"><img src="assets/img/control/1.JPG"></div>
+      <div class="slide"><img src="assets/img/control/2.JPG"></div>
+      <div class="slide"><img src="assets/img/control/3.JPG"></div>
+      <div class="slide"><img src="assets/img/control/4.JPG"></div>
+      <div class="slide"><img src="assets/img/control/5.JPG"></div>
+      <div class="slide"><img src="assets/img/control/6.JPG"></div>
+      <div class="slide"><img src="assets/img/control/7.JPG"></div>
+      <div class="slide"><img src="assets/img/control/8.JPG"></div>
+      <div class="slide"><img src="assets/img/control/9.JPG"></div>
+      <div class="slide"><img src="assets/img/control/10.JPG"></div>
+      <div class="slide"><img src="assets/img/control/11.JPG"></div>
+      <div class="slide"><img src="assets/img/control/12.JPG"></div>
+    </div>
+
+    <div class="controls">
+      <button class="btn prev" id="prev" aria-label="上一張">‹</button>
+      <button class="btn next" id="next" aria-label="下一張">›</button>
+      <div class="dots" id="dots"></div>
+    </div>
+  </div>
+<HR>
+      <!-- 輪播 -->
+  <div class="carousel" id="carousel">
+    <div class="slides" id="slides">
+      <div class="slide"><img src="assets/img/control/1.JPG"></div>
+      <div class="slide"><img src="assets/img/control/2.JPG"></div>
+      <div class="slide"><img src="assets/img/control/3.JPG"></div>
+      <div class="slide"><img src="assets/img/control/4.JPG"></div>
+      <div class="slide"><img src="assets/img/control/5.JPG"></div>
+      <div class="slide"><img src="assets/img/control/6.JPG"></div>
+      <div class="slide"><img src="assets/img/control/7.JPG"></div>
+      <div class="slide"><img src="assets/img/control/8.JPG"></div>
+      <div class="slide"><img src="assets/img/control/9.JPG"></div>
+      <div class="slide"><img src="assets/img/control/10.JPG"></div>
+      <div class="slide"><img src="assets/img/control/11.JPG"></div>
+      <div class="slide"><img src="assets/img/control/12.JPG"></div>
+    </div>
+
+    <div class="controls">
+      <button class="btn prev" id="prev" aria-label="上一張">‹</button>
+      <button class="btn next" id="next" aria-label="下一張">›</button>
+      <div class="dots" id="dots"></div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const slides = document.getElementById('slides');
+      const slideCount = slides.children.length;
+      const prevBtn = document.getElementById('prev');
+      const nextBtn = document.getElementById('next');
+      const dotsContainer = document.getElementById('dots');
+      let index = 0;
+      let timer = null;
+      const AUTOPLAY_INTERVAL = 3000; // 毫秒
+
+      // 建立分頁點
+      for(let i=0;i<slideCount;i++){
+        const d = document.createElement('div');
+        d.className = 'dot' + (i===0? ' active':'');
+        d.dataset.i = i;
+        d.addEventListener('click', ()=>{ goTo(parseInt(d.dataset.i)); resetTimer(); });
+        dotsContainer.appendChild(d);
+      }
+
+      function update(){
+        slides.style.transform = `translateX(${-index*100}%)`;
+        // 更新點
+        const dots = dotsContainer.children;
+        for(let i=0;i<dots.length;i++) dots[i].classList.toggle('active', i===index);
+      }
+
+      function prev(){ index = (index-1+slideCount)%slideCount; update(); }
+      function next(){ index = (index+1)%slideCount; update(); }
+      function goTo(i){ index = (i+slideCount)%slideCount; update(); }
+
+      prevBtn.addEventListener('click', ()=>{ prev(); resetTimer(); });
+      nextBtn.addEventListener('click', ()=>{ next(); resetTimer(); });
+
+      // 自動播放
+      function startTimer(){ timer = setInterval(()=>{ next(); }, AUTOPLAY_INTERVAL); }
+      function stopTimer(){ if(timer){ clearInterval(timer); timer = null; } }
+      function resetTimer(){ stopTimer(); startTimer(); }
+
+      // 當滑鼠移入停止自動播放，離開再啟動（行動裝置不會有 hover）
+      const carousel = document.getElementById('carousel');
+      carousel.addEventListener('mouseenter', stopTimer);
+      carousel.addEventListener('mouseleave', startTimer);
+
+      // 初始化
+      update(); startTimer();
+
+      // 可選：支援左右鍵切換
+      document.addEventListener('keydown', (e)=>{
+        if(e.key === 'ArrowLeft') { prev(); resetTimer(); }
+        if(e.key === 'ArrowRight') { next(); resetTimer(); }
+      });
+    })();
+  </script>
+
+  <!-- 使用說明：把圖片換成你自己的本機圖片，將上面 img 的 src 改成例如 ./images/pic1.jpg -->
+</body>
+</html>

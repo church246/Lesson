@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8">
+<title>試算表資料顯示</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+#searchBox {
+    width: 300px;
+    padding: 8px;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background: #f5f5f5;
+    position: sticky;
+    top: 0;
+}
+
+tr:nth-child(even) {
+    background: #fafafa;
+}
+
+.loading {
+    color: #888;
+}
+</style>
+</head>
+
+<body>
+
+<h1>資料列表</h1>
+
+<input type="text" id="searchBox" placeholder="🔍 搜尋關鍵字">
+
+<div id="status" class="loading">資料載入中...</div>
+
+<table id="dataTable"></table>
+
+<script>
+
+const csvUrl =
+"https://docs.google.com/spreadsheets/d/1M0PqTKaMhhr57x7GVsN3kT_ZcJpW766yi2IUbcV512k/export?format=csv&gid=470246397";
+
+let allRows = [];
+
+function parseCSV(text) {
+    return text.trim().split("\n").map(row => {
+        return row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/)
+                  .map(c => c.replace(/^"|"$/g, ""));
+    });
+}
+
+function renderTable(rows) {
+    let html = "";
+
+    rows.forEach((row, i) => {
+        html += "<tr>";
+        row.forEach(cell => {
+            html += i === 0
+                ? `<th>${cell}</th>`
+                : `<td>${cell}</td>`;
+        });
+        html += "</tr>";
+    });
+
+    document.getElementById("dataTable").innerHTML = html;
+}
+
+fetch(csvUrl)
+.then(r => r.text())
+.then(text => {
+    allRows = parseCSV(text);
+    renderTable(allRows);
+    document.getElementById("status").innerHTML = "";
+})
+.catch(err => {
+    document.getElementById("status").innerHTML =
+        "讀取失敗，請確認試算表是否開放共用";
+});
+
+document.getElementById("searchBox").addEventListener("input", e => {
+    const key = e.target.value.toLowerCase();
+
+    const filtered = allRows.filter((row, i) => {
+        if (i === 0) return true;
+        return row.join(" ").toLowerCase().includes(key);
+    });
+
+    renderTable(filtered);
+});
+
+</script>
+
+</body>
+</html>

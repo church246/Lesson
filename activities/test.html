@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>聖誕歡樂派對摸彩球 🎄</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: radial-gradient(circle at top, #e11d48 0%, #7f1d1d 100%);
+      color: #fff;
+      text-align: center;
+      font-family: 'Noto Sans TC', sans-serif;
+      overflow-x: hidden;
+    }
+    h1 {
+      margin-top: 40px;
+      font-size: 2.5em;
+      text-shadow: 2px 2px 6px #000;
+    }
+    .ball {
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, #fbbf24, #b45309);
+      border-radius: 50%;
+      margin: 20px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2em;
+      box-shadow: 0 0 25px rgba(255,255,255,0.7);
+      transition: transform 0.6s ease;
+    }
+    .ball:hover { transform: scale(1.1); }
+    .btn-christmas {
+      background-color: #16a34a;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 10px 20px;
+      margin: 10px;
+    }
+    .snowflake {
+      position: fixed;
+      top: 0;
+      color: #fff;
+      font-size: 1em;
+      opacity: 0.8;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-10%); }
+      100% { transform: translateY(110vh); }
+    }
+    .verse-box {
+      background: rgba(255,255,255,0.1);
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px auto;
+      width: 80%;
+    }
+
+    /* 🎁 聖誕字幕動畫樣式 */
+    #subtitle {
+      font-size: 1.2em;
+      margin-top: 30px;
+      white-space: pre-wrap;
+      min-height: 100px;
+      width: 85%;
+      margin-left: auto;
+      margin-right: auto;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+      line-height: 1.8;
+      animation: fadeIn 1s ease;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+  <!-- 聖誕歌曲 -->
+  <audio id="christmasMusic" src="../music/christmas_song.mp3" preload="auto"></audio>
+
+  <!-- 🎧 聖誕旁白 -->
+  <audio id="narrationAudio" src="../music/message.mp3" preload="auto"></audio>
+
+  <h1>🎄 聖誕歡樂派對摸彩球 🎁</h1>
+  <p>點擊下方的摸彩球，領受一節經文與禱告祝福！</p>
+
+  <div id="ball" class="ball">?</div>
+
+  <div>
+    <button class="btn-christmas" onclick="drawBall()">摸彩</button>
+    <button class="btn-christmas" onclick="shuffleBalls()">洗球</button>
+    <button class="btn-christmas" onclick="toggleMusic()">播放/暫停聖誕歌</button>
+    <button class="btn-christmas" onclick="playNarration()">播放/停止聖誕信息</button>
+  </div>
+
+  <div id="result" class="verse-box"></div>
+  <div id="subtitle"></div>
+
+  <script>
+  // === 經文資料 ===
+  const data = [
+     {verse: '路加福音 2:10-11', text: '天使對他們說：「不要懼怕！我報給你們大喜的信息，是關乎萬民的；因今天在大衛的城裡，為你們生了救主，就是主基督。」', prayer: '親愛的主，感謝祢成為我們的救主，願我們在這聖誕節領受從天而來的平安與喜樂。'},
+  {verse: '以賽亞書 9:6', text: '因有一嬰孩為我們而生，有一子賜給我們。政權必擔在祂的肩頭上。', prayer: '主啊，願祢的平安臨到我們家中，使我們滿有盼望與光明。'},
+  {verse: '約翰福音 3:16', text: '神愛世人，甚至將祂的獨生子賜給他們。', prayer: '感謝天父的愛，讓我們也能彼此相愛，成為祝福的管道。'},
+  {verse: '馬太福音 1:23', text: '必有童女懷孕生子，人要稱祂的名為以馬內利。', prayer: '主耶穌，謝謝祢與我們同在，願祢的愛充滿我們的生命。'},
+  {verse: '馬可福音 10:14', text: '耶穌說：「讓小孩子到我這裡來，不要禁止他們。」', prayer: '主啊，願我們保持單純的心，領受祢的愛與恩典。'},
+  {verse: '路加福音 1:30-31', text: '天使對馬利亞說：「不要懼怕，馬利亞，你在神面前已經蒙恩了。你要懷孕生子，給祂起名叫耶穌。」', prayer: '主，願我們順服祢的旨意，並在生活中經歷祢的奇妙作為。'},
+  {verse: '詩篇 96:11-12', text: '天和地要快樂，海和其中的充滿要歡呼，田野的樹木要一同歌唱。', prayer: '主啊，願萬物同聲讚美祢，願我們的心也充滿喜樂與讚美。'},
+  {verse: '以賽亞書 7:14', text: '因此，主自己要給你們一個兆頭：看哪，童女要懷孕生子，給祂起名叫以馬內利。', prayer: '感謝主，祢與我們同在，願我們時刻經歷祢的同在與引導。'},
+  {verse: '路加福音 2:14', text: '在至高之處榮耀歸與神，在地上平安歸與祂所喜悅的人。', prayer: '主啊，願祢的平安充滿我們心，並成為我們日常的力量與安慰。'},
+  {verse: '詩篇 98:4-6', text: '全地都要向耶和華歡呼歌唱，要發起聲音歌頌祂。', prayer: '主，願我們的口常常稱頌祢，心中充滿感恩與喜樂。'},
+  {verse: '加拉太書 4:4-5', text: '及至時候滿足，神就差遣祂的兒子，為女子所生，且生在律法以下，要把律法以下的人贖出，叫我們得著兒子的名分。', prayer: '感謝主，因耶穌基督，我們得以稱為神的兒女，願我們活出祢的榮耀。'},
+  {verse: '提摩太後書 1:9', text: '神救了我們，並呼召我們，不是按我們的行為，乃是按祂自己的旨意和恩典。', prayer: '主，感謝祢的呼召與恩典，願我們一生遵行祢的旨意。'},
+  {verse: '以賽亞書 11:6', text: '狼必與羊羔同居，豹必與山羊同臥，小牛、幼獅並肥畜同群；一個小孩子要牽引它們。', prayer: '主啊，願祢的國度帶來和平與和諧，讓世界充滿愛與安寧。'},
+  {verse: '以賽亞書 40:3', text: '有人聲喊著說：「在曠野預備耶和華的道路，在沙漠地修平我們神的道。」', prayer: '主，願我們預備心靈，迎接祢的同在與引導。'},
+  {verse: '路加福音 2:19', text: '馬利亞將這一切的事存在心裡，反覆思想。', prayer: '主，願我們也像馬利亞一樣，珍惜祢的話語，默想祢的作為。'},
+  {verse: '馬太福音 2:10', text: '看見那星，就非常歡喜。', prayer: '主啊，願我們在生命中發現祢的光，心中滿溢喜樂與盼望。'},
+  {verse: '希伯來書 1:1-2', text: '神在古時藉眾先知多次多方的曉諭列祖，到了這末世，藉著祂兒子向我們說話。', prayer: '感謝主，祢藉耶穌基督向我們說話，願我們聽從並行在光明中。'},
+  {verse: '路加福音 2:20', text: '牧羊的人回去，因所聽見和所看見的一切事，都照著天使所傳的話榮耀讚美神。', prayer: '主，願我們像牧羊人一樣，將所領受的喜樂與祝福傳揚出去。'},
+  {verse: '以賽亞書 60:1', text: '興起，發光！因你的光已經來了，耶和華的榮耀發現照耀你。', prayer: '主啊，願祢的光照亮我們生命，讓我們成為他人的祝福。'},
+  {verse: '腓立比書 2:10-11', text: '使天上地下和地底下的一切口，都因耶穌的名而屈膝，承認耶穌基督為主。', prayer: '主，願我們一生高舉祢的名，並在生活中見證祢的榮耀。'}
+];
+
+  function drawBall() {
+    const random = Math.floor(Math.random() * data.length);
+    const verse = data[random];
+    document.getElementById('ball').innerText = random + 1;
+    document.getElementById('result').innerHTML =
+      `<h3>${verse.verse}</h3><p>${verse.text}</p><p><strong>禱告：</strong>${verse.prayer}</p>`;
+  }
+
+  function shuffleBalls() {
+    document.getElementById('ball').innerText = '?';
+    document.getElementById('result').innerHTML = '';
+  }
+
+  // === 聖誕歌曲 ===
+  let musicPlaying = false;
+  function toggleMusic() {
+    const music = document.getElementById('christmasMusic');
+    if (!musicPlaying) {
+      music.play();
+      musicPlaying = true;
+    } else {
+      music.pause();
+      music.currentTime = 0;
+      musicPlaying = false;
+    }
+  }
+
+  // === 🎧 播放旁白 (MP3) + 打字字幕 ===
+  let isNarrating = false;
+  const subtitleEl = document.getElementById("subtitle");
+  const narrationAudio = document.getElementById("narrationAudio");
+
+  const message = '聖誕節的核心不是燈光、禮物或音樂，而是一個愛的宣告——上帝親自來到世上，成為人，名叫耶穌。祂為了拯救我們、與我們同在，帶來真正的平安與盼望。今天，這位救主仍然對你說：「不要懼怕！」因祂的降生，就是為了讓你的生命充滿愛、平安與喜樂。';
+
+  function playNarration() {
+    if (isNarrating) {
+      narrationAudio.pause();
+      narrationAudio.currentTime = 0;
+      subtitleEl.textContent = "";
+      isNarrating = false;
+      return;
+    }
+
+    // 播放音檔
+    narrationAudio.play();
+    isNarrating = true;
+
+    // 打字字幕動畫
+    subtitleEl.textContent = "";
+    let index = 0;
+    const typing = setInterval(() => {
+      if (index < message.length && isNarrating) {
+        subtitleEl.textContent += message.charAt(index);
+        index++;
+      } else {
+        clearInterval(typing);
+      }
+    }, 100);
+
+    narrationAudio.onended = () => {
+      isNarrating = false;
+      clearInterval(typing);
+    };
+  }
+
+  // 雪花效果
+  for (let i = 0; i < 30; i++) {
+    const snow = document.createElement('div');
+    snow.className = 'snowflake';
+    snow.innerText = '❄';
+    snow.style.left = Math.random() * 100 + 'vw';
+    snow.style.animationDuration = 5 + Math.random() * 5 + 's';
+    snow.style.fontSize = 12 + Math.random() * 20 + 'px';
+    document.body.appendChild(snow);
+  }
+  </script>
+</body>
+</html>
