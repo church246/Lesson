@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <title>教會桌遊借用系統 - 完整版</title>
+    <style>
+        body {
+            background-color: #e6f2ff; /* 專業調和後的淺藍底色 */
+        }
+        .table-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        /* 讓驗證錯誤提示訊息變紅、縮小並對齊 */
+        .error {
+            color: #dc3545;
+            font-size: 0.875em;
+            margin-top: 0.25rem;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-4">
+    <div class="text-center p-4 bg-primary text-white rounded shadow-sm">
+        <h1 class="fw-bold">教會桌遊借用系統</h1>
+        <p class="mb-0 opacity-75">歡迎各小組、團契線上登記借用與歸還桌遊</p>
+    </div>
+
+    <div class="alert alert-warning mt-3 shadow-sm" role="alert">
+        <h5 class="alert-heading fw-bold">⚠️ 借用規則</h5>
+        <ol class="mb-0 ps-3">
+            <li>使用前請確實填寫下方表單進行<strong>登記</strong>。</li>
+            <li>歸還後請再次填寫表單，並將狀態選擇為<strong>歸還</strong>。</li>
+            <li>請愛惜桌遊、注意配件完整，並放回原位，方便下一個小組使用。謝謝配合！</li>
+        </ol>
+    </div>
+         
+    <h4 class="mt-4 mb-3 fw-bold text-secondary">🎲 桌遊種類清單</h4>
+    
+    <div class="table-container mb-4">
+        <ul class="nav nav-tabs mb-3" id="tableGameTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active fw-bold" id="group1-tab" data-bs-toggle="tab" data-bs-target="#group1" type="button" role="tab">01 - 21 號桌遊</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link fw-bold" id="group2-tab" data-bs-toggle="tab" data-bs-target="#group2" type="button" role="tab">22 - 42 號桌遊</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link fw-bold" id="group3-tab" data-bs-toggle="tab" data-bs-target="#group3" type="button" role="tab">43 - 60 號桌遊</button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="tableGameTabsContent">
+            
+            <div class="tab-pane fade show active" id="group1" role="tabpanel">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th style="width: 10%;">編號</th>
+                                <th style="width: 30%;">桌遊名稱</th>
+                                <th style="width: 30%;">桌遊圖片</th>
+                                <th style="width: 30%;">說明與備註</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>01.</td><td>閃靈快手</td><td><img src="../assets/img/table_game/1.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=5VcoVqfO9E8" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>02.</td><td>哆寶 Dobble</td><td><img src="../assets/img/table_game/2.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=mGv1rUfW3H4" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>03.</td><td>德國心臟病</td><td><img src="../assets/img/table_game/3.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=Fj7n0A8C9mU" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>04.</td><td>超級犀牛</td><td><img src="../assets/img/table_game/4.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=M5yBvP_Z6iM" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>05.</td><td>搖滾節奏</td><td><img src="../assets/img/table_game/5.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=KzW8lQJcMcs" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>06.</td><td>妙語說書人 Dixit</td><td><img src="../assets/img/table_game/6.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=K96g6X3LAtA" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>07.</td><td>矮人礦坑</td><td><img src="../assets/img/table_game/7.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=Xh0l0gX_6wU" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>08.</td><td>卡卡頌 Carcassonne</td><td><img src="../assets/img/table_game/8.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=R9_uE_TzPGA" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>09.</td><td>璀璨寶石 Splendor</td><td><img src="../assets/img/table_game/9.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=kY67Zg05q40" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>10.</td><td>UNO 卡牌</td><td><img src="../assets/img/table_game/10.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=GkI938m0p5E" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>11.</td><td>炸彈貓 Exploding Kittens</td><td><img src="../assets/img/table_game/11.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=c7f999n7Z9o" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>12.</td><td>情書 Love Letter</td><td><img src="../assets/img/table_game/12.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=68R8_gq3WbU" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>13.</td><td>阿瓦隆 Avalon</td><td><img src="../assets/img/table_game/13.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=SRE0rS_1iP0" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>14.</td><td>機密代號 Codenames</td><td><img src="../assets/img/table_game/14.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=9_1GshCWhdM" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>15.</td><td>狼人殺 Werewolf</td><td><img src="../assets/img/table_game/15.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=8m9gLd-Z1Lg" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>16.</td><td>地產大亨 (大富翁)</td><td><img src="../assets/img/table_game/16.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td>請自行參閱說明書</td></tr>
+                            <tr><td>17.</td><td>驚爆焦點</td><td><img src="../assets/img/table_game/17.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=QjYv26xGId4" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>18.</td><td>壽司走走 Sushi Go!</td><td><img src="../assets/img/table_game/18.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=uKof7U4g9Dk" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>19.</td><td>富饒之城 Citadels</td><td><img src="../assets/img/table_game/19.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=7uM38Qx_kC8" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>20.</td><td>犯人在跳舞</td><td><img src="../assets/img/table_game/20.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=W0SWe88C64E" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>21.</td><td>誰是牛頭王 6 Take it!</td><td><img src="../assets/img/table_game/21.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=mGqJpXU7Kk8" target="_blank">youtube講解</a></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="group2" role="tabpanel">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th style="width: 10%;">編號</th>
+                                <th style="width: 30%;">桌遊名稱</th>
+                                <th style="width: 30%;">桌遊圖片</th>
+                                <th style="width: 30%;">說明與備註</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>22.</td><td>推理數學寶盒</td><td><img src="../assets/img/table_game/22.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td>請自行參閱說明書</td></tr>
+                            <tr><td>23.</td><td>Bad Dog</td><td><img src="../assets/img/table_game/23.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.google.com/search?q=bad+dog+%E6%A1%8C%E9%81%8A" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>24.</td><td>全面通緝 Wanted</td><td><img src="../assets/img/table_game/24.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.google.com/search?q=%E9%80%9A%E7%B7%9D%E4%BB%A4+%E6%A1%8C%E9%81%8A" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>25.</td><td>撲克牌</td><td><img src="../assets/img/table_game/25.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=jJOH4Xdif7g&t=219s" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>26.</td><td>RushHour</td><td><img src="../assets/img/table_game/26.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=an7Aw_nhmqU" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>27.</td><td>Noetic Cross</td><td><img src="../assets/img/table_game/27.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td>請自行參閱說明書</td></tr>
+                            <tr><td>28.</td><td>魚樂無窮(3)</td><td><img src="../assets/img/table_game/28.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=J5jwVgqE7QY" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>29.</td><td>益智托普塔</td><td><img src="../assets/img/table_game/29.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/shorts/nGDVZXpOdMY" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>30.</td><td>七巧板</td><td><img src="../assets/img/table_game/30.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=vsw02FUrWt4" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>31.</td><td>abdone</td><td><img src="../assets/img/table_game/31.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=7JNNW9oD_Go" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>32.</td><td>咕咕劃劃(兒童版)</td><td><img src="../assets/img/table_game/32.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=JkkFmE0lVag" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>33.</td><td>原木形色棋(2)</td><td><img src="../assets/img/table_game/33.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=z3tDK_NzH80" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>34.</td><td>大師工具盒</td><td><img src="../assets/img/table_game/34.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://usnoopy.blogspot.com/2023/09/story-teller.html" target="_blank">網路說明</a></td></tr>
+                            <tr><td>35.</td><td>故事製造所</td><td><img src="../assets/img/table_game/35.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://youtu.be/4hOlj7fhSfY" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>36.</td><td>狡兔三窟</td><td><img src="../assets/img/table_game/36.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td>請自行參閱說明書</td></tr>
+                            <tr><td>37.</td><td>奔跑吧 蝸牛</td><td><img src="../assets/img/table_game/37.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=dEywRanFj0A" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>38.</td><td>翻斗猴子(2)</td><td><img src="../assets/img/table_game/38.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=XMdIdcaHa88" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>39.</td><td>拉密</td><td><img src="../assets/img/table_game/39.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=SvOuSDYbiGU" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>40.</td><td>扭扭相扣(4)</td><td><img src="../assets/img/table_game/40.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=9MWKiiMpa7E" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>41.</td><td>staccups</td><td><img src="../assets/img/table_game/41.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=S8YKob4SFQo" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>42.</td><td>得分沙拉</td><td><img src="../assets/img/table_game/42.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=BgF1NsceT4U" target="_blank">youtube講解</a></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="group3" role="tabpanel">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th style="width: 10%;">編號</th>
+                                <th style="width: 30%;">桌遊名稱</th>
+                                <th style="width: 30%;">桌遊圖片</th>
+                                <th style="width: 30%;">說明與備註</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>43.</td><td>推理數學寶盒</td><td><img src="../assets/img/table_game/43.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td>請自行參閱說明書</td></tr>
+                            <tr><td>44.</td><td>Uno stacko(4)</td><td><img src="../assets/img/table_game/44.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=8wklYFSFsoA" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>45.</td><td>龍博士魔術金字塔</td><td><img src="../assets/img/table_game/45.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td>請自行參閱說明書</td></tr>
+                            <tr><td>46.</td><td>這樣玩不失智(3)</td><td><img src="../assets/img/table_game/46.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=wRbngWlSxPA" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>47.</td><td>五秒定律</td><td><img src="../assets/img/table_game/47.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=lNCyN1HhSfA" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>48.</td><td>繪聲繪影</td><td><img src="../assets/img/table_game/48.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=s0q3iA0c2yE" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>49.</td><td>Guess Game</td><td><img src="../assets/img/table_game/49.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td>請自行參閱說明書</td></tr>
+                            <tr><td>50.</td><td>茶丸子</td><td><img src="../assets/img/table_game/50.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=TTyR6esvEx4" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>51.</td><td>步步高升</td><td><img src="../assets/img/table_game/51.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=0-d5qajHQGo" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>52.</td><td>扣簽遊戲</td><td><img src="../assets/img/table_game/52.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=s8q1_nkXfTQ" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>53.</td><td>命懸一線</td><td><img src="../assets/img/table_game/53.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=akp9q6t7z1k" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>54.</td><td>字字轉機(兒童版)</td><td><img src="../assets/img/table_game/53.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=8IYdqSMxhAA" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>55.</td><td>埃及密碼(4)</td><td><img src="../assets/img/table_game/55.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=osHigU9UT1Y" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>56.</td><td>連鎖三角棋(3)</td><td><img src="../assets/img/table_game/56.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.facebook.com/watch/?v=367271889674479" target="_blank">網路講解</a></td></tr>
+                            <tr><td>57.</td><td>扣籤遊戲升級版(4)</td><td><img src="../assets/img/table_game/57.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td>請自行參閱說明書</td></tr>
+                            <tr><td>58.</td><td>字母風火輪(4)</td><td><img src="../assets/img/table_game/58.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=Oe3CCX89nF8" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>59.</td><td>字字轉機(4)</td><td><img src="../assets/img/table_game/59.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=jPehUApl1-0" target="_blank">youtube講解</a></td></tr>
+                            <tr><td>60.</td><td>眨眨眼</td><td><img src="../assets/img/table_game/60.jpg" class="img-thumbnail" style="width:120px;height:120px;object-fit:cover;"></td><td><a href="https://www.youtube.com/watch?v=rE4x-zg58Wo&t=427s" target="_blank">youtube講解</a></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <h3 class="mt-5 fw-bold text-dark">📋 登記表單</h3>
+
+    <iframe name="returnWin" style="display: none;" onload="this.onload=function(){window.location='ok.html'}"></iframe>
+         
+    <form target="returnWin" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdfJ5w8Aqf92KmKOGWEQZSe6HMqATFe1O5askuIurxmsL-9CQ/formResponse" method="post" id="myForm" class="bg-white p-4 rounded shadow-sm mb-5">
+        <div class="row g-3">  
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="form-label fw-bold">姓名 <span class="text-primary">*(請填您的姓名)</span></label>
+                    <input type="text" class="form-control" name="entry.1794341902" id="1794341902" maxlength="6" />
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="form-label">小組 <span class="text-primary">*(請填您的小組)</span></label>
+                    <input type="text" class="form-control" name="entry.892455400" id="892455400" maxlength="6" />
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="form-label">電話 <span class="text-primary">*(請填連絡電話)</span></label>
+                    <input type="tel" class="form-control" name="entry.803650405" id="803650405" placeholder="格式０九ＸＸＸＸＸＸＸＸ" minlength="7" maxlength="14">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="form-label">Line ID <span class="text-primary">*(請填您的line ID)</span></label>
+                    <input type="text" class="form-control" name="entry.140571017" id="140571017" maxlength="15" />
+                </div>
+            </div>    
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="form-label">桌遊名稱(可填數字) <span class="text-primary">*(請填借用或歸還之桌遊)</span></label>
+                    <input type="text" class="form-control" name="entry.628942807" id="628942807" maxlength="6" />
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="form-label">請問您是"借"還是"歸還"? <span class="text-danger">*</span></label>
+                    <select name="entry.1911893911" id="1911893911" class="form-select">            
+                        <option value="借">借</option>    
+                        <option value="歸還">歸還</option>                        
+                    </select>
+                </div> 
+            </div> 
+            
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary px-5 fw-bold btn-lg shadow-sm">填編號送出資料</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+
+<script>
+$(function(){
+    // 初始化前端表單驗證機制
+    $("#myForm").validate({
+        submitHandler: function(form){
+            form.submit();
+        },
+        rules: {
+            'entry.1794341902': { required: true },
+            'entry.892455400': { required: true },
+            'entry.803650405': { required: true },
+            'entry.628942807': { required: true },
+            'entry.1911893911': { required: true }
+        },  
+        messages: {
+            'entry.1794341902': { required: "❌ 請輸入姓名" },
+            'entry.892455400': { required: "❌ 請輸入您所屬的小組" },
+            'entry.803650405': { required: "❌ 請輸入連絡電話" },
+            'entry.628942807': { required: "❌ 請輸入想登記的桌遊或編號" },
+            'entry.1911893911': { required: "❌ 請選擇動作" }
+        },
+        // 自動套用 Bootstrap 的錯誤樣式效果
+        errorElement: "span",
+        errorClass: "error"
+    });
+});
+</script>
+</body>
+</html>
