@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主禱文 第二課：啟言與第一願</title>
+    <style>
+        :root {
+            --bg-color: #fcfbfa;
+            --container-bg: #ffffff;
+            --primary-color: #2c3e50;
+            --secondary-color: #8e44ad;
+            --accent-gold: #b38f4d;
+            --text-main: #2c3539;
+            --text-dark: #1a1a1a;
+            --text-muted: #5a6b7c;
+            --border-color: #e2e8f0;
+            --quote-bg: #f8fafc;
+            --quote-border: #3498db;
+            --question-bg: #fff9db;
+            --question-border: #fab005;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Microsoft JhengHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.8;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background-color: var(--container-bg);
+            padding: 3rem 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        header .scripture-reference {
+            font-size: 1.2rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* Typography */
+        h2 {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin: 3rem 0 1.5rem 0;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--accent-gold);
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            color: var(--text-dark);
+            margin: 1.8rem 0 1rem 0;
+            display: flex;
+            align-items: center;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+
+        strong {
+            color: var(--text-dark);
+        }
+
+        /* Scripture Blocks */
+        .scripture-box {
+            background-color: var(--quote-bg);
+            border-left: 4px solid var(--quote-border);
+            padding: 1.2rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+
+        .scripture-box p {
+            margin-bottom: 0;
+            color: #34495e;
+        }
+
+        /* Formulas & Frameworks */
+        .framework-box {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        /* Tables */
+        .table-responsive {
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: #f8fafc;
+        }
+
+        /* Discussion Questions */
+        .discussion-box {
+            background-color: var(--question-bg);
+            border-left: 4px solid var(--question-border);
+            padding: 1.2rem 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .discussion-box h4 {
+            color: #b58105;
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.8rem;
+        }
+
+        li {
+            margin-bottom: 0.6rem;
+        }
+
+        /* Sub-sections or details */
+        .detail-block {
+            margin-left: 1rem;
+            padding-left: 1rem;
+            border-left: 2px dashed #cbd5e1;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+            .container {
+                padding: 1.8rem 1.2rem;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- 網頁頁首 -->
+        <header>
+            <h1>主禱文 第二課：啟言與第一願</h1>
+            <div class="scripture-reference">馬太福音 6:9</div>
+            <p>「所以，你們禱告要這樣說：我們在天上的父：願人都尊你的名為聖。」</p>
+        </header>
+
+        <main>
+            <!-- 第一主要章節 -->
+            <h2>一、 為什麼要用主禱文來禱告？</h2>
+            <p>在深入探討主禱文之前，我們要明白用主禱文禱告的三大核心原因：</p>
+
+            <h3>1. 因為禱告是神對我們的心意</h3>
+            <div class="scripture-box">
+                <p><strong>帖撒羅尼迦前書 5:16-18</strong><br>
+                要常常喜樂，不住地禱告，凡事謝恩；因為這是上帝在基督耶穌裡向你們所定的旨意。</p>
+            </div>
+            <ul>
+                <li><strong>不住的禱告：</strong> 禱告是神確定的旨意，是不需要像尋求其他事情一樣去苦苦尋求的。基督徒的生活應該是一個不住禱告的生活，一切事情的發展都在禱告裡面發生。</li>
+                <li><strong>關鍵鐵律：</strong> 無論你的經驗多少、聖經多熟、恩賜能力多強，如果不禱告，什麼事情都不會發生。</li>
+            </ul>
+
+            <h3>2. 面對屬靈爭戰的禱告</h3>
+            <div class="scripture-box">
+                <p><strong>馬太福音 26:40-41</strong><br>
+                耶穌來到門徒那裡，見他們睡著了，就對彼得說：「怎麼樣？你們不能同我警醒片時嗎？總要警醒禱告，免得入了迷惑。你們心靈固然願意，肉體卻軟弱了。」</p>
+            </div>
+            <ul>
+                <li><strong>缺乏禱告的代價：</strong> 在耶穌被捕當夜，彼得三次說「我不是、我不認識祂」；反之，耶穌在面對審判時，四次宣告「我是」。這其中的差別就在於彼得缺乏禱告。如果彼得在客西馬尼園的那一個小時好好禱告、沒有睡覺，他就不會有那三次不認主的慘痛經歷。</li>
+                <li><strong>主禱文的爭戰本質：</strong> 主禱文的每一個禱告，背後背景都是屬靈爭戰。
+                    <div class="detail-block" style="margin-top: 0.5rem;">
+                        <p><strong>第一願（願人都尊祢的名為聖）：</strong> 魔鬼一直想要與至高者同等，並渴望在人心中佔據崇高的地位（如牠試探耶穌時說：「祢若拜我，這一切都是祢的」）。當我們宣告上帝是至高為聖時，就是在打魔鬼的臉，這就是爭戰。</p>
+                        <p><strong>第一求（我們日用的飲食今日賜給我們）：</strong> 仇敵魔鬼的工作是不斷偷竊、殺害、毀壞，而上帝是賜下一切供應的源頭。當我們如此禱告時，就是在破壞魔鬼的計劃。</p>
+                    </div>
+                </li>
+            </ul>
+
+            <h3>3. 是主所親自教導的命令</h3>
+            <p>耶穌說「所以，你們禱告要這樣說」，這是一個帶有權柄的命令。用主禱文禱告就是向神表達順服。</p>
+            <p>主耶穌就是上帝，祂親自將禱告的內容、架構與涵蓋層面教導我們，這是所有禱告系統中最完美、最完全的：</p>
+            <ul>
+                <li><strong>結構：</strong> 包含「三願」（感謝讚美神）與「四求」（按我們的需要求）。這完美應驗了耶穌所說的：「你們要先求祂的國和祂的義，這些東西就要賜給你們了。」</li>
+                <li><strong>順序：</strong> 禱告一頭一尾都是感謝讚美（前三願是讚美，結尾的國度、權柄、榮耀也是讚美），中間夾著四個祈求。</li>
+                <li><strong>四個祈求的完美範疇：</strong>
+                    <div class="detail-block" style="margin-top: 0.5rem;">
+                        <p><strong>日用飲食：</strong> 涵蓋我們生活中物質層面的需求。</p>
+                        <p><strong>免我們的債：</strong> 為我們在人類界（人際關係）的需求來祈求。</p>
+                        <p><strong>不叫我們遇見試探，救我們脫離兇惡：</strong> 這是直接與魔鬼對抗，屬於靈界層面的祈求。</p>
+                    </div>
+                </li>
+            </ul>
+            <p>由此可見，物質界、人類界、靈界全部包含在內，沒有任何遺漏。只要按著這個架構，就能把所有需要的層面全部禱告到。</p>
+
+            <!-- 小組討論區塊 -->
+            <div class="discussion-box">
+                <h4>💬 【小組討論問題】</h4>
+                <p>禱告包含了感謝讚美，以及為物質生活、人際關係和屬靈爭戰的祈求，其中哪個方面是你目前最想要成長或突破的？</p>
+            </div>
+
+            <!-- 💡 補充區塊 -->
+            <p>💡 <strong>補充：主禱文的「V字形」得勝架構</strong></p>
+            <p>多年操練主禱文會發現一個有趣的現象：耶穌教我們的禱告是「先禱告天，從天禱告到地，再從地禱告到天」，呈現一個得勝的 V 字形：</p>
+            <div class="framework-box">
+                天（啟言、三願） &rarr; 落到地面（日用飲食、吃飯的小事） &rarr; 升到關係（免債） &rarr; 升回天上（屬靈爭戰、脫離兇惡）
+            </div>
+
+
+            <!-- 第二主要章節 -->
+            <h2>二、 啟言：「我們在天上的父」</h2>
+            <p>這是禱告一開始的稱謂。它的重要功能在於：在禱告一開始，就先對準禱告的對象。（這正如馬丁路德在《小問答》裡所提到的，馬伯伯真厲害，一兩句話就講得極其透徹）。</p>
+
+            <h3>1. 確認四層關係</h3>
+            <p>在路加福音第11章中，耶穌教導完主禱文後，馬上講了半夜借餅的比喻與父親給兒女好東西的教導（路11:8-13）。耶穌在這裡最看重、最想提醒我們的，是我們與天父之間的兒女關係。經文中提到了四種關係的遞進：</p>
+            <ol>
+                <li><strong>第一層（陌生人）：</strong> 雖不因他是朋友，但因他「情詞迫切地直求」，就必起來照他所需用的給他。</li>
+                <li><strong>第二層（朋友）：</strong> 比起陌生人，朋友更願意給予。</li>
+                <li><strong>第三層（人間的父子）：</strong> 人間的父親雖然不好，尚且知道拿好東西（餅、魚、雞蛋）給兒女，不會給壞東西（石頭、蛇、蠍子）。</li>
+                <li><strong>第四層（天父與兒女）：</strong> <strong>何況天父呢？</strong> 豈不更（How much more）把更好的東西，就是把聖靈給求祂的人！</li>
+            </ol>
+
+            <h3>2. 醫治受傷的父子關係</h3>
+            <p>天父才是愛的真正源頭，地上的父母只是彰顯這份愛的一點點而已。</p>
+            <ul>
+                <li><strong>墮落與受傷之人的難處：</strong> 許多弟兄姊妹因為在地上的父親不完美、甚至受到地上父親極大的傷害，導致他們一想到「天天上之父」就心生抗拒、很難進入狀況。</li>
+                <li><strong>真理的宣告：</strong> 地上的父親是有瑕疵的，但天父對我們的愛是千倍萬倍、毫無條件且極其深刻的。我們需要倚靠聖靈的幫助，來認識並相信這份無條件的愛。</li>
+            </ul>
+            <div class="scripture-box">
+                <p><strong>約翰福音 17:26</strong><br>
+                「我已將祢的名指示他們，還要指示他們，使祢所愛我的愛在他們裡面，我也在他們裡面。」</p>
+            </div>
+            <p>這裡提及「還要指示他們」，代表聖靈會持續不斷地讓我們知道天父多麼愛我們，使我們的心中時時刻刻充滿天父與耶穌的愛。</p>
+
+            <h3>3. 講員的家庭經歷：像孩子一樣互動</h3>
+            <p>這份親密的關係是愛的禱告最重要的基礎。</p>
+            <p><strong>講員分享：</strong> 我跟我的孩子說，你們無論什麼時候來找我，爸爸永遠有時間——包括禮拜六晚上，當我在頂著壓力預備隔天主日證道、最忙碌的關鍵時刻，只要孩子來敲門，我永遠有時間。</p>
+            <p>我女兒很聰明，常挑這個時間來敲門說：「爸爸，我沒錢了，下禮拜要郊遊需要錢。」雖然我知道她挑這個時間是因為我沒空跟她多嘮叨，但我仍然會叫她坐下來聊聊：「跟誰去郊遊？有什麼想法？」我要讓她知道，來找爸爸是一件非常好的事，因為爸爸愛她、喜歡跟她談話。</p>
+            <p><strong>小兒子的故事：</strong> 以前我曾問孩子們：「你們最快樂的是什麼事？」當時我的小兒子還不太會說話，他只是看著我說：「爸爸，就這樣。」我心裡有極大的喜樂。在那個瞬間，我們之間有一個非常清楚的連結與互動，他在告訴我：「爸爸，我想到你、看著你，就是我的快樂。」這就是「以神為中心」的禱告最純粹的寫照。</p>
+
+            <div class="discussion-box">
+                <h4>💬 【小組討論問題】</h4>
+                <p>禱告時以「阿爸父」來稱呼上帝，對你的信心有什麼幫助？什麼時候你特別想用「阿爸父」來向上帝禱告？</p>
+            </div>
+
+
+            <!-- 第三主要章節 -->
+            <h2>三、 第一願：「願人都尊祢的名為聖」</h2>
+            
+            <h3>1. 什麼是「為聖」？</h3>
+            <p>最好的解釋就是<strong>「分別為聖」</strong>。</p>
+            <ul>
+                <li><strong>概念出處：</strong> 這個概念源於舊約聖殿中，用聖膏油膏抹殿中的器皿與祭司，使之「分別出來，唯獨屬於上帝」。</li>
+                <li><strong>新約的基本意義：</strong> 「主權轉移並屬於上帝，不再屬於人。」</li>
+                <li><strong>核心含意：</strong> 讓上帝從所有一切的受造物當中被分別出來，承認祂是唯一定居至高、超越萬有的那一位。因此，我們在禱告時必須以神為中心，把神當作最高的、最值得尊崇和敬拜的對象。</li>
+            </ul>
+
+            <h3>2. 「以神為中心」 vs 「以人為中心（操控神）」</h3>
+            <p>我們可以從聖經與生活中，檢視自己是否真的在做「尊主為聖」的禱告：</p>
+            
+            <p><strong>① 禱告是講給神聽，還是演給人看？</strong></p>
+            <p><strong>法利賽人的反面教材（馬太福音五、六章）：</strong> 他們禱告、禁食是為了要讓人看見，以為話多了必蒙垂聽，不斷說許多重複的話。</p>
+            <div class="scripture-box">
+                <p><strong>馬太福音 6:6-7</strong><br>
+                「你禱告的時候，要進你的內屋，關上門，禱告你在暗中的父；你父在暗中察看，必然報答你。你們禱告，不可像外邦人，用許多重複話，他們以為話多了邊蒙垂聽。」</p>
+            </div>
+            <p><strong>操控神的陷阱：</strong> 話多且重複，本質上是想藉由禱告去操控神、指揮神，要神照著「我」的意思做。而以神為中心的禱告是來到主面前，像僕人一樣懇求，將主權完全交託。如同耶穌的母親馬利亞在迦拿婚宴上，只對耶穌說「他們沒有酒了」，她只是把需要真實地告訴神，而非操控神如何行神蹟。關鍵不在於禱告的內容漂不漂亮，而在於心靈誠實的態度。</p>
+            
+            <p><strong>楊牧師在《三十天手冊》中的經驗：</strong><br>
+            楊牧師曾參加過一個學校的禱告會，覺得裡面的人都在「表演禱告」，這不是以神為中心。<br>
+            但後來他參加另一個禱告會，那裡的人禱告雖然不流利、不懂那麼多神的話、聲音也沒有鏗鏘有力，但禱告完之後，明顯帶來了生命的改變，上帝垂聽並幫助了很多人。楊牧師說，後者才是真正的禱告。</p>
+            
+            <p><strong>講員參加禱告會的經歷：</strong><br>
+            我以前參加過一個嚇死人的禱告會。每個人禱告都很漂亮，聖經從舊約到新約倒背如流，讓我聽了極度自卑，心想「主啊，還是算了，讓他們禱告就好」。<br>
+            其中有一位弟兄，禱告的聲調像在「演奏」一樣：聲音由低漸漸升高、漸漸放大，到了最高潮、最大聲的時候，突然”咚”一聲用”阿們”收尾，讓人回味無窮。我當時心想：「他平常自己也是這樣禱告嗎？如果我是上帝，天天聽這種演奏會，會覺得有點累耶。」</p>
+            
+            <p><strong>法利賽人與稅吏的比喻（路加福音 18:9-14）：</strong><br>
+            法利賽人站著「自言自語」地宣告自己的義（禁食、捐獻），上帝甚至不承認他在禱告。<br>
+            稅吏遠遠站著，連舉目望天也不敢，捶著胸說：「神啊，開恩可憐我這個罪人！」耶穌說，這個謙卑的人回家去，比那法利賽人倒算為義了。這就是尊神為大與自以為義的強烈對比。</p>
+
+
+            <!-- 第四主要章節 -->
+            <h2>四、 禱告是雙向的：靈修中的生活對話</h2>
+            <p>禱告不是我們來到神面前，用盡全身力氣「情詞迫切地直求」的單向輸出；禱告的基本本質，是與上帝之間雙向的交談。 祂愛我們，祂會在禱告中修正我們的祈求，並對我們說話。</p>
+            
+            <h3>1. 講員的生命經歷：神學院宿舍的對話</h3>
+            <p>神對我們說話最主要的管道是透過祂的話語，有時也會透過心思意念與感動。</p>
+            <p><strong>背景故事：</strong> 我剛進神學院讀書時，在百般不願意且看似一連串巧合（實為神蹟與神提早啟示）的情況下，被選為神學院自治會主席。有一天開完會回到宿舍已經深夜11點了，而隔天一早面臨極其嚴格的希臘文小考（老師每次上課都考單字背誦），我只能強打精神坐下來拼命複習。</p>
+            <p>這時，隔壁同學傳來了如雷的打鼾聲，那聲音大到連玻璃窗都在震動。這位同學已經成家、有孩子，按理說比我更辛苦，但他此時卻睡得如此香甜。我心裡不禁湧起強烈的自憐與埋怨：「憑什麼他有孩子還能這麼早睡？我都預備好了嗎？而我沒孩子卻要為大家開會、熬夜讀書，真倒楣。」</p>
+            <p><strong>隔天靈修的對話：</strong> 第二天清晨我坐下來靈修，正好讀到馬太福音第11章：</p>
+            <div class="scripture-box">
+                <p><strong>馬太福音 11:28-29</strong><br>
+                「凡勞苦擔重擔的人可以到我這裡來，我就使你們得安息。我心裡柔和謙卑，你們當負我的軛，學我的樣式；這樣，你們心裡就必得享安息。」</p>
+            </div>
+            <p>在讀這段經文時，我突然注意到經文裡接連出現了 4 次「我的」。這時，聖靈彷彿在我的腦海中拋出了幾個問題，與我展開對話：</p>
+            <div class="detail-block">
+                <p>神問：「你來讀神學院，是你的事，還是我的事？」 我答：「是祢要我來的，是祢的事。」</p>
+                <p>神問：「那你讀希臘文，是你的事，還是我的事？」 我答：「是祢的。」</p>
+                <p>神問：「你做自治會主席，是你的事，還是我的事？」 我答：「這絕對是祢的事。」</p>
+                <p>神最後問我：「既然這一切都是我的，你為什麼要這麼自憐、這麼焦慮呢？我的擔子、我的軛，不是容易負的嗎？」</p>
+            </div>
+            <p>那一天，我知道了神的意思。我放下了焦慮，重新把自己以及等一下的希臘文考試完全奉獻給主。雖然我知道我預備得不夠，可能考不好，但我很高興有這個測試來督促我進步。</p>
+            <p><strong>故事的結局：</strong> 考試結果出來，成績跟我的付出非常「公平且平等」——也就是說，考得很爛。因為沒好好預備，本來就不會得高分，這很公平。而且更痛苦的是，我太太每次隨便考都 90、100 分滿分，我在後面拼命跟，非常努力也才考 70、80 分（神學院 70 分及格）。但我那天勉強及格跨過去時，我心裡卻極其喜樂，完全沒有自憐，開心地知道這都是主的軛，我已完全奉獻給祂。這就是靈修中極其真實的雙向對話。</p>
+
+            <h3>2. 關於神說話的查驗與生活小事</h3>
+            <ul>
+                <li><strong>如何查驗：</strong> 神對我們說話往往是透過心思意念，這些感動必須經過查驗——要用「神的話語（聖經）」以及「你對神屬性的認識」來查驗，不要藐視先知的預言。當你天天靈修親近主，你對神的聲音就會越來越敏感。</li>
+                <li><strong>生活小事也可以禱告：</strong> 神的話不只侷限在大事。例如早上出門，突然有個念頭叫你「帶雨傘」，雖然氣象預報說不會下雨（台灣的氣象預報有時不太準，不要太相信），這時你就可以為「要不要帶傘」這件小事禱告。</li>
+            </ul>
+            <p>耶穌既然教導我們要為「我們日用的飲食，今日賜給我們」來祈求，那麼連吃飯、出門帶傘、穿什麼衣服這類生活點滴，當然都可以帶到主的面前與祂對話。這是一種與神互動、極其美好的生活方式。</p>
+
+
+<!-- 第五主要章節 -->
+            <h2>五、 透過「上帝的名字」來認識祂並讚美祂</h2>
+            <p>「願人都尊祢的名為聖」的另一個實踐方式，就是透過上帝的名來認識祂的屬性並感謝讚美祂。上帝的每一個名字，都代表了祂偉大與慈愛的某一個層面：</p>
+            
+            <div class="declaration-box">
+                願人都尊祢的名為聖：祢的名是獨一無二的，是奇妙的，配得我的尊崇與敬拜，用上帝不同的名來讚美祢，感謝祢。
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>神的名</th>
+                            <th>意思 / 核心意義</th>
+                            <th>經文 / 聖經背景與出處</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>耶和華以勒</strong><br>(Jehovah-Jireh)</td>
+                            <td>耶和華必預備<br><span class="table-note">(祂早就看見我們需要，並且預備)</span></td>
+                            <td><strong>創22：14</strong><br><span class="table-note">上帝在山上為亞伯拉罕預備了一隻代替羔羊，亞伯拉罕遂稱該地為「在耶和華的山上必有預備」。</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>耶和華尼西</strong><br>(Jehovah-Nissi)</td>
+                            <td>耶和華是我的旌旗<br><span class="table-note">(必使子民在爭戰中得勝)</span></td>
+                            <td><strong>出17：15</strong><br><span class="table-note">以色列人在山下與亞馬利人打仗打贏後，摩西築了一座壇，起名叫「耶和華尼西」。</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>耶和華拉法</strong><br>(Jehovah-Rapha)</td>
+                            <td>耶和華是醫治你的<br><span class="table-note">(救脫埃及一切疾病，是最大的醫生)</span></td>
+                            <td><strong>出15：26</strong><br><span class="table-note">當苦水被醫治後，神宣告：「你若留心聽……我就不將所加於埃及人的疾病加在你身上，因為我——耶和華是醫治你的。」</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>耶和華沙龍</strong><br>(Jehovah-Shalom)</td>
+                            <td>耶和華賜平安<br><span class="table-note">(基甸看見神，仍能平安)</span></td>
+                            <td><strong>士6：24 (22-24)</strong><br><span class="table-note">基甸在打麥子時遇見耶和華的使者，因懼怕看見神會死，神對他說：「你放心，不要懼怕，你必不致死。」基甸遂築壇起名「耶和華沙龍」。</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>耶和華齊根努</strong></td>
+                            <td>耶和華是我們的義<br><span class="table-note">(耶和華是我們的拯救)</span></td>
+                            <td><strong>耶23：6、賽 59：16-17、56：1</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>耶和華羅以</strong></td>
+                            <td>耶和華是我的牧者</td>
+                            <td><strong>詩 23：1</strong> <span class="table-note">(全章 詩23：1-6)</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>耶和華沙瑪</strong></td>
+                            <td>耶和華的所在<br><span class="table-note">(神永恆心意：親自同在)</span></td>
+                            <td><strong>結48：35、啟21：3</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>耶穌</strong></td>
+                            <td>將自己的百姓從罪惡裡救出來</td>
+                            <td><strong>太1：21</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>全能的神</strong></td>
+                            <td>無所不能，使無變有（創造）的神，使死人復活（拯救）的神</td>
+                            <td><strong>賽 9：6、羅4：17</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>永在的父</strong></td>
+                            <td>自有、永有、昔在、今在、永在的父神 （I AM WHO I AM）</td>
+                            <td><strong>賽9：6</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>和平的君</strong></td>
+                            <td>坐在寶座，以無上權能帶出真正的和睦<br>&rarr; 祂是我們的和睦 (合一，神永恆心意)</td>
+                            <td><strong>賽9：6</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>以馬內利</strong></td>
+                            <td>上帝與我們同在<br>&rarr; 神永恆的心意！（耶和華沙瑪）</td>
+                            <td><strong>太1：23、啟21：3</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <p><strong>如何操練：</strong> 在禱告中單單把這些名字唸出來，去思想並為這個名字背後、你在生活中所經歷到的神恩典來大聲讚美。例如宣告：「上帝，祢是耶和華尼西的上帝，祢是使我爭戰得勝的神，在我的困難中我必要得勝！」</p>
+
+
+            <!-- 第六主要章節 -->
+            <h2>六、 課堂祈禱操練指引</h2>
+            <p>請弟兄姊妹在課堂或小組中，同聲開口進行以下兩個階段的禱告操練：</p>
+            
+            <h3>操練（一）：啟言的禱告——我們在天上的父</h3>
+            <p><strong>禱告方向：</strong> 對準愛你的天父。開口向祂說：「天父，我知道祢非常喜歡聽我的禱告，我也非常喜歡來到祢的面前。」</p>
+            <p><strong>禱告詞參考：</strong> 「天上的阿爸父啊，感謝祢！因為祢創造了我、拯救了我、醫治了我，並且時時刻刻保護了我……」</p>
+            <p><strong>【現在請全體同聲開口禱告……】</strong></p>
+            
+            <h3>操練（二）：第一願的禱告——願人都尊祢的名為聖</h3>
+            <p>我們依序宣告並應用上帝的聖名來感謝讚美祂：</p>
+            <ul>
+                <li><strong>耶穌：</strong> 讚美祂是「將自己的百姓從罪惡裡救出來」的救主。（同聲開口禱告）</li>
+                <li><strong>以馬內利：</strong> 讚美祂是「上帝與我們同在」、代表神永恆心意、樂意永遠不離開我們的主。（同聲開口禱告）</li>
+                <li><strong>耶和華以勒：</strong> 宣告並讚美祂是「耶和華必預備」的神，祂早就看見我們的需要，並在各樣需要上為我們籌劃預備。（同聲開口禱告）</li>
+                <li><strong>耶和華尼西：</strong> 宣告祂是我們的旌旗，是必使子民在屬靈爭戰與生活中得勝的主。（同聲開口禱告）</li>
+                <li><strong>耶和華拉法：</strong> 宣告祂是醫治我們的神，救我們脫離一切疾病，是生命中最大的醫生。（同聲開口禱告）</li>
+                <li><strong>耶和華沙龍：</strong> 宣告祂是賜平安的上帝，如同基甸看見神仍能得著平安，將出人意外的平安放在我們心中。（同聲開口禱告）</li>
+                <li><strong>耶和華齊根努：</strong> 宣告並讚美祂是「耶和華是我們的義」，是我們的拯救與公義。（同聲開口禱告）</li>
+                <li><strong>耶和華羅以：</strong> 宣告並信靠祂是我的牧者，使我一生不致缺乏、滿有恩惠慈愛。（同聲開口禱告）</li>
+                <li><strong>耶和華沙瑪：</strong> 讚美祂是「耶和華的所在」，親自與我們同在，彰顯神永恆的心意。（同聲開口禱告）</li>
+                <li><strong>全能的神：</strong> 讚美祂無所不能，是使無變有的創造之神，也是使死人復活的拯救之神。（同聲開口禱告）</li>
+                <li><strong>永在的父：</strong> 敬拜祂是自有、永有、昔在、今在、永在的父神（I AM WHO I AM）。（同聲開口禱告）</li>
+                <li><strong>和平的君：</strong> 讚美祂坐在寶座上，以無上權能帶出真正的和睦與合一。（同聲開口禱告）</li>
+            </ul>
+
+            <!-- 小組討論區塊 -->
+            <div class="discussion-box">
+                <h4>💬 【小組討論與彼此代禱】</h4>
+                <p>以上帝的名來進行禱告對我們的信心很有幫助。請在小組中<strong>「操練以上帝的名來彼此代禱」</strong>。</p>
+                <hr style="margin: 0.8rem 0; border: none; border-top: 1px solid #e9ecef;">
+                <p><strong>分享題目：</strong> 在彼此代禱結束後，請分享這樣以神名為宣告的禱告，對於你建立「尊上帝的名為聖」的生命態度，有什麼全新、不一樣的體會？</p>
+            </div>
+        </main>
+
+        <!-- 網頁頁尾 -->
+        <footer>
+            <p>主禱文門徒培訓課程系列紀錄表格</p>
+        </footer>
+    </div>
+
+</body>
+</html>
