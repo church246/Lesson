@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主禱文 第三課：第二願「願祢的國降臨」</title>
+    <style>
+        :root {
+            --bg-color: #fcfbfa;
+            --container-bg: #ffffff;
+            --primary-color: #2c3e50;
+            --secondary-color: #8e44ad;
+            --accent-gold: #b38f4d;
+            --accent-blue: #2980b9;
+            --text-main: #2c3539;
+            --text-dark: #1a1a1a;
+            --text-muted: #5a6b7c;
+            --border-color: #e2e8f0;
+            --quote-bg: #f8fafc;
+            --quote-border: #3498db;
+            --question-bg: #fff9db;
+            --question-border: #fab005;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Microsoft JhengHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.8;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--container-bg);
+            padding: 3rem 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        header .scripture-reference {
+            font-size: 1.2rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* Typography */
+        h2 {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin: 3rem 0 1.5rem 0;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--accent-gold);
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            color: var(--text-dark);
+            margin: 1.8rem 0 1rem 0;
+            display: flex;
+            align-items: center;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+
+        strong {
+            color: var(--text-dark);
+        }
+
+        /* Scripture Blocks */
+        .scripture-box {
+            background-color: var(--quote-bg);
+            border-left: 4px solid var(--quote-border);
+            padding: 1.2rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+
+        .scripture-box p {
+            margin-bottom: 0;
+            color: #34495e;
+        }
+
+        /* Frameworks & Terminology Box */
+        .framework-box {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        /* Discussion Questions */
+        .discussion-box {
+            background-color: var(--question-bg);
+            border-left: 4px solid var(--question-border);
+            padding: 1.2rem 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .discussion-box h4 {
+            color: #b58105;
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.8rem;
+        }
+
+        li {
+            margin-bottom: 0.6rem;
+        }
+
+        /* Detail Blocks */
+        .detail-block {
+            margin-left: 1rem;
+            padding-left: 1rem;
+            border-left: 2px dashed #cbd5e1;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Prayer Guide Section */
+        .prayer-box {
+            background-color: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 1.8rem;
+            margin: 2rem 0;
+        }
+
+        .prayer-box h3 {
+            margin-top: 0;
+            color: var(--accent-blue);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+            .container {
+                padding: 1.8rem 1.2rem;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- 頁首 -->
+        <header>
+            <h1>主禱文 第三課：第二願「願祢的國降臨」</h1>
+            <div class="scripture-reference">馬太福音 6:10a</div>
+            <p>「願祢的國降臨」</p>
+        </header>
+
+        <main>
+            <!-- 前言 -->
+            <section>
+                <p>用主禱文禱告實在是我們的福氣。主禱文的禱告會讓我們非常喜樂，而且被聖靈充滿。我非常喜歡用主禱文禱告。我以前不會禱告，學了主禱文禱告以後，真的覺得這實在是非常有福的一個禱告。而且理所當然，因為這是耶穌教我們的禱告。</p>
+                <p>禱告基本上是跟神有一個親密的關係。在禱告的時候最棒的事情，還不是為一些有需要的事來禱告；禱告時最棒的事情，是跟神有一個親密的關係。你越禱告，你會越覺得你跟神非常親近、非常貼近，這會讓我們心裡面有很大的滿足感，一種屬靈的滿足。</p>
+                <p>接下來我們就進到主禱文的第二願：「願祢的國降臨」。短短的幾個字，這個降臨的禱告裡面就是非常豐富的。我們需要很有系統地來認識它。</p>
+            </section>
+
+            <!-- 第一主要章節 -->
+            <h2>一、 什麼是神的國？</h2>
+            
+            <h3>1. 字義拆解：國王與掌權</h3>
+            <p>英文的「國度」（Kingdom）這個字，可以拆成兩部分：<strong>King</strong>（國王）與 <strong>Domain / Dom</strong>（領土、掌權）。一個國度最重要的是掌權，因此，我們說「上帝的國」，意思就是<strong>上帝掌權的地方</strong>。</p>
+
+            <h3>2. 國家三要素與人心中的神國</h3>
+            <p>一個國家擁有人民、領土與主權。而在上帝的國度裡：</p>
+            <ul>
+                <li><strong>國民與土地：</strong> 我們就是上帝的國民，我們也是祂的土地。路加福音 17:21 說「上帝的國就在你們心裡」，既然神的國在我們心裡面，我們的心就成為上帝的國度、上帝的土地，我們也是祂的子民。</li>
+                <li><strong>主權：</strong> 當神的主權設立在我們心中，上帝的國就成立了。</li>
+            </ul>
+
+            <h3>3. 「願祢的國降臨」的深層意涵：聖靈降臨與掌權</h3>
+            <p>「願祢的國降臨」，意思就是<strong>願上帝在我們的生命裡面掌權</strong>。簡單一點講，就是<strong>願聖靈充滿我們</strong>。</p>
+            
+            <p>馬丁路德在他的《小問答》中講解第二願「願祢的國降臨」時提到：這個「願」的意思，就是願天父把聖靈賜給我們，使我們藉著祂的恩典，能夠相信祂的聖道，並讓我們的生活可以遵從，過一個敬虔的生活。馬丁路德在講解這個禱告時特別提到聖靈——願主的國降臨，其實就是願聖靈降臨在我們身上。</p>
+
+            <div class="scripture-box">
+                <p><strong>馬太福音 12:28</strong><br>
+                「我若靠著上帝的靈趕鬼，這就是上帝的國臨到你們了。」</p>
+            </div>
+            <div class="scripture-box">
+                <p><strong>羅馬書 14:17</strong><br>
+                「因為上帝的國不在乎吃喝，只在乎公義、和平，並聖靈中的喜樂。」</p>
+            </div>
+
+            <p>你看，神的國跟聖靈有非常密切的關係。其實神的國降臨，就是聖靈降臨，就是聖靈充滿我們、讓聖靈掌權的意思。</p>
+
+
+            <!-- 第二主要章節 -->
+            <h2>二、 為什麼要求上帝的國降臨？（兩個重要理由）</h2>
+
+            <h3>理由一：要求就要求最好的——追求神自己</h3>
+            <p>為什麼在第一個願「願人都尊祢的名為聖」之後，馬上就要求上帝的國降臨？因為這是尊主名為聖之後最好的東西——就是讓神的國、讓聖靈降臨在我們裡面。聖靈就是神自己，我們在禱告裡面，最應該渴慕的就是神自己來充滿我們、帶領我們。</p>
+
+            <div class="scripture-box">
+                <p><strong>路加福音 11:13</strong><br>
+                「你們雖然不好，尚且知道拿好東西給兒女；何況天父，豈不更將聖靈給求祂的人嗎？」</p>
+            </div>
+            <div class="scripture-box">
+                <p><strong>路加福音 12:32</strong><br>
+                「你們這小群，不要懼怕，因為你們的父樂意把那國賜給你們。」</p>
+            </div>
+            <div class="scripture-box">
+                <p><strong>馬太福音 6:33</strong><br>
+                「你們要先求祂的國和祂的義，這些東西都要加給你們了。」</p>
+            </div>
+            <p>天父的心意是樂意把聖靈與那國賞賜給我們，把國賜給我們是神想要做的事情。那我們當然更要向神求，讓祂的國可以臨到我們、充滿我們。</p>
+
+            <h3>理由二：這是抵擋仇敵的屬靈爭戰禱告</h3>
+            <p>這個禱告非常要緊，因為我們會遇見仇敵的攻擊。這是一個屬靈爭戰的禱告，透過得到神同在的能力來抵擋仇敵。</p>
+
+            <p><strong>神的國到底來了沒有？（已然未然 Already but not yet）</strong></p>
+            <p>在神學上有一個歸納：<strong>神的國已然來到，但神的國還沒完全來到（Already but not yet）</strong>。我們現在就活在這種「已然未然」的張力之中，這裡面有很多爭戰會發生。</p>
+
+            <div class="framework-box">
+                神的國已然來到（Already） &harr; 活在張力與爭戰中 &harr; 神的國還未完全來到（Not Yet）
+            </div>
+
+            <ul>
+                <li><strong>已然來到（Already）：</strong> 耶穌靠著神的靈趕鬼時，神的國就臨到了。耶穌來到這世界時，天國的主人來到，神的國就來到了（路 17:21）。</li>
+                <li><strong>還未來到（Not Yet）：</strong> 耶穌傳道時也說：「時期滿了，上帝的國近了，你們當悔改，信福音！」（可 1:15）。「近了」代表還沒完全來到。此外，啟示錄 20:10 提到，魔鬼、獸和假先知（仇敵的三位一體）最終才會被扔在硫磺火湖裡，在這之前，牠們仍在這個世界上興風作浪、攻擊教會。</li>
+            </ul>
+
+            <p><strong>從約翰壹書看「漸漸像主」與末後的面見：</strong></p>
+            <div class="scripture-box">
+                <p><strong>約翰壹書 3:2</strong><br>
+                「親愛的弟兄啊，我們現在是上帝的兒女，將來如何，還未顯明；但我們知道，主若顯現，我們必要像祂，因為必得見祂的真體。」</p>
+            </div>
+            <p>我們一信耶穌，就開始越來越像耶穌。雖然現在我們無法用肉眼看見祂，只能在靈裡或異象中與祂互動（如同舊約摩西求見神的榮耀，神將他藏在磐石穴中只讓他看背面；或如腓利求耶穌顯現父神，耶穌說「人看見了我，就是看見了父」）。但有一天當主榮耀顯現時，我們的肉身會改變復活，能用屬靈的眼睛親自與祂面對面，完全像祂。</p>
+
+            <p>在這段「已然未然」的過程裡面，上帝要祂的兒女變得越來越像祂，而魔鬼必然會發動攻擊來打擊我們。因此我們要常常禱告「願祢的國降臨」，有聖靈與神國度的同在，我們就能勝過仇敵一切的攻擊。</p>
+
+            <!-- 小組討論區塊 1 -->
+            <div class="discussion-box">
+                <h4>💬 【小組討論問題】</h4>
+                <p>透過課程，你對「神的國」有什麼新的認識？對你來說，求神的國降臨，最重要的意義是什麼？</p>
+            </div>
+
+
+            <!-- 第三主要章節 -->
+            <h2>三、 如何禱告「願上帝的國降臨」？</h2>
+            <p>具體的禱告可以從以下兩大方面來實踐：</p>
+
+            <h3>方面一：求聖靈充滿（三個面向與聖靈整土）</h3>
+            <p>求聖靈充滿，最好的方式就是求三方面的充滿：</p>
+            <ol>
+                <li><strong>真理的充滿（先知層面）：</strong> 聖靈是真理的聖靈，求聖靈的真理充滿我們裡面。</li>
+                <li><strong>愛的充滿：</strong> 聖靈是愛的靈，將上帝的愛澆灌在我們心裡。</li>
+                <li><strong>恩賜與能力的充滿（君王層面）：</strong> 「但聖靈降臨在你們身上，你們就必得著能力……作我的見證」（徒 1:8），使我們能傳福音、領人歸主。</li>
+            </ol>
+
+            <p><strong>聖靈的整土工作：</strong></p>
+            <p>當我們這樣禱告時，聖靈就會來到我們心中整頓心田。參照耶穌撒種的比喻，人心有四種土地，而聖靈來是幫我們把心田整頓成「好土」：</p>
+            <div class="detail-block">
+                <p><strong>1. 硬土變軟土（認罪悔改）：</strong> 旁路邊的硬土因罪而剛硬，聖靈光照讓我們認罪悔改，使心軟化。</p>
+                <p><strong>2. 淺土變深土（深化信念）：</strong> 土淺石頭地容易因曬而枯乾，聖靈將神的話啟示在我們心裡，使「知道」轉化為深層的「信念」。</p>
+                <p><strong>3. 雜土變純土（拔除荊棘）：</strong> 荊棘代表愛世界與世俗焦慮，聖靈光照並拔除愛世界的種子，讓心成為純土。</p>
+                <p><strong>4. 成為好土：</strong> 讓神的道在好的心田裡生長、開花，結實三十倍、六十倍、一百倍。</p>
+            </div>
+
+            <h3>方面二：求復興（Revival）與轉化（Transformation）</h3>
+            <ul>
+                <li><strong>復興（Revival）：</strong> 再一次得到生命。聖靈來到我們裡面，讓我們能真實地愛神、愛人。</li>
+                <li><strong>轉化（Transformation）：</strong> 讓天國的文化能夠實行在地上，改變地上的文化。</li>
+            </ul>
+
+            <p>我們可以為五個層面的復興與轉化來禱告：<strong>個人、家庭、教會、慕道友（屬靈認領）、國家</strong>。</p>
+
+            <p><strong>【見證分享：奎山國中營會的文化轉化】</strong><br>
+            有一次真理堂的青少年在奎山國中辦理國中營會，聚集了許多小六與國一的男生。在聚會中，這群年輕男生竟然一起流淚悔改禱告！因為被聖靈光照，他們發現自己是一個不懂得孝敬父母的人。孝敬父母的道對現在的年輕人最難講，但因著有人預備禱告，神的愛與聖靈光照臨到，讓學生們從心裡悔改，起來成為孝敬父母的人，這就是極其真實的文化轉化。</p>
+
+            <!-- 小組討論區塊 2 -->
+            <div class="discussion-box">
+                <h4>💬 【小組討論問題】</h4>
+                <p>你最期盼神的國降臨在你生活的哪一個層面（個人、家庭、教會、慕道友、國家），帶來復興跟轉化？</p>
+            </div>
+
+
+            <!-- 第四主要章節：禱告操練 -->
+            <h2>四、 現場同聲禱告操練指引</h2>
+            <p>請弟兄姊妹一同以「願上帝在我們生命中掌權」為核心，進行以下兩個階段的同聲開口禱告：</p>
+
+            <div class="prayer-box">
+                <h3>第一階段：願復興與轉化臨到五大層面</h3>
+                <p>按照次序，輪流或同聲為以下對象提名禱告，求神的國降臨、復興臨到：</p>
+                <ul>
+                    <li><strong>個人：</strong> 為自己的生命更新與復興禱告。</li>
+                    <li><strong>家庭：</strong> 為家中的每一個人提名禱告，願神的國掌管家庭。</li>
+                    <li><strong>教會：</strong> 為教會的復興與神同在的彰顯禱告。</li>
+                    <li><strong>慕道友：</strong> 為自己屬靈認領的慕道友提名禱告，求神得著他們。</li>
+                    <li><strong>國家：</strong> 為國家的公義、和平與轉化同聲祈求。</li>
+                </ul>
+            </div>
+
+            <div class="prayer-box">
+                <h3>第二階段：求聖靈全面充滿（兩至三分鐘同聲禱告）</h3>
+                <p>同聲開口祈求聖靈在三個面向大大的充滿我們：</p>
+                <ul>
+                    <li><strong>真理的充滿：</strong> 求神的話語豐富地住在我心中，整頓我們的心田成為好土。</li>
+                    <li><strong>上帝愛的充滿：</strong> 求聖靈將神的愛大量澆灌，使我們能愛神愛人。</li>
+                    <li><strong>恩賜與能力的充滿：</strong> 求賜下傳福音與服事的能力，讓我們在社會上結出美好見證，帶領更多人歸主。</li>
+                </ul>
+            </div>
+        </main>
+
+        <!-- 頁尾 -->
+        <footer>
+            <p>主禱文門徒培訓課程系列紀錄表格</p>
+        </footer>
+    </div>
+
+</body>
+</html>
