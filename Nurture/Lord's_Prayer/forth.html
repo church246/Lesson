@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主禱文 第四課：第三願「願祢的旨意行在地上，如同行在天上」</title>
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2b6cb0;
+            --accent-gold: #c59b27;
+            --accent-red: #c53030;
+            --bg-main: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #2d3748;
+            --text-dark: #1a202c;
+            --text-muted: #718096;
+            --border-color: #e2e8f0;
+            --quote-bg: #f7fafc;
+            --quote-border: #3182ce;
+            --question-bg: #fffaf0;
+            --question-border: #dd6b20;
+            --prayer-bg: #f0fff4;
+            --prayer-border: #38a169;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Microsoft JhengHei", sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.85;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            padding: 3rem 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        header h1 {
+            font-size: 2.1rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .scripture-subtitle {
+            font-size: 1.25rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.55rem;
+            color: var(--primary-color);
+            margin: 2.8rem 0 1.3rem 0;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--accent-gold);
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            color: var(--secondary-color);
+            margin: 1.8rem 0 0.8rem 0;
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin: 1.2rem 0 0.6rem 0;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+
+        strong {
+            color: var(--text-dark);
+        }
+
+        ul, ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.8rem;
+        }
+
+        li {
+            margin-bottom: 0.6rem;
+        }
+
+        .scripture-box {
+            background-color: var(--quote-bg);
+            border-left: 4px solid var(--quote-border);
+            padding: 1.2rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .scripture-box p {
+            margin-bottom: 0;
+            color: #2c5282;
+            font-weight: 500;
+        }
+
+        .discussion-box {
+            background-color: var(--question-bg);
+            border-left: 4px solid var(--question-border);
+            padding: 1.2rem 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .discussion-box h4 {
+            color: #c05621;
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .prayer-section {
+            background-color: var(--prayer-bg);
+            border: 1px solid #c6f6d5;
+            border-left: 5px solid var(--prayer-border);
+            border-radius: 12px;
+            padding: 1.8rem;
+            margin: 2.5rem 0;
+        }
+
+        .prayer-section h3 {
+            margin-top: 0;
+            color: #22543d;
+        }
+
+        .testimonial-box {
+            background-color: #f7fafc;
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+
+        .testimonial-title {
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 0.8rem;
+        }
+
+        .highlight {
+            background-color: #fff5f5;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            color: var(--accent-red);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+            .container {
+                padding: 1.8rem 1.2rem;
+            }
+            header h1 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- 頁首 -->
+        <header>
+            <h1>主禱文 第四課：第三願「願祢的旨意行在地上，如同行在天上」</h1>
+            <div class="scripture-subtitle">馬太福音 6:10b</div>
+        </header>
+
+        <main>
+            <!-- 課前問題與引言 -->
+            <div class="discussion-box">
+                <h4>💬 【課前分享與討論】</h4>
+                <p><strong>問題：</strong>以主禱文禱告三週，對你有甚麼幫助和見證？（請邀請弟兄姊妹分享）</p>
+            </div>
+
+            <section>
+                <p>願祢的旨意行在地上，如同行在天上。我覺得真的非常感恩，當我們越來越學習用主禱文禱告，就會越來越知道主禱文真的是主耶穌親自教導我們的禱告，真的是太奇妙了！</p>
+                <p>主禱文包羅萬有，是一個非常全備、完整的禱告。前面這三願基本上是一個讚美跟感謝的禱告，可是這裡面也包含了屬靈爭戰的禱告，因為讚美神基本上就是在一種極為真實的屬靈爭戰中進行的。</p>
+            </section>
+
+            <!-- 第一主要章節 -->
+            <h2>一、 為什麼第三願要排在第三個位置？（V字形與主觀經歷）</h2>
+            
+            <p>前面兩個願（願人都尊祢的名為聖、願祢的國降臨）已經講完了，這裡有一個非常重要的問題：<strong>為什麼這個願要排在第三個願？</strong>注意觀察，第一願、第二願跟第三願有非常明顯的不同與進展。</p>
+
+            <ul>
+                <li><strong>第一願（歸零與對準）：</strong> 「願人都尊祢的名為聖」。我們在天上的父，先對準禱告的對象，把這位天父、上帝當作最尊貴、最優先的，以祂為中心。用祂的名來讚美祂，這是很客觀地讚美神——祂是掌管諸天萬有的上帝，我們感謝讚美祂。</li>
+                <li><strong>第二願（神的國降臨）：</strong> 「願祢的國降臨」。願祂的國降臨在地上，聖靈充滿我們，復興臨到我們，這開始與我們產生深刻的關聯。</li>
+                <li><strong>第三願（主觀的實現與屬靈爭戰）：</strong> 出現了「天上與地上」——「願祢的旨意行在地上，如同行在天上」。祂不只是停留在天上了，祂落實在地上了！</li>
+            </ul>
+
+            <p>神學家與屬靈長老常這樣講：前面兩願的禱告都是比較<strong>客觀地讚美神</strong>，而第三願則是比較<strong>主觀地讚美神與經歷神</strong>。也就是說，神的旨意、神的國、神的名與榮耀本來是客觀存在於天上的，現在我們要透過禱告，讓這個客觀的恩典與榮耀降在地上、特別是降在「我」的身上，變成一個主觀的經歷。</p>
+
+            <p>因此，主禱文呈現一個非常美麗的 <strong>V 字形禱告結構</strong>：從最高、最客觀的讚美（天上的父、尊名為聖、國度降臨），慢慢下降落實在我們身上——「願上帝的旨意行在我的身上，如同行在天上」。</p>
+
+            <p>然而，當天上的恩典與旨意要主觀地降臨在我們身上時，過程中間會有非常強烈的屬靈爭戰。因為仇敵魔鬼一定會極力抵擋這件事，牠最受不了這點！牠要全力攔住你、不讓你明白神的旨意，甚至透過心思意念的欺騙與肉體的誘惑使人犯罪。因此，第三願同時是一個非常強烈的屬靈爭戰禱告，我們必須懂得斥退黑暗權勢、捆綁魔鬼的工作，讓神的旨意無阻礙地實現在我們身上。</p>
+
+
+            <!-- 第二主要章節 -->
+            <h2>二、 如何禱告與第三願的內容（三個關鍵方向）</h2>
+
+            <h3>1. 獻身：屬靈爭戰與明白神旨意的關鍵</h3>
+            <p><strong>獻身是屬靈爭戰得勝的關鍵，就是把自己的主權完全交給上帝。</strong></p>
+            <p>這個禱告非常像主耶穌在客西馬尼園的禱告：</p>
+
+            <div class="scripture-box">
+                <p><strong>馬太福音 26:39</strong><br>
+                「他就稍往前走，俯伏在地，禱告說：『我父啊，倘若可行，求祢叫這杯離開我。然而，不要照我的意思，只要照祢的意思。』」</p>
+            </div>
+
+            <p>耶穌在人性裡面對即將承擔全人類罪孽、與父神分離、嚐永死痛苦這件事，心裡是非常極度痛苦的。但祂俯伏禱告：「不要照我的意思，只要照祢的意思。」第三願基本上就是一個十字架的禱告，是完全捨棄自己、放下老我與個人心意的禱告。</p>
+
+            <p><strong>唯有獻身，才能真正明白神的旨意。</strong>我們來看羅馬書 12 章 1 到 2 節：</p>
+
+            <div class="scripture-box">
+                <p><strong>羅馬書 12:1-2</strong><br>
+                「所以，弟兄們，我以上帝的慈悲勸你們，將身體獻上，當作活祭，是聖潔的，是上帝所喜悅的；你們如此事奉乃是理所當然的。不要效法這個世界，只要心意更新而變化，叫你們察驗何為上帝的善良、純全、可喜悅的旨意。」</p>
+            </div>
+
+            <p>這裡保羅講到了兩種維度的獻身：</p>
+            <ul>
+                <li><strong>一次過的獻身（第 1 節）：</strong> 「將身體獻上當作活祭」，在希臘文動詞時態是簡單過去式（Aorist），指一次性、劃時代地把自己完全獻上給神。</li>
+                <li><strong>持續不斷的獻身（第 2 節）：</strong> 「不要效法這個世界，只要心意更新而變化」，希臘文中「不效法（不被這個世界塑造/定型）」與「心意更新」都是現在時態（Present Tense），代表這是一個持續不斷的動作。我們天天都要在主的面前持續獻上，讓我們的思想、情感、意志不被世界流俗磨塑，而是讓聖靈天天調整我們的內心。</li>
+            </ul>
+
+            <div class="scripture-box">
+                <p><strong>約翰福音 7:17</strong><br>
+                「人若立志遵著祂的旨意行，就必知道這教訓是出於上帝，或是憑著自己說的。」</p>
+            </div>
+
+            <p>許多時候我們尋求神的旨意覺得聽不清楚，關鍵往往不在於上帝不說話，而在於我們有沒有百分之百獻上主權。如果你在心裡已經立志：「主啊，只要祢開口，我就順服！」那麼要明白神的旨意就一點都不困難。</p>
+
+            <!-- 證道者的個人見證（完整無刪減） -->
+            <div class="testimonial-box">
+                <div class="testimonial-title">📌 【姚建德牧師尋求呼召見證：40天禁食禱告與百分百獻身】</div>
+                <p>民國七十年我服兵役快要結束時，面臨了人生極大的交叉路口：一個選項是出國攻讀生理學博士，拿到博士學位後再去讀神學（當時我心裡覺得這樣既能服事又可以光宗耀祖）；另一個選項則是退伍後直接進入神學院，作一個全職的傳道人。</p>
+                <p>那時我申請國外的學校非常順利，預計八月退伍、九月就能順利出國。但是在這之前，每當我認真尋求神，神多次透過不同的方式和話語引導我，要我直接做傳道人。</p>
+                <p>當時全家除了母親支持我外，父親和其他親友都強烈反對，父親甚至氣到說要跟我斷絕父子關係，連我的同學也都覺得我瘋了、太可惜了。我雖然歷經了多次神的驗證，但要放下拉開出國的這條路真的非常困難，我總是在心裡找藉口，覺得那些驗證可能只是「巧合」。</p>
+                <p>最後在退伍前倒數 40 天，我在軍醫院擔任伙食委員。那 40 天裡，我每天中午獨自跑到圖書館禁食禱告一餐，連續禱告了 40 天，求神給我很明確、無法反駁的聲音和指示。</p>
+                <p>沒想到在最後一個月，伙食工作突然出現極大的紛擾與問題，而且我在禱告時竟然感覺不到神的同在，心裡極度痛苦與煎熬。最後我實在撐不下去了，跪在神面前跟主說：「主啊，我受不了沒有祢同在的日子！我現在把我最後那一點點隱藏、不願意奉獻的——就是『出國』這件事——完全獻給祢，就像亞伯拉罕獻上以撒一樣。祢叫我做什麼，我就做什麼！」</p>
+                <p>當我做完這個百分之百完全獻上的禱告後，我的心裡清清楚楚聽到一個溫柔的聲音說：「孩子，不要怕，跟我來。」後來我打開聖經讀到馬可福音 8 章 34 節：「若有人要跟從我，就當捨己，背起他的十字架來跟從我。」那一刻，我整個人被聖靈大大充滿，心中湧流出無比的喜樂與平安！</p>
+                <p><strong>這個親身經歷讓我明白：聽見神聲音與旨意的秘訣，就是在聽見之前，先完全獻身，將百分之百的主權完全交還給神。</strong></p>
+            </div>
+
+            <h3>2. 消極方面：抵擋仇敵的攻擊（屬靈爭戰）</h3>
+            <p>在上帝旨意要實現在我們身上的過程中，必定會遇到撒旦、世界、肉體這三個層面的攻擊與攔阻：</p>
+            
+            <ul>
+                <li>
+                    <strong>(1) 直接的攻擊（仇敵與疾病）：</strong><br>
+                    撒旦有時會直接攻擊我們的身心靈健康。例如我過去曾因為大量從事醫治釋放事工，遭受仇敵猛烈的靈界反撲，得了非常嚴重的帶狀皰疹（俗稱「蛇纏腰」），全身極其劇痛。在這種景況下，我們需要直接奉主耶穌基督的聖名，命令疾病背後的黑暗勢力與邪靈離開！
+                </li>
+                <li>
+                    <strong>(2) 世界的謊言與扭曲的思想：</strong><br>
+                    撒旦非常擅長透過世界的價值觀與謊言來破壞家庭、關係與信仰。例如世界傳播「精神外遇不算外遇」、「大衛王在聖經裡也有很多妻子，所以多妻或情感出軌沒關係」這類扭曲的謊言。我們必須奉主的名，奪回所有心思意念，破除仇敵放在我們或家人心中的種種謊言。
+                </li>
+                <li>
+                    <strong>(3) 肉體的誘惑與犯罪：</strong><br>
+                    仇敵會利用我們肉體的軟弱誘惑我們犯罪。我們需要天天做預防性的禱告（如詩篇 19:13「求祢攔阻僕人不犯任意妄為的罪」），求神嚴嚴保守我們，特別是在金錢（Money）、權力（Power）、性（Sex）這三件事上絕不跌倒。若不幸軟弱犯了罪，要立刻在主面前認罪悔改，寶血洗淨。
+                </li>
+            </ul>
+
+            <div class="prayer-section" style="margin: 1.5rem 0; padding: 1.2rem; background-color: #f7fafc; border-left-color: var(--secondary-color);">
+                <h4>🛡️ 抵擋仇敵最簡單有效的兩個禱告步驟：</h4>
+                <ol>
+                    <li><strong>奉主的名捆綁：</strong> 奉主耶穌基督的名，捆綁一切黑暗勢力與仇敵的攻擊，命令牠們離開我們的生活、家庭與教會。</li>
+                    <li><strong>宣告寶血的籬笆：</strong> 奉主耶穌的名宣告，用耶穌基督的寶血築起「荊棘籬笆」（求神圍繞保護），保護我們自己、家人、事奉同工以及整個教會的身心靈安全。</li>
+                </ol>
+            </div>
+
+            <div class="discussion-box">
+                <h4>💬 【小組討論問題】</h4>
+                <p>聽完「獻上自己」和「抵擋仇敵」的分享，這讓你對主禱文第三願有了甚麼新的認識或突破？</p>
+            </div>
+
+            <h3>3. 積極方面：尋求上帝旨意的禱告</h3>
+            <p>當我們做完「完全獻身」與「抵擋仇敵」之後，尋求神的旨意就會變得非常清晰且順暢。尋求神的旨意包含以下三個層面：</p>
+
+            <h4>(1) 團體的異象</h4>
+            <ul>
+                <li><strong>宇宙性教會的大異象：</strong> 大使命（使萬民作主的門徒，馬太福音 28:19）與大誡命（彼此相愛，約翰福音 13:34）。這兩者是一體兩面、不可分割的，傳福音大使命的本質，就是把人帶進一個充滿愛與真理的團體裡。</li>
+                <li><strong>地方教會的具體異象：</strong> 為自己所在的地方教會、團契與事奉團隊特定的異象、建堂或事工方向同心禱告。</li>
+            </ul>
+
+            <h4>(2) 個人的異象與年度命名</h4>
+            <ul>
+                <li><strong>一生服事的異象：</strong> 尋求神給個人的終身使命（例如：我的異象是「培訓福音工人，建立福音教會」；或是神呼召你在教師、醫生、企業家、家庭主婦等崗位上彰顯上帝的榮耀）。</li>
+                <li><strong>年度命名（年度異象）：</strong> 每年向神尋求未來這一年的恩典方向（詩篇 139:16）。例如我將 2024 年命名為「退休轉境年」，並向神設定了明確的目標：要在這一年講完聖經 66 卷書的福音信息，並積極訓練培育福音教師。</li>
+            </ul>
+
+            <h4>(3) 特殊與具體事項的尋求（多向神發問）</h4>
+            <p>尋求神特殊旨意的核心秘訣，就是<strong>在禱告中非常具體地向神發問</strong>。主耶穌說：「飢渴慕義的人有福了，因為他們必得飽足。」（馬太福音 5:6）</p>
+            
+            <p>無論是面臨職涯跳槽的選擇、探訪嚴重病患時該如何禱告（是求神超自然醫治，還是求神賜下平安安慰並準備迎接收取）、或是為即將出生的孩子命名與未來禱告，我們都可以在禱告中具體求問聖靈。聖靈必會在我們裡面赐下微小的聲音、微小的感動與智慧來引導我們。</p>
+
+            <div class="discussion-box">
+                <h4>💬 【小組討論問題】</h4>
+                <p>若要把自己完全獻上給上帝，目前在我的生活中，有甚麼人、事、物或主權是我最需要放手並奉獻給主的？</p>
+            </div>
+
+
+            <!-- 第三主要章節：禱告操練 -->
+            <section class="prayer-section">
+                <h3>三、 現場禱告操練指引（請同心開聲禱告）</h3>
+                <p>請弟兄姊妹同心合意，按著以下三個層面，逐一開聲進行同聲禱告：</p>
+
+                <p><strong>1. 奉獻自己的禱告：</strong><br>
+                大家一起開口，將自己完全奉獻給主。將自己的婚姻、家庭、工作、學業、人際關係、時間、體力、恩賜與未來的全部前途，將主權完全交還給主耶穌。</p>
+
+                <p><strong>2. 抵擋仇敵的禱告：</strong><br>
+                奉主耶穌的名捆綁一切攔阻神旨意實現的撒旦、世界與肉體權勢；宣告耶穌基督的寶血在我們、家人、同工與教會周圍圍起荊棘籬笆保護；破除魔鬼所有的謊言，並為自己隱而未現的罪認罪悔改，求主特別保守我們不犯任意妄為的罪。</p>
+
+                <p><strong>3. 為異象與尋求神旨意禱告：</strong><br>
+                為個人一生的異象、以及新一年的年度命名與方向禱告。若目前有具體的特殊事項，開口向神發問求問心意；若已經知道神的心意，則禱告求神賜下能力，使其完全實現在我們身上。</p>
+            </section>
+
+            <!-- 結尾禱告 -->
+            <div class="scripture-box" style="border-left-color: var(--accent-gold); background-color: #fffdf5;">
+                <p style="color: var(--text-dark);">
+                    <strong>【結束禱告】</strong><br>
+                    主耶穌我們感謝祢，我們感謝祢告訴我們說，我們可以這樣來禱告：「願上帝的旨意行在地上，行在我的身上，如同行在天上。」主啊，願祢的旨意行在地上，如同行在天上；願祢的旨意行在我的身上，如同行在天上。讓我這個人在地上遵行上帝的道，彰顯上帝的榮耀。保守我們，讓我們 organically（自然而然地）常常可以這樣禱告。在這個禱告當中，願聖靈也賜下祢的啟示和話語，祝福祢的兒女走在祢的心意當中，祝福祢的兒女能夠滿心知道神的心意，並且去行出神的心意。謝謝主，聽我們的禱告，奉主耶穌的名，阿們。
+                </p>
+            </div>
+        </main>
+
+        <!-- 頁尾 -->
+        <footer>
+            <p>主禱文門徒培訓課程系列教材</p>
+        </footer>
+    </div>
+
+</body>
+</html>
