@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>讚美歌影片集 — 你很特別 / 耶穌愛我 / 我要向高山舉目 / 讚美的孩子最喜樂</title>
+  <title>讚美歌影片集</title>
   <meta name="description" content="把四首讚美歌以單一 HTML5 檔案呈現，點擊封面載入 YouTube 影片。" />
   <style>
     :root{--bg:#0b1220;--card:#0f1724;--accent:#fbd38d;--muted:#a8b3c6}
@@ -23,8 +23,6 @@
     .subtitle{color:var(--muted);font-size:0.95rem;margin:0}
     .hidden-iframe{display:none}
     footer{margin-top:18px;color:var(--muted);font-size:0.9rem}
-    /* button style */
-    .btn{display:inline-block;padding:8px 12px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.06);cursor:pointer}
     @media (prefers-reduced-motion: no-preference){
       .card:hover{transform:translateY(-4px);transition:transform .18s ease}
     }
@@ -54,10 +52,10 @@
 
   <script>
     const videos = [
-      {id:'Rgukec27wn8', title:'你很特別'},
-      {id:'6vAILBz8cgo', title:'耶穌愛我'},
       {id:'bhS0D7Gd-Ek', title:'我要向高山舉目'},
-      {id:'NkT3Gl5w5Es', title:'讚美的孩子最喜樂'}
+      {id:'ta3mgWYt6yg', title:'天父世界'},
+      {id:'1oV-RPWl-zU', title:'我們愛'},
+      {id:'vVTAOvZV1HM', title:'耶穌愛你'}
     ];
 
     const grid = document.getElementById('grid');
@@ -71,7 +69,6 @@
       thumb.className = 'thumb';
 
       const img = document.createElement('img');
-      // use hqdefault as fallback; YouTube may not provide maxres for all videos
       img.src = `https://img.youtube.com/vi/${v.id}/hqdefault.jpg`;
       img.alt = `${v.title} - YouTube 封面`;
 
@@ -106,12 +103,9 @@
 
       // click handler: replace thumb with iframe (lazy load)
       function loadIframe(){
-        // if already loaded, do nothing
         if(iframeWrap.dataset.loaded === '1') return;
 
-        // pause other iframes by removing them (simple approach)
         document.querySelectorAll('.card iframe').forEach(n => n.remove());
-        // restore any removed thumbnails
         document.querySelectorAll('.card .thumb').forEach(t => t.style.display = 'block');
 
         thumb.style.display = 'none';
@@ -135,13 +129,10 @@
       return card;
     }
 
-    // build grid
     videos.forEach(v => grid.appendChild(makeCard(v)));
 
-    // accessibility: keyboard focus outline
     document.addEventListener('keydown', e => {
       if(e.key === 'Escape'){
-        // hide all iframes and show thumbnails again
         document.querySelectorAll('.card .hidden-iframe').forEach(w => {
           w.innerHTML = '';
           w.style.display = 'none';

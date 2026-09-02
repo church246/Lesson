@@ -1,263 +1,292 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>每日經文小天地</title>
-  <style>
-    :root {
-      --bg:#FFFBF0; --card:#ffffff; --accent:#FF6B6B; --accent2:#FFD166; --text:#173F5F;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:'Noto Sans TC',system-ui,-apple-system,'Segoe UI',Roboto,'Microsoft JhengHei',sans-serif;
-         background:linear-gradient(180deg,var(--bg),#F0FFF4);color:var(--text);
-         min-height:100vh;display:flex;flex-direction:column}
-    header{padding:24px;text-align:center}
-    h1{margin:0;font-size:clamp(20px,4vw,34px);letter-spacing:1px}
-    p.subtitle{margin:6px 0 0;font-size:14px;opacity:0.8}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>童趣聖經金句花園 🌟</title>
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Nunito:wght@700&family=Noto+Sans+TC:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    .play-area{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-               gap:18px;padding:18px;max-width:1100px;margin:12px auto 60px;width:calc(100% - 36px)}
+        body {
+            font-family: 'Noto Sans TC', 'ZCOOL KuaiLe', cursive, sans-serif;
+            background: linear-gradient(135deg, #e0f7fa, #fce4ec, #fff9c4);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 20px;
+            overflow-x: hidden;
+        }
 
-    .card{background:var(--card);border-radius:18px;padding:16px;
-          box-shadow:0 6px 18px rgba(23,63,95,0.08);
-          position:relative;overflow:hidden;min-height:140px;
-          display:flex;flex-direction:column;justify-content:space-between}
-    .date{font-weight:700;color:var(--accent);font-size:14px}
-    .verse{margin-top:8px;font-size:16px;line-height:1.45}
-    .ref{margin-top:8px;font-size:13px;color:#4a6b75}
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-    .btns{display:flex;gap:8px;margin-top:12px}
-    .btn{border:0;padding:8px 12px;border-radius:10px;
-         background:linear-gradient(90deg,var(--accent),var(--accent2));
-         color:white;font-weight:700;cursor:pointer;
-         box-shadow:0 6px 12px rgba(255,107,107,0.18)}
-    .btn.secondary{background:transparent;color:var(--accent);
-                   border:2px solid rgba(255,107,107,0.12);box-shadow:none}
+        /* 頂部標題 */
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+            animation: bounceIn 1s ease;
+        }
 
-    .mountain{height:80px;background:linear-gradient(180deg,#89CFF0,#5DADE2);
-              border-radius:12px;margin-top:10px;display:flex;align-items:flex-end;justify-content:center}
-    .sheep{width:36px;height:24px;border-radius:8px;background:#fff;
-           box-shadow:0 3px 8px rgba(0,0,0,0.12);display:flex;
-           align-items:center;justify-content:center;font-size:12px}
+        h1 {
+            font-family: 'ZCOOL KuaiLe', cursive;
+            font-size: 2.5rem;
+            color: #ff6f61;
+            text-shadow: 2px 2px 0px #fff, 4px 4px 0px rgba(255, 182, 193, 0.5);
+            margin-bottom: 5px;
+        }
 
-    footer{margin-top:auto;text-align:center;padding:14px;font-size:13px;color:#6f8a93}
-    .confetti{pointer-events:none;position:fixed;left:0;top:0;width:100%;height:100%;overflow:hidden}
-    @media (max-width:420px){.verse{font-size:15px}}
-  </style>
+        p.subtitle {
+            font-size: 1.1rem;
+            color: #5c6bc0;
+            font-weight: bold;
+        }
+
+        /* 主容器與卡片 */
+        .card-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            min-height: 380px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 5px solid #fff;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            animation: popUp 0.6s ease;
+        }
+
+        .card-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .date-badge {
+            background-color: #ffb74d;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(255, 183, 77, 0.4);
+            margin-bottom: 15px;
+        }
+
+        .illustration {
+            font-size: 4rem;
+            margin: 10px 0;
+            animation: floatAni 3s ease-in-out infinite;
+        }
+
+        .verse-text {
+            font-size: 1.35rem;
+            color: #4a4a4a;
+            line-height: 1.8;
+            font-weight: 700;
+            margin: 15px 0;
+            word-break: break-all;
+        }
+
+        .verse-ref {
+            font-size: 1rem;
+            color: #ab47bc;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* 按鈕導航區 */
+        .nav-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        button.btn {
+            background-color: #4db6ac;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(77, 182, 172, 0.4);
+            transition: all 0.2s ease;
+        }
+
+        button.btn:hover {
+            background-color: #26a69a;
+            transform: scale(1.05);
+        }
+
+        button.btn:active {
+            transform: scale(0.95);
+        }
+
+        /* 動畫效果定義 */
+        @keyframes popUp {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes floatAni {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* 飄浮背景裝飾 */
+        .bg-decorations {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 100px;
+            animation: moveCloud 20s linear infinite;
+        }
+
+        @keyframes moveCloud {
+            from { transform: translateX(-150px); }
+            to { transform: translateX(calc(100vw + 150px)); }
+        }
+
+        /* 響應式調整 */
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .verse-text { font-size: 1.15rem; }
+            .card-container { padding: 20px; min-height: 340px; }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>✨ 每日經文小天地 ✨</h1>
-    <p class="subtitle">點一張卡片聽經文、變色、放小動畫，讓孩子一起愛上聖經！</p>
-  </header>
 
-  <main class="play-area" id="play">
-    <!-- Card 範例 -->
-    <article class="card" data-audio="audio1" data-text="耶和華是我的牧者，我必不致缺乏。">
-      <div>
-        <div class="date">114年9月13日</div>
-        <div class="verse">耶和華是我的牧者，我必不致缺乏。<br/><small class="ref">（詩篇 23:1）</small></div>
-      </div>
-      <div>
-        <div class="mountain"><div class="sheep" id="sheep1">🐑</div></div>
-        <div class="btns">
-          <button class="btn" onclick="playCard(this)">🔊 聽一遍</button>
-          <button class="btn secondary" onclick="celebrate(this)">🎉 玩一下</button>
-        </div>
-      </div>
-    </article>
+    <div class="bg-decorations">
+        <div class="cloud" style="width: 100px; height: 40px; top: 10%; animation-duration: 25s;"></div>
+        <div class="cloud" style="width: 150px; height: 60px; top: 40%; animation-duration: 35s; animation-delay: -5s;"></div>
+        <div class="cloud" style="width: 80px; height: 35px; top: 75%; animation-duration: 20s; animation-delay: -10s;"></div>
+    </div>
 
-    <article class="card" data-audio="audio2" data-text="我要向山舉目。我的幫助從何而來？我的幫助從造天地的耶和華而來。">
-      <div>
-        <div class="date">114年9月20日</div>
-        <div class="verse">我要向山舉目。我的幫助從何而來？ <br/>我的幫助從造天地的耶和華而來。<br/><small class="ref">（詩篇 121:1-2）</small></div>
-      </div>
-      <div>
-        <div class="mountain"><div style="font-size:22px;margin-bottom:6px">⛰️</div></div>
-        <div class="btns">
-          <button class="btn" onclick="playCard(this)">🔊 聽一遍</button>
-          <button class="btn secondary" onclick="focusMountain(this)">🔭 看山</button>
-        </div>
-      </div>
-    </article>
+    <header>
+        <h1>🌟 寶貝聖經金句樂園 🌟</h1>
+        <p class="subtitle">天天跟著上帝一起開心長大！</p>
+    </header>
 
-  
-     <!-- Card 3 -->
-    <article class="card" data-audio="audio3" data-text="祂必不叫你的腳搖動；保護你的必不打盹。">
-      <div>
-        <div class="date">114年10月18日</div>
-        <div class="verse">祂必不叫你的腳搖動；保護你的必不打盹。<br/><small class="ref">（詩篇 121:3）</small></div>
-      </div>
-      <div>
-        <div class="mountain"><div style="font-size:22px">👣</div></div>
-        <div class="btns">
-          <button class="btn" onclick="playCard(this)">🔊 聽一遍</button>
-          <button class="btn secondary" onclick="celebrate(this)">👣 玩一下</button>
-        </div>
-      </div>
-    </article>
+    <div class="card-container" id="cardBox">
+        <div class="date-badge" id="dateBadge">115年9月5日</div>
+        <div class="illustration" id="cardEmoji">🦁</div>
+        <div class="verse-text" id="verseText">「因為上帝賜給我們，不是膽怯的心，乃是剛強、仁愛、謹守的心。」</div>
+        <div class="verse-ref" id="verseRef">✨ 提摩太後書 1章7節 ✨</div>
+    </div>
 
-    <!-- Card 4 -->
-    <article class="card" data-audio="audio4" data-text="你出你入，耶和華要保護你，從今時直到永遠。">
-      <div>
-        <div class="date">114年11月1日</div>
-        <div class="verse">你出你入，耶和華要保護你，從今時直到永遠。<br/><small class="ref">（詩篇 121:8）</small></div>
-      </div>
-      <div>
-        <div class="mountain"><div style="font-size:22px">🚪</div></div>
-        <div class="btns">
-          <button class="btn" onclick="playCard(this)">🔊 聽一遍</button>
-          <button class="btn secondary" onclick="celebrate(this)">🚪玩一下</button>
-        </div>
-      </div>
-    </article>
+    <div class="nav-buttons">
+        <button class="btn" onclick="prevVerse()">⬅️ 上一篇</button>
+        <button class="btn" onclick="nextVerse()">下一篇 ➡️</button>
+    </div>
 
-    <!-- Card 5 -->
-    <article class="card" data-audio="audio5" data-text="神所賜出人意外的平安，必在基督耶穌裡保守你們的心懷意念。">
-      <div>
-        <div class="date">114年11月8日</div>
-        <div class="verse">神所賜出人意外的平安，必在基督耶穌裡保守你們的心懷意念。<br/><small class="ref">（腓立比書 4:7）</small></div>
-      </div>
-      <div>
-        <div class="mountain"><div style="font-size:22px">🕊️</div></div>
-        <div class="btns">
-          <button class="btn" onclick="playCard(this)">🔊 聽一遍</button>
-           <button class="btn secondary" onclick="celebrate(this)">🕊️ 玩一下</button>
-        </div>
-      </div>
-    </article>
+    <script>
+        // 金句資料庫
+        const verses = [
+            {
+                date: "115年9月5日",
+                emoji: "🦁",
+                text: "「因為上帝賜給我們，不是膽怯的心，乃是剛強、仁愛、謹守的心。」",
+                ref: "✨ 提摩太後書 1章7節 ✨"
+            },
+            {
+                date: "115年9月19日",
+                emoji: "🌙",
+                text: "「神祂造月亮星宿管黑夜，因祂的慈愛永遠長存。」",
+                ref: "✨ 詩篇 136篇9節 ✨"
+            },
+            {
+                date: "115年10月3日",
+                emoji: "🐻",
+                text: "「你們要將一切的憂慮卸給上帝，因為祂顧念你們。」",
+                ref: "✨ 彼得前書 5章7節 ✨"
+            },
+            {
+                date: "115年10月24日",
+                emoji: "🌻",
+                text: "「上帝看著一切所造的都甚好。有晚上，有早晨…」",
+                ref: "✨ 創世記 1章31節上 ✨"
+            },
+            {
+                date: "115年11月7日",
+                emoji: "🐰",
+                text: "「只要你行公義，好憐憫，存謙卑的心，與你的上帝同行。」",
+                ref: "✨ 彌迦書 6章8節下 ✨"
+            },
+            {
+                date: "115年11月14日",
+                emoji: "🍬",
+                text: "「朋友乃時常親愛，弟兄為患難而生。」",
+                ref: "✨ 箴言 17章17節 ✨"
+            },
+            {
+                date: "115年12月5日",
+                emoji: "🦔",
+                text: "「要愛你們的仇敵，為那逼迫你們的禱告。」",
+                ref: "✨ 馬太福音 5章44節下 ✨"
+            },
+            {
+                date: "115年12月12日",
+                emoji: "🎁",
+                text: "「最要緊的是彼此切實相愛，因為愛能遮掩許多的罪。」",
+                ref: "✨ 彼得前書 4章8節 ✨"
+            }
+        ];
 
-    <!-- Card 6 -->
-    <article class="card" data-audio="audio6" data-text="我靠著那加給我力量的，凡事都能做。">
-      <div>
-        <div class="date">114年11月15日</div>
-        <div class="verse">我靠著那加給我力量的，凡事都能做。<br/><small class="ref">（腓立比書 4:13）</small></div>
-      </div>
-      <div>
-        <div class="mountain"><div style="font-size:22px">💪</div></div>
-        <div class="btns">
-          <button class="btn" onclick="playCard(this)">🔊 聽一遍</button>
-           <button class="btn secondary" onclick="celebrate(this)">💪 玩一下</button>
-        </div>
-      </div>
-    </article>
+        let currentIndex = 0;
 
-    <!-- Card 7 -->
-    <article class="card" data-audio="audio7" data-text="應當一無掛慮，只要凡事藉著禱告、祈求和感謝，將你們所要的告訴神。">
-      <div>
-        <div class="date">114年11月22日</div>
-        <div class="verse">應當一無掛慮，只要凡事藉著禱告、祈求和感謝，將你們所要的告訴神。<br/><small class="ref">（腓立比書 4:6）</small></div>
-      </div>
-      <div>
-        <div class="mountain"><div style="font-size:22px">🙏</div></div>
-        <div class="btns">
-          <button class="btn" onclick="playCard(this)">🔊 聽一遍</button>
-           <button class="btn secondary" onclick="celebrate(this)">🙏 玩一下</button>
-        </div>
-      </div>
-    </article>
+        function updateCard() {
+            const cardBox = document.getElementById('cardBox');
+            
+            // 加上淡入淡出與彈跳動畫
+            cardBox.style.animation = 'none';
+            cardBox.offsetHeight; // 觸發重繪
+            cardBox.style.animation = 'popUp 0.5s ease';
 
-    <!-- Card 8 -->
-    <article class="card" data-audio="audio8" data-text="耶和華要保護你，免受一切的災害；祂要保護你的性命。">
-      <div>
-        <div class="date">114年12月6日</div>
-        <div class="verse">耶和華要保護你，免受一切的災害；祂要保護你的性命。<br/><small class="ref">（詩篇 121:7）</small></div>
-      </div>
-      <div>
-        <div class="mountain"><div style="font-size:22px">🛡️</div></div>
-        <div class="btns">
-          <button class="btn" onclick="playCard(this)">🔊 聽一遍</button>
-             <button class="btn secondary" onclick="celebrate(this)">🛡️ 玩一下</button>
-        </div>
-      </div>
-    </article>
-  </main>
+            // 替換內容
+            document.getElementById('dateBadge').innerText = verses[currentIndex].date;
+            document.getElementById('cardEmoji').innerText = verses[currentIndex].emoji;
+            document.getElementById('verseText').innerText = verses[currentIndex].text;
+            document.getElementById('verseRef').innerText = verses[currentIndex].ref;
+        }
 
+        function nextVerse() {
+            currentIndex = (currentIndex + 1) % verses.length;
+            updateCard();
+        }
 
-
-
-
-  <!-- 音檔 -->
-  <audio id="audio1" src="../assets/img/activity/verse1.m4a" preload="auto"></audio>
-  <audio id="audio2" src="../assets/img/activity/verse2.m4a" preload="auto"></audio>
-  <audio id="audio3" src="../assets/img/activity/verse3.m4a" preload="auto"></audio>
-  <audio id="audio4" src="../assets/img/activity/verse4.m4a" preload="auto"></audio>
-  <audio id="audio5" src="../assets/img/activity/verse5.m4a" preload="auto"></audio>
-  <audio id="audio6" src="../assets/img/activity/verse6.m4a" preload="auto"></audio>
-  <audio id="audio7" src="../assets/img/activity/verse7.m4a" preload="auto"></audio>
-  <audio id="audio8" src="../assets/img/activity/verse8.m4a" preload="auto"></audio>
-
-  <div class="confetti" id="confetti"></div>
-  <footer>祝福你與孩子一起快樂讀經！💖</footer>
-
-  <script>
-    // 播放音檔或用 TTS 備用
-    function playCard(btn){
-      const card = btn.closest('.card');
-      const audioId = card.dataset.audio;
-      const text = card.dataset.text;
-      const audio = document.getElementById(audioId);
-
-      if(audio && audio.src){
-        audio.currentTime = 0;
-        audio.play().catch(()=>{ fallbackTTS(text); });
-      } else {
-        fallbackTTS(text);
-      }
-    }
-
-    function fallbackTTS(text){
-      if(!('speechSynthesis' in window)) return;
-      window.speechSynthesis.cancel();
-      const ut = new SpeechSynthesisUtterance(text);
-      ut.lang = 'zh-TW';
-      ut.rate = 0.95;
-      window.speechSynthesis.speak(ut);
-    }
-
-    // confetti 動畫
-    function celebrate(btn){
-      const conf = document.getElementById('confetti');
-      for(let i=0;i<40;i++){
-        const el = document.createElement('div');
-        el.textContent = ['✨','🎈','🎉','⭐'][Math.floor(Math.random()*4)];
-        el.style.position='absolute';
-        el.style.left = (50+(Math.random()-0.5)*60)+'%';
-        el.style.top = (50+(Math.random()-0.5)*20)+'%';
-        el.style.fontSize = (10+Math.random()*18)+'px';
-        conf.appendChild(el);
-        const dx = (Math.random()-0.5)*300;
-        const dy = -200 - Math.random()*300;
-        el.animate([
-          {transform:'translate(0,0) rotate(0deg)',opacity:1},
-          {transform:`translate(${dx}px,${dy}px) rotate(${Math.random()*720}deg)`,opacity:0}
-        ],{duration:1000+Math.random()*900,easing:'cubic-bezier(.2,.8,.2,1)'}).onfinish=()=>el.remove();
-      }
-      btn.animate([{transform:'scale(1)'},{transform:'scale(1.06)'},{transform:'scale(1)'}],{duration:420});
-    }
-
-    // 看山動畫
-    function focusMountain(btn){
-      const card = btn.closest('.card');
-      card.animate([{transform:'scale(1)'},{transform:'scale(1.03)'},{transform:'scale(1)'}],{duration:600});
-      const tip = document.createElement('div');
-      tip.textContent = '我們的幫助從創造天地的耶和華而來！🙌';
-      tip.style.position='absolute';tip.style.left='50%';tip.style.top='8px';
-      tip.style.transform='translateX(-50%)';tip.style.background='rgba(255,255,255,0.9)';
-      tip.style.padding='6px 10px';tip.style.borderRadius='10px';tip.style.boxShadow='0 6px 14px rgba(0,0,0,0.08)';
-      card.appendChild(tip);
-      setTimeout(()=>tip.remove(),1800);
-    }
-
-    // 小羊走路動畫
-    const sheep = document.getElementById('sheep1');
-    let dir=1;
-    setInterval(()=>{
-      const x = (Math.random()*6-3)*dir;
-      sheep.animate([{transform:`translateX(${x}px)`},{transform:'translateX(0px)'}],{duration:1200,fill:'forwards'});
-      dir*=-1;
-    },2200);
-  </script>
+        function prevVerse() {
+            currentIndex = (currentIndex - 1 + verses.length) % verses.length;
+            updateCard();
+        }
+    </script>
 </body>
 </html>
