@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="核心價值驅動教會｜完整整理筆記">
+<title>核心價值驅動教會｜完整整理筆記</title>
+<style>
+:root {
+  --bg:#f5f7fb; --card:#ffffff; --text:#1f2937; --muted:#64748b;
+  --primary:#315c8c; --primary2:#4f7aa8; --line:#e5e7eb;
+  --quote:#eef5fb; --shadow:0 12px 35px rgba(15,23,42,.08);
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif;
+  line-height:1.9;
+}
+a { color:inherit; text-decoration:none; }
+.hero {
+  background:linear-gradient(135deg,#173b63 0%,#315c8c 55%,#6f91b2 100%);
+  color:#fff; padding:72px 24px 64px;
+}
+.hero-inner { max-width:1180px; margin:auto; }
+.eyebrow { letter-spacing:.16em; font-size:.82rem; opacity:.82; }
+h1 { margin:10px 0 12px; font-size:clamp(2rem,5vw,3.6rem); line-height:1.2; }
+.subtitle { margin:0; font-size:1.08rem; opacity:.92; max-width:800px; }
+.container { max-width:1180px; margin:0 auto; padding:32px 20px 80px; }
+.toolbar {
+  position:sticky; top:0; z-index:10; background:rgba(245,247,251,.94);
+  backdrop-filter:blur(12px); padding:14px 0; border-bottom:1px solid var(--line);
+}
+.toolbar-inner { max-width:1180px; margin:auto; padding:0 20px; display:flex; gap:10px; flex-wrap:wrap; }
+input {
+  flex:1; min-width:240px; border:1px solid #cbd5e1; border-radius:12px;
+  padding:12px 15px; font-size:1rem; background:#fff;
+}
+button {
+  border:0; border-radius:12px; padding:11px 16px; cursor:pointer;
+  background:var(--primary); color:#fff; font-weight:700;
+}
+button.secondary { background:#e2e8f0; color:#334155; }
+.layout { display:grid; grid-template-columns:270px 1fr; gap:28px; align-items:start; }
+.toc {
+  position:sticky; top:76px; background:var(--card); border:1px solid var(--line);
+  border-radius:18px; padding:18px; box-shadow:var(--shadow);
+}
+.toc h3 { margin:0 0 12px; font-size:1rem; }
+.toc a { display:block; padding:7px 9px; border-radius:8px; color:#475569; font-size:.9rem; }
+.toc a:hover { background:#edf3f8; color:var(--primary); }
+.chapter {
+  background:var(--card); border:1px solid var(--line); border-radius:22px;
+  margin-bottom:24px; padding:30px 34px; box-shadow:var(--shadow);
+  scroll-margin-top:92px;
+}
+.chapter-no { font-size:.75rem; letter-spacing:.18em; color:var(--primary2); font-weight:800; }
+.chapter h2 { margin:4px 0 22px; font-size:1.55rem; color:#173b63; }
+.transcript { border-left:4px solid #d8e5f1; padding-left:22px; }
+.line { margin:0 0 7px; }
+.line.short { color:var(--muted); font-size:.94rem; }
+.line.blank { height:10px; margin:0; }
+mark { background:#fff0a8; padding:0 2px; border-radius:3px; }
+footer { max-width:1180px; margin:0 auto; padding:0 20px 50px; color:var(--muted); font-size:.9rem; }
+@media (max-width:900px) {
+  .layout { grid-template-columns:1fr; }
+  .toc { position:relative; top:auto; }
+  .chapter { padding:24px 20px; }
+}
+@media print {
+  .toolbar,.toc { display:none !important; }
+  body { background:#fff; }
+  .layout { display:block; }
+  .chapter { box-shadow:none; break-inside:avoid; border:0; padding:20px 0; }
+  .hero { background:#fff; color:#000; padding:20px 0; }
+  .transcript { border-left:2px solid #ccc; }
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">CHURCH • LEADERSHIP • CORE VALUES</div>
+    <h1>核心價值驅動教會</h1>
+    <p class="subtitle">完整整理筆記｜保留原始內容，不刪除任何筆記文字；僅加入章節、版面與閱讀功能，方便教會同工研讀、分享與後續編輯。</p>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="toolbar-inner">
+    <input id="search" type="search" placeholder="搜尋筆記內容，例如：核心價值、60%、預算、壞價值……">
+    <button class="secondary" onclick="clearSearch()">清除搜尋</button>
+    <button onclick="window.print()">列印／另存 PDF</button>
+  </div>
+</div>
+
+<main class="container">
+  <div class="layout">
+    <aside class="toc">
+      <h3>內容導覽</h3>
+      <a href="#chapter-1">一、從「會議崩潰」看見隱藏的問題</a><a href="#chapter-2">二、真正的病灶：核心價值觀的衝突</a><a href="#chapter-3">三、使命、意向、策略與價值的區別</a><a href="#chapter-4">四、核心價值的第一個特性：持久</a><a href="#chapter-5">五、核心價值的第二、第三個特性：火熱與真理</a><a href="#chapter-6">六、價值效應：核心價值如何影響組織</a><a href="#chapter-7">七、運用經費：預算表是價值觀的測謊機</a><a href="#chapter-8">八、第一種價值衝突：實際的價值 vs. 渴望的價值</a><a href="#chapter-9">九、第二種價值衝突：共同享有 vs. 非共同享有</a><a href="#chapter-10">十、第三種價值衝突：單一價值 vs. 多重價值</a><a href="#chapter-11">十一、第四種價值衝突：一致的價值 vs. 不一致的價值</a><a href="#chapter-12">十二、辨識並根除組織中的壞價值</a><a href="#chapter-13">十三、從組織回到個人：看見隱形方向盤</a><a href="#chapter-14">十四、個人生命的價值觀測謊機</a><a href="#chapter-15">十五、結語：看看你的隱形方向盤把你帶向哪裡</a>
+    </aside>
+    <div id="content">
+      
+    <section class="chapter" id="chapter-1">
+      <div class="chapter-no">CHAPTER 01</div>
+      <h2>一、從「會議崩潰」看見隱藏的問題</h2>
+      <div class="transcript">
+        <p class="line">大家想像一下這個畫面：現在是晚上十一點半，你一個人坐在客廳的沙發上，時鐘在旁邊滴答滴答地響著。這是一個讓人疲憊不堪的夜晚，因為你才剛結束一場非常冗長、彼此幾乎毫無共識，甚至差一點就要拍桌子的團隊會議。這樣的會議真的讓人精神耗弱，你疲憊地揉著太陽穴，腦海裡不斷重播著剛才會議中的唇槍舌戰，甚至氣到忍不住想：「那個總是反對我提案的同事，是不是故意在針對我？」就在這個時候，一個更深層、更無力的念頭浮現出來：「我是不是該辭職了？這間公司，或者這個團隊，是不是根本就不適合我？」我們大概都很容易認為，問題只是出在團隊成員能力不足，或是那個總是反對自己的同事個性有缺陷，否則為什麼每次都會爭吵成這樣？然而，老實說，你很可能正在打一場完全看不見的「影子戰爭」。這場戰爭真正嚴重的地方，就在於我們往往看不見自己正在面對的問題，也沒有察覺那些表面衝突背後更深層的價值差異。而這也正是我們今天要深入探討的重點。今天的資料來源，是一本很值得我們思考的書——《你的侍奉價值》。</p>
+      </div>
+    </section>
+    
+    <section class="chapter" id="chapter-2">
+      <div class="chapter-no">CHAPTER 02</div>
+      <h2>二、真正的病灶：核心價值觀的衝突</h2>
+      <div class="transcript">
+        <p class="line">書中的主角安迪牧師，在一次與他的執事會開完會之後，也經歷了一個和我們非常相似的崩潰時刻。他原本以為，團隊之所以不斷發生衝突，是因為大家的屬靈生命還不夠成熟，或者彼此缺乏足夠的溝通與包容。然而，他後來才發現，自己完全看錯了問題的病灶。真正藏在冰山底下、造成團隊不斷摩擦與內耗的原因，其實是「核心價值觀的衝突」。這個發現也讓我們可以重新檢視自己的組織：不論我們所處的是教會、非營利組織、新創公司，甚至是傳統的跨國企業，只要團隊陷入無止盡的內耗，每次開會都充滿爭執與拉扯，就值得停下來看看，在表面的意見不同之下，是否存在著更深層的價值衝突。因為核心價值就像組織裡看不見的引擎與方向盤，雖然不一定被清楚說出來，卻在暗中影響一個組織如何做決定、如何分配資源，以及最終要往哪裡走。因此，在深入探討核心價值之前，我們也需要先釐清幾個很容易被混淆的概念。許多組織常常把使命、異象、策略與價值混為一談，但其實它們各自扮演不同的角色。簡單來說，使命回答的是「我們要做什麼」；異象回答的是「當這件事情完成之後，我們盼望看見什麼樣的景象」；策略則回答「我們要怎麼做」。這些都比較具體，也容易被寫進組織的文件或計畫中。然而，價值觀與它們並不相同。價值觀更像是組織在面對各種選擇與衝突時，內心真正看重、用來判斷什麼是重要、什麼是值得追求的深層標準。尤其在教會或宗教團體中，我們還需要進一步區分「價值」與「教義」。教義比較像是一份神學或信仰上的正式聲明，例如對三位一體、救恩或末世論的理解；這些是信仰的重要基礎，但通常不會直接決定我們每天如何做行政決策、如何安排事工或如何使用一筆經費。相較之下，核心價值卻會直接進入我們的日常生活與決策之中。當一個團隊面對「這筆預算應該花在哪裡」、「哪一項事工應該優先」、「應該追求效率還是關係」、「應該守住傳統還是勇於創新」等問題時，真正影響最後選擇的，往往不是口頭上所宣告的使命，而是每個人心裡真正看重的價值。因此，教義建立我們的信仰根基，而核心價值則往往直接驅動我們每天的選擇與行動。也正因如此，當團隊彼此爭執時，我們不能只停留在「誰的想法比較好」或「誰的個性有問題」這個層次，而需要進一步問：我們真正看重的是什麼？我們的價值觀是否正在彼此衝突？這才是理解組織內耗與衝突的一個重要入口。</p>
+      </div>
+    </section>
+    
+    <section class="chapter" id="chapter-3">
+      <div class="chapter-no">CHAPTER 03</div>
+      <h2>三、使命、意向、策略與價值的區別</h2>
+      <div class="transcript">
+        <p class="line">那讓我試著用一個軍事的視角來重新猜解這件事</p>
+<p class="line">你看我理解的對不對</p>
+<p class="line">好啊你說說看</p>
+<p class="line">假設我們是一支軍隊</p>
+<p class="line">使命就是我們今天要攻下前方那座代號305的山頭</p>
+<p class="line">啊哈非常明確的目標</p>
+<p class="line">然後策略就是我們決定趁著半夜從右側的樹林進行包抄</p>
+<p class="line">那意象呢就是我們腦海中想像著明天日出時</p>
+<p class="line">軍旗在山頂飄揚的那個榮耀畫面</p>
+<p class="line">到目前為止都很清楚</p>
+<p class="line">但是如果在半夜推進的過程中</p>
+<p class="line">突然下起大暴雨</p>
+<p class="line">補給也斷了</p>
+<p class="line">士兵們又冷又餓</p>
+<p class="line">開始有人想要逃兵</p>
+<p class="line">欸這時候是什麼東西把他們留在陣線上</p>
+<p class="line">哇你這個切入點非常精準</p>
+<p class="line">把他們留在陣線上的其實就是價值</p>
+<p class="line">所以價值就是那個撐住大家的關鍵囉</p>
+<p class="line">對價值回答了最核心的問題</p>
+<p class="line">也就是為什麼</p>
+<p class="line">為什麼我們要打這場仗</p>
+<p class="line">為什麼我們願意在暴雨中忍受飢餓</p>
+<p class="line">甚至冒著生命危險</p>
+<p class="line">好像只要把山頂的畫面畫得夠漂亮</p>
+<p class="line">大家就會自動往前走</p>
+<p class="line">但是這份資料提出了一個極具顛覆性的觀點</p>
+<p class="line">他說組織其實是價值驅動</p>
+<p class="line">意象聚焦的</p>
+<p class="line short">價值驅動</p>
+<p class="line short">意象聚焦</p>
+<p class="line">這句話真的很發人深省</p>
+<p class="line">對吧</p>
+<p class="line">也就是說</p>
+<p class="line">表面上我們都在看著同一個目標</p>
+<p class="line">但真正讓我們在逆境中邁開步伐</p>
+<p class="line">或者確定我們要用什麼姿態走到目標的</p>
+<p class="line">是內心深處那股燃料</p>
+<p class="line short">沒錯</p>
+<p class="line">價值就是那股燃料</p>
+<p class="line">它是暗中運作的動力</p>
+<p class="line">那既然我們知道它的功能了</p>
+<p class="line">我們就得來看看這股燃料的成分到底是什麼</p>
+<p class="line short">嗯</p>
+<p class="line">為什麼有些組織的燃料可以燒上一百年</p>
+<p class="line">有些卻兩三年就熄火了</p>
+      </div>
+    </section>
+    
+    <section class="chapter" id="chapter-4">
+      <div class="chapter-no">CHAPTER 04</div>
+      <h2>四、核心價值的第一個特性：持久</h2>
+      <div class="transcript">
+        <p class="line">這就牽涉到核心價值的第一個關鍵特性了</p>
+<p class="line">第一個特性是什麼</p>
+<p class="line">它必須是持久的</p>
+<p class="line short">持久的</p>
+<p class="line">說到這個</p>
+<p class="line">資料裡有引用比爾蓋茲在《擁抱未來》裡面的觀察</p>
+<p class="line">他把現代的資訊高速公路</p>
+<p class="line">跟中世紀的古藤堡印刷術放在一起比較</p>
+<p class="line short">對</p>
+<p class="line">他的意思就是</p>
+<p class="line">我們現在處於一個變動極度劇烈的時代</p>
+<p class="line">科技啊</p>
+<p class="line">市場啊</p>
+<p class="line">甚至社會共識都在光速改變</p>
+<p class="line">正因為外在環境改變的太快</p>
+<p class="line">所以核心價值更必須是穩定的錨</p>
+<p class="line">不然大家真的會無所適從</p>
+<p class="line short">沒錯</p>
+<p class="line">資料裡舉了一個很發人深省的正式案例</p>
+<p class="line">在五六零年代</p>
+<p class="line">電腦科技剛開始崛起的時候</p>
+<p class="line">有些教會因為缺乏穩定的核心價值來應對時代變化</p>
+<p class="line">他們竟然認定電腦是嫡妓度的工具</p>
+<p class="line">電腦是嫡妓度</p>
+<p class="line">這太誇張了吧</p>
+<p class="line">是真的</p>
+<p class="line">為了維持所謂的傳統</p>
+<p class="line">他們寧可繼續用老舊的游印機</p>
+<p class="line">也拒絕使用影印機或電腦來處理文書</p>
+<p class="line">等等</p>
+<p class="line">他們把不用電腦當成了自己的價值觀嗎</p>
+<p class="line">這聽起來比較像是一種對未知的恐懼吧</p>
+<p class="line">確實是恐懼</p>
+<p class="line">但他們把它包裝成了不可動搖的傳統</p>
+<p class="line">這讓我想到一個很矛盾的問題</p>
+<p class="line">如果說核心價值必須是持久不變的</p>
+<p class="line">那一個領導者</p>
+<p class="line">難道不需要與時俱進嗎</p>
+<p class="line">你說面對時代改變的時候嗎</p>
+<p class="line">對呀</p>
+<p class="line">假設我們遇到所謂的典範轉移</p>
+<p class="line">比如整個世界的運作邏輯</p>
+<p class="line">從權威領導變成了平平化的網絡邏輯</p>
+<p class="line">在這種翻天覆地的改變下</p>
+<p class="line">我們還要死死抱著舊的價值觀不放嗎</p>
+<p class="line">你點出了一個非常核心的矛盾</p>
+<p class="line">這也是很多領導者最常摔跤的地方</p>
+<p class="line">不然那不就變成那群堅持用游印機的人了嗎</p>
+<p class="line short">嗯</p>
+<p class="line">資料在這裡做了一個非常關鍵的區分</p>
+<p class="line">我們必須分辨什麼是養成階段</p>
+<p class="line">什麼是成熟階段</p>
+<p class="line">養成階段跟成熟階段差在哪裡</p>
+<p class="line">當一個領導者或組織還在養成階段的時候</p>
+<p class="line">他的價值觀確實是流動的</p>
+<p class="line">他需要不斷吸收、測試、拋棄不適用的信念</p>
+<p class="line">所以這時候改變是正常的</p>
+<p class="line short">對</p>
+<p class="line">面對典範轉移時</p>
+<p class="line">他的確會受到強烈衝擊</p>
+<p class="line">但是當組織發展到成熟階段</p>
+<p class="line">作為組織根基的那套信念就不能再隨風搖擺了</p>
+<p class="line short">原來如此</p>
+<p class="line">那回到游印機的例子</p>
+<p class="line">他們的問題出在哪</p>
+<p class="line">那些教會犯的致命錯誤在於</p>
+<p class="line">他們把策略</p>
+<p class="line">也就是用什麼工具印東西</p>
+<p class="line">誤認成了價值</p>
+<p class="line">也就是傳遞福音或溝通</p>
+<p class="line">哦 我懂了</p>
+<p class="line">工具可以變</p>
+<p class="line">策略可以變</p>
+<p class="line">但重視有效溝通這個核心價值不能變</p>
+<p class="line">完全正確</p>
+<p class="line">如果你的價值觀每三年就跟著市場流行換一次</p>
+<p class="line">你的團隊不僅會失去方向</p>
+<p class="line">更會失去對領導層的信任</p>
+<p class="line short">真的</p>
+<p class="line">船可以換上更先進的核子動力馬達</p>
+<p class="line">但羅盤指針不能因為今天流行往東走</p>
+<p class="line">就隨便改變北方的定義嗎</p>
+<p class="line">這個比喻很好</p>
+      </div>
+    </section>
+    
+    <section class="chapter" id="chapter-5">
+      <div class="chapter-no">CHAPTER 05</div>
+      <h2>五、核心價值的第二、第三個特性：火熱與真理</h2>
+      <div class="transcript">
+        <p class="line">那除了持久之外</p>
+<p class="line">如果這股燃料要能推動組織</p>
+<p class="line">它還必須具備第二個條件</p>
+<p class="line">什麼條件</p>
+<p class="line">它必須是火熱的</p>
+<p class="line short">火熱的</p>
+<p class="line">聽起來仍有情境</p>
+<p class="line short">對啊</p>
+<p class="line">如果說意向是關於你看見什麼</p>
+<p class="line">那麼價值就是關於你感覺到什麼</p>
+<p class="line">它絕對不是公關部門在會議室裡</p>
+<p class="line">用白板筆寫下來的十條漂亮口號哦</p>
+<p class="line short">哈哈</p>
+<p class="line">很多公司的大廳都貼滿了這種口號</p>
+<p class="line">是啊</p>
+<p class="line">但真正的核心價值</p>
+<p class="line">是那些會點燃你情感</p>
+<p class="line">激發你採取行動</p>
+<p class="line">甚至讓你願意為之拍桌子捍衛的少數幾條信念</p>
+<p class="line short">沒錯</p>
+<p class="line">如果你說你重視某件事</p>
+<p class="line">但當這件事被踐踏時你卻無動於衷</p>
+<p class="line">那它充其量只是一個偏好而已</p>
+<p class="line">根本稱不上是核心價值</p>
+<p class="line short">確實如此</p>
+<p class="line">而這就導向了第三個必備成分</p>
+<p class="line">它必須是合乎經典或真理的</p>
+<p class="line short">真理</p>
+<p class="line">這個詞聽起來有點抽象</p>
+<p class="line">在這份以教會為背景的資料中</p>
+<p class="line">這意味著合乎聖經原則</p>
+<p class="line">但如果我們把這個概念拉高到所有組織來看</p>
+<p class="line">所有的真理都是神聖的真理</p>
+<p class="line">可以舉個例子嗎</p>
+<p class="line">例如一加一等於二</p>
+<p class="line">你在任何宗教經典裡都找不到</p>
+<p class="line">但它依舊是真理</p>
+<p class="line">一個能夠長久運作的核心價值</p>
+<p class="line">必須立基於經得起時間考驗的普世真理之上</p>
+<p class="line">像是對人性的尊重</p>
+<p class="line">或是對誠信的堅持這類的嗎</p>
+<p class="line short">對</p>
+<p class="line">如果一個組織的核心價值是建立在謊言或剝削上</p>
+<p class="line">那它註定無法長久</p>
+<p class="line short">好</p>
+<p class="line">所以我們現在知道</p>
+<p class="line">一統純正的價值燃料</p>
+<p class="line">必須是持久的</p>
+<p class="line">充滿熱情的</p>
+<p class="line">而且基於真實的原則</p>
+<p class="line short">嗯</p>
+<p class="line">缺一不可</p>
+      </div>
+    </section>
+    
+    <section class="chapter" id="chapter-6">
+      <div class="chapter-no">CHAPTER 06</div>
+      <h2>六、價值效應：核心價值如何影響組織</h2>
+      <div class="transcript">
+        <p class="line">但理論聽起來都很棒</p>
+<p class="line">我更好奇的是</p>
+<p class="line">這東西在現實生活裡是怎麼運作的</p>
+<p class="line">資料裡提到了一個詞叫價值效應</p>
+<p class="line short">沒錯</p>
+<p class="line short">價值效應</p>
+<p class="line">它說價值觀會在不知不覺中主導組織的六大領域</p>
+<p class="line">哪六大領域啊</p>
+<p class="line">就是做出決定</p>
+<p class="line">解決問題</p>
+<p class="line">承擔風險</p>
+<p class="line">設立目標</p>
+<p class="line">建立團隊</p>
+<p class="line">還有運用經費</p>
+<p class="line">這就是為什麼我們一開始說它是隱形方向盤嘛</p>
+<p class="line">那你可以挑幾個最能看清真相的領域來談談嗎</p>
+<p class="line">我們先看承擔風險</p>
+<p class="line">資料裡引用了早年一家非常有名的科技公司</p>
+<p class="line">3Com的內部規定</p>
+<p class="line">這完美展示了價值觀如何塑造氣血文化</p>
+<p class="line">你是說他們對錯誤的那條規定嗎</p>
+<p class="line">我看到的時候差點下巴掉下來耶</p>
+<p class="line short">哈哈</p>
+<p class="line">很震驚對吧</p>
+<p class="line">3Com竟然告訴員工</p>
+<p class="line">如果你們每天犯的錯誤沒有超過10次</p>
+<p class="line">就代表你們不夠努力</p>
+<p class="line">這太瘋狂了吧</p>
+<p class="line">你想想看</p>
+<p class="line">如果在老闆面前一天犯10次錯</p>
+<p class="line">我大概中午午休前桌子就被清空了</p>
+<p class="line">一般公司確實是這樣</p>
+<p class="line">但他們為什麼要訂這種把公司推向混亂邊緣的標準</p>
+<p class="line short">對啊</p>
+<p class="line">為什麼</p>
+<p class="line">因為什麼叫混亂</p>
+<p class="line">取決於你底層的價值觀是什麼</p>
+<p class="line">如果你公司的核心價值是絕對的安全與高度控制</p>
+<p class="line">那一天10次錯誤當然是毀滅性的災難</p>
+<p class="line">那3Com呢</p>
+<p class="line">3Com在那個年代的這條規定</p>
+<p class="line">反映出他們真正在乎的價值是人與極致的創新</p>
+<p class="line">他們深知一個機理</p>
+<p class="line">要創新就必須不斷嘗試邊界</p>
+<p class="line short">嗯</p>
+<p class="line">要嘗試邊界</p>
+<p class="line">就必須承擔極大的風險</p>
+<p class="line short">沒錯</p>
+<p class="line">而要員工願意承擔風險</p>
+<p class="line">公司就必須提供一個允許失敗的心理安全網</p>
+<p class="line">這不是隨便說說的口號</p>
+<p class="line">而是用一條明文規定來保護員工的試錯權</p>
+<p class="line short">原來如此</p>
+<p class="line">所以價值觀不是貼在茶水間牆壁上的那張海報</p>
+<p class="line">而是當你搞砸了一個專案時</p>
+<p class="line">公司是用什麼態度對待你的</p>
+<p class="line">非常真實的體現啊</p>
+      </div>
+    </section>
+    
+    <section class="chapter" id="chapter-7">
+      <div class="chapter-no">CHAPTER 07</div>
+      <h2>七、運用經費：預算表是價值觀的測謊機</h2>
+      <div class="transcript">
+        <p class="line">那我們來看看六大領域裡最現實的一環</p>
+<p class="line">運用經費</p>
+<p class="line">這應該是毫無懸念的招妖鏡了吧</p>
+<p class="line">絕對是</p>
+<p class="line">我們常說</p>
+<p class="line">預算表是不會說謊的嘛</p>
+<p class="line">數字的分配直接且殘酷地揭露了</p>
+<p class="line">這個組織最深層的優先次序</p>
+<p class="line short">對</p>
+<p class="line">不管一個領導者在台上演講時</p>
+<p class="line">多麼慷慨激昂的宣稱他們重視什麼</p>
+<p class="line">只要看會計部門把錢撥給了誰</p>
+<p class="line">答案就一目了然</p>
+<p class="line short">哈哈</p>
+<p class="line">這樣讓我想到很多公司的現況</p>
+<p class="line">不管一間企業在招募網站上</p>
+<p class="line">把形象包裝的多麼重視員工成長</p>
+<p class="line">我們根本不需要聽人資怎麼說</p>
+<p class="line">直接看財務報表最準</p>
+<p class="line short">對啊</p>
+<p class="line">如果你說你重視員工成長</p>
+<p class="line">但培訓預算只佔了總支出的0.1%</p>
+<p class="line">遇到景氣不好</p>
+<p class="line">第一個砍的也是培訓費</p>
+<p class="line">這份預算表簡直就是價值觀的測謊機嘛</p>
+<p class="line">測謊機這個比喻非常到位</p>
+<p class="line">而這台測謊機</p>
+<p class="line">剛好可以帶我們進入今天最重要的一個階段</p>
+<p class="line">也就是我們要如何為自己和團隊</p>
+<p class="line">進行價值觀的健康檢查對吧</p>
+<p class="line short">沒錯</p>
+      </div>
+    </section>
+    
+    <section class="chapter" id="chapter-8">
+      <div class="chapter-no">CHAPTER 08</div>
+      <h2>八、第一種價值衝突：實際的價值 vs. 渴望的價值</h2>
+      <div class="transcript">
+        <p class="line">很多時候團隊之所以會陷入無止境的內耗</p>
+<p class="line">就像開頭我們提到的安迪穆斯一樣</p>
+<p class="line">是因為他們不知不覺採進了幾種關鍵的</p>
+<p class="line">價值對立地雷區</p>
+<p class="line">哦</p>
+<p class="line">有哪幾種地雷區</p>
+<p class="line">資料裡列出了四種最致命的衝突</p>
+<p class="line">第一種也是最普遍的一種</p>
+<p class="line">就是你剛剛暗示的</p>
+<p class="line">實際的價值對上可望的價值</p>
+<p class="line short">實際對可望</p>
+<p class="line">這是什麼意思</p>
+<p class="line">是領導者在自我欺騙嗎</p>
+<p class="line">把夢想跟現實搞混了</p>
+<p class="line">完全正確</p>
+<p class="line">這也是領導者最常犯的心理盲點</p>
+<p class="line">他們會把希望擁有的價值</p>
+<p class="line">當成已經具備的價值</p>
+<p class="line">可以舉個例子嗎</p>
+<p class="line">比如一個主管非常渴望團隊具備</p>
+<p class="line">資訊透明與分享的精神</p>
+<p class="line">於是把它寫進了公司的核心教材裡</p>
+<p class="line">但實際上因為過去的績效制度</p>
+<p class="line">團隊內部充滿了防備</p>
+<p class="line">大家都把資源藏在自己手裡</p>
+<p class="line">那這樣不是很尷尬嗎</p>
+<p class="line short">對啊</p>
+<p class="line">問題來了</p>
+<p class="line">如果作為主管沒有意識到現實的落差</p>
+<p class="line">一直聲稱我們是一個極度重視分享的團隊</p>
+<p class="line">卻從來沒有在實際行為</p>
+<p class="line">和制度上去解決那個防備型</p>
+<p class="line">在員工眼裡</p>
+<p class="line">這不叫有願景</p>
+<p class="line">這根本叫虛偽吧</p>
+<p class="line short">沒錯</p>
+<p class="line">這種虛偽感真的會瞬間摧毀團隊的信任</p>
+<p class="line">因為員工每天經歷的實際價值</p>
+<p class="line">跟老闆嘴裡說的渴望價值是完全分裂的</p>
+<p class="line">如果是渴望的價值</p>
+<p class="line">主管其實大可坦白說</p>
+<p class="line">這一直是我們的弱點</p>
+<p class="line">但它是我們未來三年要努力達成的目標</p>
+<p class="line">而不是假裝我們已經是那樣的人了</p>
+<p class="line short">非常認同</p>
+      </div>
+    </section>
+    
+    <section class="chapter" id="chapter-9">
+      <div class="chapter-no">CHAPTER 09</div>
+      <h2>九、第二種價值衝突：共同享有 vs. 非共同享有</h2>
+      <div class="transcript">
+        <p class="line">那第二種地雷區呢</p>
+<p class="line">是共同享有對上非共同享有</p>
+<p class="line">這牽涉到組織成員之間的契合度</p>
+<p class="line short">契合度</p>
+<p class="line">有什麼具體的數據可以參考嗎</p>
+<p class="line">有的</p>
+<p class="line">著名的領導力學者Calgus Hempusner</p>
+<p class="line">曾經對2300位經理人做過一項深入研究</p>
+<p class="line">結果毫不意外</p>
+<p class="line">共同的價值觀能大幅提升員工忠誠度</p>
+<p class="line">減輕工作壓力</p>
+<p class="line">這是肯定的啊</p>
+<p class="line">但資料在這裡提出了一個非常明確且殘酷的硬指標</p>
+<p class="line">你猜猜看</p>
+<p class="line">一個領導者與組織在結合之前</p>
+<p class="line">雙方必須有多少的價值觀重疊才算及格</p>
+<p class="line">呃 我覺得至少要80%吧</p>
+<p class="line">不然怎麼一起工作</p>
+<p class="line">其實是60%哦</p>
+<p class="line">蛤 60%</p>
+<p class="line">聽起來像是一張剛好及格的考卷</p>
+<p class="line">為什麼不是100%</p>
+<p class="line">而且如果那剩下的40%不重疊</p>
+<p class="line">會發生什麼事</p>
+<p class="line">為什麼是60%</p>
+<p class="line">因為要求100%重疊是不切實際的</p>
+<p class="line">每個人都有自己獨特的生命經驗嘛</p>
+<p class="line">但這60%是一個生存底線</p>
+<p class="line short">生存底線</p>
+<p class="line">低於這個會怎樣</p>
+<p class="line">你想想看</p>
+<p class="line">如果重疊率低於60%</p>
+<p class="line">這意味著你們在超過一半的決策上</p>
+<p class="line">連為什麼要做這件事都無法達成共識</p>
+<p class="line">哇 那每天光是吵架就飽了</p>
+<p class="line">舉個例子</p>
+<p class="line">假設主管的核心價值是快速移迭帶搶佔市場</p>
+<p class="line">而員工的核心價值是工匠精神完美無瑕</p>
+<p class="line">這兩個聽起來就一定會打架</p>
+<p class="line">對 討論專案時</p>
+<p class="line">主管覺得及格就可以先上線測試</p>
+<p class="line">員工卻覺得這是在砸自己的招牌</p>
+<p class="line">這就是那40%不重疊所帶來的日常摩擦</p>
+<p class="line">嗯 如果沒有那60%的穩固基礎來支撐信任</p>
+<p class="line">這種摩擦每天發生</p>
+<p class="line">這段職場婚姻注定會變成一場災難吧</p>
+<p class="line short">沒錯</p>
+<p class="line">這完全解釋了為什麼安迪牧師跟他的直式會</p>
+<p class="line">每次開會都像在打泥巴戰</p>
+<p class="line">因為他們的重疊率搞不好連20%都不到</p>
+<p class="line">連基本盤都沒有</p>
+<p class="line">難怪怎麼溝通都無效</p>
+      </div>
+    </section>
+    
+    <section class="chapter" id="chapter-10">
+      <div class="chapter-no">CHAPTER 10</div>
+      <h2>十、第三種價值衝突：單一價值 vs. 多重價值</h2>
+      <div class="transcript">
+        <p class="line">那第三種價值對立呢</p>
+<p class="line">第三種是單一價值對上多重價值</p>
+<p class="line">資料中舉了一個很有趣的教室型教會的例子</p>
+<p class="line">這種組織把所有的資源時間和注意力</p>
+<p class="line">都極端的傾注在單一價值上</p>
+<p class="line">例如只重視傳遞聖經知識</p>
+<p class="line">這樣會有什麼後果</p>
+<p class="line">就像一個人為了減肥</p>
+<p class="line">每天只吃水煮雞胸肉一樣吧</p>
+<p class="line">短期可能有效</p>
+<p class="line">但長期下來一定會營養不良</p>
+<p class="line short">沒錯</p>
+<p class="line">甚至身體機能崩壞</p>
+<p class="line">套用到企業界</p>
+<p class="line">如果一家公司唯一的單一價值</p>
+<p class="line">就是利潤最大化</p>
+<p class="line">完全不顧及社會責任或員工身心健康</p>
+<p class="line">雖然短時間內財報可能很漂亮</p>
+<p class="line">但只要遇到危機</p>
+<p class="line">員工就會毫無猶豫的背叛公司</p>
+<p class="line">因為這裡除了錢</p>
+<p class="line">什麼都沒有</p>
+<p class="line">一個健康的組織</p>
+<p class="line">必須經歷轉型為平衡發展的多重價值的陣痛期</p>
+<p class="line">這真的很考驗領導者的智慧</p>
+      </div>
+    </section>
+    
+    <section class="chapter" id="chapter-11">
+      <div class="chapter-no">CHAPTER 11</div>
+      <h2>十一、第四種價值衝突：一致的價值 vs. 不一致的價值</h2>
+      <div class="transcript">
+        <p class="line">那最後一種對立呢</p>
+<p class="line">最後一種是一致的價值</p>
+<p class="line">對上不一致的價值</p>
+<p class="line">這常常發生在想要轉型</p>
+<p class="line">卻又不敢放手的組織裡</p>
+<p class="line">想要轉型又不敢放手</p>
+<p class="line short">對</p>
+<p class="line">有些組織既想要死死抱住極端保守的傳統運作模式</p>
+<p class="line">同時又在宣傳冊上說自己渴望吸引最前衛</p>
+<p class="line">喜歡打破常規的Z世代人才</p>
+<p class="line short">嗯</p>
+<p class="line">這兩者在底層邏輯上根本是水火不容的吧</p>
+<p class="line">讓我用個比喻來具象化這個衝突好了</p>
+<p class="line">好你說</p>
+<p class="line">這就像是你去買了兩盒完全不同圖案的拼圖</p>
+<p class="line">一盒是古典雅緻的清明上河圖</p>
+<p class="line">一盒是充滿霓虹燈的賽博龐克</p>
+<p class="line short">哈哈</p>
+<p class="line">這反差也太大了吧</p>
+<p class="line short">對啊</p>
+<p class="line">然後你把這兩盒拼圖全倒在桌上混在一起</p>
+<p class="line">接著你要求你的團隊說</p>
+<p class="line">來吧</p>
+<p class="line">給我拼出一幅和諧又美麗的曠世巨作</p>
+<p class="line">那員工一定會發瘋啊</p>
+<p class="line">員工每天都在嘗試把一塊清明上河圖的馬車</p>
+<p class="line">硬塞進賽博龐克的飛車軌道裡</p>
+<p class="line">邊緣根本對不上</p>
+<p class="line">用力壓下去只會把拼圖弄壞</p>
+<p class="line">這個拼圖的比喻真的太傳神了</p>
+<p class="line">那種硬塞的摩擦力</p>
+<p class="line">就是團隊內耗的來源</p>
+      </div>
+    </section>
+    
+    <section class="chapter" id="chapter-12">
+      <div class="chapter-no">CHAPTER 12</div>
+      <h2>十二、辨識並根除組織中的壞價值</h2>
+      <div class="transcript">
+        <p class="line">而且我們探討到這裡</p>
+<p class="line">必須要面對一個最殘酷的事實</p>
+<p class="line">什麼事實</p>
+<p class="line">很多人以為只要大家有共識就好</p>
+<p class="line">但其實並不是所有的價值觀都是好的</p>
+<p class="line">我們必須有勇氣去揪出並根除那些壞價值</p>
+<p class="line">等等</p>
+<p class="line">價值觀也有分好壞</p>
+<p class="line">我一直以為價值觀是中性的</p>
+<p class="line">只是每個人的選擇不同而已</p>
+<p class="line">在哲學層面或許可以討論了</p>
+<p class="line">但在組織發展和追求卓越的脈絡裡</p>
+<p class="line">價值觀絕對有好壞之分</p>
+<p class="line">壞的價值觀就像病毒</p>
+<p class="line">會阻礙組織成長</p>
+<p class="line">甚至違背我們前面說的真理對吧</p>
+<p class="line short">沒錯</p>
+<p class="line">資料裡特別點出了幾個在傳統組織裡常見的壞價值</p>
+<p class="line">例如</p>
+<p class="line">如果是好好的</p>
+<p class="line">就不要去修理它</p>
+<p class="line">這句話聽起來非常務實</p>
+<p class="line">很多老前輩都會這樣說</p>
+<p class="line">聽起來很務實對吧</p>
+<p class="line">但你往深層想</p>
+<p class="line">這其實是一種拒絕改變故不自封的藉口</p>
+<p class="line">在變動的時代</p>
+<p class="line">等你發現它壞掉的時候往往已經來不及了</p>
+<p class="line">哇</p>
+<p class="line short">真的</p>
+<p class="line">原來這是一顆毒蘋果</p>
+<p class="line">又或者是另一種常見的壞價值</p>
+<p class="line">領袖應該包辦所有的工作</p>
+<p class="line">成員只需要付錢或出席就好</p>
+<p class="line">這表面上看起來是領導者很有責任感</p>
+<p class="line">但實際上它完全剝奪了團隊成員參與</p>
+<p class="line">犯錯和成長的機會嗎</p>
+<p class="line">最終就會把組織變成一灘死水</p>
+<p class="line">天啊</p>
+<p class="line">這兩句話聽起來好耳熟</p>
+<p class="line">我幾乎可以在腦海中浮現以前某些老闆說這些話的嘴臉</p>
+<p class="line">原來</p>
+<p class="line">這不是他們做事方法比較保守而已</p>
+<p class="line">而是他們底層運作的核心價值就已經感染了病毒</p>
+<p class="line short">正是如此</p>
+<p class="line">呼</p>
+<p class="line">所以為什麼我們要花這麼多時間去發掘</p>
+<p class="line">定義</p>
+<p class="line">甚至寫下核心價值</p>
+<p class="line">這絕對不只是為了讓往往看起來更有深度</p>
+<p class="line">這是一場組織的靈魂大草除</p>
+<p class="line">你必須把底層的邏輯挖出來</p>
+<p class="line">保留好價值</p>
+<p class="line">無情的改正壞價值</p>
+<p class="line">並且確保用你的比喻來說</p>
+<p class="line">桌上所有的人都清楚知道我們現在拼的是哪一幅拼圖</p>
+<p class="line short">真的</p>
+      </div>
+    </section>
+    
+    <section class="chapter" id="chapter-13">
+      <div class="chapter-no">CHAPTER 13</div>
+      <h2>十三、從組織回到個人：看見隱形方向盤</h2>
+      <div class="transcript">
+        <p class="line">今天這場解剖非常過癮</p>
+<p class="line">讓我們把今天學到的所有東西</p>
+<p class="line">從企業管理的高空</p>
+<p class="line">拉回豆正在收聽這趟深度解析的你身上</p>
+<p class="line">這對個人也非常實用</p>
+<p class="line">無論你今天是一個正在帶領團隊</p>
+<p class="line">常常覺得力不從心的小主管</p>
+<p class="line">還是一個總是在深夜懷疑自己</p>
+<p class="line">為什麼對這份工作感到格格不入的職場人</p>
+<p class="line">明白這個隱形方向盤的存在</p>
+<p class="line">是你解除痛苦的第一步</p>
+<p class="line short">沒錯</p>
+<p class="line">你的痛苦很多時候真的不是因為你能力不夠好</p>
+<p class="line">也不是因為你的同事都是壞人</p>
+<p class="line">而是因為你們內心的測謊機</p>
+<p class="line">指出了完全不同的優先次序</p>
+<p class="line">或者因為你們的重疊率遠遠低於那條60%的生死線</p>
+<p class="line short">對</p>
+<p class="line">因為你們每天都在試圖把七名上河圖塞進賽博龐克裡</p>
+<p class="line short">哈哈</p>
+<p class="line">這確實是我們今天最希望帶給你的洞見</p>
+<p class="line">如果你能看透這一層</p>
+<p class="line">你就能在職場上做出更清醒的選擇</p>
+      </div>
+    </section>
+    
+    <section class="chapter" id="chapter-14">
+      <div class="chapter-no">CHAPTER 14</div>
+      <h2>十四、個人生命的價值觀測謊機</h2>
+      <div class="transcript">
+        <p class="line">那如果把這些套用到個人生活上呢?</p>
+<p class="line">如果我們把剛才討論的內容</p>
+<p class="line">完全應用到你個人的生命層面</p>
+<p class="line">這會引發一個極度銳利</p>
+<p class="line">甚至有點刺痛的問題</p>
+<p class="line">哦</p>
+<p class="line">什麼問題?</p>
+<p class="line">我們剛才說</p>
+<p class="line">一個組織的預算表是它價值觀的終極測謊機嘛</p>
+<p class="line">那麼現在請把鏡頭轉向你自己</p>
+<p class="line">OK</p>
+<p class="line">轉向我自己</p>
+<p class="line">假設今天有一個完全不認識你的陌生人</p>
+<p class="line">他沒有聽過你任何的自我介紹</p>
+<p class="line">也看不到你發布在社群媒體上那些光鮮亮麗的動態</p>
+<p class="line">嗯哼</p>
+<p class="line">他唯一能取得的就兩份資料</p>
+<p class="line">第一份是你上個月的銀行信用卡帳單</p>
+<p class="line">第二份是你手機裡行事曆的時間分配表</p>
+<p class="line">哇塞</p>
+<p class="line">這兩份資料很赤裸欸</p>
+<p class="line">對吧</p>
+<p class="line">他單憑你把錢花在哪裡</p>
+<p class="line">把時間投資在哪裡這兩項客觀數據</p>
+<p class="line">你覺得他會推論出你的個人核心價值是什麼?</p>
+<p class="line">哇這真的是一個讓人直冒冷汗的終極拷問欸</p>
+<p class="line">當那個陌生人看著你的帳單和行事曆時</p>
+<p class="line">他看到的是一個宣稱重視家庭</p>
+<p class="line">但每天晚上都在辦公室加班到九點的人嗎?</p>
+<p class="line">或者他看到的是一個渴望成長</p>
+<p class="line">但把剩餘的金錢和時間全都砸在無意義消費和無效社交上的人</p>
+<p class="line">是啊</p>
+<p class="line">我們常常在腦海裡建構一個渴望的自己</p>
+<p class="line">卻忽略了實際的自己每天正在累積什麼</p>
+<p class="line">最關鍵的問題是</p>
+<p class="line">那個根據你的帳單和行事曆推論出來的結論</p>
+<p class="line">是你真正想要的嗎?</p>
+<p class="line">那是你引以為傲的價值觀</p>
+<p class="line">還是你一直不敢面對的真相?</p>
+<p class="line">你的時間和金錢</p>
+<p class="line">就是你人生價值觀的測謊機</p>
+<p class="line">他從不說謊</p>
+<p class="line">端看你敢不敢直視他</p>
+<p class="line">非常殘酷但誠實</p>
+      </div>
+    </section>
+    
+    <section class="chapter" id="chapter-15">
+      <div class="chapter-no">CHAPTER 15</div>
+      <h2>十五、結語：看看你的隱形方向盤把你帶向哪裡</h2>
+      <div class="transcript">
+        <p class="line">今晚十一點半</p>
+<p class="line">當你再次聽到客廳時鐘滴答滴答響的時候</p>
+<p class="line">或許你不需要再對著空氣生氣</p>
+<p class="line">也不用急著寫辭呈</p>
+<p class="line">你可以安靜下來</p>
+<p class="line">拿出你的行事曆跟帳單</p>
+<p class="line">好好看看你的隱形方向盤</p>
+<p class="line">到底把你帶向了哪裡</p>
+<p class="line">好好解釋一下自己的核心價值</p>
+<p class="line">感謝你今天加入我們的深度解釋</p>
+<p class="line">希望這趟旅程對你有所啟發</p>
+<p class="line">我們下次見</p>
+      </div>
+    </section>
+    
+    </div>
+  </div>
+</main>
+
+<footer>
+  本頁以「測試3.txt」為原始資料來源。原始筆記內容完整保留；章節標題為版面整理用途。
+</footer>
+
+<script>
+const search = document.getElementById('search');
+const original = new Map();
+
+document.querySelectorAll('.line').forEach((el) => original.set(el, el.innerHTML));
+
+search.addEventListener('input', () => {
+  const q = search.value.trim().toLowerCase();
+  original.forEach((htmlText, el) => {
+    if (!q) {
+      el.innerHTML = htmlText;
+      el.style.display = '';
+      return;
+    }
+    const plain = el.textContent.toLowerCase();
+    if (plain.includes(q)) {
+      el.style.display = '';
+      const escaped = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      el.innerHTML = htmlText.replace(new RegExp(escaped, 'gi'), m => '<mark>' + m + '</mark>');
+    } else {
+      el.style.display = 'none';
+    }
+  });
+});
+
+function clearSearch() {
+  search.value = '';
+  search.dispatchEvent(new Event('input'));
+}
+</script>
+</body>
+</html>

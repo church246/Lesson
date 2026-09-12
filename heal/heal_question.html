@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="全人醫治課程｜從血漏婦人的故事認識全人的醫治，並思想世界觀如何影響我們對醫治、禱告與神工作的理解。">
+
+    <title>全人醫治｜課程重點回顧</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family:
+                "Noto Sans TC",
+                "Microsoft JhengHei",
+                sans-serif;
+            line-height: 1.9;
+            background: #f5f7fa;
+            color: #263238;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px 70px;
+        }
+
+        /* 頁首 */
+        .hero {
+            background: linear-gradient(135deg, #355c7d, #6c8ebf);
+            color: white;
+            border-radius: 18px;
+            padding: 55px 35px;
+            text-align: center;
+            margin-bottom: 35px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.10);
+        }
+
+        .hero .label {
+            display: inline-block;
+            padding: 5px 16px;
+            border: 1px solid rgba(255,255,255,0.6);
+            border-radius: 30px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            opacity: 0.95;
+        }
+
+        /* 課程區塊 */
+        .lesson {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+        }
+
+        .lesson-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .lesson-number {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #355c7d;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .lesson-title h2 {
+            font-size: 1.45rem;
+            color: #263238;
+        }
+
+        /* 問題 */
+        .question {
+            background: #eef4f8;
+            border-left: 5px solid #355c7d;
+            border-radius: 8px;
+            padding: 22px 25px;
+            margin-bottom: 20px;
+        }
+
+        .question-label {
+            color: #355c7d;
+            font-weight: bold;
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        .question h3 {
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+
+        /* 答案 */
+        .answer {
+            padding: 5px 5px 10px;
+        }
+
+        .answer-label {
+            color: #607d8b;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .answer p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* 重點 */
+        .key-point {
+            background: #fff8e7;
+            border-radius: 10px;
+            padding: 20px 23px;
+            margin: 20px 0;
+        }
+
+        .key-point strong {
+            color: #8a6418;
+        }
+
+        /* 核心金句 */
+        .quote {
+            margin: 25px 0 5px;
+            padding: 25px 28px;
+            background: #f1f5f7;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #355c7d;
+        }
+
+        /* 課程銜接 */
+        .transition {
+            position: relative;
+            text-align: center;
+            margin: 35px 0;
+        }
+
+        .transition span {
+            display: inline-block;
+            background: #355c7d;
+            color: white;
+            padding: 8px 22px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+        }
+
+        /* 結語 */
+        .summary {
+            background: #263238;
+            color: white;
+            border-radius: 16px;
+            padding: 35px;
+            margin-top: 30px;
+        }
+
+        .summary h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+        }
+
+        .summary-item {
+            margin-bottom: 20px;
+            padding-left: 18px;
+            border-left: 3px solid #90a4ae;
+        }
+
+        .summary-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .summary-item strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        footer {
+            text-align: center;
+            color: #78909c;
+            font-size: 0.85rem;
+            margin-top: 35px;
+        }
+
+        /* 手機版 */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px 14px 50px;
+            }
+
+            .hero {
+                padding: 40px 22px;
+                border-radius: 14px;
+            }
+
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .lesson {
+                padding: 23px 20px;
+            }
+
+            .lesson-title h2 {
+                font-size: 1.25rem;
+            }
+
+            .question {
+                padding: 18px 20px;
+            }
+
+            .question h3 {
+                font-size: 1.08rem;
+            }
+
+            .answer p {
+                text-align: left;
+            }
+
+            .quote {
+                font-size: 1.05rem;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- 頁首 -->
+    <header class="hero">
+        <div class="label">全人醫治訓練</div>
+        <h1>課程重點回顧</h1>
+        <p>從全人的醫治，到世界觀的眼光</p>
+    </header>
+
+
+    <!-- 第一堂 -->
+    <section class="lesson">
+
+        <div class="lesson-title">
+            <div class="lesson-number">一</div>
+            <h2>第一堂｜血漏婦人與全人的醫治</h2>
+        </div>
+
+        <div class="question">
+            <div class="question-label">問題</div>
+            <h3>
+                第一堂我們從血漏婦人的故事，看見神所帶來的醫治；
+                第二堂則談到我們用不同的眼光、不同的「眼鏡」來看這個世界，
+                就可能產生不同的理解與結果。可以幫我們簡單回顧一下前兩堂課的重點嗎？
+            </h3>
+        </div>
+
+        <div class="answer">
+            <div class="answer-label">答案</div>
+
+            <p>
+                前面所談的內容基本上都屬於第一堂課的範圍。
+                第一堂是從<strong>血漏婦人的故事</strong>出發，
+                重點是讓我們看見上帝在人的生命中所做的醫治工作。
+            </p>
+
+            <p>
+                我們很容易想到「醫治」時，就只想到
+                <strong>身體疾病的醫治</strong>。
+                但其實人的需要是全面的，除了身體上的病痛之外，
+                也可能有心靈的傷害、人際關係的痛苦，
+                以及屬靈生命的問題。
+            </p>
+
+            <p>
+                這些不同層面的問題，都可能對一個人的生命造成很大的影響。
+                因此，耶穌要帶給我們的醫治，不只是身體的醫治，
+                而是<strong>全人的醫治</strong>，
+                也就是關心我們身體、心靈、人際關係以及屬靈生命各個層面的需要。
+            </p>
+
+            <div class="key-point">
+                <strong>第一堂的核心：</strong>
+                耶穌所帶來的醫治不是單單處理身體的疾病，
+                而是關心人的整體生命，帶來全人的醫治。
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- 課程轉折 -->
+    <div class="transition">
+        <span>從「神如何醫治」進入「我們如何看待醫治」</span>
+    </div>
+
+
+    <!-- 第二堂 -->
+    <section class="lesson">
+
+        <div class="lesson-title">
+            <div class="lesson-number">二</div>
+            <h2>第二堂｜世界觀：我們戴著什麼眼鏡？</h2>
+        </div>
+
+        <div class="answer">
+
+            <p>
+                當我們進一步談到醫治時，就會發現，
+                現代教會對「醫治」會有不同的看法。
+            </p>
+
+            <p>
+                有些教會對醫治禱告很開放、很接受；
+                有些教會對醫治禱告比較陌生；
+                甚至有些教會會對醫治禱告有所保留或排斥。
+            </p>
+
+            <p>
+                為什麼會產生這些差異？
+                其中一個重要的原因，就是
+                <strong>每個人的世界觀不同</strong>。
+            </p>
+
+            <div class="key-point">
+                <strong>世界觀就像一副「眼鏡」：</strong>
+                我們用什麼樣的眼光來看這個世界，
+                就會影響我們如何理解所發生的事情。
+            </div>
+
+            <p>
+                例如，當人生病時，有些人會認為：
+                「生病就是身體出了問題，所以去看醫生就好了。」
+            </p>
+
+            <p>
+                但也有人會認為：
+                「看醫生很重要，同時也可以透過禱告尋求神的幫助與醫治。」
+            </p>
+
+            <p>
+                因此，我們的世界觀會影響我們如何看待
+                <strong>疾病、醫療、禱告，以及神在我們生命中的工作</strong>。
+            </p>
+
+        </div>
+
+        <div class="quote">
+            不同的眼鏡，會看見不同的世界；<br>
+            不同的世界觀，也會影響我們對醫治的理解。
+        </div>
+
+    </section>
+
+
+    <!-- 總結 -->
+    <section class="summary">
+
+        <h2>兩堂課的核心連結</h2>
+
+        <div class="summary-item">
+            <strong>第一堂｜全人的醫治</strong>
+            血漏婦人的故事讓我們看見，
+            耶穌所關心的不只是人的身體，而是人的整體生命。
+        </div>
+
+        <div class="summary-item">
+            <strong>第二堂｜世界觀的眼光</strong>
+            我們如何看世界，會影響我們如何理解疾病、
+            醫療、禱告，以及神在今天的工作。
+        </div>
+
+        <div class="summary-item">
+            <strong>最重要的提醒</strong>
+            在學習醫治之前，我們需要先思想：
+            <br>
+            <strong>「我現在是戴著什麼眼鏡在看這個世界？」</strong>
+        </div>
+
+    </section>
+
+
+    <footer>
+        全人醫治訓練課程｜課程回顧
+    </footer>
+
+</div>
+
+</body>
+</html>

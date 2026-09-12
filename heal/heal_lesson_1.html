@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="全人醫治與屬靈恩賜訓練｜從馬可福音第五章血漏婦人的故事，認識身體、心理、人際與屬靈層面的全人醫治。">
+    <meta name="keywords" content="全人醫治, 屬靈恩賜, 血漏婦人, 馬可福音, 醫治事奉, 基督教, 聖經課程">
+    <meta name="author" content="台南靈糧堂">
+
+    <title>全人醫治與屬靈恩賜訓練｜血漏婦人的四重痛苦</title>
+
+    <style>
+        :root {
+            --primary: #5b4636;
+            --primary-light: #8a6a50;
+            --secondary: #b58b5b;
+            --accent: #d8b47a;
+            --background: #f6f3ee;
+            --card: #ffffff;
+            --text: #333333;
+            --text-light: #6b6b6b;
+            --border: #e6dfd6;
+            --quote-bg: #faf7f1;
+            --highlight: #fff8e8;
+            --shadow: 0 8px 24px rgba(70, 50, 30, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                "Noto Sans TC",
+                "Microsoft JhengHei",
+                "PingFang TC",
+                sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.9;
+            font-size: 17px;
+        }
+
+        /* =========================
+           Header
+        ========================= */
+
+        .hero {
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(70, 48, 31, 0.96),
+                    rgba(111, 81, 55, 0.93)
+                );
+            color: #fff;
+            padding: 80px 20px 75px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 50%;
+            top: -160px;
+            left: -100px;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            border: 1px solid rgba(255,255,255,0.10);
+            border-radius: 50%;
+            right: -180px;
+            bottom: -250px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .course-label {
+            display: inline-block;
+            padding: 6px 18px;
+            border: 1px solid rgba(255,255,255,0.45);
+            border-radius: 50px;
+            font-size: 14px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            color: #f7ead5;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.3rem);
+            line-height: 1.3;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: #f2e8dc;
+            margin-bottom: 28px;
+        }
+
+        .hero-scripture {
+            max-width: 760px;
+            margin: 0 auto;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.25);
+            font-size: 15px;
+            color: #e8dccd;
+        }
+
+        /* =========================
+           Navigation
+        ========================= */
+
+        .toc {
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .toc-inner {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 15px;
+            overflow-x: auto;
+            scrollbar-width: thin;
+        }
+
+        .toc a {
+            flex: 0 0 auto;
+            text-decoration: none;
+            color: var(--primary);
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .toc a:hover {
+            background: var(--background);
+            color: var(--secondary);
+        }
+
+        /* =========================
+           Main
+        ========================= */
+
+        main {
+            max-width: 1100px;
+            margin: 45px auto;
+            padding: 0 20px;
+        }
+
+        .content-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 40px;
+            margin-bottom: 35px;
+            box-shadow: var(--shadow);
+        }
+
+        .section-number {
+            display: block;
+            color: var(--secondary);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+        }
+
+        .content-card h2 {
+            color: var(--primary);
+            font-size: 1.7rem;
+            margin-bottom: 25px;
+            padding-bottom: 14px;
+            border-bottom: 2px solid var(--border);
+            position: relative;
+        }
+
+        .content-card h2::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 70px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .content-card p {
+            margin-bottom: 20px;
+        }
+
+        .content-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        strong {
+            color: var(--primary);
+        }
+
+        /* =========================
+           Scripture
+        ========================= */
+
+        .scripture-reference {
+            display: inline-block;
+            margin-bottom: 18px;
+            padding: 5px 14px;
+            background: var(--background);
+            color: var(--primary);
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        blockquote {
+            margin: 25px 0;
+            padding: 28px 30px;
+            background: var(--quote-bg);
+            border-left: 5px solid var(--secondary);
+            border-radius: 0 10px 10px 0;
+            color: #4a4038;
+            font-size: 16px;
+            line-height: 2;
+            position: relative;
+        }
+
+        blockquote::before {
+            content: "“";
+            position: absolute;
+            top: -8px;
+            left: 15px;
+            font-family: Georgia, serif;
+            font-size: 70px;
+            color: rgba(181, 139, 91, 0.18);
+            line-height: 1;
+        }
+
+        /* =========================
+           Four pains
+        ========================= */
+
+        .pain-intro {
+            background: var(--highlight);
+            padding: 20px 24px;
+            border-radius: 10px;
+            border: 1px solid #f0dfb9;
+            margin-bottom: 28px;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+            margin-top: 25px;
+        }
+
+        .pain-item {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px;
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .pain-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(70, 50, 30, 0.10);
+        }
+
+        .pain-item h4 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pain-item h4::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--secondary);
+            border-radius: 50%;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .pain-item ul {
+            padding-left: 20px;
+        }
+
+        .pain-item li {
+            margin-bottom: 12px;
+        }
+
+        .pain-item li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* =========================
+           Highlight box
+        ========================= */
+
+        .highlight-box {
+            margin: 30px 0;
+            padding: 28px 30px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff9ec,
+                    #fffdf8
+                );
+            border: 1px solid #ead8ae;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .highlight-box::before {
+            content: "全人醫治";
+            position: absolute;
+            top: -13px;
+            left: 25px;
+            padding: 3px 14px;
+            background: var(--secondary);
+            color: #fff;
+            border-radius: 20px;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .highlight-box p {
+            margin-top: 10px;
+            margin-bottom: 0;
+        }
+
+        /* =========================
+           Reflection
+        ========================= */
+
+        .reflection {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .reflection-item {
+            text-align: center;
+            padding: 20px 12px;
+            background: var(--background);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .reflection-item span {
+            display: block;
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .reflection-item strong {
+            font-size: 1.05rem;
+        }
+
+        /* =========================
+           Footer
+        ========================= */
+
+        footer {
+            margin-top: 60px;
+            padding: 35px 20px;
+            background: var(--primary);
+            color: #e9dfd5;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        .footer-title {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        /* =========================
+           Responsive
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            body {
+                font-size: 16px;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .content-card {
+                padding: 28px 22px;
+            }
+
+            .pain-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reflection {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            blockquote {
+                padding: 22px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.95rem;
+            }
+
+            main {
+                margin-top: 25px;
+                padding: 0 12px;
+            }
+
+            .content-card {
+                padding: 24px 18px;
+                border-radius: 10px;
+            }
+
+            .content-card h2 {
+                font-size: 1.4rem;
+            }
+
+            .reflection {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .pain-item {
+                padding: 22px 18px;
+            }
+
+            blockquote {
+                padding: 20px 18px;
+            }
+        }
+
+        /* =========================
+           Print
+        ========================= */
+
+        @media print {
+
+            body {
+                background: #fff;
+                color: #000;
+                font-size: 12pt;
+            }
+
+            .hero {
+                color: #000;
+                background: #fff;
+                padding: 30px 0;
+                border-bottom: 2px solid #000;
+            }
+
+            .hero::before,
+            .hero::after,
+            .toc {
+                display: none;
+            }
+
+            .hero h1 {
+                color: #000;
+            }
+
+            .hero-subtitle,
+            .hero-scripture {
+                color: #333;
+            }
+
+            main {
+                max-width: none;
+                margin: 20px 0;
+                padding: 0;
+            }
+
+            .content-card {
+                box-shadow: none;
+                border: none;
+                padding: 20px 0;
+                page-break-inside: avoid;
+            }
+
+            .pain-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .pain-item {
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+
+            footer {
+                background: #fff;
+                color: #333;
+                border-top: 1px solid #999;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         Hero
+    ========================== -->
+
+    <header class="hero">
+        <div class="hero-content">
+
+            <div class="course-label">
+                全人醫治與屬靈恩賜訓練
+            </div>
+
+            <h1>全人醫治與屬靈恩賜訓練</h1>
+
+            <p class="hero-subtitle">
+                從血漏婦人的生命，看見耶穌帶來的全人醫治
+            </p>
+
+            <div class="hero-scripture">
+                馬可福音 5:21–34<br>
+                經文背景・血漏婦人的四重痛苦・全人醫治省思
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- =========================
+         Table of Contents
+    ========================== -->
+
+    <nav class="toc" aria-label="課程章節導覽">
+        <div class="toc-inner">
+
+            <a href="#section-1">一、經文背景</a>
+            <a href="#section-2">二、舊約律例</a>
+            <a href="#section-3">三、四重痛苦</a>
+            <a href="#section-4">四、全人醫治</a>
+
+        </div>
+    </nav>
+
+
+    <!-- =========================
+         Main Content
+    ========================== -->
+
+    <main>
+
+        <!-- 第一章 -->
+
+        <section class="content-card" id="section-1">
+
+            <span class="section-number">SECTION 01</span>
+
+            <h2>一、經文背景：馬可福音中的血漏婦人</h2>
+
+            <span class="scripture-reference">
+                馬可福音 5:21–34
+            </span>
+
+            <p>
+                志宏牧師分享在台北真理堂講的第一篇道，是馬可福音第五章二十二至三十四節，
+                關於耶穌醫治血漏婦人的記載。
+            </p>
+
+            <blockquote>
+                「有一個管會堂的人，名叫睚魯，來見他，就俯伏在他腳前，再三的求他說：
+                『我的小女兒快要死了，求你去按手在他身上，使他痊癒得以活了。』
+                耶穌就和他同去。有許多人跟隨擁擠他。
+
+                <br><br>
+
+                有一個女人，患了十二年的血漏，在好些醫生手裡受了許多的苦，
+                又花盡了他所有的，一點也不見好，病勢反倒更重了。
+
+                <br><br>
+
+                他聽見耶穌的事，從後頭來，雜在眾人中間，摸耶穌的衣裳，
+                意思說：『我只摸他的衣裳，就必痊癒。』
+
+                <br><br>
+
+                於是他血漏的源頭立刻乾了，他便覺得身上的災病好了。
+                耶穌頓時心裡覺得有能力從自己身上出去，就在眾人中間轉過來說：
+                『誰摸我的衣裳？』
+
+                <br><br>
+
+                門徒對他說：『你看眾人擁擠你，還說誰摸我嗎？』
+                耶穌周圍觀看，要見做這事的女人。
+
+                <br><br>
+
+                那女人知道在自己身上所成就的事，就恐懼戰兢，
+                來俯伏在各前，將實情全告訴他。
+
+                <br><br>
+
+                耶穌對他說：
+                『女兒，你的信救了你，平平安安地回去吧！
+                你的災病痊癒了。』」
+            </blockquote>
+
+        </section>
+
+
+        <!-- 第二章 -->
+
+        <section class="content-card" id="section-2">
+
+            <span class="section-number">SECTION 02</span>
+
+            <h2>二、舊約律例與血漏者的困境</h2>
+
+            <p>
+                這段經文提到有個女人患了十二年的血漏，這個病帶給她很大的痛苦。
+                血漏就是表示她平常會流血不止。
+            </p>
+
+            <p>
+                血漏會有哪些痛苦呢？
+                我們可以從舊約《利未記》第十五章一節至十二節，
+                對有關患漏症的規定中看見端倪。
+            </p>
+
+            <blockquote>
+                「耶和華對摩西、亞倫說：
+                『你們曉諭以色列人說：人若身患漏症，他因這漏症就不潔淨了。
+                他患漏症，無論是下流、是止住的，都是不潔淨。
+
+                <br><br>
+
+                他所躺的床都為不潔淨，所坐的物也為不潔淨。
+                凡摸那床的，必不潔淨到晚上，必要洗衣服，用水洗澡。
+
+                <br><br>
+
+                那做患漏症人所做之物的，必不潔淨到晚上，
+                必要洗衣服，用水洗澡。
+
+                <br><br>
+
+                那摸患漏症人身體的，必不潔淨到晚上，
+                必要洗衣服，用水洗澡。
+
+                <br><br>
+
+                患漏症的人沒有用水刷手，無論摸了誰，
+                誰必不潔淨到晚上，必要洗衣服，用水洗澡。
+
+                <br><br>
+
+                患漏症人所摸的瓦器就必打破，
+                所摸的一切木器也必用水刷洗。』」
+            </blockquote>
+
+            <p>
+                在這個婦人患了漏症、被視為不潔淨的景況中，
+                經文反覆強調的核心就是
+                <strong>「不潔淨」</strong>。
+            </p>
+
+            <p>
+                在舊約時代的規定下，一個人若被判定為不潔淨，
+                會帶來極大的困擾與麻煩：
+                被她碰到的人會不潔淨；
+                她摸過、坐過的東西，別人再碰也會不潔淨。
+            </p>
+
+            <p>
+                如果她到別人家裡摸了瓦器，那個瓦器就必須打破；
+                若摸了木器，就要拿去用力刷洗。
+            </p>
+
+        </section>
+
+
+        <!-- 第三章 -->
+
+        <section class="content-card" id="section-3">
+
+            <span class="section-number">SECTION 03</span>
+
+            <h2>三、血漏婦人承受的四重痛苦</h2>
+
+            <div class="pain-intro">
+                在嚴苛的律例與長期病痛下，
+                這位血漏婦人承受的並不只是身體上的疾病，
+                而是涵蓋生命不同層面的全面痛苦。
+            </div>
+
+
+            <div class="pain-grid">
+
+                <!-- 身體 -->
+
+                <article class="pain-item">
+
+                    <h4>1. 身體痛苦</h4>
+
+                    <ul>
+
+                        <li>
+                            <strong>長期失血與貧血：</strong>
+                            身體因持續失血而導致貧血，使生理機能嚴重受損。
+                        </li>
+
+                        <li>
+                            <strong>體力虛弱與疲憊：</strong>
+                            氣血不足導致經常處於極度虛弱狀態，
+                            日常生活負荷極為辛苦。
+                        </li>
+
+                        <li>
+                            <strong>求醫過程折磨：</strong>
+                            在好些醫生手裡受苦、花盡家產，
+                            病勢反更重，加深身心煎熬。
+                        </li>
+
+                    </ul>
+
+                </article>
+
+
+                <!-- 心理 -->
+
+                <article class="pain-item">
+
+                    <h4>2. 心理痛苦</h4>
+
+                    <ul>
+
+                        <li>
+                            <strong>負面自我形象：</strong>
+                            十二年的病痛與社會標籤，
+                            使她內心認定自己是個「不潔淨的人」。
+                        </li>
+
+                        <li>
+                            <strong>罪咎感與定罪：</strong>
+                            不潔淨的烙印跟隨十二年，
+                            轉化為巨大的精神壓力與自卑。
+                        </li>
+
+                        <li>
+                            <strong>孤立無援恐懼：</strong>
+                            當眾被耶穌找出來時內心充滿「恐懼戰兢」，
+                            顯示長年活在羞恥感中。
+                        </li>
+
+                    </ul>
+
+                </article>
+
+
+                <!-- 人際 -->
+
+                <article class="pain-item">
+
+                    <h4>3. 人際關係痛苦</h4>
+
+                    <ul>
+
+                        <li>
+                            <strong>群體排擠孤立：</strong>
+                            無人敢邀請她到家作客，
+                            深怕器皿或沙發染上不潔。
+                        </li>
+
+                        <li>
+                            <strong>眾人避之唯恐不及：</strong>
+                            路過時旁人繞道而行，
+                            深怕不小心碰到而染上不潔。
+                        </li>
+
+                        <li>
+                            <strong>生活繁瑣代價：</strong>
+                            接觸後須花費珍貴的水資源洗澡、洗衣服，
+                            使她成為徹底被邊緣化的孤立人物。
+                        </li>
+
+                    </ul>
+
+                </article>
+
+
+                <!-- 屬靈 -->
+
+                <article class="pain-item">
+
+                    <h4>4. 屬靈的痛苦</h4>
+
+                    <ul>
+
+                        <li>
+                            <strong>剝奪敬拜權利：</strong>
+                            因「不潔淨」身分限制，
+                            完全無法進入聖殿或會堂敬拜上帝。
+                        </li>
+
+                        <li>
+                            <strong>靈性隔絕感：</strong>
+                            無法過正常宗教生活，
+                            若貿然前往更恐連累旁人，
+                            承受極大的精神煎熬與孤單。
+                        </li>
+
+                    </ul>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- 第四章 -->
+
+        <section class="content-card" id="section-4">
+
+            <span class="section-number">SECTION 04</span>
+
+            <h2>四、從血漏得癒看「全人醫治」</h2>
+
+            <p>
+                當我們提到醫治的時候，
+                我們多半第一個反應是什麼？
+                想到的是叫做<strong>「身體的疾病」</strong>需要得醫治。
+            </p>
+
+            <p>
+                但是我們人除了身體有病會讓我們痛苦之外，
+                我們心靈受到傷害，我們人際關係很差，
+                或者是我們因為犯罪跟上帝的隔離，
+                都會帶來痛苦。
+            </p>
+
+
+            <div class="highlight-box">
+
+                <p>
+                    <strong>全人醫治的必要性：</strong><br><br>
+
+                    有些時候，這些其他方面的痛苦會比身體的痛苦更大、更深，
+                    需不需要醫治？也需要醫治。
+                    所以說為什麼會有心理醫生？
+                    為什麼會有精神科大夫？
+                    其實就是要處理身體疾病以外的病痛跟痛苦。
+                </p>
+
+            </div>
+
+
+            <p>
+                這個婦人花了很多的錢，找了很多的醫生，
+                醫了十二年，有沒有好？
+                不但沒有醫好，反倒更重了，
+                想必她一定是心力交瘁。
+            </p>
+
+            <p>
+                不過很簡單，不簡單的是她沒有放棄尋求醫治。
+                經文提到，當她聽見耶穌的事——
+                如果我們看上下文，應該是跟耶穌醫病、趕鬼、行神蹟的事情有關——
+                她就帶著盼望跟信心來尋求耶穌，希望可以得醫治。
+            </p>
+
+
+            <p>
+                她用的方法很特別。
+                她沒有當面請求耶穌醫治她，
+                許多病人會大喊：
+                「大衛的子孫，可憐憐憫我，你醫治我，我要看見。」
+                直接向耶穌表達；
+                她卻不是這樣。
+            </p>
+
+            <p>
+                她怎麼來尋求醫治呢？
+                她偷偷摸摸地夾在眾人的中間，
+                摸耶穌的衣裳，
+                心裡面想著：
+                <strong>「只要我摸到耶穌的衣裳，我的病就會好。」</strong>
+            </p>
+
+            <p>
+                她真的做了這樣的事情。
+                經文記載，當她摸到耶穌衣裳的那一刻，
+                她的病真的好了，災病就痊癒了。
+            </p>
+
+
+            <!-- 四面向總結 -->
+
+            <div class="reflection">
+
+                <div class="reflection-item">
+                    <span>身體</span>
+                    <strong>疾病得醫治</strong>
+                </div>
+
+                <div class="reflection-item">
+                    <span>心理</span>
+                    <strong>羞恥得釋放</strong>
+                </div>
+
+                <div class="reflection-item">
+                    <span>人際</span>
+                    <strong>重新被接納</strong>
+                </div>
+
+                <div class="reflection-item">
+                    <span>屬靈</span>
+                    <strong>恢復與神的關係</strong>
+                </div>
+
+            </div>
+
+        </section>
+<div class="content-card">
+    <h2>五、 耶穌的「出急診」與尋找：超越身體的拯救</h2>
+    <p>不過這段記載沒有到此結束，反而比較重要的情節才剛剛開始。當時耶穌正在趕路，要去管會堂睚魯的家，因為睚魯的女兒生重病快要死了，請求耶穌去按手醫治。這在某個程度就像是現代的「出急診」——情況緊急，必須加快速度趕往現場。</p>
+    
+    <p>正當大家急趕路時，耶穌突然停下來轉身說：「誰摸我？」門徒的反應很正常：「這麼多人擁擠你，還問誰摸我？」因為在一群人趕路時碰撞在所難免。但耶穌不走、繼續追問，直到那婦人心裡有數、恐懼戰兢地承認是自己摸了耶穌。</p>
+
+    <p>為什麼婦人敘述得醫治的過程是「恐懼戰兢」而非歡喜快樂？因為雖然她身體的血漏源頭乾了、生理痛苦解決了，但她長年累積的<strong>心理痛苦、人際關係的痛苦與靈性的痛苦</strong>尚未完全解除。她因自己患了不潔淨的病卻去觸碰耶穌（甚至沿途可能讓許多人沾染不潔），因而感到心虛與害怕。</p>
+
+    <p>耶穌感受得到她心裡仍在淌血、還有未解的痛苦，因此堅持把她找出來。耶穌沒有責備她，反而對他說：「<strong>女兒，你的信救了你，平平安安地回去吧！</strong>」這裡的「救」不僅指身體痊癒，更包含靈魂的拯救；而「平平安安」（希伯來文 <em>Shalom</em>）代表了全人各方面的和諧——人與自己的和諧、人與人之間的和諧、人與神恢復和好的關係，徹底除去她心裡的焦慮與羞恥。</p>
+
+    <p>讓她在眾人面前將實情說出來，本身就是一場醫治的過程。當她勇敢作見證時，她確立了自己「已經得潔淨、不再被排擠」的信心，旁人也得知她痊癒了，不再恐懼與她接觸。耶穌雖然行程緊湊、要趕去救睚魯的女兒，但祂從不漏掉任何一個人的全人需要。</p>
+</div>
+
+<div class="content-card">
+    <h2>六、 我們對上帝的期待與真實需要</h2>
+    <p>我們常常覺得上帝很忙、要看顧的人太多，因此自己的問題微不足道，會把自己的需求排在後面。然而，無論是睚魯的女兒還是血漏的婦人，上帝都親自看顧。</p>
+    
+    <p>回想牧師個人信主的經歷，最初到教會的動機非常簡單——只是想找個安靜讀書的地方，因為家裡空間小、家人看電視打電話干擾很大。剛好有高中同學在台北真理堂聚會，透過邀請同學去教會讀書，開啟了接觸信仰的契機。</p>
+
+    <p>當時牧師在高中適應期其實非常辛苦，有一段時間早上起床根本不想上學，回頭來看很符合現代人所說的憂鬱症或社交恐懼症現象，當時自己並不知道，但<strong>上帝知道</strong>。上帝透過信仰幫助他面對人生方向，解決人際關係內向與孤立的問題。上帝知道我們深處有許多未曾察覺的真實需要。</p>
+
+    <p>每個人來到教會都有不同的期待：</p>
+    <ul>
+        <li>希望考試順利</li>
+        <li>希望疾病得醫治</li>
+        <li>想找男朋友或女朋友</li>
+        <li>希望改善糟糕的親子關係、把小孩管好</li>
+    </ul>
+
+    <p>上帝當然看顧這些表面需求，但祂更關切的是我們整個人完整的生命，涵蓋生活的每個部分。我們所信的上帝是昔在、今在、以後永在的上帝，祂過去醫治，今天依然要醫治。而上帝醫治人的途徑，正是透過<strong>愛</strong>與<strong>屬靈恩賜的運用</strong>。耶穌無條件地接納血漏婦人，不嫌棄她的不潔，帶領她走向身心靈全人的健康。</p>
+</div>
+
+<div class="content-card">
+    <h2>七、 帶來醫治的關鍵：愛與屬靈恩賜的運用</h2>
+    
+    <p>上帝究竟是如何醫治我們呢？在醫治的過程中，有兩個極為關鍵的核心要素：</p>
+
+    <h3>1. 最強大的醫治力量：愛</h3>
+    <p>曾經來過台灣的外國講員<strong>麥海仕牧師</strong>（成長在非洲肯亞的印度人），在他的中文譯作《愛能夠創造神蹟》中提到，讓人得醫治很大的能力——無論是心裡面的痛苦、人際關係的傷害，甚至是身體的病痛——最需要、也是得醫治最重要關鍵其實就是<strong>愛</strong>[cite: 1]。</p>
+    <p>另一位非常有醫治恩賜的<strong>麥格納神父</strong>，在其著作《醫治》中也提到，當他在一個充滿愛的團契裡面禱告時，醫治的效果特別明顯；當為病人禱告的那群人很深地愛著這個人時，醫治禱告就特別有能力[cite: 1]。</p>
+
+    <h3>2. 屬靈恩賜的運用與「對症下藥」</h3>
+    <p>除了愛之外，其次便是<strong>「屬靈恩賜的運用」</strong>[cite: 1]。經文提到耶穌感受到有能力從自己身上出去，祂不單知道有醫治大能發出，更體會到血漏婦人還有其他未解的痛苦[cite: 1]。在醫治的過程中，<strong>對症下藥</strong>是極其重要的關鍵[cite: 1]。</p>
+    <p>舉例來說，華神的總務主任在某個週一早晨因腹痛急診，檢查發現是闌尾發炎並於當天下午順利完成手術[cite: 1]。雖然手術順利、傷口兩三天就復原了，但住了將近10天卻依然無法進食，一吃東西或喝水就會嘔吐[cite: 1]。由於他本身有高血糖、高血壓，加上腹部手術後常伴隨腸子排氣蠕動的問題，醫生面對多種可能原因，也只能透過不同的方式去嘗試（踹踹看），直到確定真正的病因才能真正對症下藥[cite: 1]。</p>
+    <p>如同發燒或頭痛背後往往有多種不同的潛在病因必須被找出，我們為人做醫治禱告時也是如此。如果能夠透過屬靈的洞察與恩賜，抓出造成病痛或痛苦的根本原因並針對其禱告，往往會更具功效[cite: 1]。耶穌無條件地接納血漏婦人，用愛與精準的生命導向，帶領她進入身心靈的全人健康。</p>
+</div>
+
+<div class="content-card">
+    <h2>八、 愛與屬靈恩賜的相輔相成</h2>
+    
+    <p>哥林多前書十四章第一節，保羅這樣說：<strong>「你們要追求愛，也要切慕屬靈的恩賜。」</strong>其實「追求」跟「切慕」原文是同一個字；保羅的意思是你們要追求愛，也要追求屬靈恩賜，或者說你們要切慕愛，也要切慕屬靈恩賜，這兩者都極其重要。</p>
+    <p>在聖經當中討論屬靈恩賜最長的篇幅就是哥林多前書第12章到第14章：第12章與第14章在講屬靈恩賜，而中間則夾著第13章著名的「愛的篇章」。這顯示出<strong>愛與屬靈恩賜是相輔相成、密不可分的</strong>。當教會弟兄姊妹的愛心不斷增長，且屬靈恩賜在追求與操練中越發成熟時，就會有更多醫治的恩典在我們當中發生。</p>
+
+    <h3>教會是基督的身體與醫治的器皿</h3>
+    <p>教會是基督的身體，因此上帝今天在這個世界上所做的醫治工作，正是透過祂的身體——也就是教會——來施行的：</p>
+    <ul>
+        <li>我們的眼睛是上帝用來為世人的痛苦哭泣的一雙眼睛。</li>
+        <li>我們的情感是上帝用來體恤祂子民的情感。</li>
+        <li>我們的雙手是上帝用來把醫治帶給有需要者的一雙手。</li>
+    </ul>
+    <p>如果我們不肯哭泣，世人就無法體會上帝的關愛；如果我們不用接納的態度按手在別人身上，許多人就無法經驗上帝的大能。上帝樂意使用我們這些有限、軟弱的人，在這個世界上成為祂醫治的管道與器皿，彰顯祂的同在。這是一個奧秘，也是極大的榮幸——上帝竟然使用軟弱有限的我們，透過禱告真實行出醫治。</p>
+
+    <p>回顧耶穌的事奉，醫治佔了極大的比例，而耶穌也將這份醫治的使命託付給教會。正如馬太福音二十八章所說：「你們要去，使萬民作我的門徒……凡我所吩咐你們的，都教訓他們遵守，我就常與你們同在，直到世界的末了。」耶穌差派門徒宣講天國福音、教導真理，同時也吩咐他們去<strong>醫治有需要的人</strong>。</p>
+    <p>因此，教會是一個醫治的群體。面對這個世代充滿無數身心靈痛苦與需要的人，上帝要使用你和我做醫治禱告。願我們都願意把自己交託在主手裡，成為祂的手、腳與嘴巴，將醫治的恩典帶給周圍的人，讓每個教會都真正成為醫治的教會。</p>
+</div>
+
+<div class="content-card">
+    <h2>九、 世界觀與超自然的經驗</h2>
+    
+    <p>這部分內容主要取材自柯瑞福（Paul G. Hiebert）所著的書籍《滿有能力的基督教》。柯瑞福有著堅實的福音派背景，曾在美國惠頓大學修習人類學與語言學，後於亞斯伯里神學院進修，並受上帝呼召前往非洲奈及利亞宣教及從事聖經翻譯工作。</p>
+
+    <h3>1. 宣教現場的衝擊：無大能的福音 vs. 強烈的屬靈現實</h3>
+    <p>當柯瑞福在奈及利亞宣教時，發現當地的奈及利亞人經常談到自己如何受到邪靈影響，以致生命中充滿毀滅與攻擊，例如疾病、意外、死亡、不孕、土地貧瘠與乾旱。當地人會將這些全歸咎於邪靈魔鬼的作為。</p>
+    <p>當時宣教士們認為，改變這群信徒想法最好的方法，是引導他們把注意力轉移到「上帝如何透過耶穌基督征服了一切邪惡勢力」這個抽象真理上。信念本身雖沒錯，但當信徒遭遇具體的疾病、意外或乾旱時，宣教士卻沒有提供實際應對的方法——宣教士自己不做醫病趕鬼的工作。因此，當奈及利亞人遇到困難時，無奈之下往往還是會回頭尋找傳統宗教信仰、找巫師或靈媒來處理。</p>
+    <p>然而，這些當地人依然願意信耶穌，是因為宣教士帶來了實質祝福：引進現代教育、醫療、改善生活，且展現出極大的愛心。但柯瑞福深刻體會到一個現象：<strong>「我們這些西方的宣教士，把一個毫無大能的福音，傳給一群很看重屬靈能力的人。」</strong></p>
+
+    <h3>2. 福勒神學院的研究與溫約翰的突破</h3>
+    <p>後來柯瑞福回到美國，在福勒神學院（Fuller Theological Seminary）教授宣教課程。當時（1970至1980年代）福勒神學院正研究全球增長最快的教會，發現成長最快的多半是五旬節教會與靈恩派教會。起初研究人員以為是因聚會情緒化、情感投入吸引人，但深入研究後發現，關鍵在於——<strong>這些教會真實經驗到上帝的大能，信徒在當中得到了切實的幫助。</strong></p>
+    <p>1982年，福勒神學院請來了溫約翰牧師（John Wimber）開設著名的「神蹟奇事」課程.溫約翰不僅在課堂上講授聖經真理，更會當場帶領禱告、操練聖靈的工作。柯瑞福身為老師也去旁聽，從溫約翰身上學習到：<strong>屬靈能力是可以不情緒化、非常理性且有聖經根據的。</strong>這段寶貴經歷促使他將其寫成著作。</p>
+
+    <h3>3. 影響真相的五大因素與視角遞減</h3>
+    <p>為了說明人類如何看待超自然與現實，柯瑞福引用了童話《綠野仙蹤》中「翡翠城」必須戴上綠色眼鏡的故事。我們每個人活在世上也都在戴著某些「眼鏡」來看這個世界。我們的眼光會受到以下五個主要因素的影響：</p>
+    <ul>
+        <li><strong>世界觀</strong>：成長過程中被教導、累積的觀念與解釋事情的架構，會引導並限制我們的觀點。</li>
+        <li><strong>有限的經驗</strong>：「眼見為憑」的限制。我們的經驗非常有限，若只把親身經歷過的事當真，會將許多客觀真實排除在外。</li>
+        <li><strong>個性與特質</strong>：樂觀或悲觀、保守或開放，會決定我們如何詮釋同一件事（例如半瓶水的故事）。</li>
+        <li><strong>意志</strong>：決定我們是否願意接受新的挑戰、新的知識或不同的做法。</li>
+        <li><strong>罪</strong>：當面對自己的問題與責任時，往往會因為罪而選擇否認或拒絕真實的指正。</li>
+    </ul>
+    <p>因此，從客觀的宇宙真實、可能發生的事、實際經驗到的事、被分析的事，到最後所認知的「真相」，其範圍是一層層<strong>遞減</strong>的。我們對真理的認識以及對上帝的認識（上帝的全貌極其豐富，但我們所能掌握的往往只是其中極小的一部分），也同樣受到這些框架的侷限。</p>
+
+    <h3>4. 世界觀的雙面刃：以世界地圖與航線為例</h3>
+    <p>世界觀（架構）的好處是能<strong>「化繁為簡」</strong>，幫助我們分析現象、提供觀察世界的框架；但副作用是會<strong>窄化、限制我們的眼光</strong>，讓我們對架構以外的事物視而不見。</p>
+    <p>正如世界地圖有許多不同的畫法：以亞洲為中心、以美洲為中心、南半球在上面的地圖，或是以北極/南極為中心的地圖。雖然地球是圓的、從不同角度產出的地圖都是真實的，但我們往往習慣以自己熟悉的角度來看世界。</p>
+    <p>一個經典的例子是北京到紐約的航線：過去習慣看傳統橫版地圖，認為橫跨太平洋是直線。直到中國國際航空採用了郝小光製作的<strong>以北極為中心的地圖</strong>，才發現飛越北極的直線航線比太平洋航線<strong>少了8000多公里，飛行時間少了3個多小時</strong>。當我們願意打破舊有的世界觀、擴展眼光時，就能看見過去認為「不可能」的全新可能性。</p>
+
+    <h3>5. 因果律的三大領域與跨文化的差異</h3>
+    <p>每一個世界觀都有其因果定律（解釋事情為什麼發生以及如何解決）。因果律主要分為三個領域：</p>
+    <ul>
+        <li><strong>大自然因果律</strong>：如水蒸氣凝結下雨、地心引力等自然科學規律。</li>
+        <li><strong>人類的因果律</strong>：如人禍、貪婪、人際利益衝突所造成的結果。</li>
+        <li><strong>超自然的因果律</strong>：超越自然與人為、由超自然力量（靈界）所影響的現象。</li>
+    </ul>
+    <p>在聖經時代的社會以及現今約三分之二的非歐美世界（例如奈及利亞），人們對現象的解釋<strong>「靈界的因果律」所佔的比重非常大</strong>；相對地，近代的歐美科學社會則將諸靈與神排除在外，多半只透過自然界與人界來解釋一切。</p>
+    <p>正因如此，近代西方文化的基督徒在讀聖經或面對醫病趕鬼時，常覺得難以理解；而亞洲、非洲等對靈界較有共鳴的民族，反而更容易直接從聖經中讀懂神的信息與作為。不過，非歐美民族雖易察覺靈界，但往往容易拜錯神或付上高昂代價，因此教會更需要將他們帶向認識<strong>獨一真神</strong>。擴展並調整我們的世界觀鏡片，能讓我們更真實、更寬廣地經歷上帝的大能與全人醫治的恩典。</p>
+</div>
+    </main>
+
+
+
+
+    <!-- =========================
+         Footer
+    ========================== -->
+
+    <footer>
+
+        <p class="footer-title">
+            全人醫治與屬靈恩賜訓練
+        </p>
+
+
+    </footer>
+
+</body>
+</html>
