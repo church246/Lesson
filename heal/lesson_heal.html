@@ -271,6 +271,94 @@ section{
     font-size:1.02rem;
 }
 
+/* ================================
+   課程表格標題
+================================ */
+
+.course-table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+.course-table-header h2 {
+    margin: 5px 0 0;
+    font-size: 1.8rem;
+    color: #222;
+}
+
+.section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: #888;
+}
+
+.table-hint {
+    margin: 0;
+    padding: 9px 14px;
+    border-radius: 8px;
+    background: #f7f7f7;
+    color: #666;
+    font-size: 0.85rem;
+}
+
+.table-hint span {
+    font-weight: 700;
+    margin-right: 5px;
+}
+
+
+/* ================================
+   課程連結
+================================ */
+
+.course-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: #333;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid #bbb;
+    transition: all 0.2s ease;
+}
+
+.course-link:hover {
+    color: #000;
+    border-bottom-color: #222;
+}
+
+.link-arrow {
+    font-size: 0.85em;
+    opacity: 0.65;
+    transition: transform 0.2s ease;
+}
+
+.course-link:hover .link-arrow {
+    transform: translate(2px, -2px);
+    opacity: 1;
+}
+
+
+/* ================================
+   手機版
+================================ */
+
+@media (max-width: 768px) {
+
+    .course-table-header {
+        display: block;
+    }
+
+    .table-hint {
+        display: inline-block;
+        margin-top: 15px;
+    }
+}
+
 /* =========================
    Course Goals
 ========================= */
@@ -712,12 +800,6 @@ footer strong{
            download>
             ⬇ 下載學生手冊 PDF
         </a>
-
-        <a class="btn btn-primary"
-           href="#course">
-            查看課程內容
-        </a>
-
     </div>
 
 </div>
@@ -916,7 +998,16 @@ footer strong{
 
                 </thead>
 
+                    <div class="course-table-header">
+                        <div>
+                            <span class="section-label">COURSE SCHEDULE</span>
+                            <h2>課程進度與教材</h2>
+                        </div>
 
+                        <p class="table-hint">
+                            <span>↗</span> 課程名稱可點選，進入相關課程教材與學習資源
+                        </p>
+                    </div>
                 <tbody>
 
                     <tr>
@@ -926,13 +1017,16 @@ footer strong{
                         </td>
 
                         <td class="course-name">
-                            <a href="../heal/heal_lesson_1.html">世界觀與超自然經驗</a><br>
-                            <a href="../heal/heal_question.html">課堂問題</a><br>
-                            <a href="../heal/heal_blessing.html">為人祝福禱告的福分</a>
+                            <a href="../heal/heal_lesson_1.html" class="course-link"> 世界觀與超自然經驗
+                            <span class="link-arrow">↗</span></a><br>
+                            <a href="../heal/heal_question.html" class="course-link">課堂問題
+                             <span class="link-arrow">↗</span></a><br>
+                            <a href="../heal/heal_blessing.html" class="course-link">為人祝福禱告的福分
+                              <span class="link-arrow">↗</span></a>
                         </td>
 
                         <td class="course-name">
-                            全人醫治
+                           全人醫治
                         </td>
 
                         <td class="course-name">
@@ -949,7 +1043,8 @@ footer strong{
                         </td>
 
                         <td class="course-name">
-                            <a href="../heal/heal_spirit.html">切慕屬靈的恩賜</a>
+                            <a href="../heal/heal_spirit.html" class="course-link">切慕屬靈的恩賜
+                             <span class="link-arrow">↗</span></a><br>
                         </td>
 
                         <td class="course-name">
@@ -970,7 +1065,8 @@ footer strong{
                         </td>
 
                         <td class="course-name">
-                            醫治的服事
+                              <a href="../heal/heal_lesson_3.html" class="course-link">醫治的服事
+                             <span class="link-arrow">↗</span></a><br>
                         </td>
 
                         <td class="course-name">
@@ -995,6 +1091,259 @@ footer strong{
 
 
 </section>
+<section id="instructor" class="video-section">
+    <div class="section-header">
+        <span class="section-label">COURSE VIDEOS</span>
+        <h2>影音觀看</h2>
+        <p>課程影音｜複習課程內容，深化學習與操練</p>
+    </div>
+
+    <div class="video-grid">
+
+        <!-- 影音 01 -->
+        <article class="video-card">
+            <div class="video-icon">
+                <span>▶</span>
+            </div>
+
+            <div class="video-content">
+                <span class="video-number">01</span>
+                <h3>世界觀與超自然經驗</h3>
+                <p>
+                    認識基督信仰的世界觀，思想超自然經驗與信仰之間的關係，
+                    建立正確的屬靈分辨與神學基礎。
+                </p>
+
+                <a 
+                    href="https://youtube.com/live/XMVsAFUOMRg?feature=share"
+                    class="video-button"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    觀看影片
+                    <span>↗</span>
+                </a>
+            </div>
+        </article>
+
+
+        <!-- 影音 02 -->
+        <article class="video-card">
+            <div class="video-icon">
+                <span>▶</span>
+            </div>
+
+            <div class="video-content">
+                <span class="video-number">02</span>
+                <h3>醫治的服事</h3>
+                <p>
+                    從聖經的角度認識醫治事奉，思想主耶穌的醫治工作，
+                    並學習如何以全人的角度理解醫治與服事。
+                </p>
+
+                <a 
+                    href="https://youtu.be/rQUk1XJDynk"
+                    class="video-button"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    觀看影片
+                    <span>↗</span>
+                </a>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+
+<style>
+/* ================================
+   影音觀看
+================================ */
+
+.video-section {
+    max-width: 1100px;
+    margin: 80px auto;
+    padding: 0 24px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-label {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: #777;
+}
+
+.section-header h2 {
+    margin: 0 0 12px;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #222;
+}
+
+.section-header p {
+    margin: 0;
+    color: #777;
+    font-size: 1rem;
+}
+
+
+/* 影音卡片排列 */
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+}
+
+
+/* 卡片 */
+
+.video-card {
+    position: relative;
+    display: flex;
+    gap: 24px;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.10);
+}
+
+
+/* 播放圖示 */
+
+.video-icon {
+    flex: 0 0 58px;
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f1f1f1;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.video-icon span {
+    margin-left: 3px;
+}
+
+
+/* 內容 */
+
+.video-content {
+    flex: 1;
+}
+
+.video-number {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #999;
+}
+
+.video-content h3 {
+    margin: 0 0 12px;
+    font-size: 1.35rem;
+    line-height: 1.4;
+    color: #222;
+}
+
+.video-content p {
+    margin: 0 0 22px;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+
+/* 觀看按鈕 */
+
+.video-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: #333;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.video-button:hover {
+    background: #333;
+    color: #fff;
+}
+
+.video-button span {
+    font-size: 1rem;
+}
+
+
+/* ================================
+   RWD
+================================ */
+
+@media (max-width: 768px) {
+
+    .video-section {
+        margin: 55px auto;
+        padding: 0 18px;
+    }
+
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .video-card {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .video-card {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .video-icon {
+        width: 50px;
+        height: 50px;
+        flex-basis: 50px;
+    }
+
+    .video-content h3 {
+        font-size: 1.2rem;
+    }
+}
+</style>
 
 <!-- =========================
      Core Topics
@@ -1014,7 +1363,7 @@ footer strong{
             </div>
 
             <h2 class="section-title">
-                <a href="https://youtube.com/live/XMVsAFUOMRg?feature=share" target="_blank" rel="noopener">四個全人醫治面向</a>
+               四個全人醫治面向
             </h2>
 
             <p class="lead">
