@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="全人醫治與屬靈恩賜訓練｜從馬可福音第五章血漏婦人的故事，認識身體、心理、人際與屬靈層面的全人醫治。">
+    <meta name="keywords" content="全人醫治, 屬靈恩賜, 血漏婦人, 馬可福音, 醫治事奉, 基督教, 聖經課程">
+    <meta name="author" content="台南靈糧堂">
+
+<title>全人醫治與屬靈恩賜訓練：植物祝福禱告與現場操練</title>
+
+<style>
+    :root {
+        --primary: #5b4636;
+        --primary-dark: #3d2e23;
+        --primary-light: #8a6a50;
+        --secondary: #b58b5b;
+        --accent: #d8b47a;
+        --background: #f6f3ee;
+        --card: #ffffff;
+        --text: #333333;
+        --text-light: #6b6b6b;
+        --border: #e6dfd6;
+        --quote-bg: #faf7f1;
+        --highlight: #fff8e8;
+        --shadow: 0 10px 30px rgba(70, 50, 30, 0.08);
+        --shadow-hover: 0 15px 35px rgba(70, 50, 30, 0.12);
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family:
+            "Noto Sans TC",
+            "Microsoft JhengHei",
+            "PingFang TC",
+            sans-serif;
+        background: var(--background);
+        color: var(--text);
+        line-height: 1.95;
+        font-size: 17px;
+    }
+
+    /* =========================
+       Header 樣式
+    ========================= */
+    .hero {
+        background:
+            linear-gradient(
+                135deg,
+                rgba(70, 48, 31, 0.96),
+                rgba(111, 81, 55, 0.93)
+            );
+        color: #fff;
+        padding: 70px 20px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .hero::before {
+        content: "";
+        position: absolute;
+        width: 350px;
+        height: 350px;
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 50%;
+        top: -160px;
+        left: -100px;
+    }
+
+    .hero::after {
+        content: "";
+        position: absolute;
+        width: 450px;
+        height: 450px;
+        border: 1px solid rgba(255,255,255,0.10);
+        border-radius: 50%;
+        right: -180px;
+        bottom: -250px;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 900px;
+        margin: auto;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+        line-height: 1.3;
+        margin-bottom: 15px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+    }
+
+    .hero p {
+        font-size: clamp(1.05rem, 2vw, 1.2rem);
+        color: #f2e8dc;
+        margin: 0;
+        letter-spacing: 0.5px;
+    }
+
+    /* =========================
+       導覽列 (TOC)
+    ========================= */
+    .toc {
+        background: #fff;
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+
+    .toc-inner {
+        max-width: 1100px;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        padding: 12px 15px;
+        overflow-x: auto;
+        scrollbar-width: thin;
+    }
+
+    .toc a {
+        flex: 0 0 auto;
+        text-decoration: none;
+        color: var(--primary);
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        background: #f7f4f0;
+        transition: all 0.2s ease;
+    }
+
+    .toc a:hover {
+        background: var(--primary);
+        color: #fff;
+    }
+
+    /* =========================
+       主內容區塊
+    ========================= */
+    main {
+        max-width: 1000px;
+        margin: 45px auto;
+        padding: 0 20px;
+    }
+
+    section {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 40px;
+        margin-bottom: 35px;
+        box-shadow: var(--shadow);
+        transition: transform 0.2s ease;
+    }
+
+    section h2 {
+        color: var(--primary);
+        font-size: 1.6rem;
+        margin-bottom: 22px;
+        padding-bottom: 12px;
+        border-bottom: 3px solid var(--secondary);
+        position: relative;
+        letter-spacing: 0.5px;
+    }
+
+    section p {
+        margin-bottom: 18px;
+        text-align: justify;
+    }
+
+    section p:last-child {
+        margin-bottom: 0;
+    }
+
+    strong {
+        color: var(--primary-dark);
+    }
+
+    ul, ol {
+        margin: 15px 0 20px 25px;
+    }
+
+    li {
+        margin-bottom: 10px;
+        text-align: justify;
+    }
+
+    /* =========================
+       引言與聖經對話框
+    ========================= */
+    blockquote {
+        margin: 25px 0;
+        padding: 24px 28px;
+        background: var(--quote-bg);
+        border-left: 5px solid var(--secondary);
+        border-radius: 0 10px 10px 0;
+        color: #4a4038;
+        font-size: 1.05rem;
+        line-height: 1.9;
+        position: relative;
+    }
+
+    blockquote::before {
+        content: "“";
+        position: absolute;
+        top: -10px;
+        left: 12px;
+        font-family: Georgia, serif;
+        font-size: 65px;
+        color: rgba(181, 139, 91, 0.2);
+        line-height: 1;
+    }
+
+    /* =========================
+       步驟方塊 (Step Box)
+    ========================= */
+    .step-box {
+        background: linear-gradient(135deg, #f0fff4, #f7fff9);
+        border: 1px solid #c6ebd0;
+        border-left: 5px solid #38a169;
+        padding: 30px;
+        border-radius: 0 12px 12px 0;
+        margin: 25px 0;
+    }
+
+    .step-box h3 {
+        color: #276749;
+        font-size: 1.25rem;
+        margin-top: 0;
+        margin-bottom: 18px;
+    }
+
+    .step-box ol {
+        margin-bottom: 0;
+    }
+
+    /* =========================
+       強調與見證卡片框 (Highlight Box)
+    ========================= */
+    .highlight-box {
+        margin: 25px 0;
+        padding: 28px 30px;
+        background: linear-gradient(135deg, #fffcf5, #fff9ee);
+        border: 1px solid #f2dfbd;
+        border-left: 5px solid var(--secondary);
+        border-radius: 0 12px 12px 0;
+        position: relative;
+    }
+
+    .highlight-box h3 {
+        color: var(--primary);
+        font-size: 1.2rem;
+        margin-top: 0;
+        margin-bottom: 12px;
+    }
+
+    .highlight-box p {
+        margin-bottom: 0;
+    }
+
+    /* =========================
+       Footer 樣式
+    ========================= */
+    footer {
+        margin-top: 60px;
+        padding: 40px 20px;
+        background: var(--primary-dark);
+        color: #e9dfd5;
+        text-align: center;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+    }
+
+    footer p {
+        margin: 5px 0;
+    }
+
+    /* =========================
+       響應式調整
+    ========================= */
+    @media (max-width: 768px) {
+        body {
+            font-size: 16px;
+        }
+
+        section {
+            padding: 25px 20px;
+        }
+
+        .hero {
+            padding: 50px 15px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>全人醫治與屬靈恩賜訓練</h1>
+    <p>從聖經看植物祝福禱告與現場操練分享</p>
+</header>
+
+<main>
+    <section>
+        <h2>一、 前言與複習：從動物祝福到植物祝福</h2>
+        <p>上個月課程教導了如何為別人做祝福禱告，並分享了相關原則。上禮拜的操練題目是<strong>「用動物為人來祝福禱告」</strong>（例如雅各為12個兒子祝福時，用動物作比喻：猶大像獅子、以薩迦像強壯的驢、拿弗他利是被釋放的母鹿）。而這禮拜則進一步轉換方式，學習<strong>「用植物為人做祝福的禱告」</strong>。</p>
+    </section>
+
+    <section>
+        <h2>二、 聖經例證：雅各用植物祝福約瑟</h2>
+        <p>在聖經中，雅各不僅用動物，也曾用植物來祝福他的兒子約瑟，將他比作<strong>「泉旁多結果子的枝子，他的枝條探出牆外」</strong>（參創世記47章相關意象）。</p>
+        <ul>
+            <li><strong>充足的水源</strong>：在巴勒斯坦炎熱乾燥的氣候中，植物要多結果子極具挑戰，必須要有源源不絕的泉水來滋潤與供應養分。</li>
+            <li><strong>枝條探出牆外</strong>：果子結實纍纍，不僅在家中可以享用，甚至繁茂到圍牆外面，連路過的人也能隨手摘取、一同分享恩典。</li>
+            <li><strong>歷史的發展</strong>：約瑟的兩個兒子瑪拿西和以法蓮成為以色列12支派中的兩個支派，在歷史發展中（除了猶大支派外）也成為相對強盛的支派，正如「多結果子」的祝福一般。</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>三、 現代植物祝福的範例</h2>
+        <p>例如：<strong>「我祝福你如同松竹梅一樣」</strong>。松竹梅在華人文化中被稱為「歲寒三友」，在冬天仍舊屹立不搖、越冷越開花。祝福對方即使處於艱困環境中，也能屹立不搖、勝過百般試探，且生命能散發出讓人羨慕的馨香之氣。</p>
+    </section>
+
+    <section>
+        <h2>四、 植物祝福禱告的操練步驟</h2>
+        <div class="step-box">
+            <h3>現場雙人操練指引</h3>
+            <ol>
+                <li><strong>分組確認</strong>：兩兩一組（弟兄找弟兄、姊妹找姊妹，若有落單則三人一組），先確認彼此的名字與背景。</li>
+                <li><strong>第一步安靜默禱</strong>：心裡向神禱告，求上帝賜下一種合適的植物，等一下可以用來為弟兄或姊妹做祝福禱告。</li>
+                <li><strong>第二步求問特質</strong>：繼續向神禱告，求主啟示所選植物的美好特質與優點，以便等下用來祝福對方。</li>
+                <li><strong>彼此祝福與分享</strong>：輪流為對方開口做植物祝福禱告，禱告結束後，簡單分享這個祝福禱告對彼此的意義。</li>
+            </ol>
+        </div>
+    </section>
+
+    <section>
+        <h2>五、 現場學員見證與分享</h2>
+        <p>在操練結束後的學員回饋中，分享了以下感人的領受：</p>
+        
+        <div class="highlight-box">
+            <h3>學員見證一：野薑花的馨香之氣</h3>
+            <p>雲慧姊妹為學員祝福，將其比喻為<strong>「野薑花」</strong>。該學員分享，這個祝福禱告非常貼切她目前的處境與內心深處長久以來的盼望——渴望生命能散發出馨香之氣、吸引人來歸向主。她深感上帝好奇妙，能藉由身旁的人來服事並說出她心中的期待，實在非常感恩。</p>
+        </div>
+
+        <div class="highlight-box">
+            <h3>學員見證二：出淤泥而不染的荷花與百合</h3>
+            <p>陳師母分享，她原本的英文名字 Susie 查字典是百合花的意思，心中也默默希望被禱告成百合花；而提引為她禱告時，真的說她像是<strong>「谷中的百合花」</strong>。而師母為對方禱告時，則用了<strong>「荷花」</strong>（出淤泥而不染，在困難環境中依然潔白）。提引笑說，原本自己想用神院中的香柏木或玫瑰，但安靜在神面前時，發現不能照自己的想法，而是讓聖靈帶領，經歷了神真實的引導。</p>
+        </div>
+
+        <p>牧師藉此總結：我們的感動與想法有不同的來源——有些是從上帝而來的感動、有些是我們自己原本的原始想法、也可能夾雜仇敵的干擾。當我們安靜在神面前時，神往往會引導我們跳脫既定框架，賜下最合宜、最能觸動人心靈需要的祝福！</p>
+    </section>
+</main>
+
+<footer>
+    <p>全人醫治與屬靈恩賜訓練課程紀錄網頁 &copy; 2026</p>
+</footer>
+</body>
+</html>
